@@ -10,14 +10,13 @@
 
 ## Übergabe (Stand 2026-11-01)
 
-Das Projektgerüst steht (React, uPlot, Vite;
-[ADR-0003](decisions/ADR-0003-ui-framework-und-charts.md)), Fachcode gibt es noch
-nicht. Die Result-XML ist an echten Dateien geprüft
-([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Nächster Schritt: **Punkt 3**
-(ADR Datenhaltung), danach Punkt 4. Die Telemetrie (Punkt 1) wartet auf eine echte
-Aufzeichnung: im Spiel die automatische Aufzeichnung einschalten, eine Session
-fahren, die Datei nach `samples/` legen (siehe
-[samples/README.md](../samples/README.md)).
+Das Projektgerüst und die Ausbaustufe „Results“ stehen und sind abgenommen
+(Bibliothek, Rennergebnis, Qualifying; ADR-0002 bis ADR-0004). Nächster Schritt:
+**Punkt 6**, die Analyse-Ansichten (Lap Chart, Position Chart, Statistiken,
+Incidents, Chat). Dafür muss der Parser zusätzlich den Stream der Dateien lesen.
+Die Telemetrie (Punkt 1) wartet auf eine echte Aufzeichnung: im Spiel die
+automatische Aufzeichnung einschalten, eine Session fahren, die Datei nach
+`samples/` legen (siehe [samples/README.md](../samples/README.md)).
 
 Noch **nicht entschieden**:
 
@@ -37,12 +36,12 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 |:-:|---|---|---|---|
 | 1 | ARC | TODO | **Telemetrie-Format verifizieren** (laut Changelog DuckDB, laut Wiki `.ld`/`.csv`): Aufzeichnung im Spiel einschalten und eine Session fahren, Datendatei untersuchen, eigenes ADR mit Schema und Kanalliste, danach F-012 und F-013 prüfen. Die Result-XML ist erledigt ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Quellen: [quellen/](quellen/README.md) | echte Telemetrie-Aufzeichnung in `samples/` |
 | 3 | ARC | TODO | ADR zur Telemetrie-Datenhaltung: ob DuckDB-WASM genutzt wird (Index und Einlesen sind in [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md) entschieden) | 1 |
-| 4 | Feature | IN PROGRESS | MVP gebaut, wartet auf Abnahme durch den Entwickler: F-001 Ordner einlesen, F-002 Session-Bibliothek (ohne Land/Flagge), F-006 Session-Kopf (nur Reiter „Ergebnis"), F-016 Lokaler Index, F-017 Mehrsprachigkeit. Danach FEATURES.md kondensieren | – |
-| 5 | Feature | IN PROGRESS | MVP gebaut, wartet auf Abnahme: F-003 Eigener Fahrer, F-004 Rennergebnis, F-005 Qualifying. Offen: F-015 Favoriten | 4 |
-| 6 | Feature | TODO | Analyse: F-007 Lap Chart, F-008 Position Chart, F-009 Statistiken, F-010 Incidents, F-011 Chat | 5 |
-| 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1, 5 |
-| 8 | Feature | TODO | Lap Times: F-014 Persönliche Bestzeiten | 5 |
+| 5 | Feature | TODO | Ergänzungen zu den Ergebnissen: F-015 Favoriten, F-018 Streckenland und Flagge | – |
+| 6 | Feature | TODO | Analyse: F-007 Lap Chart, F-008 Position Chart, F-009 Statistiken, F-010 Incidents, F-011 Chat | – |
+| 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1 |
+| 8 | Feature | TODO | Lap Times: F-014 Persönliche Bestzeiten | – |
 | 9 | Design | TODO | Branding mit SimPosture abstimmen: Farben, Typografie, Logo als Design-Tokens; eigenes Design ([PRODUCT.md](PRODUCT.md) §5) | – |
 | 10 | Chore | TODO | Namensprüfung „SimPaddock": GitHub, Domain, Marken- und Namenskonflikte | – |
-| 11 | Chore | TODO | Anonymisierte Test-Fixtures aus den echten Result-Dateien ableiten (Namen, Teams, Kennungen, Stream-IDs, Pfade ersetzen); Telemetrie-Fixtures später | – |
+| 11 | Chore | TODO | Anonymisierte Telemetrie-Fixtures ableiten (die Result-Fixtures gibt es, siehe `tools/anonymize-results.mjs`) | 1 |
 | 12 | Chore | TODO | GitHub Pages einrichten (nur nach ausdrücklicher Freigabe) | – |
+| 13 | Chore | TODO | Offline-Betrieb: Service Worker, der die statischen Dateien zwischenspeichert (NF-002) | – |

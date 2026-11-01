@@ -1,6 +1,6 @@
 # ADR-0004: Lokaler Index in IndexedDB, Einlesen im Worker
 
-- **Status:** Vorgeschlagen (wird mit Entwickler-Freigabe „Angenommen“)
+- **Status:** Angenommen
 - **Datum:** 2026-11-01
 
 ## Kontext

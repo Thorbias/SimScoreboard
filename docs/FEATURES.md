@@ -19,89 +19,75 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-018 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-019 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
 ## F-001 — Session-Ordner einlesen
 
-Prio M · Status offen
+Prio M · Status fertig
 
-Der Anwender gibt den Ordner mit den Spieldaten frei, und SimPaddock liest alle
-Sessions ein, ohne dass Dateien den Rechner verlassen.
+Der Anwender gibt den Ordner mit den Spieldaten frei, und SimPaddock liest alle Sessions ein, ohne dass Dateien den Rechner verlassen.
 
-- Chromium-Browser: Ordnerzugriff über die File System Access API; die Freigabe
-  bleibt gespeichert, beim Öffnen werden neue Dateien nachgelesen.
-- Andere Browser: Ordner-Auswahl oder Drag-and-drop als Fallback.
-- Das Einlesen läuft im Hintergrund (Web Worker) mit Fortschrittsanzeige.
+- Akzeptiert wird der Spielordner, `UserData` oder `Results`; die Result-Dateien werden darunter gefunden.
+- Chromium-Browser: Ordnerzugriff über die File System Access API; das Handle bleibt gespeichert, nach einem Neustart genügt ein Klick auf „Ordner neu verbinden“. Beim Verbinden werden neue und geänderte Dateien nachgelesen, verschwundene aus dem Index entfernt.
+- Andere Browser: Ordner-Auswahl als Fallback; dort kennt die Seite die Dateien bis zum Neuladen.
+- Das Einlesen läuft im Hintergrund (Web Worker) mit Fortschrittsanzeige; nicht lesbare Dateien werden gezählt und gemeldet.
+- Technik: [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md).
 
 ## F-002 — Session-Bibliothek
 
-Prio M · Status offen
+Prio M · Status fertig
 
 Der Anwender durchsucht alle eingelesenen Sessions in einer Liste, neueste zuerst.
 
-- Filter nach Session-Typ (Training, Qualifying, Rennen), Strecke, Zeitraum und
-  Fahrzeugklasse.
-- Sessions desselben Events (Training, Qualifying, Rennen am selben Wochenende)
-  werden gruppiert angezeigt.
-- Jede Zeile zeigt Strecke, Land, Datum, Session-Typ, beteiligte Klassen und ob der
-  eigene Fahrer gewonnen hat. Das Land kommt aus einer eigenen Streckentabelle,
-  weil die Dateien nur Venue, Course und Event nennen; ist die Strecke dort nicht
-  bekannt, entfällt die Angabe.
-- Anzahl der Sessions steht im Listenkopf.
+- Filter nach Session-Typ (Training, Qualifying, Rennen), Strecke, Zeitraum und Fahrzeugklasse.
+- Sessions desselben Events (gleiche Strecke und Event-Start im Kopf der Datei) werden gruppiert angezeigt.
+- Jede Zeile zeigt Session-Typ, Datum, beteiligte Klassen und das Ergebnis des eigenen Fahrers, bei einem Klassensieg mit Sieg-Marke.
+- Die Anzahl der Sessions steht im Listenkopf.
+- Land und Flagge der Strecke: F-018.
 
 ## F-003 — Eigener Fahrer markiert
 
-Prio M · Status offen
+Prio M · Status fertig
 
-Der Anwender legt seinen Fahrernamen fest, und SimPaddock markiert ihn überall mit
-einem eigenen Badge.
+Der Anwender legt seine Fahrernamen fest, und SimPaddock markiert ihn in Liste und Ergebnissen mit einem eigenen Badge.
 
-- Der Name wird in den Einstellungen gesetzt; ein Vorschlag aus den häufigsten
-  Namen der eingelesenen Sessions erleichtert die Wahl.
-- Das Spiel liefert keine stabile Fahrer-ID, und das Kennzeichen „Spieler" gilt im
-  Mehrspieler für alle Menschen. Der Anwender pflegt deshalb eine Liste von Aliassen;
-  der Abgleich ignoriert die angehängten `#`-Kennungen.
-- Die Markierung erscheint in der Session-Liste, in Ergebnissen, Diagrammen und
-  Statistiken.
-- Der eigene Fahrer ist in Vergleichsansichten als Standard vorausgewählt.
+- Die Namen werden in den Einstellungen gepflegt; Vorschläge aus den häufigsten Namen der eingelesenen Sessions erleichtern die Wahl.
+- Das Spiel liefert keine stabile Fahrer-ID, und das Kennzeichen „Spieler“ gilt im Mehrspieler für alle Menschen. Deshalb gibt es eine Liste von Aliassen; der Abgleich ignoriert Groß- und Kleinschreibung und angehängte `#`-Kennungen.
+- Die Markierung erscheint in der Session-Liste und in den Ergebnistabellen. Für Diagramme und Vergleichsansichten gilt sie, sobald diese existieren (F-007, F-008, F-012).
 
 ## F-004 — Rennergebnis
 
-Prio M · Status offen
+Prio M · Status fertig
 
 Die App zeigt die Ergebnisse eines Rennens nach Klasse oder gesamt.
 
-- Spalten: Position, Startnummer, Fahrer, Fahrzeug, Reifenmischung, Bestrunde,
-  Rückstand auf den Führenden, Boxenstopps, Runden, Gesamtzeit.
-- Überrundete Fahrer erscheinen mit „+n Runden", Ausfälle mit „DNF".
+- Spalten: Position, Startnummer, Fahrer, Fahrzeug, Reifenmischung der letzten Runde, Bestrunde, Abstand, Boxenstopps, Runden, Gesamtzeit.
+- Der Abstand zeigt die Zeit zum Führenden, bei Überrundung „+n R“, bei Ausfall „DNF“ bzw. „DQ“.
 - Die Bestrunde der Klasse ist hervorgehoben.
-- Umschalter Gesamt / je Klasse; die Klasse des eigenen Fahrers ist markiert.
+- Umschalter Gesamt / je Klasse; die Zeile des eigenen Fahrers ist hervorgehoben.
 
 ## F-005 — Qualifying-Ergebnis
 
-Prio M · Status offen
+Prio M · Status fertig
 
-Die App zeigt die Qualifying-Ergebnisse mit Sektorzeiten und Abständen.
+Die App zeigt die Ergebnisse eines Qualifyings (und eines Trainings) mit Sektorzeiten und Abständen.
 
-- Spalten: Position, Startnummer, Fahrer, Fahrzeug, Reifenmischung, Sektoren 1–3,
-  Bestrunde, Abstand zur Pole, Rundenanzahl.
+- Spalten: Position, Startnummer, Fahrer, Fahrzeug, Reifenmischung der Bestrunde, beste Sektoren 1–3, Bestrunde, Abstand zur Pole, Runden.
 - Die schnellsten Sektoren und die Bestrunde der Klasse sind farblich markiert.
 - Fahrer ohne gewertete Runde erscheinen am Ende ohne Zeiten.
+- Umschalter Gesamt / je Klasse.
 
 ## F-006 — Session-Kopf
 
-Prio M · Status offen
+Prio M · Status fertig
 
 Jede Session zeigt in einem Kopfbereich ihre Eckdaten.
 
-- Strecke mit Flagge (aus der Streckentabelle, siehe F-002), Datum und Uhrzeit,
-  Länge in Minuten, Gesamtrunden,
-  Streckenlänge, Session-Typ.
-- Die Ansichten einer Session (Ergebnis, Lap Chart, Position Chart, Statistics,
-  Incidents, Chat) sind als Reiter erreichbar; nur die für den Session-Typ
-  sinnvollen Reiter erscheinen (Position Chart und Statistics nur im Rennen).
+- Session-Typ, Event, Strecke und Layout, Datum und Uhrzeit, Länge in Minuten oder Runden, Streckenlänge, Fahrerzahl, Modus und Spielversion.
+- Die Ansichten einer Session (Ergebnis, Lap Chart, Position Chart, Statistics, Incidents, Chat) sollen als Reiter erreichbar sein; nur die für den Session-Typ sinnvollen erscheinen (Position Chart und Statistics nur im Rennen). Bisher gibt es die Ansicht „Ergebnis“; die weiteren Reiter kommen mit F-007 bis F-011.
+- Die Flagge der Strecke: F-018.
 
 ## F-007 — Lap Chart
 
@@ -215,21 +201,26 @@ Der Anwender markiert Sessions als Favorit und filtert die Bibliothek danach.
 
 ## F-016 — Lokaler Index und Einstellungen
 
-Prio M · Status offen
+Prio M · Status fertig
 
-Die App speichert den Metadaten-Index der Sessions und die Einstellungen lokal im
-Browser, sodass sie nach dem ersten Einlesen schnell startet.
+Die App speichert den Metadaten-Index der Sessions und die Einstellungen lokal im Browser, sodass sie nach dem ersten Einlesen schnell startet.
 
-- Nur Metadaten im Index; die Details einer Session werden bei Bedarf aus der Datei
-  gelesen.
-- Der Speicher ist best-effort: Ist er nicht verfügbar (z. B. Privatmodus), arbeitet
-  die App mit einem Index im Arbeitsspeicher weiter.
-- Der Anwender kann den lokalen Index jederzeit löschen.
+- Nur Metadaten im Index; die Details einer Session werden bei Bedarf aus der Datei gelesen.
+- Gespeichert werden außerdem die eigenen Fahrernamen, die Sprache und der Ordnerzugriff.
+- Der Speicher ist best-effort: Ist er nicht verfügbar (z. B. Privatmodus), arbeitet die App mit einem Index im Arbeitsspeicher weiter und weist darauf hin.
+- Der Anwender kann den lokalen Index jederzeit in den Einstellungen löschen.
+- Technik: [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md).
 
 ## F-017 — Mehrsprachige Oberfläche
 
-Prio S · Status offen
+Prio S · Status fertig
 
-Die Oberfläche gibt es auf Englisch und Deutsch; Englisch ist der Standard, Deutsch
-wird bei deutschem Browser-Locale gewählt. Alle Texte kommen aus einer zentralen
-Übersetzungsschicht.
+Die Oberfläche gibt es auf Englisch und Deutsch; Englisch ist der Standard, Deutsch wird bei deutschem Browser-Locale gewählt, die Sprache lässt sich in den Einstellungen festlegen. Alle Texte kommen aus einer zentralen Übersetzungsschicht; ein Test stellt sicher, dass beide Sprachen dieselben Schlüssel und Platzhalter haben.
+
+## F-018 — Streckenland und Flagge
+
+Prio K · Status offen
+
+Die App zeigt zu jeder Strecke Land und Flagge in Bibliothek und Session-Kopf.
+
+- Die Result-Dateien nennen nur Venue, Course und Event; Land und Flagge kommen aus einer eigenen Streckentabelle im Projekt. Ist eine Strecke dort nicht bekannt, entfällt die Angabe.
