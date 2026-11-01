@@ -22,7 +22,9 @@ Everything runs locally in your browser. Your race files are never uploaded.
 | Document | Content |
 |---|---|
 | [docs/PRODUCT.md](docs/PRODUCT.md) | Vision, audience, scope, non-goals |
-| [docs/BACKLOG.md](docs/BACKLOG.md) | What is next |
+| [docs/FEATURES.md](docs/FEATURES.md) | Planned features |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Technical direction |
+| [docs/BACKLOG.md](docs/BACKLOG.md) | What is next, handover notes |
 | [docs/GUIDELINES.md](docs/GUIDELINES.md) | How we work |
 | [docs/decisions/](docs/decisions/) | Architecture decision records |
 | [docs/ideations/](docs/ideations/) | Ideas in progress |

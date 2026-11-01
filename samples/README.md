@@ -9,6 +9,7 @@ instead.
 
 Expected files:
 
-- 1–2 session result files from the game's `UserData` folder (ideally one race
-  and one qualifying session you drove yourself)
+- 1–2 session result files from the game's `UserData` folder, probably under
+  `UserData/Log/Results` (unverified; ideally one race and one qualifying session
+  you drove yourself)
 - 1–2 telemetry files from `Documents/Le Mans Ultimate/Telemetry`

@@ -18,10 +18,14 @@ Stack: **TypeScript + Vite** ([ADR-0001](docs/decisions/ADR-0001-typescript-vite
 Schwesterprojekt in derselben Markenfamilie: SimPosture (eigenes Repo, KMP; es
 wird nur das Branding geteilt, kein Code).
 
-**Stand:** Das Projekt ist angelegt, es gibt noch **keinen Code**. Der Start der
-Implementierung wartet auf echte Beispieldateien des Spiels (Result- und
-Telemetrie-Dateien), weil die Dateiformate noch nicht verifiziert sind — siehe
+**Stand:** Das Projekt ist angelegt und dokumentiert, es gibt noch **keinen Code**.
+Der Start der Implementierung wartet auf echte Beispieldateien des Spiels (Result-
+und Telemetrie-Dateien), weil die Dateiformate noch nicht verifiziert sind. Die
+Übergabe mit dem nächsten Schritt steht oben in
 [docs/BACKLOG.md](docs/BACKLOG.md).
+
+**Fremdtool-Regel:** Namen, Screenshots und Beschreibungen anderer
+Auswertungstools gehören nirgends ins Repository (siehe GUIDELINES).
 
 ## Pflichtlektüre zu Beginn jeder Sitzung
 
@@ -33,8 +37,17 @@ Telemetrie-Dateien), weil die Dateiformate noch nicht verifiziert sind — siehe
 **Outline, Details bei Bedarf:**
 
 3. [docs/GUIDELINES.md](docs/GUIDELINES.md) — Wie arbeiten wir? Sprache,
-   Datenschutz der Beispieldateien, Weg einer Idee, Git.
-4. [docs/decisions/](docs/decisions/) — Architecture Decision Records.
+   Datenschutz der Beispieldateien, Dokumentenlandschaft, Weg einer Idee, IDs,
+   Git. Den zum Sitzungsziel passenden Abschnitt vor dem Arbeiten ganz lesen.
+4. [docs/FEATURES.md](docs/FEATURES.md) — Was soll SimPaddock können? Outline mit
+   `grep '^## F-' docs/FEATURES.md`; die vom Sitzungsziel berührten Einträge ganz
+   lesen.
+5. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Technische Ausrichtung
+   (derzeit Entwurf vor der Formatprüfung).
+6. [docs/BUGS.md](docs/BUGS.md) — Offene Fehler.
+7. [docs/decisions/](docs/decisions/) — Architecture Decision Records.
+8. [docs/quellen/](docs/quellen/README.md) — Recherche zu den Dateiformaten
+   (unverifiziert).
 
 Outline holen mit `grep '^#' <datei>`. Ganze große Dateien nur lesen, wenn das
 Sitzungsziel es verlangt.
