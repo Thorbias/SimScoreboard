@@ -1,43 +1,7 @@
 :root {
-  color-scheme: dark light;
-  --bg: #0f1216;
-  --panel: #181d24;
-  --panel-2: #1f2630;
-  --line: #2b3440;
-  --text: #e8ecf1;
-  --muted: #94a0ae;
-  --accent: #ff8a1f;
-  --accent-text: #1a0e00;
-  --you: #2ea8ff;
-  --win: #f2c14e;
-  --fastest: #c77dff;
-  --error: #ff6b6b;
-  font-family:
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font);
   font-size: 15px;
   line-height: 1.45;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f4f6f8;
-    --panel: #ffffff;
-    --panel-2: #eef1f5;
-    --line: #d5dbe3;
-    --text: #151a20;
-    --muted: #5d6978;
-    --accent: #d96a00;
-    --accent-text: #ffffff;
-    --you: #0b78c9;
-    --win: #a87800;
-    --fastest: #7d2fc4;
-    --error: #c53030;
-  }
 }
 
 * {
@@ -46,6 +10,7 @@
 
 body {
   margin: 0;
+  font-family: var(--font);
   background: var(--bg);
   color: var(--text);
 }
@@ -75,14 +40,6 @@ h4 {
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
   margin-bottom: 20px;
-}
-
-.brand {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  color: var(--accent);
 }
 
 .tagline {
@@ -116,13 +73,15 @@ input {
   color: inherit;
   background: var(--panel-2);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--r-sm);
   padding: 6px 12px;
 }
 
 button,
 .button {
   cursor: pointer;
+  border-radius: var(--r-pill);
+  padding: 6px 16px;
 }
 
 button:hover,
@@ -136,6 +95,12 @@ button.primary,
   border-color: var(--accent);
   color: var(--accent-text);
   font-weight: 600;
+}
+
+button.primary:hover,
+.button.primary:hover {
+  border-color: var(--accent);
+  filter: brightness(1.08);
 }
 
 :focus-visible {
@@ -170,7 +135,7 @@ button.primary,
 .notice {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--r-sm);
   padding: 8px 12px;
   margin: 8px 0;
 }
@@ -191,7 +156,7 @@ button.primary,
   gap: 12px;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   padding: 12px;
   margin-bottom: 20px;
 }
@@ -219,7 +184,7 @@ button.primary,
 .event {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   margin-bottom: 12px;
   overflow: hidden;
 }
@@ -279,7 +244,7 @@ button.primary,
 .badge {
   display: inline-block;
   padding: 1px 8px;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   font-size: 0.75rem;
   font-weight: 700;
   background: var(--panel-2);
@@ -377,12 +342,12 @@ button.primary,
 }
 
 .segmented button:first-child {
-  border-radius: 6px 0 0 6px;
+  border-radius: var(--r-pill) 0 0 var(--r-pill);
   margin-left: 0;
 }
 
 .segmented button:last-child {
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--r-pill) var(--r-pill) 0;
 }
 
 .segmented button[aria-pressed='true'] {
@@ -396,7 +361,7 @@ button.primary,
   overflow-x: auto;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
 }
 
 table.results {
@@ -429,6 +394,11 @@ table.results tr.own td {
   background: color-mix(in srgb, var(--you) 14%, transparent);
 }
 
+table.results td.pb {
+  color: var(--pb);
+  font-weight: 700;
+}
+
 table.results td.fastest {
   color: var(--fastest);
   font-weight: 700;
@@ -439,7 +409,7 @@ table.results td.fastest {
   margin-right: 8px;
   padding: 0 6px;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--r-xs);
   font-size: 0.72rem;
   color: var(--muted);
 }
@@ -447,7 +417,7 @@ table.results td.fastest {
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   padding: 14px;
   margin-bottom: 16px;
 }
@@ -468,7 +438,7 @@ table.results td.fastest {
   gap: 8px;
   padding: 2px 4px 2px 12px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--r-sm);
 }
 
 .alias-form {

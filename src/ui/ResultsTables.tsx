@@ -4,6 +4,7 @@ import { formatGap, formatRaceTime, formatSector } from '../format/time';
 import { isOwnDriver } from '../library/names';
 import { qualiRows, raceRows, type Gap, type Scope } from '../results/table';
 import type { Entry, Session } from '../results/types';
+import { SectorBar, type SegmentRole } from './SectorBar';
 
 function DriverCell({ entry }: { entry: Entry }) {
   const { aliases, t } = useApp();
@@ -122,6 +123,7 @@ export function QualiTable({
             <th>{t('col.driver')}</th>
             <th>{t('col.car')}</th>
             <th>{t('col.tyre')}</th>
+            <th>{t('col.sectors')}</th>
             <th className="num">{t('col.s1')}</th>
             <th className="num">{t('col.s2')}</th>
             <th className="num">{t('col.s3')}</th>
@@ -143,6 +145,15 @@ export function QualiTable({
               <DriverCell entry={row.entry} />
               <CarCell entry={row.entry} showClass={showClass} />
               <td>{row.tyre ?? '–'}</td>
+              <td>
+                <SectorBar
+                  segments={
+                    row.fastestSectors.map((fastest) =>
+                      fastest ? 'fastest' : 'neutral',
+                    ) as [SegmentRole, SegmentRole, SegmentRole]
+                  }
+                />
+              </td>
               {([0, 1, 2] as const).map((i) => (
                 <td
                   key={i}

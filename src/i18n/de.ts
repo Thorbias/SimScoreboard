@@ -69,6 +69,7 @@ export const de: Record<MessageKey, string> = {
   'col.stops': 'Stopps',
   'col.laps': 'Runden',
   'col.time': 'Zeit',
+  'col.sectors': 'Sektoren',
   'col.s1': 'S1',
   'col.s2': 'S2',
   'col.s3': 'S3',

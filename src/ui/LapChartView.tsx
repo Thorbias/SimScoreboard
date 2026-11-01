@@ -90,14 +90,14 @@ function LapPlot({
           { label: t('lap.lap') },
           {
             label: nameA,
-            stroke: cssVar('--accent'),
+            stroke: cssVar('--you'),
             width: 2,
             value: lapValue,
             points: { show: true, size: 6 },
           },
           {
             label: nameB,
-            stroke: cssVar('--you'),
+            stroke: cssVar('--accent'),
             width: 2,
             value: lapValue,
             points: { show: true, size: 6 },
@@ -234,7 +234,7 @@ export function LapChartView({ session }: { session: Session }) {
                 <td
                   className={
                     row.a?.time != null && row.a.time === bestA
-                      ? 'num fastest'
+                      ? 'num pb'
                       : 'num'
                   }
                 >
@@ -248,7 +248,7 @@ export function LapChartView({ session }: { session: Session }) {
                 <td
                   className={
                     row.b?.time != null && row.b.time === bestB
-                      ? 'num fastest'
+                      ? 'num pb'
                       : 'num'
                   }
                 >

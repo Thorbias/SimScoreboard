@@ -63,7 +63,7 @@
 .lap-plot {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   padding: 8px;
   margin-bottom: 4px;
 }
@@ -73,17 +73,17 @@
 }
 
 table.results th.group-a {
-  color: var(--accent);
+  color: var(--you);
 }
 
 table.results th.group-b {
-  color: var(--you);
+  color: var(--accent);
 }
 
 .position-chart {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   padding: 8px;
   overflow-x: auto;
 }
@@ -188,7 +188,7 @@ table.results th.group-b {
   margin: 0;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
 }
 
 .chat li {

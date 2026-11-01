@@ -66,6 +66,7 @@ export const en = {
   'col.stops': 'Stops',
   'col.laps': 'Laps',
   'col.time': 'Time',
+  'col.sectors': 'Sectors',
   'col.s1': 'S1',
   'col.s2': 'S2',
   'col.s3': 'S3',

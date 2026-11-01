@@ -132,7 +132,7 @@ button.fav:hover {
 .stat.card {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--r-md);
   padding: 10px 14px;
 }
 

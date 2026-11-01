@@ -15,16 +15,15 @@ abgenommen (Bibliothek, Ergebnisse, Lap Chart, Position Chart, Statistiken,
 Incidents, Chat; ADR-0002 bis ADR-0004). Nächster Schritt: die Telemetrie
 (Punkt 1). Sie wartet auf eine echte Aufzeichnung: im Spiel die automatische
 Aufzeichnung einschalten, eine Session fahren, die Datei nach `samples/` legen
-(siehe [samples/README.md](../samples/README.md)). Ohne Telemetrie bieten sich
-Punkt 8 (persönliche Bestzeiten), Punkt 5 (Favoriten, Streckenland) und Punkt 13
-(Offline-Betrieb) an.
+(siehe [samples/README.md](../samples/README.md)). Gebaut und in Abnahme sind
+Bestzeiten, Favoriten und Streckenland (Punkte 5 und 8). Das Design mit
+Pit-Orange steht ([ADR-0005](decisions/ADR-0005-design-tokens-und-markenakzent.md)).
+Ohne Telemetrie bietet sich danach Punkt 13 (Offline-Betrieb) an.
 
 Noch **nicht entschieden**:
 
 - Ob der Name „SimPaddock" frei ist (GitHub, Domain, Marke) — nicht geprüft
   (Punkt 10).
-- Das gemeinsame Branding mit SimPosture (Farben, Typografie, Logo) ist noch nicht
-  umgesetzt (Punkt 9).
 
 **Typ:** `Feature` · `ARC` (Architektur-Enabler → ADR) · `Design` · `Chore`.
 **Status:** `TODO` · `IN PROGRESS`.
@@ -40,7 +39,6 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 5 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-015 Favoriten, F-018 Streckenland und Flagge. Danach FEATURES.md kondensieren | – |
 | 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1 |
 | 8 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-014 Persönliche Bestzeiten. Danach FEATURES.md kondensieren | – |
-| 9 | Design | TODO | Branding mit SimPosture abstimmen: Farben, Typografie, Logo als Design-Tokens; eigenes Design ([PRODUCT.md](PRODUCT.md) §5) | – |
 | 10 | Chore | TODO | Namensprüfung „SimPaddock": GitHub, Domain, Marken- und Namenskonflikte | – |
 | 11 | Chore | TODO | Anonymisierte Telemetrie-Fixtures ableiten (die Result-Fixtures gibt es, siehe `tools/anonymize-results.mjs`) | 1 |
 | 12 | Chore | TODO | GitHub Pages einrichten (nur nach ausdrücklicher Freigabe) | – |

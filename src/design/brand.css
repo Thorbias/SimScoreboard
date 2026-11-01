@@ -1,0 +1,74 @@
+/* Brand: wordmark and sector bar (ADR-0005) */
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--text);
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.brand .brand-name {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.sector-bar {
+  display: inline-flex;
+  gap: 3px;
+  transform: skewX(-18deg);
+  vertical-align: middle;
+}
+
+.sector-bar .seg {
+  display: block;
+  height: 5px;
+  width: 14px;
+  background: var(--seg-neutral);
+}
+
+.sector-bar-sm .seg {
+  height: 4px;
+  width: 10px;
+}
+
+.sector-bar-lg .seg {
+  height: 6px;
+  width: 26px;
+}
+
+.sector-bar .seg-fastest {
+  background: var(--fastest);
+}
+
+.sector-bar .seg-pb {
+  background: var(--pb);
+}
+
+.sector-bar .seg-accent {
+  background: var(--accent);
+}
+
+.sector-bar-progress {
+  gap: 4px;
+}
+
+.sector-bar-progress .seg {
+  width: 40px;
+  height: 6px;
+  background: var(--seg-neutral);
+  overflow: hidden;
+}
+
+.sector-bar-progress .seg b {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.top .brand-bar {
+  margin-left: 4px;
+}

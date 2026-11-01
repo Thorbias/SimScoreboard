@@ -1,6 +1,7 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
 import { LibraryView } from './ui/LibraryView';
+import { BRAND_SEGMENTS, SectorBar } from './ui/SectorBar';
 import { RecordsView } from './ui/RecordsView';
 import { SessionView } from './ui/SessionView';
 import { SettingsView } from './ui/SettingsView';
@@ -13,8 +14,12 @@ function Shell() {
     <div className="app">
       <header className="top">
         <a className="brand" href={routes.library()}>
-          {t('app.name')}
+          <span>Sim</span>
+          <span className="brand-name">Paddock</span>
         </a>
+        <span className="brand-bar">
+          <SectorBar segments={BRAND_SEGMENTS} size="lg" />
+        </span>
         <p className="tagline">{t('app.tagline')}</p>
         <nav>
           <a

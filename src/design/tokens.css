@@ -1,0 +1,78 @@
+/*
+ * Design tokens. The neutral surfaces, the radii and the spacing follow
+ * SimPosture so both apps read as one family; the brand accent, the timing
+ * colours and the sector bar are SimPaddock's own (ADR-0005).
+ */
+:root {
+  color-scheme: dark light;
+
+  /* Neutrals (dark is the default theme) */
+  --bg: #15181c;
+  --panel: #181c21;
+  --panel-2: #1b2026;
+  --line: #262b32;
+  --line-2: #2a3038;
+  --text: #f8f9fa;
+  --text-body: #c7cdd3;
+  --muted: #8a93a0;
+  --disabled: #5b6570;
+
+  /* Brand: Pit orange. Used for actions, the active tab and the rival line. */
+  --accent: #ff7a2f;
+  --accent-text: #1a0d00;
+
+  /* Roles. Each colour keeps one meaning across the whole app. */
+  --you: #22c7f2;
+  --fastest: #c58bff;
+  --pb: #4fd36a;
+  --win: #f2c14e;
+  --warning: #ffb84d;
+  --error: #e85d5d;
+  --info: #4d9eff;
+  --seg-neutral: #3a4149;
+
+  /* Radii */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  /* Spacing, 8 px grid */
+  --s-xs: 4px;
+  --s-sm: 8px;
+  --s-md: 16px;
+  --s-lg: 24px;
+  --s-xl: 32px;
+  --s-xxl: 48px;
+
+  --font:
+    'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f9fa;
+    --panel: #ffffff;
+    --panel-2: #f1f3f5;
+    --line: #dde1e6;
+    --line-2: #e7eaed;
+    --text: #20252b;
+    --text-body: #3a4149;
+    --muted: #5b6570;
+    --disabled: #aeb4bb;
+
+    --accent: #b3470a;
+    --accent-text: #ffffff;
+
+    --you: #08748f;
+    --fastest: #7d2fc4;
+    --pb: #167a32;
+    --win: #8a6200;
+    --warning: #9a5b00;
+    --error: #c53030;
+    --info: #1d63b8;
+    --seg-neutral: #c9ced4;
+  }
+}

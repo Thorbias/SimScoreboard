@@ -12,6 +12,7 @@
 | Sprache | TypeScript | [ADR-0001](decisions/ADR-0001-typescript-vite.md) |
 | Build / Dev-Server | Vite | [ADR-0001](decisions/ADR-0001-typescript-vite.md) |
 | UI-Framework | React | [ADR-0003](decisions/ADR-0003-ui-framework-und-charts.md) |
+| Design | CSS-Tokens in `src/design/`, Inter selbst eingebunden, Pit-Orange als Akzent, Sektor-Leiste | [ADR-0005](decisions/ADR-0005-design-tokens-und-markenakzent.md) |
 | Charts | uPlot (Zeitreihen), eigenes SVG (Positionsverlauf; d3 bisher nicht nötig) | [ADR-0003](decisions/ADR-0003-ui-framework-und-charts.md) |
 | Telemetrie lesen | offen, voraussichtlich DuckDB-WASM | Backlog 1 und 3 |
 | Ordnerzugriff | File System Access API, Fallback Ordner-Auswahl/Drag-and-drop | [F-001](FEATURES.md) |

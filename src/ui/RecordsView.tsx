@@ -149,7 +149,7 @@ function TrackDetail({
                           {formatSector(r.sectors[i])}
                         </td>
                       ))}
-                      <td className={r.lap === c.best ? 'num fastest' : 'num'}>
+                      <td className={r.lap === c.best ? 'num pb' : 'num'}>
                         {formatLapTime(r.lap)}
                       </td>
                       <td className="num">

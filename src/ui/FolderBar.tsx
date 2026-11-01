@@ -1,4 +1,5 @@
 import { useApp } from '../app/AppContext';
+import { SectorProgress } from './SectorBar';
 
 export function FolderBar() {
   const app = useApp();
@@ -39,7 +40,7 @@ export function FolderBar() {
         )}
         {scan.active && (
           <span className="progress">
-            <progress value={scan.done} max={Math.max(scan.total, 1)} />
+            <SectorProgress value={scan.done / Math.max(scan.total, 1)} />
             {t('scan.progress', { done: scan.done, total: scan.total })}
           </span>
         )}

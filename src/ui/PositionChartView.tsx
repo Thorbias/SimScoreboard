@@ -13,9 +13,12 @@ function entryKey(e: Entry): string {
   return `${e.carNumber}|${e.driverName}`;
 }
 
-/** A stable colour per entry, spread around the colour wheel. */
+/**
+ * A stable colour per entry, spread around the colour wheel. The range around
+ * cyan is skipped, because cyan means "you" everywhere in the app.
+ */
 function colour(index: number): string {
-  return `hsl(${(index * 47) % 360} 70% 55%)`;
+  return `hsl(${(210 + ((index * 47) % 330)) % 360} 70% 60%)`;
 }
 
 export function PositionChartView({ session }: { session: Session }) {
@@ -59,7 +62,10 @@ export function PositionChartView({ session }: { session: Session }) {
     if (p === 1 || p % yStep === 0 || p === maxPosition) yTicks.push(p);
   }
 
-  const colourOf = (entry: Entry) => colour(session.entries.indexOf(entry));
+  const colourOf = (entry: Entry) =>
+    isOwnDriver(entry.driverName, aliases)
+      ? 'var(--you)'
+      : colour(session.entries.indexOf(entry));
   const ordered = [...drawn].sort(
     (a, b) =>
       (scoped === null ? a.entry.position : a.entry.classPosition)! -

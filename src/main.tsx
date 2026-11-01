@@ -1,7 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
+import '@fontsource-variable/inter';
+import './design/tokens.css';
 import './styles.css';
+import './design/brand.css';
 import './analysis.css';
 import './records.css';
 
