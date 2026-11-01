@@ -6,8 +6,17 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from 'react';
+import {
+  applyThemeSetting,
+  loadThemeSetting,
+  resolveTheme,
+  saveThemeSetting,
+  type Theme,
+  type ThemeSetting,
+} from '../design/theme';
 import {
   createTranslate,
   resolveLanguage,
@@ -64,6 +73,10 @@ export interface AppState {
   favorites: string[];
   languageSetting: LanguageSetting;
   language: Language;
+  themeSetting: ThemeSetting;
+  /** The theme in effect, after the system preference is applied. */
+  theme: Theme;
+  setThemeSetting(setting: ThemeSetting): void;
   t: Translate;
   toggleFavorite(id: string): Promise<void>;
   chooseFolder(): Promise<void>;
@@ -83,6 +96,18 @@ const IDLE_SCAN: ScanState = {
   error: null,
   empty: false,
 };
+
+const DARK_QUERY = '(prefers-color-scheme: dark)';
+
+function subscribeSystemDark(listener: () => void): () => void {
+  const query = window.matchMedia(DARK_QUERY);
+  query.addEventListener('change', listener);
+  return () => query.removeEventListener('change', listener);
+}
+
+function getSystemDark(): boolean {
+  return window.matchMedia(DARK_QUERY).matches;
+}
 
 const AppContext = createContext<AppState | null>(null);
 
@@ -111,6 +136,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     new Map<string, { size: number; lastModified: number }>(),
   );
   const handleRef = useRef<FileSystemDirectoryHandle | null>(null);
+
+  const [themeSetting, setThemeSettingState] =
+    useState<ThemeSetting>(loadThemeSetting);
+  const systemDark = useSyncExternalStore(subscribeSystemDark, getSystemDark);
+  const theme = resolveTheme(themeSetting, systemDark);
 
   const language = resolveLanguage(languageSetting);
   const t = useMemo(() => createTranslate(language), [language]);
@@ -263,6 +293,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await storeRef.current?.setSetting('favorites', next);
   }, []);
 
+  const setThemeSetting = useCallback((next: ThemeSetting) => {
+    saveThemeSetting(next);
+    applyThemeSetting(next);
+    setThemeSettingState(next);
+  }, []);
+
   const setLanguageSetting = useCallback(async (next: LanguageSetting) => {
     setLanguageSettingState(next);
     await storeRef.current?.setSetting('language', next);
@@ -287,6 +323,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     toggleFavorite,
     languageSetting,
     language,
+    themeSetting,
+    theme,
+    setThemeSetting,
     t,
     chooseFolder,
     chooseFiles,

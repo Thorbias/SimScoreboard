@@ -200,7 +200,7 @@ Prio M · Status fertig
 Die App speichert den Metadaten-Index der Sessions und die Einstellungen lokal im Browser, sodass sie nach dem ersten Einlesen schnell startet.
 
 - Nur Metadaten im Index; die Details einer Session werden bei Bedarf aus der Datei gelesen.
-- Gespeichert werden außerdem die eigenen Fahrernamen, die Sprache und der Ordnerzugriff.
+- Gespeichert werden außerdem die eigenen Fahrernamen, Favoriten, die Sprache und der Ordnerzugriff. Die Darstellung (automatisch, hell oder dunkel) liegt als Komfortwert in `localStorage`, damit sie vor dem ersten Zeichnen gilt.
 - Der Speicher ist best-effort: Ist er nicht verfügbar (z. B. Privatmodus), arbeitet die App mit einem Index im Arbeitsspeicher weiter und weist darauf hin.
 - Der Anwender kann den lokalen Index jederzeit in den Einstellungen löschen.
 - Technik: [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md).

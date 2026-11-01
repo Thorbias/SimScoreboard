@@ -16,9 +16,9 @@ function parseBlock(block: string): Record<string, string> {
 
 const darkBlock = /:root\s*\{([^}]*)\}/.exec(tokensCss)?.[1] ?? '';
 const lightBlock =
-  /prefers-color-scheme:\s*light\)\s*\{\s*:root\s*\{([^}]*)\}/.exec(
-    tokensCss,
-  )?.[1] ?? '';
+  /:root\[data-theme='light'\]\s*\{([^}]*)\}/.exec(tokensCss)?.[1] ?? '';
+const autoLightBlock =
+  /:root:not\(\[data-theme\]\)\s*\{([^}]*)\}/.exec(tokensCss)?.[1] ?? '';
 
 const dark = parseBlock(darkBlock);
 const light = { ...dark, ...parseBlock(lightBlock) };
@@ -42,6 +42,13 @@ function contrast(a: string, b: string): number {
 }
 
 const THEMES = { dark, light };
+
+describe('light theme definitions', () => {
+  it('are identical for the explicit choice and the system query', () => {
+    expect(Object.keys(parseBlock(lightBlock)).length).toBeGreaterThan(10);
+    expect(parseBlock(autoLightBlock)).toEqual(parseBlock(lightBlock));
+  });
+});
 const AA = 4.5;
 
 describe.each(Object.entries(THEMES))('%s theme', (_name, theme) => {

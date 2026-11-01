@@ -46,7 +46,9 @@ nicht in die Quere kommen.
   inter`, Lizenz OFL), nicht von einem Fremdserver. Zeiten stehen mit
   tabellarischen Ziffern.
 - **Technik:** Die Tokens sind CSS-Variablen in `src/design/tokens.css` (dunkel als
-  Standard, hell über `prefers-color-scheme`). Ein Test prüft den Kontrast aller
+  Standard, hell über die Wahl des Anwenders oder `prefers-color-scheme`). Die
+  Einstellung „Automatisch / Hell / Dunkel“ steht in den Einstellungen und setzt
+  `data-theme` auf `<html>`. Ein Test prüft den Kontrast aller
   Textfarben und Rollenfarben gegen beide Flächen (WCAG AA, 4,5:1).
 
 ## Alternativen

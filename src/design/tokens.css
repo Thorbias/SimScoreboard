@@ -2,11 +2,15 @@
  * Design tokens. The neutral surfaces, the radii and the spacing follow
  * SimPosture so both apps read as one family; the brand accent, the timing
  * colours and the sector bar are SimPaddock's own (ADR-0005).
+ *
+ * Dark is the default. Light applies when the user picks it
+ * (`data-theme="light"` on <html>) or, without a choice, when the system asks
+ * for it. The two light blocks must stay identical; a test checks that.
  */
 :root {
   color-scheme: dark light;
 
-  /* Neutrals (dark is the default theme) */
+  /* Neutrals */
   --bg: #15181c;
   --panel: #181c21;
   --panel-2: #1b2026;
@@ -51,8 +55,40 @@
     sans-serif;
 }
 
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f8f9fa;
+  --panel: #ffffff;
+  --panel-2: #f1f3f5;
+  --line: #dde1e6;
+  --line-2: #e7eaed;
+  --text: #20252b;
+  --text-body: #3a4149;
+  --muted: #5b6570;
+  --disabled: #aeb4bb;
+
+  --accent: #b3470a;
+  --accent-text: #ffffff;
+
+  --you: #08748f;
+  --fastest: #7d2fc4;
+  --pb: #167a32;
+  --win: #8a6200;
+  --warning: #9a5b00;
+  --error: #c53030;
+  --info: #1d63b8;
+  --seg-neutral: #c9ced4;
+}
+
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
     --bg: #f8f9fa;
     --panel: #ffffff;
     --panel-2: #f1f3f5;

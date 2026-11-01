@@ -34,7 +34,7 @@ function LapPlot({
   nameA: string;
   nameB: string;
 }) {
-  const { t } = useApp();
+  const { t, theme } = useApp();
   const host = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ function LapPlot({
       observer.disconnect();
       plot.destroy();
     };
-  }, [rows, nameA, nameB, t]);
+  }, [rows, nameA, nameB, t, theme]);
 
   return <div className="lap-plot" ref={host} />;
 }

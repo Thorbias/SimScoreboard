@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
 import { useApp } from '../app/AppContext';
+import type { ThemeSetting } from '../design/theme';
 import type { LanguageSetting } from '../i18n';
 import { isOwnDriver, suggestNames } from '../library/names';
 
 const LANGUAGES: LanguageSetting[] = ['auto', 'en', 'de'];
+const THEMES: ThemeSetting[] = ['auto', 'light', 'dark'];
 
 export function SettingsView() {
   const app = useApp();
@@ -74,6 +76,20 @@ export function SettingsView() {
             </ul>
           </>
         )}
+      </section>
+
+      <section className="panel">
+        <h3>{t('settings.theme')}</h3>
+        <select
+          value={app.themeSetting}
+          onChange={(e) => app.setThemeSetting(e.target.value as ThemeSetting)}
+        >
+          {THEMES.map((value) => (
+            <option key={value} value={value}>
+              {t(`settings.theme.${value}`)}
+            </option>
+          ))}
+        </select>
       </section>
 
       <section className="panel">
