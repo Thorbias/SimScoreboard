@@ -12,10 +12,12 @@ Priorität: **M**uss / **S**oll / **K**ann · Status: **offen** / **fertig**.
 Plattform ist überall Web (siehe [PRODUCT.md](PRODUCT.md)), deshalb ohne
 Plattform-Angabe je Eintrag.
 
-**Datenbasis:** Welche Felder die Dateien des Spiels tatsächlich liefern, ist bis
-zur Formatprüfung (Backlog 1) **unverifiziert**. Die Beschreibungen unten sind die
-Produktabsicht; wo sich ein Feld in den Dateien nicht findet, wird der Eintrag
-angepasst. Umsetzungsaufträge entstehen erst nach dieser Prüfung.
+**Datenbasis:** Die Result-XML-Dateien sind geprüft
+([ADR-0002](decisions/ADR-0002-lmu-result-format.md)); die Einträge dazu sind daran
+angepasst. Die Telemetrie (F-012, F-013) ist **unverifiziert** und wartet auf eine
+echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
+neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
+mit dem Projektgerüst.
 
 <!-- Nächste freie F-ID: F-018 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
@@ -44,7 +46,9 @@ Der Anwender durchsucht alle eingelesenen Sessions in einer Liste, neueste zuers
 - Sessions desselben Events (Training, Qualifying, Rennen am selben Wochenende)
   werden gruppiert angezeigt.
 - Jede Zeile zeigt Strecke, Land, Datum, Session-Typ, beteiligte Klassen und ob der
-  eigene Fahrer gewonnen hat.
+  eigene Fahrer gewonnen hat. Das Land kommt aus einer eigenen Streckentabelle,
+  weil die Dateien nur Venue, Course und Event nennen; ist die Strecke dort nicht
+  bekannt, entfällt die Angabe.
 - Anzahl der Sessions steht im Listenkopf.
 
 ## F-003 — Eigener Fahrer markiert
@@ -56,6 +60,9 @@ einem eigenen Badge.
 
 - Der Name wird in den Einstellungen gesetzt; ein Vorschlag aus den häufigsten
   Namen der eingelesenen Sessions erleichtert die Wahl.
+- Das Spiel liefert keine stabile Fahrer-ID, und das Kennzeichen „Spieler" gilt im
+  Mehrspieler für alle Menschen. Der Anwender pflegt deshalb eine Liste von Aliassen;
+  der Abgleich ignoriert die angehängten `#`-Kennungen.
 - Die Markierung erscheint in der Session-Liste, in Ergebnissen, Diagrammen und
   Statistiken.
 - Der eigene Fahrer ist in Vergleichsansichten als Standard vorausgewählt.
@@ -89,7 +96,8 @@ Prio M · Status offen
 
 Jede Session zeigt in einem Kopfbereich ihre Eckdaten.
 
-- Strecke mit Flagge, Datum und Uhrzeit, Länge in Minuten, Gesamtrunden,
+- Strecke mit Flagge (aus der Streckentabelle, siehe F-002), Datum und Uhrzeit,
+  Länge in Minuten, Gesamtrunden,
   Streckenlänge, Session-Typ.
 - Die Ansichten einer Session (Ergebnis, Lap Chart, Position Chart, Statistics,
   Incidents, Chat) sind als Reiter erreichbar; nur die für den Session-Typ
@@ -102,7 +110,8 @@ Prio S · Status offen
 Der Anwender vergleicht den Rundenzeiten-Verlauf zweier Fahrer Runde für Runde.
 
 - Zwei frei wählbare Fahrer, je eine Linie in eigener Farbe.
-- Marker für die Bestrunde und für ungültige Runden.
+- Marker für die Bestrunde und für Runden ohne gewertete Zeit (die Dateien kennen
+  kein Flag „ungültig"; es fehlen Sektorzeiten bzw. die Rundenzeit).
 - Darunter je Fahrer eine Tabelle mit Runde, Rundenzeit, Sektoren 1–3 und Delta
   zum anderen Fahrer.
 - Die Chart-Ansicht lässt sich ausblenden, sodass nur die Tabellen bleiben.
@@ -135,18 +144,20 @@ Prio S · Status offen
 
 Der Anwender sieht alle Zwischenfälle einer Session als Zeitleiste.
 
-- Spalten: Restzeit, Typ, Fahrer, Klasse, Runde, Detail.
-- Typen: Kontakt (mit Schwere, z. B. leicht, mittel, schwer), Track Limits,
-  Strafe.
+- Spalten: Session-Zeit (Restzeit wird aus der Session-Länge berechnet), Typ,
+  Fahrer, Klasse, Runde, Detail.
+- Typen: Kontakt (mit Stärke und Gegner), Track Limits, Strafe.
 - Filter nach Typ, Klasse und Fahrer.
+- Track Limits und Strafen gibt es nur in neueren Mehrspieler-Dateien; fehlen sie,
+  zeigt die Ansicht nur die Kontakte oder einen Hinweis.
 
 ## F-011 — Session-Chat
 
 Prio K · Status offen
 
-Falls die Dateien einen Chat-Verlauf enthalten, zeigt die App ihn als eigenen
-Reiter in der Session an. Der Eintrag entfällt, wenn die Formatprüfung keinen Chat
-findet.
+Die App zeigt den Chat-Verlauf einer Session als eigenen Reiter. Chat gibt es nur in
+neueren Mehrspieler-Dateien; der Reiter erscheint nur, wenn Nachrichten vorhanden
+sind.
 
 ## F-012 — Telemetrie-Vergleich zweier Runden
 
@@ -158,7 +169,8 @@ liest die Unterschiede an den Fahrer-Eingaben ab.
 - Beide Runden sind aus Session, Fahrer und Rundennummer wählbar; die Bestrunde ist
   vorgeschlagen.
 - Kanäle untereinander, gemeinsame Strecken-Achse: Geschwindigkeit, Gas, Bremse,
-  Lenkwinkel, Gang, Virtual Energy.
+  Lenkwinkel, Virtual Energy. Der Gang ist in der Kanal-Konfiguration ein Ereignis,
+  kein Kanal, und wird gegebenenfalls als Ereignis dargestellt (unverifiziert).
 - Je Kanal Minimum, Maximum und Mittelwert der beiden Runden.
 - Zeit-Zeiger mit Wiedergabe und Geschwindigkeitswahl; Kanäle lassen sich
   umsortieren und ausblenden.
@@ -175,14 +187,15 @@ Runde in Kennzahlen zusammen.
   enthalten), mit Zeiger passend zum Zeit-Zeiger des Vergleichs.
 - Einfärbung wählbar nach Geschwindigkeit, Eingaben oder Sektoren.
 - Kennzahlen: Höchstgeschwindigkeit, Durchschnittsgeschwindigkeit,
-  Kraftstoffverbrauch der Runde.
+  Kraftstoffverbrauch der Runde. Der Verbrauch ist optional: `fuelUsed` fand sich
+  nur in Dateien der Version 0.5000.
 
 ## F-014 — Persönliche Bestzeiten
 
 Prio M · Status offen
 
 Der Anwender sieht seine besten Runden geordnet nach Strecke, Fahrzeugklasse und
-Fahrzeug.
+Fahrzeug. Die Zuordnung „eigener Fahrer" über mehrere Dateien beruht auf F-003.
 
 - Linke Liste aller Strecken mit Layout-Anzahl, Session-Anzahl und der Bestzeit je
   Klasse.

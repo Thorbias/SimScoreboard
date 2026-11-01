@@ -1,9 +1,9 @@
 # Architektur — SimPaddock
 
 > Technische Ausrichtung. Wird fortgeschrieben, wenn sich der Aufbau durch neue
-> Features oder Entscheidungen (ADRs) ändert. **Stand 2026-11-01: Entwurf vor der
-> Formatprüfung** — alles, was an den Dateiformaten hängt, ist als solches
-> markiert und wird nach Backlog 1 überarbeitet.
+> Features oder Entscheidungen (ADRs) ändert. **Stand 2026-11-01:** Das Modell der
+> Result-Dateien ist an [ADR-0002](decisions/ADR-0002-lmu-result-format.md)
+> angepasst; was an der Telemetrie hängt, ist unverifiziert.
 
 ## Technologie-Stack
 
@@ -43,22 +43,28 @@ Ordner/Dateien ──► Parser (Worker) ──► Domänenmodell ──► Inde
                                      Incidents, Telemetrie)
 ```
 
-## Domänenmodell (Entwurf, unverifiziert)
+## Domänenmodell
+
+Result-Dateien: verifiziert (ADR-0002). Jedes Feld außer dem Kopf und den
+Fahrer-Eckdaten ist optional, weil Spielversion und Modus es beeinflussen.
 
 | Begriff | Inhalt |
 |---|---|
-| Session | Typ (Training, Qualifying, Rennen), Strecke, Layout, Datum, Länge, Streckenlänge |
-| Entry | Teilnahme eines Fahrzeugs: Startnummer, Fahrzeug, Klasse, Endergebnis, Fahrer |
-| Driver | Fahrername; eine stabile ID ist **unbekannt** (relevant für die League) |
-| Lap | Rundenzeit, Sektoren 1–3, gültig/ungültig, Reifenmischung, Position |
-| PitStop | Runde, Dauer |
-| Incident | Zeitpunkt, Typ, beteiligte Fahrer, Schwere |
-| ChatMessage | Zeitpunkt, Absender, Text (falls vorhanden) |
-| TelemetryLap | Kanäle über die Rundenstrecke: Geschwindigkeit, Gas, Bremse, Lenkwinkel, Gang, Virtual Energy, Position |
+| Event | Gruppe von Sessions desselben Wochenendes; Schlüssel: Strecke und `DateTime` aus dem Kopf |
+| Session | Schlüssel: Dateiname. Typ (Training, Qualifying, Rennen), Strecke, Layout, Ende (aus dem Namen), Start, Länge in Minuten, Streckenlänge, Spielversion, Modus |
+| Entry | Teilnahme eines Fahrzeugs: Startnummer, Fahrzeug, Klasse, Team, Position, Klassenposition, Startplatz, Status (`None`, `Finished Normally`, `DNF`, `DQ`), Rundenzahl, Anzahl Boxenstopps, Fahrhilfen |
+| Driver | Name, wie er in der Datei steht; **keine stabile ID**. „Eigener Fahrer" entsteht durch Alias-Liste und Abgleich ohne `#`-Kennung (F-003) |
+| Lap | Zeit, Sektoren 1–3 als Einzelzeiten (fehlen bei nicht gewerteten Runden), Position, Session-Zeit am Rundenende, Höchstgeschwindigkeit, Reifenmischung, Box-Flag; optional Verschleiß, Kraftstoff, Virtual Energy |
+| Incident | Session-Zeit, Typ (Kontakt, Track Limits, Strafe), beteiligte Fahrer, Stärke; nur neuere Mehrspieler-Dateien |
+| ChatMessage | Session-Zeit, Absender, Text; nur neuere Mehrspieler-Dateien |
+| Track | Venue und Course aus der Datei; Land und Flagge aus einer eigenen Streckentabelle (F-002) |
+| TelemetryLap | **Unverifiziert.** Kanäle über die Rundenstrecke; Kandidaten laut Konfiguration: Geschwindigkeit, Gas, Bremse, Lenkung, Drehzahl, GPS, Streckenposition, Virtual Energy. Der Gang ist ein Ereignis |
 
 ## Offen
 
 - UI-Framework und Charts: Backlog 2.
 - Datenhaltung (Index, DuckDB-WASM nur für Telemetrie oder auch für den Index):
   Backlog 3.
-- Schema der Result-Dateien und der Telemetrie: Backlog 1.
+- Schema der Telemetrie: Backlog 1, wartet auf eine echte Aufzeichnung.
+- Parser: versionstolerant, unbekannte Elemente ignorieren, abgebrochene Sessions
+  laden; DOCTYPE im Browser-Parser prüfen (ADR-0002).
