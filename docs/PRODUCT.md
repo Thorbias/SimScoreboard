@@ -45,7 +45,7 @@ Organisatoren.
   Memory aus, darauf kommt ein Browser nicht. Eine Lockerung wäre ein eigenes
   Projekt (lokaler Helfer plus WebSocket) und eine eigene Ideation.
 - **Kein Backend und keine Nutzerkonten** in der ersten Ausbaustufe. Die League-
-  Funktion muss zeigen, ob das haltbar bleibt (IDEA-0001).
+  Funktion muss zeigen, ob das haltbar bleibt (IDEA-0001, IDEA-0002).
 - **Eigenes Design, keine fremden Assets.** Hersteller-Logos und Streckenfotos
   werden nicht mitgeliefert.
 - **Inoffiziell:** Kein Produkt des Spielherstellers und nicht mit ihm verbunden.

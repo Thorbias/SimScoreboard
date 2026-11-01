@@ -20,6 +20,9 @@ Teamwertungen über Rennen hinweg berechnen, Tabellen und Verläufe anzeigen.
 
 ## Zu klären
 
+- **Speicherort und Teilen der Liga-Daten** (GitHub Pages, lokal, selbst gehostet,
+  Cloud-Speicher): siehe [IDEA-0002](IDEA-0002-liga-speicherort-und-teilen.md).
+
 - **Fahrer-Identität:** Namen in den Result-Dateien sind nicht zwingend eindeutig.
   Gibt es eine stabile ID in den Dateien? Hängt an der Formatprüfung
   (Backlog 1).
