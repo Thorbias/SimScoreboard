@@ -25,7 +25,7 @@ describe('fixtures are anonymized', () => {
         (m) => m[1],
       );
       for (const name of names) {
-        expect(name, file).toMatch(/^(Driver \d\d|Own Driver)$/);
+        expect(name, file).toMatch(/^((Driver|Guest) \d\d|Own Driver)$/);
       }
       expect(text, file).not.toMatch(/D:\\|C:\\/);
     }

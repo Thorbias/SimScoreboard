@@ -1,0 +1,214 @@
+/* Session tabs and the analysis views */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.tabs button {
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  padding: 8px 14px;
+}
+
+.tabs button[aria-selected='true'] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+}
+
+.head-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.lap-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.lap-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.lap-controls label.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.lap-plot {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 4px;
+}
+
+.lap-plot .u-legend {
+  color: var(--text);
+}
+
+table.results th.group-a {
+  color: var(--accent);
+}
+
+table.results th.group-b {
+  color: var(--you);
+}
+
+.position-chart {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.position-chart svg {
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+  display: block;
+}
+
+.position-chart .grid-line {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.position-chart .axis-label {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+.position-chart .series {
+  cursor: pointer;
+}
+
+.position-chart .series.dim {
+  opacity: 0.22;
+}
+
+.position-chart .end-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  font-size: 0.85rem;
+}
+
+.legend button[aria-pressed='true'] {
+  border-color: var(--text);
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.stats-grid .panel {
+  margin-bottom: 0;
+}
+
+.stats-grid dl {
+  margin: 0;
+}
+
+.stat {
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+
+.stat:first-child {
+  border-top: none;
+}
+
+.stat dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.stat dd {
+  margin: 2px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  align-items: baseline;
+}
+
+.chat {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.chat li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--line);
+}
+
+.chat li:first-child {
+  border-top: none;
+}
+
+.chat li.own {
+  background: color-mix(in srgb, var(--you) 14%, transparent);
+}
+
+.chat-time {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5rem;
+}

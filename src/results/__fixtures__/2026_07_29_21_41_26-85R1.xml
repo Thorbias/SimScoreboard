@@ -34,156 +34,156 @@
 <Laps>2147483647</Laps>
 <Minutes>20</Minutes>
 <Stream>
-<Score et="137.7">Driver 02(1) lap=0 point=1 t=37.222 et=137.684</Score>
-<Sector Driver="Driver 02" ID="1" Sector="1" Class="GT3" et="137.7">Driver 02(1) set new best for sector 1</Sector>
-<Score et="139.0">Driver 03(2) lap=0 point=1 t=38.545 et=139.008</Score>
-<Score et="143.8">Own Driver(3) lap=0 point=1 t=43.304 et=143.767</Score>
-<Incident et="150.4">Driver 02(1) reported contact (49.40) with Immovable</Incident>
-<TrackLimits Driver="Own Driver" ID="3" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="170.4">No Further Action</TrackLimits>
-<Score et="172.5">Driver 02(1) lap=0 point=2 t=72.062 et=172.525</Score>
-<Sector Driver="Driver 02" ID="1" Sector="2" Class="GT3" et="172.5">Driver 02(1) set new best for sector 2</Sector>
-<Score et="174.1">Driver 03(2) lap=0 point=2 t=73.653 et=174.116</Score>
-<Score et="180.4">Own Driver(3) lap=0 point=2 t=79.920 et=180.383</Score>
-<Score et="191.7">Driver 02(1) lap=1 point=0 t=91.258 et=191.721</Score>
-<Sector Driver="Driver 02" ID="1" Sector="3" Class="GT3" et="191.7">Driver 02(1) set new best for sector 3</Sector>
-<Score et="193.5">Driver 03(2) lap=1 point=0 t=93.035 et=193.497</Score>
-<Score et="200.5">Own Driver(3) lap=1 point=0 t=100.074 et=200.536</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="224.6">No Further Action</TrackLimits>
-<Score et="224.9">Driver 02(1) lap=1 point=1 t=33.213 et=224.934</Score>
-<Sector Driver="Driver 02" ID="1" Sector="1" Class="GT3" et="224.9">Driver 02(1) set new best for sector 1</Sector>
-<Score et="227.1">Driver 03(2) lap=1 point=1 t=33.564 et=227.061</Score>
-<Score et="234.1">Own Driver(3) lap=1 point=1 t=33.590 et=234.126</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="241.9">No Further Action</TrackLimits>
-<Score et="259.8">Driver 02(1) lap=1 point=2 t=68.046 et=259.767</Score>
-<Sector Driver="Driver 02" ID="1" Sector="2" Class="GT3" et="259.8">Driver 02(1) set new best for sector 2</Sector>
-<Score et="262.2">Driver 03(2) lap=1 point=2 t=68.682 et=262.179</Score>
-<Score et="269.2">Own Driver(3) lap=1 point=2 t=68.688 et=269.224</Score>
-<Score et="279.0">Driver 02(1) lap=2 point=0 t=87.249 et=278.970</Score>
-<Score et="281.6">Driver 03(2) lap=2 point=0 t=88.067 et=281.564</Score>
-<Score et="289.1">Own Driver(3) lap=2 point=0 t=88.542 et=289.078</Score>
-<Score et="312.2">Driver 02(1) lap=2 point=1 t=33.231 et=312.201</Score>
-<Score et="315.2">Driver 03(2) lap=2 point=1 t=33.598 et=315.162</Score>
-<Score et="322.0">Own Driver(3) lap=2 point=1 t=32.922 et=322.000</Score>
-<Sector Driver="Own Driver" ID="3" Sector="1" Class="GT3" et="322.0">Own Driver(3) set new best for sector 1</Sector>
-<Score et="347.1">Driver 02(1) lap=2 point=2 t=68.081 et=347.051</Score>
-<Score et="350.3">Driver 03(2) lap=2 point=2 t=68.744 et=350.308</Score>
-<Score et="356.2">Own Driver(3) lap=2 point=2 t=67.128 et=356.206</Score>
-<Sector Driver="Own Driver" ID="3" Sector="2" Class="GT3" et="356.2">Own Driver(3) set new best for sector 2</Sector>
-<Score et="366.3">Driver 02(1) lap=3 point=0 t=87.312 et=366.282</Score>
-<Score et="369.7">Driver 03(2) lap=3 point=0 t=88.162 et=369.726</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="371.9">No Further Action</TrackLimits>
-<Score et="375.7">Own Driver(3) lap=3 point=0 t=86.596 et=375.674</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="3" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="394.3">Warning</TrackLimits>
-<Score et="399.5">Driver 02(1) lap=3 point=1 t=33.240 et=399.522</Score>
-<Score et="403.3">Driver 03(2) lap=3 point=1 t=33.606 et=403.332</Score>
-<Score et="409.4">Own Driver(3) lap=3 point=1 t=-1.000 et=409.385</Score>
-<Score et="434.4">Driver 02(1) lap=3 point=2 t=68.097 et=434.379</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="3" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="435.2">No Further Action</TrackLimits>
-<Score et="438.6">Driver 03(2) lap=3 point=2 t=68.817 et=438.542</Score>
-<Score et="444.9">Own Driver(3) lap=3 point=2 t=-1.000 et=444.865</Score>
-<Score et="453.6">Driver 02(1) lap=4 point=0 t=87.319 et=453.602</Score>
-<Score et="457.9">Driver 03(2) lap=4 point=0 t=88.187 et=457.913</Score>
-<Score et="464.7">Own Driver(3) lap=4 point=0 t=-1.000 et=464.649</Score>
-<Score et="486.9">Driver 02(1) lap=4 point=1 t=33.264 et=486.866</Score>
-<Score et="491.6">Driver 03(2) lap=4 point=1 t=33.642 et=491.555</Score>
-<Score et="497.2">Own Driver(3) lap=4 point=1 t=32.561 et=497.210</Score>
-<Sector Driver="Own Driver" ID="3" Sector="1" Class="GT3" et="497.2">Own Driver(3) set new best for sector 1</Sector>
-<TrackLimits Driver="Own Driver" ID="3" Lap="4" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="519.8">No Further Action</TrackLimits>
-<Score et="521.8">Driver 02(1) lap=4 point=2 t=68.151 et=521.753</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="4" WarningPoints="0.5" CurrentPoints="0.75" Resolution="4" et="526.5">Warning</TrackLimits>
-<Score et="526.7">Driver 03(2) lap=4 point=2 t=68.776 et=526.689</Score>
-<Score et="531.4">Own Driver(3) lap=4 point=2 t=-1.000 et=531.436</Score>
-<Score et="541.0">Driver 02(1) lap=5 point=0 t=87.372 et=540.974</Score>
-<Score et="546.2">Driver 03(2) lap=5 point=0 t=88.265 et=546.178</Score>
-<Score et="550.9">Own Driver(3) lap=5 point=0 t=-1.000 et=550.928</Score>
-<Score et="574.2">Driver 02(1) lap=5 point=1 t=33.266 et=574.239</Score>
-<Score et="579.9">Driver 03(2) lap=5 point=1 t=33.675 et=579.853</Score>
-<Score et="583.5">Own Driver(3) lap=5 point=1 t=32.529 et=583.457</Score>
-<Sector Driver="Own Driver" ID="3" Sector="1" Class="GT3" et="583.5">Own Driver(3) set new best for sector 1</Sector>
-<TrackLimits Driver="Own Driver" ID="3" Lap="5" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="608.4">No Further Action</TrackLimits>
-<Score et="609.2">Driver 02(1) lap=5 point=2 t=68.195 et=609.168</Score>
-<Score et="615.0">Driver 03(2) lap=5 point=2 t=68.840 et=615.018</Score>
-<Score et="618.3">Own Driver(3) lap=5 point=2 t=67.360 et=618.288</Score>
-<Score et="628.4">Driver 02(1) lap=6 point=0 t=87.416 et=628.390</Score>
-<Score et="634.5">Driver 03(2) lap=6 point=0 t=88.333 et=634.511</Score>
-<Score et="638.1">Own Driver(3) lap=6 point=0 t=87.165 et=638.093</Score>
-<Score et="661.7">Driver 02(1) lap=6 point=1 t=33.287 et=661.677</Score>
-<Score et="668.2">Driver 03(2) lap=6 point=1 t=33.723 et=668.234</Score>
-<Score et="670.9">Own Driver(3) lap=6 point=1 t=32.801 et=670.895</Score>
-<Score et="696.6">Driver 02(1) lap=6 point=2 t=68.248 et=696.638</Score>
-<Score et="703.5">Driver 03(2) lap=6 point=2 t=68.946 et=703.456</Score>
-<Score et="705.4">Own Driver(3) lap=6 point=2 t=67.269 et=705.362</Score>
-<Score et="715.9">Driver 02(1) lap=7 point=0 t=87.496 et=715.886</Score>
-<Score et="723.0">Driver 03(2) lap=7 point=0 t=88.495 et=723.005</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="6" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="723.9">Warning</TrackLimits>
-<Score et="725.3">Own Driver(3) lap=7 point=0 t=-1.000 et=725.332</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="7" WarningPoints="0" CurrentPoints="1" Resolution="7" et="748.4">No Further Action</TrackLimits>
-<Score et="749.2">Driver 02(1) lap=7 point=1 t=33.324 et=749.210</Score>
-<Score et="756.7">Driver 03(2) lap=7 point=1 t=33.729 et=756.734</Score>
-<Score et="758.8">Own Driver(3) lap=7 point=1 t=33.478 et=758.810</Score>
-<Score et="784.2">Driver 02(1) lap=7 point=2 t=68.314 et=784.200</Score>
-<Score et="792.0">Driver 03(2) lap=7 point=2 t=69.016 et=792.021</Score>
-<Score et="792.9">Own Driver(3) lap=7 point=2 t=67.543 et=792.876</Score>
-<Sector Driver="Own Driver" ID="3" Sector="2" Class="GT3" et="792.9">Own Driver(3) set new best for sector 2</Sector>
-<Score et="803.4">Driver 02(1) lap=8 point=0 t=87.554 et=803.440</Score>
-<Score et="811.6">Driver 03(2) lap=8 point=0 t=88.628 et=811.633</Score>
-<Score et="812.7">Own Driver(3) lap=8 point=0 t=87.367 et=812.699</Score>
-<Score et="836.8">Driver 02(1) lap=8 point=1 t=33.359 et=836.799</Score>
-<Score et="845.4">Driver 03(2) lap=8 point=1 t=33.773 et=845.406</Score>
-<Score et="845.9">Own Driver(3) lap=8 point=1 t=33.151 et=845.850</Score>
-<Incident et="849.6">Driver 02(1) reported contact (181.46) with Immovable</Incident>
-<Score et="871.8">Driver 02(1) lap=8 point=2 t=68.382 et=871.822</Score>
-<Score et="880.8">Driver 03(2) lap=8 point=2 t=69.109 et=880.742</Score>
-<Score et="881.1">Own Driver(3) lap=8 point=2 t=68.346 et=881.046</Score>
-<Incident et="885.8">Own Driver(3) reported contact (216.89) with another vehicle Driver 03(2)</Incident>
-<Score et="891.1">Driver 02(1) lap=9 point=0 t=87.655 et=891.095</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="8" WarningPoints="0" CurrentPoints="1" Resolution="7" et="896.7">No Further Action</TrackLimits>
-<Score et="900.5">Own Driver(3) lap=9 point=0 t=87.790 et=900.489</Score>
-<Score et="900.9">Driver 03(2) lap=9 point=0 t=89.292 et=900.925</Score>
-<Score et="924.5">Driver 02(1) lap=9 point=1 t=33.401 et=924.496</Score>
-<Score et="934.2">Own Driver(3) lap=9 point=1 t=33.708 et=934.197</Score>
-<Score et="934.6">Driver 03(2) lap=9 point=1 t=33.647 et=934.573</Score>
-<Score et="959.6">Driver 02(1) lap=9 point=2 t=68.447 et=959.541</Score>
-<Score et="969.0">Own Driver(3) lap=9 point=2 t=68.515 et=969.004</Score>
-<Score et="969.8">Driver 03(2) lap=9 point=2 t=68.852 et=969.777</Score>
-<Score et="978.9">Driver 02(1) lap=10 point=0 t=87.748 et=978.842</Score>
-<Score et="988.2">Own Driver(3) lap=10 point=0 t=87.728 et=988.217</Score>
-<Score et="989.1">Driver 03(2) lap=10 point=0 t=88.189 et=989.115</Score>
-<Score et="1012.3">Driver 02(1) lap=10 point=1 t=33.416 et=1012.258</Score>
-<Score et="1021.2">Own Driver(3) lap=10 point=1 t=33.021 et=1021.238</Score>
-<Score et="1022.7">Driver 03(2) lap=10 point=1 t=33.607 et=1022.722</Score>
-<Score et="1047.3">Driver 02(1) lap=10 point=2 t=68.497 et=1047.339</Score>
-<Score et="1055.4">Own Driver(3) lap=10 point=2 t=67.168 et=1055.385</Score>
-<Score et="1058.0">Driver 03(2) lap=10 point=2 t=68.838 et=1057.953</Score>
-<Score et="1066.7">Driver 02(1) lap=11 point=0 t=87.799 et=1066.641</Score>
-<Score et="1074.5">Own Driver(3) lap=11 point=0 t=86.309 et=1074.526</Score>
-<Sector Driver="Own Driver" ID="3" Sector="3" Class="GT3" et="1074.5">Own Driver(3) set new best for sector 3</Sector>
-<Score et="1077.3">Driver 03(2) lap=11 point=0 t=88.198 et=1077.312</Score>
-<Score et="1100.1">Driver 02(1) lap=11 point=1 t=33.461 et=1100.102</Score>
-<Score et="1107.6">Own Driver(3) lap=11 point=1 t=33.082 et=1107.607</Score>
-<Score et="1111.0">Driver 03(2) lap=11 point=1 t=33.642 et=1110.955</Score>
-<Score et="1135.2">Driver 02(1) lap=11 point=2 t=68.585 et=1135.226</Score>
-<Score et="1141.0">Own Driver(3) lap=11 point=2 t=66.483 et=1141.008</Score>
-<Sector Driver="Own Driver" ID="3" Sector="2" Class="GT3" et="1141.0">Own Driver(3) set new best for sector 2</Sector>
-<Score et="1146.2">Driver 03(2) lap=11 point=2 t=68.900 et=1146.212</Score>
-<Score et="1154.6">Driver 02(1) lap=12 point=0 t=87.901 et=1154.542</Score>
-<Score et="1160.0">Own Driver(3) lap=12 point=0 t=85.448 et=1159.974</Score>
-<Sector Driver="Own Driver" ID="3" Sector="3" Class="GT3" et="1160.0">Own Driver(3) set new best for sector 3</Sector>
-<Score et="1165.6">Driver 03(2) lap=12 point=0 t=88.248 et=1165.560</Score>
-<Score et="1188.0">Driver 02(1) lap=12 point=1 t=33.474 et=1188.015</Score>
-<Score et="1192.9">Own Driver(3) lap=12 point=1 t=32.923 et=1192.897</Score>
-<Score et="1199.2">Driver 03(2) lap=12 point=1 t=33.649 et=1199.209</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1214.7">No Further Action</TrackLimits>
-<Score et="1223.2">Driver 02(1) lap=12 point=2 t=68.622 et=1223.164</Score>
-<Score et="1226.9">Own Driver(3) lap=12 point=2 t=-1.000 et=1226.918</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1228.2">No Further Action</TrackLimits>
-<Score et="1234.5">Driver 03(2) lap=12 point=2 t=68.965 et=1234.525</Score>
-<Score et="1242.5">Driver 02(1) lap=13 point=0 t=87.928 et=1242.470</Score>
-<Score et="1246.0">Own Driver(3) lap=13 point=0 t=86.040 et=1246.014</Score>
-<Score et="1253.9">Driver 03(2) lap=13 point=0 t=88.323 et=1253.883</Score>
-<Score et="1276.0">Driver 02(1) lap=13 point=1 t=33.489 et=1275.959</Score>
-<TrackLimits Driver="Own Driver" ID="3" Lap="13" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1276.0">No Further Action</TrackLimits>
-<Score et="1279.1">Own Driver(3) lap=13 point=1 t=33.119 et=1279.133</Score>
+<Incident et="23.7">Own Driver(1) reported contact (743.21) with another vehicle Driver 16(2)</Incident>
+<Incident et="28.5">Own Driver(1) reported contact (112.33) with another vehicle Driver 16(2)</Incident>
+<Incident et="106.5">Own Driver(1) reported contact (998.30) with another vehicle Driver 17(3)</Incident>
+<Score et="137.7">Driver 02(4) lap=0 point=1 t=37.222 et=137.684</Score>
+<Sector Driver="Driver 02" ID="4" Sector="1" Class="GT3" et="137.7">Driver 02(4) set new best for sector 1</Sector>
+<Score et="139.0">Driver 05(5) lap=0 point=1 t=38.545 et=139.008</Score>
+<Score et="143.8">Own Driver(1) lap=0 point=1 t=43.304 et=143.767</Score>
+<Incident et="150.4">Driver 02(4) reported contact (49.40) with Immovable</Incident>
+<TrackLimits Driver="Own Driver" ID="1" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="170.4">No Further Action</TrackLimits>
+<Incident et="171.2">Own Driver(1) reported contact (797.16) with another vehicle Driver 14(6)</Incident>
+<Score et="172.5">Driver 02(4) lap=0 point=2 t=72.062 et=172.525</Score>
+<Sector Driver="Driver 02" ID="4" Sector="2" Class="GT3" et="172.5">Driver 02(4) set new best for sector 2</Sector>
+<Score et="174.1">Driver 05(5) lap=0 point=2 t=73.653 et=174.116</Score>
+<Score et="180.4">Own Driver(1) lap=0 point=2 t=79.920 et=180.383</Score>
+<Score et="191.7">Driver 02(4) lap=1 point=0 t=91.258 et=191.721</Score>
+<Sector Driver="Driver 02" ID="4" Sector="3" Class="GT3" et="191.7">Driver 02(4) set new best for sector 3</Sector>
+<Score et="193.5">Driver 05(5) lap=1 point=0 t=93.035 et=193.497</Score>
+<Score et="200.5">Own Driver(1) lap=1 point=0 t=100.074 et=200.536</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="224.6">No Further Action</TrackLimits>
+<Score et="224.9">Driver 02(4) lap=1 point=1 t=33.213 et=224.934</Score>
+<Sector Driver="Driver 02" ID="4" Sector="1" Class="GT3" et="224.9">Driver 02(4) set new best for sector 1</Sector>
+<Score et="227.1">Driver 05(5) lap=1 point=1 t=33.564 et=227.061</Score>
+<Score et="234.1">Own Driver(1) lap=1 point=1 t=33.590 et=234.126</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="241.9">No Further Action</TrackLimits>
+<Incident et="245.3">Own Driver(1) reported contact (81.97) with another vehicle Driver 16(2)</Incident>
+<Score et="259.8">Driver 02(4) lap=1 point=2 t=68.046 et=259.767</Score>
+<Sector Driver="Driver 02" ID="4" Sector="2" Class="GT3" et="259.8">Driver 02(4) set new best for sector 2</Sector>
+<Score et="262.2">Driver 05(5) lap=1 point=2 t=68.682 et=262.179</Score>
+<Score et="269.2">Own Driver(1) lap=1 point=2 t=68.688 et=269.224</Score>
+<Incident et="270.8">Own Driver(1) reported contact (1258.20) with another vehicle Driver 15(7)</Incident>
+<Score et="279.0">Driver 02(4) lap=2 point=0 t=87.249 et=278.970</Score>
+<Incident et="279.9">Own Driver(1) reported contact (319.41) with another vehicle Driver 17(3)</Incident>
+<Score et="281.6">Driver 05(5) lap=2 point=0 t=88.067 et=281.564</Score>
+<Score et="289.1">Own Driver(1) lap=2 point=0 t=88.542 et=289.078</Score>
+<Score et="312.2">Driver 02(4) lap=2 point=1 t=33.231 et=312.201</Score>
+<Score et="315.2">Driver 05(5) lap=2 point=1 t=33.598 et=315.162</Score>
+<Score et="322.0">Own Driver(1) lap=2 point=1 t=32.922 et=322.000</Score>
+<Sector Driver="Own Driver" ID="1" Sector="1" Class="GT3" et="322.0">Own Driver(1) set new best for sector 1</Sector>
+<Score et="347.1">Driver 02(4) lap=2 point=2 t=68.081 et=347.051</Score>
+<Score et="350.3">Driver 05(5) lap=2 point=2 t=68.744 et=350.308</Score>
+<Score et="356.2">Own Driver(1) lap=2 point=2 t=67.128 et=356.206</Score>
+<Sector Driver="Own Driver" ID="1" Sector="2" Class="GT3" et="356.2">Own Driver(1) set new best for sector 2</Sector>
+<Score et="366.3">Driver 02(4) lap=3 point=0 t=87.312 et=366.282</Score>
+<Score et="369.7">Driver 05(5) lap=3 point=0 t=88.162 et=369.726</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="371.9">No Further Action</TrackLimits>
+<Score et="375.7">Own Driver(1) lap=3 point=0 t=86.596 et=375.674</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="3" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="394.3">Warning</TrackLimits>
+<Score et="399.5">Driver 02(4) lap=3 point=1 t=33.240 et=399.522</Score>
+<Score et="403.3">Driver 05(5) lap=3 point=1 t=33.606 et=403.332</Score>
+<Score et="409.4">Own Driver(1) lap=3 point=1 t=-1.000 et=409.385</Score>
+<Incident et="422.1">Own Driver(1) reported contact (360.11) with another vehicle Driver 07(8)</Incident>
+<Incident et="426.0">Own Driver(1) reported contact (277.41) with another vehicle Driver 07(8)</Incident>
+<Incident et="427.2">Own Driver(1) reported contact (347.26) with another vehicle Driver 07(8)</Incident>
+<Incident et="428.3">Own Driver(1) reported contact (221.44) with another vehicle Driver 07(8)</Incident>
+<Score et="434.4">Driver 02(4) lap=3 point=2 t=68.097 et=434.379</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="3" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="435.2">No Further Action</TrackLimits>
+<Score et="438.6">Driver 05(5) lap=3 point=2 t=68.817 et=438.542</Score>
+<Score et="444.9">Own Driver(1) lap=3 point=2 t=-1.000 et=444.865</Score>
+<Incident et="447.7">Own Driver(1) reported contact (304.85) with another vehicle Driver 07(8)</Incident>
+<Score et="453.6">Driver 02(4) lap=4 point=0 t=87.319 et=453.602</Score>
+<Score et="457.9">Driver 05(5) lap=4 point=0 t=88.187 et=457.913</Score>
+<Score et="464.7">Own Driver(1) lap=4 point=0 t=-1.000 et=464.649</Score>
+<Score et="486.9">Driver 02(4) lap=4 point=1 t=33.264 et=486.866</Score>
+<Score et="491.6">Driver 05(5) lap=4 point=1 t=33.642 et=491.555</Score>
+<Score et="497.2">Own Driver(1) lap=4 point=1 t=32.561 et=497.210</Score>
+<Sector Driver="Own Driver" ID="1" Sector="1" Class="GT3" et="497.2">Own Driver(1) set new best for sector 1</Sector>
+<Incident et="497.4">Own Driver(1) reported contact (61.14) with another vehicle Driver 13(9)</Incident>
+<TrackLimits Driver="Own Driver" ID="1" Lap="4" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="519.8">No Further Action</TrackLimits>
+<Score et="521.8">Driver 02(4) lap=4 point=2 t=68.151 et=521.753</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="4" WarningPoints="0.5" CurrentPoints="0.75" Resolution="4" et="526.5">Warning</TrackLimits>
+<Score et="526.7">Driver 05(5) lap=4 point=2 t=68.776 et=526.689</Score>
+<Score et="531.4">Own Driver(1) lap=4 point=2 t=-1.000 et=531.436</Score>
+<Incident et="532.7">Own Driver(1) reported contact (95.77) with another vehicle Driver 10(10)</Incident>
+<Score et="541.0">Driver 02(4) lap=5 point=0 t=87.372 et=540.974</Score>
+<Incident et="541.9">Own Driver(1) reported contact (1281.35) with another vehicle Driver 12(11)</Incident>
+<Score et="546.2">Driver 05(5) lap=5 point=0 t=88.265 et=546.178</Score>
+<Score et="550.9">Own Driver(1) lap=5 point=0 t=-1.000 et=550.928</Score>
+<Score et="574.2">Driver 02(4) lap=5 point=1 t=33.266 et=574.239</Score>
+<Score et="579.9">Driver 05(5) lap=5 point=1 t=33.675 et=579.853</Score>
+<Score et="583.5">Own Driver(1) lap=5 point=1 t=32.529 et=583.457</Score>
+<Sector Driver="Own Driver" ID="1" Sector="1" Class="GT3" et="583.5">Own Driver(1) set new best for sector 1</Sector>
+<TrackLimits Driver="Own Driver" ID="1" Lap="5" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="608.4">No Further Action</TrackLimits>
+<Score et="609.2">Driver 02(4) lap=5 point=2 t=68.195 et=609.168</Score>
+<Score et="615.0">Driver 05(5) lap=5 point=2 t=68.840 et=615.018</Score>
+<Score et="618.3">Own Driver(1) lap=5 point=2 t=67.360 et=618.288</Score>
+<Score et="628.4">Driver 02(4) lap=6 point=0 t=87.416 et=628.390</Score>
+<Incident et="629.0">Own Driver(1) reported contact (390.11) with another vehicle Driver 09(12)</Incident>
+<Incident et="631.5">Own Driver(1) reported contact (207.19) with another vehicle Driver 09(12)</Incident>
+<Score et="634.5">Driver 05(5) lap=6 point=0 t=88.333 et=634.511</Score>
+<Score et="638.1">Own Driver(1) lap=6 point=0 t=87.165 et=638.093</Score>
+<Incident et="639.0">Own Driver(1) reported contact (152.06) with another vehicle Driver 09(12)</Incident>
+<Incident et="643.1">Own Driver(1) reported contact (505.38) with another vehicle Driver 09(12)</Incident>
+<Score et="661.7">Driver 02(4) lap=6 point=1 t=33.287 et=661.677</Score>
+<Score et="668.2">Driver 05(5) lap=6 point=1 t=33.723 et=668.234</Score>
+<Score et="670.9">Own Driver(1) lap=6 point=1 t=32.801 et=670.895</Score>
+<Score et="696.6">Driver 02(4) lap=6 point=2 t=68.248 et=696.638</Score>
+<Score et="703.5">Driver 05(5) lap=6 point=2 t=68.946 et=703.456</Score>
+<Score et="705.4">Own Driver(1) lap=6 point=2 t=67.269 et=705.362</Score>
+<Score et="715.9">Driver 02(4) lap=7 point=0 t=87.496 et=715.886</Score>
+<Score et="723.0">Driver 05(5) lap=7 point=0 t=88.495 et=723.005</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="6" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="723.9">Warning</TrackLimits>
+<Score et="725.3">Own Driver(1) lap=7 point=0 t=-1.000 et=725.332</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="7" WarningPoints="0" CurrentPoints="1" Resolution="7" et="748.4">No Further Action</TrackLimits>
+<Score et="749.2">Driver 02(4) lap=7 point=1 t=33.324 et=749.210</Score>
+<Score et="756.7">Driver 05(5) lap=7 point=1 t=33.729 et=756.734</Score>
+<Score et="758.8">Own Driver(1) lap=7 point=1 t=33.478 et=758.810</Score>
+<Score et="784.2">Driver 02(4) lap=7 point=2 t=68.314 et=784.200</Score>
+<Score et="792.0">Driver 05(5) lap=7 point=2 t=69.016 et=792.021</Score>
+<Score et="792.9">Own Driver(1) lap=7 point=2 t=67.543 et=792.876</Score>
+<Sector Driver="Own Driver" ID="1" Sector="2" Class="GT3" et="792.9">Own Driver(1) set new best for sector 2</Sector>
+<Incident et="794.1">Own Driver(1) reported contact (620.21) with another vehicle Driver 03(13)</Incident>
+<Score et="803.4">Driver 02(4) lap=8 point=0 t=87.554 et=803.440</Score>
+<Score et="811.6">Driver 05(5) lap=8 point=0 t=88.628 et=811.633</Score>
+<Score et="812.7">Own Driver(1) lap=8 point=0 t=87.367 et=812.699</Score>
+<Score et="836.8">Driver 02(4) lap=8 point=1 t=33.359 et=836.799</Score>
+<Score et="845.4">Driver 05(5) lap=8 point=1 t=33.773 et=845.406</Score>
+<Score et="845.9">Own Driver(1) lap=8 point=1 t=33.151 et=845.850</Score>
+<Incident et="849.6">Driver 02(4) reported contact (181.46) with Immovable</Incident>
+<Score et="871.8">Driver 02(4) lap=8 point=2 t=68.382 et=871.822</Score>
+<Score et="880.8">Driver 05(5) lap=8 point=2 t=69.109 et=880.742</Score>
+<Score et="881.1">Own Driver(1) lap=8 point=2 t=68.346 et=881.046</Score>
+<Incident et="885.8">Own Driver(1) reported contact (216.89) with another vehicle Driver 05(5)</Incident>
+<Score et="891.1">Driver 02(4) lap=9 point=0 t=87.655 et=891.095</Score>
+<TrackLimits Driver="Own Driver" ID="1" Lap="8" WarningPoints="0" CurrentPoints="1" Resolution="7" et="896.7">No Further Action</TrackLimits>
+<Score et="900.5">Own Driver(1) lap=9 point=0 t=87.790 et=900.489</Score>
+<Score et="900.9">Driver 05(5) lap=9 point=0 t=89.292 et=900.925</Score>
+<Score et="924.5">Driver 02(4) lap=9 point=1 t=33.401 et=924.496</Score>
+<Score et="934.2">Own Driver(1) lap=9 point=1 t=33.708 et=934.197</Score>
+<Score et="934.6">Driver 05(5) lap=9 point=1 t=33.647 et=934.573</Score>
+<Score et="959.6">Driver 02(4) lap=9 point=2 t=68.447 et=959.541</Score>
+<Score et="969.0">Own Driver(1) lap=9 point=2 t=68.515 et=969.004</Score>
+<Score et="969.8">Driver 05(5) lap=9 point=2 t=68.852 et=969.777</Score>
+<Score et="978.9">Driver 02(4) lap=10 point=0 t=87.748 et=978.842</Score>
+<Score et="988.2">Own Driver(1) lap=10 point=0 t=87.728 et=988.217</Score>
+<Score et="989.1">Driver 05(5) lap=10 point=0 t=88.189 et=989.115</Score>
+<Score et="1012.3">Driver 02(4) lap=10 point=1 t=33.416 et=1012.258</Score>
+<Score et="1021.2">Own Driver(1) lap=10 point=1 t=33.021 et=1021.238</Score>
+<Score et="1022.7">Driver 05(5) lap=10 point=1 t=33.607 et=1022.722</Score>
+<Score et="1047.3">Driver 02(4) lap=10 point=2 t=68.497 et=1047.339</Score>
+<Score et="1055.4">Own Driver(1) lap=10 point=2 t=67.168 et=1055.385</Score>
+<Score et="1058.0">Driver 05(5) lap=10 point=2 t=68.838 et=1057.953</Score>
+<Score et="1066.7">Driver 02(4) lap=11 point=0 t=87.799 et=1066.641</Score>
+<Score et="1074.5">Own Driver(1) lap=11 point=0 t=86.309 et=1074.526</Score>
+<Sector Driver="Own Driver" ID="1" Sector="3" Class="GT3" et="1074.5">Own Driver(1) set new best for sector 3</Sector>
+<Score et="1077.3">Driver 05(5) lap=11 point=0 t=88.198 et=1077.312</Score>
+<Score et="1100.1">Driver 02(4) lap=11 point=1 t=33.461 et=1100.102</Score>
+<Score et="1107.6">Own Driver(1) lap=11 point=1 t=33.082 et=1107.607</Score>
+<Score et="1111.0">Driver 05(5) lap=11 point=1 t=33.642 et=1110.955</Score>
+<Score et="1135.2">Driver 02(4) lap=11 point=2 t=68.585 et=1135.226</Score>
+<Score et="1141.0">Own Driver(1) lap=11 point=2 t=66.483 et=1141.008</Score>
 </Stream>
 <FormationAndStart>0</FormationAndStart>
 <MostLapsCompleted>14</MostLapsCompleted>
@@ -267,7 +267,7 @@
 <ControlAndAids startLap="1" endLap="14">AIControl</ControlAndAids>
 </Driver>
 <Driver>
-<Name>Driver 03</Name>
+<Name>Driver 05</Name>
 <Connected>1</Connected>
 <VehFile>car.VEH</VehFile>
 <UpgradeCode>1e631000 00000000 00000000 00000000</UpgradeCode>

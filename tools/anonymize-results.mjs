@@ -69,16 +69,21 @@ for (const file of files) {
   // Pseudonyms.
   const nameMap = new Map();
   const teamMap = new Map();
-  keptDrivers.forEach((d, i) => {
+  // Every driver of the file gets a pseudonym, because the stream also names
+  // drivers that are dropped from the output.
+  drivers.forEach((d, i) => {
     nameMap.set(
       d.name,
       d.name === ownName
         ? 'Own Driver'
         : `Driver ${String(i + 1).padStart(2, '0')}`,
     );
+  });
+  keptDrivers.forEach((d) => {
     if (!teamMap.has(d.team))
       teamMap.set(d.team, `Team ${String.fromCharCode(65 + teamMap.size)}`);
   });
+  let guests = 0;
 
   // Stream events: keep the ones that only involve kept drivers.
   const streamMatch = source.match(/<Stream>([\s\S]*?)<\/Stream>/);
@@ -114,11 +119,22 @@ for (const file of files) {
     return { el, names };
   };
   let chatCount = 0;
+  let penaltyCount = 0;
   const outEvents = [];
   for (const ev of events) {
     const { el, names } = eventNames(ev);
     names.forEach((n) => allNames.add(n));
-    if (![...names].every((n) => keptNames.has(n))) continue;
+    for (const n of names) {
+      if (!nameMap.has(n)) {
+        nameMap.set(n, `Guest ${String(++guests).padStart(2, '0')}`);
+      }
+    }
+    // Keep events that involve a kept driver, plus a few chat lines and penalties.
+    const involvesKept = [...names].some((n) => keptNames.has(n));
+    const sample =
+      (el === 'ChatMessage' && chatCount < 6) ||
+      (el === 'Penalty' && penaltyCount++ < 6);
+    if (!involvesKept && !sample) continue;
     if (outEvents.length >= MAX_STREAM_EVENTS) break;
     let out = ev;
     if (el === 'ChatMessage') {
@@ -181,11 +197,11 @@ for (const file of files) {
     text = text.split(`>${real} `).join(`>${fake} `);
   }
   text = text.replace(
-    /(Driver \d\d|Own Driver)\((\d+)\)/g,
+    /((?:Driver|Guest) \d\d|Own Driver)\((\d+)\)/g,
     (_, n, id) => `${n}(${mappedId(n, id)})`,
   );
   text = text.replace(
-    /(Driver="(?:Driver \d\d|Own Driver)" ID=")(\d+)"/g,
+    /(Driver="(?:(?:Driver|Guest) \d\d|Own Driver)" ID=")(\d+)"/g,
     (_, pre, id) => {
       const n = pre.match(/Driver="([^"]+)"/)[1];
       return `${pre}${mappedId(n, id)}"`;

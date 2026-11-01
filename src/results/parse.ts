@@ -7,6 +7,7 @@ import type {
   SessionSummary,
   SessionType,
 } from './types';
+import { parseStream } from './stream';
 import { child, childText, parseXml, type XmlElement } from './xml';
 
 /** The game writes this when a session has no lap limit. */
@@ -135,6 +136,7 @@ export function parseSession(xml: string, fileName: string): Session {
     entries: (section?.children ?? [])
       .filter((c) => c.name === 'Driver')
       .map(parseEntry),
+    events: parseStream(section ? child(section, 'Stream') : undefined),
   };
 }
 

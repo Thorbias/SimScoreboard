@@ -2,7 +2,9 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parseResultFileName } from './fileName';
+import { classStats, positionChart } from './analysis';
 import { parseSession, summarize } from './parse';
+import { classesOf, qualiRows, raceRows } from './table';
 
 // Local smoke test against a real results folder. Skipped unless
 // SIMPADDOCK_RESULTS points at one, e.g. the game's UserData/Log/Results.
@@ -23,6 +25,13 @@ describe.skipIf(!dir)('real result files', () => {
           name,
         );
         summarize(session);
+        positionChart(session, null);
+        for (const carClass of classesOf(session)) {
+          classStats(session, carClass);
+          positionChart(session, carClass);
+          raceRows(session, { kind: 'class', carClass });
+          qualiRows(session, { kind: 'class', carClass });
+        }
         entries += session.entries.length;
         if (session.entries.length === 0) problems.push(`${name}: no entries`);
       } catch (error) {

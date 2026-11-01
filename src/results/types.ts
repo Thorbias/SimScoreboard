@@ -37,6 +37,48 @@ export interface Entry {
   laps: Lap[];
 }
 
+/**
+ * An event from the session stream. Times are seconds since the session
+ * start. Which kinds occur depends on game version and mode; older files and
+ * single-player sessions have fewer.
+ */
+export type StreamEvent =
+  | {
+      kind: 'contact';
+      time: number | null;
+      driver: string;
+      /** Impact strength as reported by the game. */
+      force: number | null;
+      /** The other driver, or null for contact with an object. */
+      other: string | null;
+      /** What was hit when it was not a car, e.g. `Immovable`, `Sign`. */
+      object: string | null;
+    }
+  | { kind: 'damage'; time: number | null; driver: string; part: string }
+  | {
+      kind: 'trackLimits';
+      time: number | null;
+      driver: string;
+      lap: number | null;
+      warningPoints: number | null;
+      currentPoints: number | null;
+      /** `No Further Action`, `Warning`, or the penalty text. */
+      outcome: string;
+    }
+  | {
+      kind: 'penalty';
+      time: number | null;
+      driver: string;
+      /** e.g. `Drive Thru`, `Stop/Go`; for a served penalty the text from the log. */
+      penalty: string;
+      seconds: number | null;
+      laps: number | null;
+      reason: string;
+      /** True when the log says the penalty was served. */
+      served: boolean;
+    }
+  | { kind: 'chat'; time: number | null; sender: string; text: string };
+
 export interface Session {
   /** The result file name, unique within a game folder. */
   id: string;
@@ -62,6 +104,7 @@ export interface Session {
   scheduledLaps: number | null;
   mostLapsCompleted: number | null;
   entries: Entry[];
+  events: StreamEvent[];
 }
 
 /** Everything the library list needs; small enough to keep for every session. */

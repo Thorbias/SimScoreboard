@@ -12,8 +12,8 @@
 
 Das Projektgerüst und die Ausbaustufe „Results“ stehen und sind abgenommen
 (Bibliothek, Rennergebnis, Qualifying; ADR-0002 bis ADR-0004). Nächster Schritt:
-**Punkt 6**, die Analyse-Ansichten (Lap Chart, Position Chart, Statistiken,
-Incidents, Chat). Dafür muss der Parser zusätzlich den Stream der Dateien lesen.
+**Punkt 6**: die Analyse-Ansichten (Lap Chart, Position Chart, Statistiken,
+Incidents, Chat) sind gebaut und warten auf die Abnahme; danach FEATURES.md kondensieren.
 Die Telemetrie (Punkt 1) wartet auf eine echte Aufzeichnung: im Spiel die
 automatische Aufzeichnung einschalten, eine Session fahren, die Datei nach
 `samples/` legen (siehe [samples/README.md](../samples/README.md)).
@@ -37,7 +37,7 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 1 | ARC | TODO | **Telemetrie-Format verifizieren** (laut Changelog DuckDB, laut Wiki `.ld`/`.csv`): Aufzeichnung im Spiel einschalten und eine Session fahren, Datendatei untersuchen, eigenes ADR mit Schema und Kanalliste, danach F-012 und F-013 prüfen. Die Result-XML ist erledigt ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Quellen: [quellen/](quellen/README.md) | echte Telemetrie-Aufzeichnung in `samples/` |
 | 3 | ARC | TODO | ADR zur Telemetrie-Datenhaltung: ob DuckDB-WASM genutzt wird (Index und Einlesen sind in [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md) entschieden) | 1 |
 | 5 | Feature | TODO | Ergänzungen zu den Ergebnissen: F-015 Favoriten, F-018 Streckenland und Flagge | – |
-| 6 | Feature | TODO | Analyse: F-007 Lap Chart, F-008 Position Chart, F-009 Statistiken, F-010 Incidents, F-011 Chat | – |
+| 6 | Feature | IN PROGRESS | Analyse gebaut, wartet auf Abnahme: F-007 Lap Chart, F-008 Position Chart, F-009 Statistiken, F-010 Incidents, F-011 Chat. Danach FEATURES.md kondensieren | – |
 | 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1 |
 | 8 | Feature | TODO | Lap Times: F-014 Persönliche Bestzeiten | – |
 | 9 | Design | TODO | Branding mit SimPosture abstimmen: Farben, Typografie, Logo als Design-Tokens; eigenes Design ([PRODUCT.md](PRODUCT.md) §5) | – |

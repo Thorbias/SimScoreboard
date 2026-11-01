@@ -5,7 +5,12 @@ import { formatDateTime } from '../format/date';
 import { sessionTime } from '../library/filters';
 import { classesOf, type Scope } from '../results/table';
 import type { Session } from '../results/types';
+import { ChatView } from './ChatView';
+import { IncidentsView, isIncident } from './IncidentsView';
+import { LapChartView } from './LapChartView';
+import { PositionChartView } from './PositionChartView';
 import { QualiTable, RaceTable } from './ResultsTables';
+import { StatisticsView } from './StatisticsView';
 
 type Load =
   | { status: 'loading' }
@@ -100,6 +105,52 @@ function SessionResults({ session }: { session: Session }) {
   );
 }
 
+type Tab =
+  'results' | 'lapChart' | 'positions' | 'statistics' | 'incidents' | 'chat';
+
+/** The views that make sense for this session, in display order. */
+function availableTabs(session: Session): Tab[] {
+  const tabs: Tab[] = ['results'];
+  const hasLaps = session.entries.some((e) =>
+    e.laps.some((l) => l.time !== null),
+  );
+  if (hasLaps) tabs.push('lapChart');
+  if (session.type === 'race' && hasLaps) tabs.push('positions', 'statistics');
+  if (session.events.some(isIncident)) tabs.push('incidents');
+  if (session.events.some((e) => e.kind === 'chat')) tabs.push('chat');
+  return tabs;
+}
+
+function SessionBody({ session }: { session: Session }) {
+  const { t } = useApp();
+  const tabs = availableTabs(session);
+  const [tab, setTab] = useState<Tab>('results');
+  const active = tabs.includes(tab) ? tab : 'results';
+
+  return (
+    <>
+      <div className="tabs" role="tablist">
+        {tabs.map((id) => (
+          <button
+            key={id}
+            role="tab"
+            aria-selected={active === id}
+            onClick={() => setTab(id)}
+          >
+            {t(`tab.${id}`)}
+          </button>
+        ))}
+      </div>
+      {active === 'results' && <SessionResults session={session} />}
+      {active === 'lapChart' && <LapChartView session={session} />}
+      {active === 'positions' && <PositionChartView session={session} />}
+      {active === 'statistics' && <StatisticsView session={session} />}
+      {active === 'incidents' && <IncidentsView session={session} />}
+      {active === 'chat' && <ChatView session={session} />}
+    </>
+  );
+}
+
 function SessionLoader({ id }: { id: string }) {
   const { t, loadSession, sourceVersion } = useApp();
   const [load, setLoad] = useState<Load>({ status: 'loading' });
@@ -138,7 +189,7 @@ function SessionLoader({ id }: { id: string }) {
       {load.status === 'ready' && (
         <>
           <SessionHeader session={load.session} />
-          <SessionResults session={load.session} />
+          <SessionBody session={load.session} />
         </>
       )}
     </>
