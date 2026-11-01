@@ -1,5 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { countryName, countryOf, flagEmoji } from './tracks';
+import { countryName, countryOf, flagEmoji, trackTitle } from './tracks';
+
+describe('trackTitle', () => {
+  it('names the layout whenever it differs from the venue', () => {
+    expect(
+      trackTitle('Bahrain International Circuit', 'Bahrain Outer Circuit'),
+    ).toBe('Bahrain International Circuit – Bahrain Outer Circuit');
+  });
+
+  it('uses the venue alone when the layout is the main one', () => {
+    expect(trackTitle('Spa', 'Spa')).toBe('Spa');
+    expect(trackTitle('Spa', '')).toBe('Spa');
+    expect(trackTitle('', 'Layout')).toBe('Layout');
+  });
+});
 
 describe('tracks', () => {
   it('finds the country from the venue or the layout', () => {

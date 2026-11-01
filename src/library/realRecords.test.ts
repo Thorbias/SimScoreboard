@@ -26,7 +26,7 @@ describe.skipIf(!dir || !own)('personal bests from real files', () => {
       venues
         .map(
           (v) =>
-            `${v.venue} [${countryOf(v.venue) ?? '??'}] sessions=${v.sessionCount} layouts=${v.layouts.length} laps=${v.totalLaps} best=${v.bestByClass.map((b) => b.carClass + ' ' + b.best.toFixed(3)).join(', ')}`,
+            `${v.venue} [${countryOf(v.venue) ?? '??'}] sessions=${v.sessionCount} course=${v.course} laps=${v.totalLaps} best=${v.classes.map((c) => c.carClass + ' ' + c.best.toFixed(3)).join(', ')}`,
         )
         .join('\n'),
     );

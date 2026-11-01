@@ -13,6 +13,7 @@ import {
   type LibraryFilter,
 } from '../library/filters';
 import type { SessionSummary, SessionType } from '../results/types';
+import { trackTitle } from '../library/tracks';
 import { CountryLabel } from './CountryLabel';
 import { FavoriteButton } from './FavoriteButton';
 import { FolderBar } from './FolderBar';
@@ -200,6 +201,12 @@ export function LibraryView() {
           <h3>
             <span>
               {group.title}
+              <span className="layout-name">
+                {trackTitle(
+                  group.sessions[0]?.trackVenue ?? '',
+                  group.trackCourse,
+                )}
+              </span>
               <CountryLabel
                 venue={group.sessions[0]?.trackVenue ?? group.title}
                 course={group.trackCourse}

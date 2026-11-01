@@ -21,21 +21,20 @@ export interface ClassRecords {
   records: LapRecord[];
 }
 
-export interface LayoutRecords {
+/**
+ * The records on one track layout. Lap times of different layouts of the same
+ * venue are not comparable, so every layout stands on its own.
+ */
+export interface TrackRecords {
+  venue: string;
+  /** The layout as the game names it. */
   course: string;
   classes: ClassRecords[];
-}
-
-export interface VenueRecords {
-  venue: string;
-  layouts: LayoutRecords[];
   sessionCount: number;
   totalLaps: number;
   cars: string[];
   bestQualifying: LapRecord | null;
   bestRace: LapRecord | null;
-  /** Fastest own lap per class over all layouts of the venue. */
-  bestByClass: { carClass: string; best: number }[];
   lastDriven: number;
 }
 
@@ -44,26 +43,26 @@ function faster(a: LapRecord | null, b: LapRecord): LapRecord {
 }
 
 /**
- * The own driver's best laps, grouped by venue, layout, class and car. Laps on
- * different layouts are never compared. Only sessions in which one of the
- * aliases took part count.
+ * The own driver's best laps, grouped by layout, class and car. Only sessions
+ * in which one of the aliases took part count.
  */
 export function buildRecords(
   sessions: readonly SessionSummary[],
   aliases: readonly string[],
-): VenueRecords[] {
-  interface Venue {
+): TrackRecords[] {
+  interface Track {
     venue: string;
+    course: string;
     sessionCount: number;
     totalLaps: number;
     cars: Set<string>;
     bestQualifying: LapRecord | null;
     bestRace: LapRecord | null;
     lastDriven: number;
-    // course -> class -> car -> record
-    layouts: Map<string, Map<string, Map<string, LapRecord>>>;
+    // class -> car -> record
+    classes: Map<string, Map<string, LapRecord>>;
   }
-  const venues = new Map<string, Venue>();
+  const tracks = new Map<string, Track>();
 
   for (const session of sessions) {
     const own = session.entries.filter((e) =>
@@ -71,27 +70,30 @@ export function buildRecords(
     );
     if (own.length === 0) continue;
 
-    const key = session.trackVenue || session.trackCourse;
-    let venue = venues.get(key);
-    if (!venue) {
-      venue = {
-        venue: key,
+    const venue = session.trackVenue || session.trackCourse;
+    const course = session.trackCourse || venue;
+    const key = `${venue}\u0000${course}`;
+    let track = tracks.get(key);
+    if (!track) {
+      track = {
+        venue,
+        course,
         sessionCount: 0,
         totalLaps: 0,
         cars: new Set(),
         bestQualifying: null,
         bestRace: null,
         lastDriven: 0,
-        layouts: new Map(),
+        classes: new Map(),
       };
-      venues.set(key, venue);
+      tracks.set(key, track);
     }
-    venue.sessionCount += 1;
-    venue.lastDriven = Math.max(venue.lastDriven, sessionTime(session));
+    track.sessionCount += 1;
+    track.lastDriven = Math.max(track.lastDriven, sessionTime(session));
 
     for (const entry of own) {
-      venue.totalLaps += entry.lapCount;
-      if (entry.carType) venue.cars.add(entry.carType);
+      track.totalLaps += entry.lapCount;
+      if (entry.carType) track.cars.add(entry.carType);
       if (entry.bestLap === null) continue;
 
       const record: LapRecord = {
@@ -104,57 +106,34 @@ export function buildRecords(
         sectors: entry.bestLapSectors,
       };
       if (session.type === 'qualifying') {
-        venue.bestQualifying = faster(venue.bestQualifying, record);
+        track.bestQualifying = faster(track.bestQualifying, record);
       }
       if (session.type === 'race') {
-        venue.bestRace = faster(venue.bestRace, record);
+        track.bestRace = faster(track.bestRace, record);
       }
 
-      const course = session.trackCourse || key;
-      const classes = venue.layouts.get(course) ?? new Map();
-      const cars = classes.get(entry.carClass) ?? new Map();
+      const cars = track.classes.get(entry.carClass) ?? new Map();
       cars.set(entry.carType, faster(cars.get(entry.carType) ?? null, record));
-      classes.set(entry.carClass, cars);
-      venue.layouts.set(course, classes);
+      track.classes.set(entry.carClass, cars);
     }
   }
 
-  return [...venues.values()]
-    .map((v): VenueRecords => {
-      const layouts = [...v.layouts.entries()]
-        .map(([course, classes]): LayoutRecords => ({
-          course,
-          classes: [...classes.entries()]
-            .map(([carClass, cars]): ClassRecords => {
-              const records = [...cars.values()].sort((a, b) => a.lap - b.lap);
-              return { carClass, best: records[0]?.lap ?? 0, records };
-            })
-            .sort((a, b) => a.carClass.localeCompare(b.carClass)),
-        }))
-        .sort((a, b) => a.course.localeCompare(b.course));
-
-      const bestByClass = new Map<string, number>();
-      for (const layout of layouts) {
-        for (const c of layout.classes) {
-          const known = bestByClass.get(c.carClass);
-          if (known === undefined || c.best < known) {
-            bestByClass.set(c.carClass, c.best);
-          }
-        }
-      }
-      return {
-        venue: v.venue,
-        layouts,
-        sessionCount: v.sessionCount,
-        totalLaps: v.totalLaps,
-        cars: [...v.cars].sort((a, b) => a.localeCompare(b)),
-        bestQualifying: v.bestQualifying,
-        bestRace: v.bestRace,
-        bestByClass: [...bestByClass.entries()]
-          .map(([carClass, best]) => ({ carClass, best }))
-          .sort((a, b) => a.carClass.localeCompare(b.carClass)),
-        lastDriven: v.lastDriven,
-      };
-    })
+  return [...tracks.values()]
+    .map((t): TrackRecords => ({
+      venue: t.venue,
+      course: t.course,
+      classes: [...t.classes.entries()]
+        .map(([carClass, cars]): ClassRecords => {
+          const records = [...cars.values()].sort((a, b) => a.lap - b.lap);
+          return { carClass, best: records[0]?.lap ?? 0, records };
+        })
+        .sort((a, b) => a.carClass.localeCompare(b.carClass)),
+      sessionCount: t.sessionCount,
+      totalLaps: t.totalLaps,
+      cars: [...t.cars].sort((a, b) => a.localeCompare(b)),
+      bestQualifying: t.bestQualifying,
+      bestRace: t.bestRace,
+      lastDriven: t.lastDriven,
+    }))
     .sort((a, b) => b.lastDriven - a.lastDriven);
 }

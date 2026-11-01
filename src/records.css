@@ -158,3 +158,10 @@ button.fav:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.layout-name {
+  display: block;
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+}

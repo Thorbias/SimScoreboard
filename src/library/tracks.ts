@@ -23,6 +23,16 @@ const COUNTRIES: [needles: string[], code: string][] = [
   [['nürburgring', 'nurburgring'], 'DE'],
 ];
 
+/**
+ * The name to show for a track: the venue and, when it differs, the layout.
+ * Lap times only compare within a layout, so the layout must always be named.
+ */
+export function trackTitle(venue: string, course: string): string {
+  if (!course || course === venue) return venue;
+  if (!venue) return course;
+  return `${venue} – ${course}`;
+}
+
 /** Two-letter ISO country code for a track, or null if the track is unknown. */
 export function countryOf(venue: string, course = ''): string | null {
   const haystack = `${venue} ${course}`.toLowerCase();

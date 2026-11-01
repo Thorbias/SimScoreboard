@@ -137,7 +137,6 @@ export const en = {
   'records.needName':
     'Set your driver name in the settings to see your personal bests.',
   'records.empty': 'No lap times of yours were found in the sessions yet.',
-  'records.layouts': '{n} layouts',
   'records.sessions': '{n} sessions',
   'records.bestQuali': 'Best qualifying lap',
   'records.bestRace': 'Best race lap',

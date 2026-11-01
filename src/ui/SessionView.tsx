@@ -3,6 +3,7 @@ import { NotConnectedError, useApp } from '../app/AppContext';
 import { routes } from '../app/route';
 import { formatDateTime } from '../format/date';
 import { sessionTime } from '../library/filters';
+import { trackTitle } from '../library/tracks';
 import { classesOf, type Scope } from '../results/table';
 import type { Session } from '../results/types';
 import { ChatView } from './ChatView';
@@ -51,12 +52,9 @@ function SessionHeader({ session }: { session: Session }) {
         {session.trackEvent}
       </p>
       <h2>
-        {session.trackVenue || session.trackCourse}
+        {trackTitle(session.trackVenue, session.trackCourse)}
         <FavoriteButton id={session.id} />
       </h2>
-      {session.trackCourse && session.trackCourse !== session.trackVenue && (
-        <p className="layout">{session.trackCourse}</p>
-      )}
       <p className="layout">
         <CountryLabel
           venue={session.trackVenue || session.trackCourse}

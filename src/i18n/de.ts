@@ -141,7 +141,6 @@ export const de: Record<MessageKey, string> = {
     'Trage deinen Fahrernamen in den Einstellungen ein, um deine Bestzeiten zu sehen.',
   'records.empty':
     'In den Sessions wurden noch keine Rundenzeiten von dir gefunden.',
-  'records.layouts': '{n} Layouts',
   'records.sessions': '{n} Sessions',
   'records.bestQuali': 'Beste Qualifying-Runde',
   'records.bestRace': 'Beste Rennrunde',

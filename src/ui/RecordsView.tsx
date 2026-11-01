@@ -7,9 +7,12 @@ import { formatGap, formatSector } from '../format/time';
 import {
   buildRecords,
   type LapRecord,
-  type VenueRecords,
+  type TrackRecords,
 } from '../library/records';
+import { trackTitle } from '../library/tracks';
 import { CountryLabel } from './CountryLabel';
+
+const trackKey = (t: TrackRecords) => `${t.venue}\u0000${t.course}`;
 
 function RecordLink({ record }: { record: LapRecord }) {
   const { t, language } = useApp();
@@ -51,28 +54,25 @@ function BestCard({
   );
 }
 
-function VenueDetail({
-  venue,
+function TrackDetail({
+  track,
   carClass,
   onClass,
 }: {
-  venue: VenueRecords;
+  track: TrackRecords;
   carClass: string;
   onClass: (value: string) => void;
 }) {
   const { t, language } = useApp();
-  const classes = [
-    ...new Set(venue.layouts.flatMap((l) => l.classes.map((c) => c.carClass))),
-  ].sort((a, b) => a.localeCompare(b));
-  const multipleLayouts = venue.layouts.length > 1;
+  const classes = track.classes.map((c) => c.carClass);
 
   return (
     <div className="records-detail">
       <header className="records-head">
         <div>
-          <h2>{venue.venue}</h2>
+          <h2>{trackTitle(track.venue, track.course)}</h2>
           <p className="layout">
-            <CountryLabel venue={venue.venue} />
+            <CountryLabel venue={track.venue} course={track.course} />
           </p>
         </div>
         {classes.length > 1 && (
@@ -93,91 +93,82 @@ function VenueDetail({
       <dl className="cards">
         <BestCard
           label={t('records.bestQuali')}
-          record={venue.bestQualifying}
+          record={track.bestQualifying}
         />
-        <BestCard label={t('records.bestRace')} record={venue.bestRace} />
+        <BestCard label={t('records.bestRace')} record={track.bestRace} />
         <div className="stat card">
           <dt>{t('records.totalLaps')}</dt>
           <dd>
-            <strong>{venue.totalLaps}</strong>
+            <strong>{track.totalLaps}</strong>
             <span className="muted">
-              {t('records.sessions', { n: venue.sessionCount })}
+              {t('records.sessions', { n: track.sessionCount })}
             </span>
           </dd>
         </div>
         <div className="stat card">
           <dt>{t('records.cars')}</dt>
           <dd>
-            <span>{venue.cars.join(', ') || '–'}</span>
+            <span>{track.cars.join(', ') || '–'}</span>
           </dd>
         </div>
       </dl>
 
-      {venue.layouts.length === 0 && (
+      {track.classes.length === 0 && (
         <p className="empty">{t('records.noTime')}</p>
       )}
 
-      {venue.layouts.map((layout) => (
-        <section key={layout.course} className="layout-section">
-          {multipleLayouts && <h3>{layout.course}</h3>}
-          {layout.classes
-            .filter((c) => carClass === '' || c.carClass === carClass)
-            .map((c) => (
-              <div key={c.carClass}>
-                <h4>{c.carClass}</h4>
-                <div className="table-wrap">
-                  <table className="results">
-                    <thead>
-                      <tr>
-                        <th>{t('col.car')}</th>
-                        <th>{t('records.session')}</th>
-                        <th>{t('records.date')}</th>
-                        <th className="num">{t('col.s1')}</th>
-                        <th className="num">{t('col.s2')}</th>
-                        <th className="num">{t('col.s3')}</th>
-                        <th className="num">{t('lap.time')}</th>
-                        <th className="num">{t('records.toBest')}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {c.records.map((r) => (
-                        <tr key={r.carType}>
-                          <td>{r.carType || '–'}</td>
-                          <td>
-                            <RecordLink record={r} />
-                          </td>
-                          <td className="muted">
-                            {formatDate(r.time, language)}
-                          </td>
-                          {([0, 1, 2] as const).map((i) => (
-                            <td key={i} className="num">
-                              {formatSector(r.sectors[i])}
-                            </td>
-                          ))}
-                          <td
-                            className={r.lap === c.best ? 'num fastest' : 'num'}
-                          >
-                            {formatLapTime(r.lap)}
-                          </td>
-                          <td className="num">
-                            {r.lap === c.best ? '–' : formatGap(r.lap - c.best)}
-                          </td>
-                        </tr>
+      {track.classes
+        .filter((c) => carClass === '' || c.carClass === carClass)
+        .map((c) => (
+          <section key={c.carClass} className="layout-section">
+            <h4>{c.carClass}</h4>
+            <div className="table-wrap">
+              <table className="results">
+                <thead>
+                  <tr>
+                    <th>{t('col.car')}</th>
+                    <th>{t('records.session')}</th>
+                    <th>{t('records.date')}</th>
+                    <th className="num">{t('col.s1')}</th>
+                    <th className="num">{t('col.s2')}</th>
+                    <th className="num">{t('col.s3')}</th>
+                    <th className="num">{t('lap.time')}</th>
+                    <th className="num">{t('records.toBest')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.records.map((r) => (
+                    <tr key={r.carType}>
+                      <td>{r.carType || '–'}</td>
+                      <td>
+                        <RecordLink record={r} />
+                      </td>
+                      <td className="muted">{formatDate(r.time, language)}</td>
+                      {([0, 1, 2] as const).map((i) => (
+                        <td key={i} className="num">
+                          {formatSector(r.sectors[i])}
+                        </td>
                       ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            ))}
-        </section>
-      ))}
+                      <td className={r.lap === c.best ? 'num fastest' : 'num'}>
+                        {formatLapTime(r.lap)}
+                      </td>
+                      <td className="num">
+                        {r.lap === c.best ? '–' : formatGap(r.lap - c.best)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        ))}
     </div>
   );
 }
 
 export function RecordsView() {
   const { t, sessions, aliases } = useApp();
-  const venues = useMemo(
+  const tracks = useMemo(
     () => buildRecords(sessions, aliases),
     [sessions, aliases],
   );
@@ -192,33 +183,32 @@ export function RecordsView() {
       </p>
     );
   }
-  if (venues.length === 0) return <p className="empty">{t('records.empty')}</p>;
+  if (tracks.length === 0) return <p className="empty">{t('records.empty')}</p>;
 
-  const venue = venues.find((v) => v.venue === selected) ?? venues[0]!;
+  const track = tracks.find((x) => trackKey(x) === selected) ?? tracks[0]!;
 
   return (
     <>
       <h2>{t('records.title')}</h2>
       <div className="records-layout">
         <ul className="venue-list">
-          {venues.map((v) => (
-            <li key={v.venue}>
+          {tracks.map((x) => (
+            <li key={trackKey(x)}>
               <button
-                aria-pressed={v.venue === venue.venue}
-                onClick={() => setSelected(v.venue)}
+                aria-pressed={trackKey(x) === trackKey(track)}
+                onClick={() => setSelected(trackKey(x))}
               >
-                <strong>{v.venue}</strong>
+                <strong>{trackTitle(x.venue, x.course)}</strong>
                 <span className="muted">
-                  <CountryLabel venue={v.venue} />
+                  <CountryLabel venue={x.venue} course={x.course} />
                 </span>
                 <span className="muted">
-                  {t('records.layouts', { n: v.layouts.length })} ·{' '}
-                  {t('records.sessions', { n: v.sessionCount })}
+                  {t('records.sessions', { n: x.sessionCount })}
                 </span>
                 <span className="chips">
-                  {v.bestByClass.map((b) => (
-                    <span className="chip" key={b.carClass}>
-                      {b.carClass} {formatLapTime(b.best)}
+                  {x.classes.map((c) => (
+                    <span className="chip" key={c.carClass}>
+                      {c.carClass} {formatLapTime(c.best)}
                     </span>
                   ))}
                 </span>
@@ -226,7 +216,7 @@ export function RecordsView() {
             </li>
           ))}
         </ul>
-        <VenueDetail venue={venue} carClass={carClass} onClass={setCarClass} />
+        <TrackDetail track={track} carClass={carClass} onClass={setCarClass} />
       </div>
     </>
   );
