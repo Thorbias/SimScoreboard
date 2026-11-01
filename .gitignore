@@ -1,0 +1,21 @@
+# Node / Web tooling
+node_modules/
+dist/
+.vite/
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Claude Code (machine-specific permissions stay local)
+.claude/settings.local.json
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Real game files contain other drivers' names: never commit them.
+# Only the README in samples/ is tracked. Tests use anonymized fixtures.
+samples/*
+!samples/README.md
