@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rF [
+<!ENTITY rFEnt "rFactor Entity">
+]>
+<rFactorXML version="1.0">
+<RaceResults>
+<Setting>Race Weekend</Setting>
+<PlayerFile>Settings</PlayerFile>
+<DateTime>1748935665</DateTime>
+<TimeString>2025/06/03 09:27:45</TimeString>
+<TrackVenue>Autodromo Nazionale Monza</TrackVenue>
+<TrackCourse>Autodromo Nazionale Monza</TrackCourse>
+<TrackEvent>6 Hours of Monza</TrackEvent>
+<TrackData>Installed\Locations\Track\layout.mas</TrackData>
+<TrackLength>5780.6</TrackLength>
+<GameVersion>0.5000</GameVersion>
+<Dedicated>0</Dedicated>
+<ConnectionType upload="1000" download="8000">Connection</ConnectionType>
+<RaceLaps>0</RaceLaps>
+<RaceTime>60</RaceTime>
+<MechFailRate>1</MechFailRate>
+<DamageMult>75</DamageMult>
+<FuelMult>1</FuelMult>
+<TireMult>1</TireMult>
+<VehiclesAllowed>Ferrari_488_GTE_EVO,</VehiclesAllowed>
+<ParcFerme>3</ParcFerme>
+<FixedSetups>0</FixedSetups>
+<FreeSettings>11</FreeSettings>
+<FixedUpgrades>0</FixedUpgrades>
+<LimitedTires>1</LimitedTires>
+<TireWarmers>0</TireWarmers>
+<Practice1>
+<DateTime>1748935721</DateTime>
+<TimeString>2025/06/03 09:28:41</TimeString>
+<Laps>2147483647</Laps>
+<Minutes>60</Minutes>
+<Stream>
+<Score et="125.0">Driver 03(1) lap=0 point=1 t=-1.000 et=124.991</Score>
+<Score et="149.3">Driver 02(2) lap=0 point=1 t=-1.000 et=149.288</Score>
+<Score et="160.3">Driver 03(1) lap=0 point=2 t=-1.000 et=160.241</Score>
+<Score et="184.0">Driver 02(2) lap=0 point=2 t=-1.000 et=184.004</Score>
+<Score et="193.1">Driver 03(1) lap=1 point=0 t=-1.000 et=193.121</Score>
+<Score et="197.0">Driver 06(3) lap=0 point=1 t=-1.000 et=197.012</Score>
+<Score et="216.8">Driver 02(2) lap=1 point=0 t=-1.000 et=216.798</Score>
+<Score et="225.4">Driver 03(1) lap=1 point=1 t=32.315 et=225.436</Score>
+<Score et="232.4">Driver 05(4) lap=0 point=1 t=-1.000 et=232.352</Score>
+<Score et="232.9">Driver 06(3) lap=0 point=2 t=-1.000 et=232.852</Score>
+<Score et="249.0">Driver 02(2) lap=1 point=1 t=32.179 et=248.977</Score>
+<Sector et="249.0">Driver 02(2) set new best for sector 2</Sector>
+<Score et="259.2">Driver 03(1) lap=1 point=2 t=66.028 et=259.148</Score>
+<Sector et="259.2">Driver 03(1) set new best for sector 3</Sector>
+<Score et="263.6">Driver 07(5) lap=0 point=1 t=-1.000 et=263.586</Score>
+<Score et="267.3">Driver 06(3) lap=1 point=0 t=-1.000 et=267.260</Score>
+<Score et="267.7">Driver 08(6) lap=0 point=1 t=-1.000 et=267.678</Score>
+<Score et="268.2">Driver 05(4) lap=0 point=2 t=-1.000 et=268.143</Score>
+<Score et="282.5">Driver 02(2) lap=1 point=2 t=65.722 et=282.520</Score>
+<Sector et="282.5">Driver 02(2) set new best for sector 3</Sector>
+<Score et="291.7">Driver 03(1) lap=2 point=0 t=98.523 et=291.644</Score>
+<Sector et="291.7">Driver 03(1) set new best for sector 1</Sector>
+<Score et="301.3">Driver 07(5) lap=0 point=2 t=-1.000 et=301.300</Score>
+<Score et="301.4">Driver 06(3) lap=1 point=1 t=34.137 et=301.397</Score>
+<Score et="302.5">Driver 05(4) lap=1 point=0 t=-1.000 et=302.458</Score>
+<Score et="304.2">Driver 09(7) lap=0 point=1 t=-1.000 et=304.184</Score>
+<Score et="305.4">Driver 08(6) lap=0 point=2 t=-1.000 et=305.404</Score>
+<Score et="314.6">Driver 02(2) lap=2 point=0 t=97.781 et=314.580</Score>
+<Sector et="314.6">Driver 02(2) set new best for sector 1</Sector>
+<Score et="323.8">Driver 03(1) lap=2 point=1 t=32.196 et=323.840</Score>
+<Score et="336.4">Driver 06(3) lap=1 point=2 t=69.180 et=336.440</Score>
+<Score et="336.5">Driver 05(4) lap=1 point=1 t=34.010 et=336.468</Score>
+<Score et="338.1">Driver 07(5) lap=1 point=0 t=-1.000 et=338.048</Score>
+<Score et="342.4">Driver 09(7) lap=0 point=2 t=-1.000 et=342.341</Score>
+<Score et="343.1">Driver 08(6) lap=1 point=0 t=-1.000 et=343.077</Score>
+<Score et="346.6">Driver 02(2) lap=2 point=1 t=32.034 et=346.614</Score>
+<Sector et="346.6">Driver 02(2) set new best for sector 2</Sector>
+<Score et="357.6">Driver 03(1) lap=2 point=2 t=65.931 et=357.575</Score>
+<Score et="370.2">Driver 06(3) lap=2 point=0 t=102.941 et=370.201</Score>
+<Score et="371.5">Driver 05(4) lap=1 point=2 t=68.988 et=371.446</Score>
+<Score et="374.5">Driver 07(5) lap=1 point=1 t=36.467 et=374.514</Score>
+<Score et="379.4">Driver 09(7) lap=1 point=0 t=-1.000 et=379.401</Score>
+<Score et="379.6">Driver 08(6) lap=1 point=1 t=36.512 et=379.589</Score>
+<Score et="380.0">Driver 02(2) lap=2 point=2 t=65.372 et=379.951</Score>
+<Sector et="380.0">Driver 02(2) set new best for sector 3</Sector>
+<Score et="391.5">Driver 03(1) lap=3 point=0 t=99.813 et=391.457</Score>
+<Score et="404.0">Driver 06(3) lap=2 point=1 t=33.740 et=403.941</Score>
+<Score et="405.2">Driver 05(4) lap=2 point=0 t=102.709 et=405.167</Score>
+<Score et="412.2">Driver 07(5) lap=1 point=2 t=74.125 et=412.173</Score>
+<Score et="415.8">Driver 09(7) lap=1 point=1 t=36.417 et=415.818</Score>
+<Score et="416.8">Driver 08(6) lap=1 point=2 t=73.712 et=416.789</Score>
+<Score et="417.9">Driver 04(8) lap=0 point=1 t=-1.000 et=417.869</Score>
+<Score et="418.8">Driver 02(2) lap=3 point=0 t=-1.000 et=418.832</Score>
+<Score et="424.5">Driver 03(1) lap=3 point=1 t=32.994 et=424.451</Score>
+<Score et="438.9">Driver 05(4) lap=2 point=1 t=33.711 et=438.878</Score>
+<Score et="440.0">Driver 06(3) lap=2 point=2 t=69.779 et=439.979</Score>
+<Score et="448.6">Driver 07(5) lap=2 point=0 t=110.564 et=448.611</Score>
+<Score et="453.3">Driver 08(6) lap=2 point=0 t=110.184 et=453.261</Score>
+<Score et="454.6">Driver 09(7) lap=1 point=2 t=75.161 et=454.562</Score>
+<Score et="455.4">Driver 04(8) lap=0 point=2 t=-1.000 et=455.384</Score>
+<Score et="459.0">Driver 03(1) lap=3 point=2 t=67.536 et=458.993</Score>
+<Score et="473.6">Driver 06(3) lap=3 point=0 t=103.410 et=473.610</Score>
+<Score et="473.6">Driver 05(4) lap=2 point=2 t=68.439 et=473.606</Score>
+<Score et="484.9">Driver 07(5) lap=2 point=1 t=36.251 et=484.862</Score>
+<Score et="489.6">Driver 04(8) lap=1 point=0 t=-1.000 et=489.583</Score>
+<Score et="490.0">Driver 08(6) lap=2 point=1 t=36.680 et=489.942</Score>
+<Score et="491.3">Driver 09(7) lap=2 point=0 t=111.899 et=491.299</Score>
+<Score et="491.5">Driver 03(1) lap=4 point=0 t=100.038 et=491.495</Score>
+<Score et="507.2">Driver 05(4) lap=3 point=0 t=101.995 et=507.163</Score>
+<Score et="507.3">Driver 06(3) lap=3 point=1 t=33.701 et=507.311</Score>
+<Score et="522.2">Driver 07(5) lap=2 point=2 t=73.575 et=522.186</Score>
+<Score et="523.4">Driver 04(8) lap=1 point=1 t=33.850 et=523.433</Score>
+<Score et="523.6">Driver 03(1) lap=4 point=1 t=32.137 et=523.632</Score>
+<Score et="527.1">Driver 08(6) lap=2 point=2 t=73.856 et=527.117</Score>
+<Score et="527.6">Driver 09(7) lap=2 point=1 t=36.317 et=527.616</Score>
+<Score et="540.8">Driver 05(4) lap=3 point=1 t=33.672 et=540.835</Score>
+<Score et="542.0">Driver 06(3) lap=3 point=2 t=68.416 et=542.027</Score>
+<Score et="558.2">Driver 03(1) lap=4 point=2 t=66.707 et=558.202</Score>
+<Score et="558.5">Driver 07(5) lap=3 point=0 t=109.859 et=558.470</Score>
+<Score et="558.7">Driver 04(8) lap=1 point=2 t=69.123 et=558.706</Score>
+<Score et="563.6">Driver 08(6) lap=3 point=0 t=110.343 et=563.604</Score>
+<Score et="565.1">Driver 09(7) lap=2 point=2 t=73.815 et=565.115</Score>
+<Score et="575.7">Driver 06(3) lap=4 point=0 t=102.038 et=575.648</Score>
+<Score et="576.1">Driver 05(4) lap=3 point=2 t=68.919 et=576.081</Score>
+<Score et="590.6">Driver 03(1) lap=5 point=0 t=99.113 et=590.608</Score>
+<Score et="592.5">Driver 04(8) lap=2 point=0 t=102.889 et=592.472</Score>
+<Score et="594.7">Driver 07(5) lap=3 point=1 t=36.214 et=594.684</Score>
+<Score et="600.0">Driver 08(6) lap=3 point=1 t=36.415 et=600.019</Score>
+<Score et="601.8">Driver 09(7) lap=3 point=0 t=110.520 et=601.819</Score>
+<Score et="609.3">Driver 06(3) lap=4 point=1 t=33.672 et=609.321</Score>
+<Score et="616.2">Driver 05(4) lap=4 point=0 t=-1.000 et=616.219</Score>
+<Score et="622.7">Driver 03(1) lap=5 point=1 t=32.112 et=622.720</Score>
+<Score et="626.2">Driver 04(8) lap=2 point=1 t=33.722 et=626.194</Score>
+<Score et="631.8">Driver 07(5) lap=3 point=2 t=73.289 et=631.758</Score>
+<Score et="637.2">Driver 08(6) lap=3 point=2 t=73.571 et=637.175</Score>
+<Score et="638.1">Driver 09(7) lap=3 point=1 t=36.314 et=638.134</Score>
+<Score et="644.2">Driver 06(3) lap=4 point=2 t=68.579 et=644.227</Score>
+<Score et="656.5">Driver 03(1) lap=5 point=2 t=65.872 et=656.480</Score>
+<Score et="661.1">Driver 04(8) lap=2 point=2 t=68.617 et=661.089</Score>
+<Score et="668.1">Driver 07(5) lap=4 point=0 t=109.645 et=668.115</Score>
+<Score et="673.7">Driver 08(6) lap=4 point=0 t=110.131 et=673.735</Score>
+<Score et="675.6">Driver 09(7) lap=3 point=2 t=73.766 et=675.586</Score>
+<Score et="677.8">Driver 06(3) lap=5 point=0 t=102.183 et=677.831</Score>
+<Score et="688.9">Driver 03(1) lap=6 point=0 t=98.288 et=688.896</Score>
+<Score et="694.7">Driver 04(8) lap=3 point=0 t=102.204 et=694.676</Score>
+<Score et="704.3">Driver 07(5) lap=4 point=1 t=36.224 et=704.339</Score>
+<Score et="710.5">Driver 08(6) lap=4 point=1 t=36.773 et=710.508</Score>
+<Score et="711.5">Driver 06(3) lap=5 point=1 t=33.662 et=711.493</Score>
+<Score et="712.7">Driver 01(9) lap=0 point=1 t=-1.000 et=712.718</Score>
+<Score et="718.5">Driver 09(7) lap=4 point=0 t=-1.000 et=718.511</Score>
+<Score et="721.0">Driver 03(1) lap=6 point=1 t=32.103 et=720.998</Score>
+<Score et="729.1">Driver 04(8) lap=3 point=1 t=34.379 et=729.055</Score>
+<Score et="741.5">Driver 07(5) lap=4 point=2 t=73.339 et=741.454</Score>
+<Incident et="742.8">Driver 04(8) reported contact (5.91) with Immovable</Incident>
+<Score et="746.5">Driver 06(3) lap=5 point=2 t=68.620 et=746.451</Score>
+<Score et="747.1">Driver 01(9) lap=0 point=2 t=-1.000 et=747.114</Score>
+<Score et="748.0">Driver 08(6) lap=4 point=2 t=74.275 et=748.010</Score>
+<Score et="754.8">Driver 03(1) lap=6 point=2 t=65.939 et=754.834</Score>
+<Score et="766.4">Driver 04(8) lap=3 point=2 t=71.753 et=766.428</Score>
+<Score et="779.5">Driver 01(9) lap=1 point=0 t=-1.000 et=779.504</Score>
+<Score et="780.3">Driver 06(3) lap=6 point=0 t=102.481 et=780.313</Score>
+<Score et="784.0">Driver 07(5) lap=5 point=0 t=-1.000 et=783.942</Score>
+<Score et="787.3">Driver 03(1) lap=7 point=0 t=98.387 et=787.283</Score>
+<Score et="790.8">Driver 08(6) lap=5 point=0 t=-1.000 et=790.747</Score>
+<Score et="800.0">Driver 04(8) lap=4 point=0 t=105.340 et=800.016</Score>
+<Score et="811.5">Driver 01(9) lap=1 point=1 t=31.957 et=811.462</Score>
+<Sector et="811.5">Driver 01(9) set new best for sector 2</Sector>
+<Score et="814.0">Driver 06(3) lap=6 point=1 t=33.676 et=813.989</Score>
+<Score et="819.5">Driver 03(1) lap=7 point=1 t=32.170 et=819.452</Score>
+<Score et="833.7">Driver 04(8) lap=4 point=1 t=33.647 et=833.663</Score>
+<Score et="844.9">Driver 01(9) lap=1 point=2 t=65.354 et=844.858</Score>
+<Sector et="844.9">Driver 01(9) set new best for sector 3</Sector>
+<Score et="848.8">Driver 06(3) lap=6 point=2 t=68.448 et=848.760</Score>
+<Score et="853.3">Driver 03(1) lap=7 point=2 t=66.003 et=853.286</Score>
+<Score et="868.3">Driver 04(8) lap=4 point=2 t=68.274 et=868.290</Score>
+<Score et="877.0">Driver 01(9) lap=2 point=0 t=97.440 et=876.944</Score>
+<Sector et="877.0">Driver 01(9) set new best for sector 1</Sector>
+<Score et="878.7">Driver 02(2) lap=3 point=1 t=-1.000 et=878.673</Score>
+<Score et="885.7">Driver 03(1) lap=8 point=0 t=98.455 et=885.737</Score>
+<Score et="889.1">Driver 06(3) lap=7 point=0 t=-1.000 et=889.048</Score>
+<Score et="901.9">Driver 04(8) lap=5 point=0 t=101.853 et=901.869</Score>
+<Score et="908.8">Driver 01(9) lap=2 point=1 t=31.870 et=908.815</Score>
+<Sector et="908.8">Driver 01(9) set new best for sector 2</Sector>
+<Score et="913.7">Driver 02(2) lap=3 point=2 t=-1.000 et=913.734</Score>
+<Score et="918.0">Driver 03(1) lap=8 point=1 t=32.214 et=917.951</Score>
+<Score et="935.5">Driver 04(8) lap=5 point=1 t=33.641 et=935.510</Score>
+<Score et="942.4">Driver 01(9) lap=2 point=2 t=65.448 et=942.392</Score>
+<Sector et="942.4">Driver 01(9) set new best for sector 3</Sector>
+<Score et="946.7">Driver 02(2) lap=4 point=0 t=-1.000 et=946.726</Score>
+<Score et="951.9">Driver 03(1) lap=8 point=2 t=66.115 et=951.852</Score>
+</Stream>
+<MostLapsCompleted>13</MostLapsCompleted>
+<Driver>
+<Name>Driver 01</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18000000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #8</VehName>
+<Category>WEC 2023, Hypercar, Toyota GR010</Category>
+<CarType>Toyota GR010</CarType>
+<CarClass>Hyper</CarClass>
+<CarNumber>8</CarNumber>
+<TeamName>Team A</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>1</Position>
+<ClassPosition>1</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="33" et="--.---" topspeed="302.42" fuel="0.098" fuelUsed="0.766" ve="0.114" veUsed="0.036" twfl="0.984" twfr="0.988" twrl="0.984" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="2" p="1" et="779.5043" s1="31.9573" s2="33.3968" s3="32.0859" topspeed="314.41" fuel="0.067" fuelUsed="0.031" ve="0.078" veUsed="0.035" twfl="0.969" twfr="0.976" twrl="0.973" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">97.4400</Lap>
+<Lap num="3" p="1" et="876.9443" s1="31.8702" s2="33.5774" s3="32.0578" topspeed="314.01" fuel="0.035" fuelUsed="0.031" ve="0.043" veUsed="0.035" twfl="0.957" twfr="0.965" twrl="0.961" twrr="0.965" fcompound="0,Medium" rcompound="0,Medium">97.5054</Lap>
+<Lap num="4" p="1" et="974.4498" s1="31.9311" s2="33.9132" topspeed="314.00" fuel="0.008" fuelUsed="0.027" ve="0.008" veUsed="0.035" twfl="0.941" twfr="0.953" twrl="0.949" twrr="0.953" fcompound="0,Medium" rcompound="0,Medium" pit="1">--.----</Lap>
+<BestLapTime>97.4400</BestLapTime>
+<Laps>4</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="4">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 02</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c000000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #50</VehName>
+<Category>WEC 2023, Hypercar, Ferrari 499P</Category>
+<CarType>Ferrari 499P</CarType>
+<CarClass>Hyper</CarClass>
+<CarNumber>50</CarNumber>
+<TeamName>Team B</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>2</Position>
+<ClassPosition>2</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="8" et="--.---" topspeed="302.25" fuel="0.082" fuelUsed="0.709" ve="0.102" veUsed="0.038" twfl="0.984" twfr="0.988" twrl="0.984" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="2" p="1" et="216.7984" s1="32.1789" s2="33.5430" s3="32.0593" topspeed="312.15" fuel="0.051" fuelUsed="0.031" ve="0.067" veUsed="0.035" twfl="0.973" twfr="0.976" twrl="0.969" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">97.7811</Lap>
+<Lap num="3" p="1" et="314.5795" s1="32.0341" s2="33.3376" topspeed="313.06" fuel="0.024" fuelUsed="0.027" ve="0.027" veUsed="0.039" twfl="0.957" twfr="0.965" twrl="0.957" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" pit="1">--.----</Lap>
+<Lap num="4" p="2" et="418.8317" topspeed="298.82" fuel="0.761" fuelUsed="0.030" ve="0.965" veUsed="0.035" twfl="0.984" twfr="0.988" twrl="0.984" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="5" p="2" et="946.7255" s1="32.4094" s2="34.0887" s3="32.3885" topspeed="309.64" fuel="0.733" fuelUsed="0.027" ve="0.925" veUsed="0.039" twfl="0.973" twfr="0.976" twrl="0.973" twrr="0.973" fcompound="0,Medium" rcompound="0,Medium">98.8867</Lap>
+<Lap num="6" p="2" et="1045.6122" s1="32.3938" s2="33.6885" s3="32.4009" topspeed="309.60" fuel="0.702" fuelUsed="0.031" ve="0.890" veUsed="0.035" twfl="0.957" twfr="0.965" twrl="0.957" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium">98.4832</Lap>
+<Lap num="7" p="2" et="1144.0953" s1="32.2332" s2="33.7391" s3="32.3887" topspeed="309.98" fuel="0.675" fuelUsed="0.027" ve="0.855" veUsed="0.035" twfl="0.945" twfr="0.953" twrl="0.945" twrr="0.949" fcompound="0,Medium" rcompound="0,Medium">98.3610</Lap>
+<Lap num="8" p="2" et="1242.4563" s1="32.2661" s2="33.7533" s3="32.4180" topspeed="311.25" fuel="0.647" fuelUsed="0.027" ve="0.816" veUsed="0.039" twfl="0.929" twfr="0.937" twrl="0.929" twrr="0.937" fcompound="0,Medium" rcompound="0,Medium">98.4374</Lap>
+<BestLapTime>97.7811</BestLapTime>
+<Laps>8</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="8">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 03</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18000000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #7</VehName>
+<Category>WEC 2023, Hypercar, Toyota GR010</Category>
+<CarType>Toyota GR010</CarType>
+<CarClass>Hyper</CarClass>
+<CarNumber>7</CarNumber>
+<TeamName>Team A</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>3</Position>
+<ClassPosition>3</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="5" et="--.---" topspeed="300.56" fuel="0.831" fuelUsed="0.032" ve="0.965" veUsed="0.035" twfl="0.984" twfr="0.988" twrl="0.984" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="2" p="1" et="193.1207" s1="32.3154" s2="33.7124" s3="32.4956" topspeed="311.83" fuel="0.800" fuelUsed="0.031" ve="0.925" veUsed="0.039" twfl="0.969" twfr="0.976" twrl="0.973" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">98.5234</Lap>
+<Lap num="3" p="3" et="291.6441" s1="32.1956" s2="33.7351" s3="33.8827" topspeed="312.72" fuel="0.769" fuelUsed="0.031" ve="0.890" veUsed="0.035" twfl="0.953" twfr="0.965" twrl="0.961" twrr="0.965" fcompound="0,Medium" rcompound="0,Medium">99.8134</Lap>
+<Lap num="4" p="3" et="391.4575" s1="32.9940" s2="34.5417" s3="32.5019" topspeed="301.79" fuel="0.733" fuelUsed="0.035" ve="0.851" veUsed="0.039" twfl="0.941" twfr="0.953" twrl="0.949" twrr="0.953" fcompound="0,Medium" rcompound="0,Medium">100.0375</Lap>
+<Lap num="5" p="3" et="491.4950" s1="32.1371" s2="34.5701" s3="32.4056" topspeed="314.15" fuel="0.702" fuelUsed="0.031" ve="0.812" veUsed="0.039" twfl="0.925" twfr="0.941" twrl="0.933" twrr="0.941" fcompound="0,Medium" rcompound="0,Medium">99.1129</Lap>
+<Lap num="6" p="2" et="590.6078" s1="32.1121" s2="33.7601" s3="32.4155" topspeed="314.41" fuel="0.671" fuelUsed="0.031" ve="0.776" veUsed="0.035" twfl="0.910" twfr="0.929" twrl="0.922" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium">98.2877</Lap>
+<Lap num="7" p="2" et="688.8955" s1="32.1028" s2="33.8358" s3="32.4484" topspeed="314.86" fuel="0.635" fuelUsed="0.035" ve="0.737" veUsed="0.039" twfl="0.898" twfr="0.918" twrl="0.910" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium">98.3870</Lap>
+<Lap num="8" p="3" et="787.2825" s1="32.1697" s2="33.8333" s3="32.4517" topspeed="314.41" fuel="0.604" fuelUsed="0.031" ve="0.698" veUsed="0.039" twfl="0.882" twfr="0.906" twrl="0.894" twrr="0.906" fcompound="0,Medium" rcompound="0,Medium">98.4547</Lap>
+<Lap num="9" p="3" et="885.7372" s1="32.2139" s2="33.9009" s3="32.4756" topspeed="314.45" fuel="0.573" fuelUsed="0.031" ve="0.663" veUsed="0.035" twfl="0.867" twfr="0.894" twrl="0.882" twrr="0.894" fcompound="0,Medium" rcompound="0,Medium">98.5905</Lap>
+<Lap num="10" p="3" et="984.3278" s1="32.2136" s2="33.8342" s3="32.4985" topspeed="314.41" fuel="0.537" fuelUsed="0.035" ve="0.624" veUsed="0.039" twfl="0.855" twfr="0.882" twrl="0.871" twrr="0.882" fcompound="0,Medium" rcompound="0,Medium">98.5463</Lap>
+<Lap num="11" p="3" et="1082.8740" s1="32.1720" s2="33.8546" s3="32.4890" topspeed="314.44" fuel="0.506" fuelUsed="0.031" ve="0.584" veUsed="0.039" twfl="0.839" twfr="0.871" twrl="0.859" twrr="0.871" fcompound="0,Medium" rcompound="0,Medium">98.5156</Lap>
+<Lap num="12" p="3" et="1181.3896" s1="32.2576" s2="34.4535" s3="32.5286" topspeed="314.00" fuel="0.475" fuelUsed="0.031" ve="0.549" veUsed="0.035" twfl="0.824" twfr="0.859" twrl="0.843" twrr="0.859" fcompound="0,Medium" rcompound="0,Medium">99.2396</Lap>
+<Lap num="13" p="3" et="1280.6293" s1="32.1387" s2="34.1646" s3="33.1010" topspeed="314.56" fuel="0.439" fuelUsed="0.035" ve="0.510" veUsed="0.039" twfl="0.812" twfr="0.847" twrl="0.831" twrr="0.847" fcompound="0,Medium" rcompound="0,Medium">99.4042</Lap>
+<BestLapTime>98.2877</BestLapTime>
+<Laps>13</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="13">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 04</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18030000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #36</VehName>
+<Category>WEC 2023, LMP2, Oreca 07</Category>
+<CarType>Oreca 07</CarType>
+<CarClass>LMP2</CarClass>
+<CarNumber>36</CarNumber>
+<TeamName>Team C</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>14</Position>
+<ClassPosition>1</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="33" et="--.---" topspeed="281.52" fuel="0.239" fuelUsed="0.046" twfl="0.984" twfr="0.988" twrl="0.988" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="2" p="15" et="489.5832" s1="33.8498" s2="35.2731" s3="33.7657" topspeed="292.79" fuel="0.196" fuelUsed="0.043" twfl="0.973" twfr="0.976" twrl="0.976" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">102.8887</Lap>
+<Lap num="3" p="14" et="592.4719" s1="33.7223" s2="34.8943" s3="33.5871" topspeed="292.79" fuel="0.149" fuelUsed="0.047" twfl="0.957" twfr="0.969" twrl="0.965" twrr="0.965" fcompound="0,Medium" rcompound="0,Medium">102.2037</Lap>
+<Lap num="4" p="15" et="694.6757" s1="34.3794" s2="37.3732" s3="33.5876" topspeed="292.34" fuel="0.106" fuelUsed="0.043" twfl="0.945" twfr="0.957" twrl="0.953" twrr="0.953" fcompound="0,Medium" rcompound="0,Medium">105.3403</Lap>
+<Lap num="5" p="13" et="800.0159" s1="33.6473" s2="34.6266" s3="33.5789" topspeed="293.26" fuel="0.063" fuelUsed="0.043" twfl="0.929" twfr="0.945" twrl="0.937" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium">101.8528</Lap>
+<Lap num="6" p="13" et="901.8688" s1="33.6409" s2="34.6861" topspeed="293.32" fuel="0.020" fuelUsed="0.043" twfl="0.914" twfr="0.933" twrl="0.925" twrr="0.933" fcompound="0,Medium" rcompound="0,Medium" pit="1">--.----</Lap>
+<BestLapTime>101.8528</BestLapTime>
+<Laps>6</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="6">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 05</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18030000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #22</VehName>
+<Category>WEC 2023, LMP2, Oreca 07</Category>
+<CarType>Oreca 07</CarType>
+<CarClass>LMP2</CarClass>
+<CarNumber>22</CarNumber>
+<TeamName>Team D</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>15</Position>
+<ClassPosition>2</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="23" et="--.---" topspeed="281.52" fuel="0.161" fuelUsed="0.046" twfl="0.984" twfr="0.988" twrl="0.988" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="2" p="8" et="302.4579" s1="34.0097" s2="34.9785" s3="33.7210" topspeed="290.98" fuel="0.118" fuelUsed="0.043" twfl="0.973" twfr="0.976" twrl="0.976" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">102.7092</Lap>
+<Lap num="3" p="10" et="405.1671" s1="33.7113" s2="34.7272" s3="33.5569" topspeed="291.97" fuel="0.071" fuelUsed="0.047" twfl="0.957" twfr="0.965" twrl="0.961" twrr="0.965" fcompound="0,Medium" rcompound="0,Medium">101.9954</Lap>
+<Lap num="4" p="10" et="507.1625" s1="33.6723" s2="35.2467" topspeed="293.33" fuel="0.027" fuelUsed="0.043" twfl="0.945" twfr="0.957" twrl="0.949" twrr="0.953" fcompound="0,Medium" rcompound="0,Medium" pit="1">--.----</Lap>
+<Lap num="5" p="14" et="616.2190" topspeed="279.45" fuel="0.957" fuelUsed="0.043" twfl="0.984" twfr="0.988" twrl="0.988" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="6" p="15" et="1285.0559" s1="34.0500" s2="35.2793" s3="34.2338" topspeed="291.57" fuel="0.910" fuelUsed="0.047" twfl="0.973" twfr="0.976" twrl="0.976" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">103.5631</Lap>
+<BestLapTime>101.9954</BestLapTime>
+<Laps>6</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="6">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 06</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18030000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #9</VehName>
+<Category>WEC 2023, LMP2, Oreca 07</Category>
+<CarType>Oreca 07</CarType>
+<CarClass>LMP2</CarClass>
+<CarNumber>9</CarNumber>
+<TeamName>Team E</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>16</Position>
+<ClassPosition>3</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="17" et="--.---" topspeed="282.20" fuel="0.275" fuelUsed="0.043" twfl="0.988" twfr="0.988" twrl="0.988" twrr="0.988" fcompound="0,Medium" rcompound="0,Medium">--.----</Lap>
+<Lap num="2" p="7" et="267.2597" s1="34.1370" s2="35.0431" s3="33.7607" topspeed="290.53" fuel="0.227" fuelUsed="0.047" twfl="0.973" twfr="0.980" twrl="0.976" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium">102.9408</Lap>
+<Lap num="3" p="11" et="370.2005" s1="33.7404" s2="36.0383" s3="33.6310" topspeed="292.48" fuel="0.184" fuelUsed="0.043" twfl="0.957" twfr="0.969" twrl="0.965" twrr="0.969" fcompound="0,Medium" rcompound="0,Medium">103.4097</Lap>
+<Lap num="4" p="11" et="473.6102" s1="33.7009" s2="34.7155" s3="33.6216" topspeed="294.20" fuel="0.141" fuelUsed="0.043" twfl="0.945" twfr="0.957" twrl="0.953" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium">102.0380</Lap>
+<Lap num="5" p="12" et="575.6483" s1="33.6724" s2="34.9065" s3="33.6041" topspeed="292.79" fuel="0.098" fuelUsed="0.043" twfl="0.929" twfr="0.945" twrl="0.941" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium">102.1830</Lap>
+<Lap num="6" p="12" et="677.8313" s1="33.6621" s2="34.9576" s3="33.8615" topspeed="292.87" fuel="0.051" fuelUsed="0.047" twfl="0.918" twfr="0.937" twrl="0.929" twrr="0.933" fcompound="0,Medium" rcompound="0,Medium">102.4813</Lap>
+<Lap num="7" p="14" et="780.3126" s1="33.6765" s2="34.7713" topspeed="292.79" fuel="0.012" fuelUsed="0.039" twfl="0.902" twfr="0.925" twrl="0.914" twrr="0.922" fcompound="0,Medium" rcompound="0,Medium" pit="1">--.----</Lap>
+<BestLapTime>102.0380</BestLapTime>
+<Laps>7</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="7">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 07</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>8c310000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #33</VehName>
+<Category>WEC 2023, GTE, Corvette C8.R GTE</Category>
+<CarType>Corvette C8.R GTE</CarType>
+<CarClass>GTE</CarClass>
+<CarNumber>33</CarNumber>
+<TeamName>Team F</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>25</Position>
+<ClassPosition>1</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="32" et="--.---" topspeed="255.85" fuel="0.153" fuelUsed="0.032" twfl="0.980" twfr="0.984" twrl="0.976" twrr="0.980" fcompound="0,Soft" rcompound="0,Soft">--.----</Lap>
+<Lap num="2" p="16" et="338.0475" s1="36.4667" s2="37.6585" s3="36.4385" topspeed="262.61" fuel="0.118" fuelUsed="0.035" twfl="0.961" twfr="0.965" twrl="0.957" twrr="0.961" fcompound="0,Soft" rcompound="0,Soft">110.5637</Lap>
+<Lap num="3" p="19" et="448.6112" s1="36.2507" s2="37.3244" s3="36.2836" topspeed="264.14" fuel="0.086" fuelUsed="0.031" twfl="0.941" twfr="0.949" twrl="0.937" twrr="0.945" fcompound="0,Soft" rcompound="0,Soft">109.8587</Lap>
+<Lap num="4" p="21" et="558.4700" s1="36.2143" s2="37.0742" s3="36.3568" topspeed="264.41" fuel="0.051" fuelUsed="0.035" twfl="0.922" twfr="0.933" twrl="0.918" twrr="0.925" fcompound="0,Soft" rcompound="0,Soft">109.6453</Lap>
+<Lap num="5" p="22" et="668.1153" s1="36.2236" s2="37.1149" topspeed="264.41" fuel="0.020" fuelUsed="0.031" twfl="0.898" twfr="0.918" twrl="0.898" twrr="0.906" fcompound="0,Soft" rcompound="0,Soft" pit="1">--.----</Lap>
+<BestLapTime>109.6453</BestLapTime>
+<Laps>5</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="5">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 08</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>8c310000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #86</VehName>
+<Category>WEC 2023, GTE, Porsche 911 RSR-19</Category>
+<CarType>Porsche 911 RSR-19</CarType>
+<CarClass>GTE</CarClass>
+<CarNumber>86</CarNumber>
+<TeamName>Team G</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>26</Position>
+<ClassPosition>2</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="35" et="--.---" topspeed="253.37" fuel="0.157" fuelUsed="0.033" twfl="0.980" twfr="0.980" twrl="0.976" twrr="0.980" fcompound="0,Soft" rcompound="0,Soft">--.----</Lap>
+<Lap num="2" p="16" et="343.0771" s1="36.5124" s2="37.2000" s3="36.4716" topspeed="262.75" fuel="0.125" fuelUsed="0.031" twfl="0.961" twfr="0.965" twrl="0.957" twrr="0.961" fcompound="0,Soft" rcompound="0,Soft">110.1840</Lap>
+<Lap num="3" p="20" et="453.2611" s1="36.6805" s2="37.1752" s3="36.4873" topspeed="263.09" fuel="0.090" fuelUsed="0.035" twfl="0.941" twfr="0.949" twrl="0.933" twrr="0.941" fcompound="0,Soft" rcompound="0,Soft">110.3429</Lap>
+<Lap num="4" p="22" et="563.6040" s1="36.4147" s2="37.1559" s3="36.5601" topspeed="263.51" fuel="0.059" fuelUsed="0.031" twfl="0.922" twfr="0.933" twrl="0.914" twrr="0.922" fcompound="0,Soft" rcompound="0,Soft">110.1307</Lap>
+<Lap num="5" p="23" et="673.7347" s1="36.7734" s2="37.5019" topspeed="263.06" fuel="0.027" fuelUsed="0.031" twfl="0.902" twfr="0.914" twrl="0.890" twrr="0.898" fcompound="0,Soft" rcompound="0,Soft" pit="1">--.----</Lap>
+<BestLapTime>110.1307</BestLapTime>
+<Laps>5</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="5">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 09</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18630000 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #54</VehName>
+<Category>WEC 2023, GTE, Ferrari 488 GTE EVO</Category>
+<CarType>Ferrari 488 GTE EVO</CarType>
+<CarClass>GTE</CarClass>
+<CarNumber>54</CarNumber>
+<TeamName>Team H</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>27</Position>
+<ClassPosition>3</ClassPosition>
+<LapRankIncludingDiscos>38</LapRankIncludingDiscos>
+<Lap num="1" p="33" et="--.---" topspeed="256.30" fuel="0.129" fuelUsed="0.033" twfl="0.980" twfr="0.984" twrl="0.980" twrr="0.980" fcompound="0,Soft" rcompound="0,Soft">--.----</Lap>
+<Lap num="2" p="24" et="379.4009" s1="36.4169" s2="38.7440" s3="36.7377" topspeed="264.11" fuel="0.098" fuelUsed="0.031" twfl="0.961" twfr="0.965" twrl="0.961" twrr="0.961" fcompound="0,Soft" rcompound="0,Soft">111.8986</Lap>
+<Lap num="3" p="22" et="491.2994" s1="36.3169" s2="37.4982" s3="36.7049" topspeed="264.41" fuel="0.063" fuelUsed="0.035" twfl="0.941" twfr="0.949" twrl="0.937" twrr="0.945" fcompound="0,Soft" rcompound="0,Soft">110.5200</Lap>
+<Lap num="4" p="24" et="601.8195" s1="36.3143" s2="37.4521" topspeed="264.41" fuel="0.031" fuelUsed="0.031" twfl="0.922" twfr="0.933" twrl="0.918" twrr="0.925" fcompound="0,Soft" rcompound="0,Soft" pit="1">--.----</Lap>
+<Lap num="5" p="26" et="718.5110" topspeed="255.46" fuel="0.118" fuelUsed="0.034" twfl="0.980" twfr="0.984" twrl="0.980" twrr="0.980" fcompound="0,Soft" rcompound="0,Soft">--.----</Lap>
+<Lap num="6" p="26" et="1112.6858" s1="36.3958" s2="37.5664" s3="36.7289" topspeed="264.08" fuel="0.086" fuelUsed="0.031" twfl="0.961" twfr="0.965" twrl="0.957" twrr="0.961" fcompound="0,Soft" rcompound="0,Soft">110.6910</Lap>
+<Lap num="7" p="26" et="1223.3768" s1="36.5435" s2="37.4226" s3="36.6721" topspeed="264.09" fuel="0.051" fuelUsed="0.035" twfl="0.941" twfr="0.949" twrl="0.937" twrr="0.945" fcompound="0,Soft" rcompound="0,Soft">110.6382</Lap>
+<BestLapTime>110.5200</BestLapTime>
+<Laps>7</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+<ControlAndAids startLap="1" endLap="7">AIControl</ControlAndAids>
+</Driver>
+</Practice1>
+</RaceResults>
+</rFactorXML>

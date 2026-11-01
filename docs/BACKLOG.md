@@ -36,9 +36,9 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | # | Typ | Status | Punkt | Abhängig von |
 |:-:|---|---|---|---|
 | 1 | ARC | TODO | **Telemetrie-Format verifizieren** (laut Changelog DuckDB, laut Wiki `.ld`/`.csv`): Aufzeichnung im Spiel einschalten und eine Session fahren, Datendatei untersuchen, eigenes ADR mit Schema und Kanalliste, danach F-012 und F-013 prüfen. Die Result-XML ist erledigt ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Quellen: [quellen/](quellen/README.md) | echte Telemetrie-Aufzeichnung in `samples/` |
-| 3 | ARC | TODO | ADR zur Datenhaltung: Metadaten-Index (IndexedDB), ob DuckDB-WASM nur für Telemetrie oder auch für den Index genutzt wird | – (Teil zur Telemetrie wartet auf 1) |
-| 4 | Feature | TODO | Grundlage: F-001 Ordner einlesen, F-002 Session-Bibliothek, F-006 Session-Kopf, F-016 Lokaler Index, F-017 Mehrsprachigkeit | 3 |
-| 5 | Feature | TODO | Ergebnisse: F-003 Eigener Fahrer, F-004 Rennergebnis, F-005 Qualifying, F-015 Favoriten | 4 |
+| 3 | ARC | TODO | ADR zur Telemetrie-Datenhaltung: ob DuckDB-WASM genutzt wird (Index und Einlesen sind in [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md) entschieden) | 1 |
+| 4 | Feature | IN PROGRESS | MVP gebaut, wartet auf Abnahme durch den Entwickler: F-001 Ordner einlesen, F-002 Session-Bibliothek (ohne Land/Flagge), F-006 Session-Kopf (nur Reiter „Ergebnis"), F-016 Lokaler Index, F-017 Mehrsprachigkeit. Danach FEATURES.md kondensieren | – |
+| 5 | Feature | IN PROGRESS | MVP gebaut, wartet auf Abnahme: F-003 Eigener Fahrer, F-004 Rennergebnis, F-005 Qualifying. Offen: F-015 Favoriten | 4 |
 | 6 | Feature | TODO | Analyse: F-007 Lap Chart, F-008 Position Chart, F-009 Statistiken, F-010 Incidents, F-011 Chat | 5 |
 | 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1, 5 |
 | 8 | Feature | TODO | Lap Times: F-014 Persönliche Bestzeiten | 5 |

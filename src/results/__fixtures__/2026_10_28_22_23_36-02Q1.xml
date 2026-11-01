@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rF [
+<!ENTITY rFEnt "rFactor Entity">
+]>
+<rFactorXML version="1.0">
+<RaceResults>
+<Setting>Race Weekend</Setting>
+<PlayerFile>Settings</PlayerFile>
+<DateTime>1793221207</DateTime>
+<TimeString>2026/10/28 22:00:07</TimeString>
+<TrackVenue>Algarve International Circuit</TrackVenue>
+<TrackCourse>Algarve International Circuit</TrackCourse>
+<TrackEvent>6 Hours of Portimao</TrackEvent>
+<TrackData>Installed\Locations\Track\layout.mas</TrackData>
+<TrackLength>4635.3</TrackLength>
+<GameVersion>1.4200</GameVersion>
+<Dedicated>0</Dedicated>
+<ConnectionType upload="10000" download="20000">Connection</ConnectionType>
+<RaceLaps>0</RaceLaps>
+<RaceTime>20</RaceTime>
+<MechFailRate>1</MechFailRate>
+<DamageMult>75</DamageMult>
+<FuelMult>1</FuelMult>
+<TireMult>1</TireMult>
+<VehiclesAllowed>BMW_M4_LMGT3,</VehiclesAllowed>
+<ParcFerme>3</ParcFerme>
+<FixedSetups>0</FixedSetups>
+<FreeSettings>11</FreeSettings>
+<FixedUpgrades>0</FixedUpgrades>
+<TireWarmers>1</TireWarmers>
+<Qualify>
+<DateTime>1793222609</DateTime>
+<TimeString>2026/10/28 22:23:29</TimeString>
+<Laps>2147483647</Laps>
+<Minutes>10</Minutes>
+<Stream>
+</Stream>
+<MostLapsCompleted>0</MostLapsCompleted>
+<Driver>
+<Name>Driver 01</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>04210800 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #10</VehName>
+<Category>WEC 2026, GT3, McLaren 720S LMGT3 Evo</Category>
+<CarType>McLaren 720S LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>10</CarNumber>
+<TeamName>Team A</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>1</Position>
+<ClassPosition>1</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Laps>0</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+</Driver>
+<Driver>
+<Name>Driver 02</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>04210800 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #21</VehName>
+<Category>WEC 2026, GT3, Ferrari 296 LMGT3 Evo</Category>
+<CarType>Ferrari 296 LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>21</CarNumber>
+<TeamName>Team B</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>2</Position>
+<ClassPosition>2</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Laps>0</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+</Driver>
+<Driver>
+<Name>Driver 03</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>82100400 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #23</VehName>
+<Category>WEC 2026, GT3, Aston Martin Vantage AMR LMGT3</Category>
+<CarType>Aston Martin Vantage AMR LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>23</CarNumber>
+<TeamName>Team C</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>3</Position>
+<ClassPosition>3</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Laps>0</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+</Driver>
+<Driver>
+<Name>Own Driver</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>82100400 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #32</VehName>
+<Category>WEC 2026, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>32</CarNumber>
+<TeamName>Team D</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<Position>5</Position>
+<ClassPosition>5</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Laps>0</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>None</FinishStatus>
+</Driver>
+</Qualify>
+</RaceResults>
+</rFactorXML>
