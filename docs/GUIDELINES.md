@@ -26,8 +26,8 @@ das Design ist eigenständig.
 
 ## Testen
 
-Test-, Typecheck- und Build-Befehle folgen mit dem Projektgerüst (Backlog 2).
-Festgelegt ist schon:
+Befehle: `npm test` (Vitest), `npm run typecheck`, `npm run lint`,
+`npm run build`; `npm run check` führt alles zusammen aus. Regeln:
 
 - **Parser sind testpflichtig** und laufen gegen anonymisierte Fixtures.
 - **Neue Logik** (Auswertung, Aggregation, Berechnung) bekommt Unit-Tests;

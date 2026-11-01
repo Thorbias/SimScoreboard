@@ -11,8 +11,8 @@
 |---|---|---|
 | Sprache | TypeScript | [ADR-0001](decisions/ADR-0001-typescript-vite.md) |
 | Build / Dev-Server | Vite | [ADR-0001](decisions/ADR-0001-typescript-vite.md) |
-| UI-Framework | offen | Backlog 2 (eigenes ADR) |
-| Charts | offen, Kandidaten uPlot und D3 | Backlog 2 |
+| UI-Framework | React | [ADR-0003](decisions/ADR-0003-ui-framework-und-charts.md) |
+| Charts | uPlot (Zeitreihen), eigenes SVG mit d3-scale/d3-shape | [ADR-0003](decisions/ADR-0003-ui-framework-und-charts.md) |
 | Telemetrie lesen | offen, voraussichtlich DuckDB-WASM | Backlog 1 und 3 |
 | Ordnerzugriff | File System Access API, Fallback Ordner-Auswahl/Drag-and-drop | [F-001](FEATURES.md) |
 | Lokale Daten | IndexedDB | Backlog 3 |
@@ -62,7 +62,6 @@ Fahrer-Eckdaten ist optional, weil Spielversion und Modus es beeinflussen.
 
 ## Offen
 
-- UI-Framework und Charts: Backlog 2.
 - Datenhaltung (Index, DuckDB-WASM nur für Telemetrie oder auch für den Index):
   Backlog 3.
 - Schema der Telemetrie: Backlog 1, wartet auf eine echte Aufzeichnung.

@@ -14,15 +14,25 @@ auswertet: Ergebnisse, Rundenvergleiche, Telemetrie und persönliche Bestzeiten.
 Später kommt eine **Custom-League-Funktion** dazu. Alles läuft **clientseitig** im
 Browser, ohne Backend — die Dateien des Spiels verlassen den Rechner nicht.
 
-Stack: **TypeScript + Vite** ([ADR-0001](docs/decisions/ADR-0001-typescript-vite.md)).
+Stack: **TypeScript + Vite** ([ADR-0001](docs/decisions/ADR-0001-typescript-vite.md)),
+**React**, uPlot und eigenes SVG für Charts
+([ADR-0003](docs/decisions/ADR-0003-ui-framework-und-charts.md)).
 Schwesterprojekt in derselben Markenfamilie: SimPosture (eigenes Repo, KMP; es
 wird nur das Branding geteilt, kein Code).
 
-**Stand:** Das Projekt ist angelegt und dokumentiert, es gibt noch **keinen Code**.
-Der Start der Implementierung wartet auf echte Beispieldateien des Spiels (Result-
-und Telemetrie-Dateien), weil die Dateiformate noch nicht verifiziert sind. Die
-Übergabe mit dem nächsten Schritt steht oben in
+**Stand:** Das Projektgerüst steht (Vite, React, TypeScript, Tests), Fachcode gibt
+es noch nicht. Die Result-XML ist an echten Dateien geprüft
+([ADR-0002](docs/decisions/ADR-0002-lmu-result-format.md)); die Telemetrie wartet
+auf eine echte Aufzeichnung. Die Übergabe mit dem nächsten Schritt steht oben in
 [docs/BACKLOG.md](docs/BACKLOG.md).
+
+**Befehle** (Node-Version in `.nvmrc`, Verwaltung mit fnm):
+
+- `npm install` · `npm run dev` (Dev-Server)
+- `npm run check` = Typecheck, Lint, Tests und Build — vor jedem Commit grün
+- einzeln: `npm run typecheck` · `lint` · `test` · `build` · `format:check`
+- Prettier gilt nur für Code; Markdown-Dateien sind von Hand formatiert und
+  ausgenommen.
 
 **Fremdtool-Regel:** Namen, Screenshots und Beschreibungen anderer
 Auswertungstools gehören nirgends ins Repository (siehe GUIDELINES).

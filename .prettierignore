@@ -1,0 +1,6 @@
+dist
+node_modules
+package-lock.json
+samples
+# Hand-formatted German docs, not touched by the formatter
+*.md

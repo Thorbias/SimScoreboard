@@ -1,6 +1,6 @@
 # ADR-0001: TypeScript und Vite als Stack
 
-- **Status:** Vorgeschlagen (wird mit Entwickler-Freigabe „Angenommen")
+- **Status:** Angenommen
 - **Datum:** 2026-11-01
 
 ## Kontext
