@@ -86,64 +86,58 @@ Prio M · Status fertig
 Jede Session zeigt in einem Kopfbereich ihre Eckdaten.
 
 - Session-Typ, Event, Strecke und Layout, Datum und Uhrzeit, Länge in Minuten oder Runden, Streckenlänge, Fahrerzahl, Modus und Spielversion.
-- Die Ansichten einer Session (Ergebnis, Lap Chart, Position Chart, Statistics, Incidents, Chat) sollen als Reiter erreichbar sein; nur die für den Session-Typ sinnvollen erscheinen (Position Chart und Statistics nur im Rennen). Bisher gibt es die Ansicht „Ergebnis“; die weiteren Reiter kommen mit F-007 bis F-011.
+- Die Ansichten einer Session (Ergebnis, Lap Chart, Position Chart, Statistics, Incidents, Chat) sollen als Reiter erreichbar sein; nur die für den Session-Typ sinnvollen erscheinen (Position Chart und Statistics nur im Rennen). Reiter: Ergebnis, Rundenzeiten, Positionen, Statistik, Zwischenfälle, Chat.
 - Die Flagge der Strecke: F-018.
 
 ## F-007 — Lap Chart
 
-Prio S · Status offen
+Prio S · Status fertig
 
 Der Anwender vergleicht den Rundenzeiten-Verlauf zweier Fahrer Runde für Runde.
 
-- Zwei frei wählbare Fahrer, je eine Linie in eigener Farbe.
-- Marker für die Bestrunde und für Runden ohne gewertete Zeit (die Dateien kennen
-  kein Flag „ungültig"; es fehlen Sektorzeiten bzw. die Rundenzeit).
-- Darunter je Fahrer eine Tabelle mit Runde, Rundenzeit, Sektoren 1–3 und Delta
-  zum anderen Fahrer.
-- Die Chart-Ansicht lässt sich ausblenden, sodass nur die Tabellen bleiben.
+- Zwei frei wählbare Fahrer, je eine Linie in eigener Farbe; vorgewählt sind der eigene Fahrer und der schnellste Fahrer seiner Klasse.
+- Runden ohne gewertete Zeit erscheinen als Lücke; sehr langsame Runden (über 125 % des Medians) sind im Diagramm abgeschnitten. Die Bestrunde jedes Fahrers ist in der Tabelle hervorgehoben.
+- Darunter eine Tabelle mit Runde, Sektoren 1–3 und Rundenzeit beider Fahrer sowie dem Delta A–B.
+- Die Diagrammansicht lässt sich ausblenden, sodass nur die Tabelle bleibt.
 
 ## F-008 — Position Chart
 
-Prio S · Status offen
+Prio S · Status fertig
 
-Die App zeigt den Positionsverlauf aller Fahrer von der Startaufstellung bis ins
-Ziel.
+Die App zeigt den Positionsverlauf aller Fahrer eines Rennens von der Startaufstellung bis ins Ziel.
 
-- Eine Linie je Fahrer, Achse von „Grid" über jede Runde bis „Finish".
-- Umschalter je Klasse; Legende mit Fahrern und Endposition.
-- Ein Fokus-Modus hebt den eigenen Fahrer hervor und blendet den Rest zurück.
+- Eine Linie je Fahrer, Achse von „Start" über jede Runde bis „Ziel".
+- Umschalter Gesamt / je Klasse; in der Klassenansicht sind die Positionen Ränge innerhalb der Klasse.
+- Der eigene Fahrer ist hervorgehoben und der Rest zurückgenommen; ein Klick auf eine Linie oder die Legende hebt einen anderen Fahrer hervor, „Alle gleich anzeigen" hebt die Hervorhebung auf.
+- Die Legende nennt Fahrer mit Endposition.
 
 ## F-009 — Statistiken je Klasse
 
-Prio S · Status offen
+Prio S · Status fertig
 
 Die App hebt je Klasse die auffälligen Leistungen eines Rennens hervor.
 
 - Schnellste Runde und schnellste Sektoren 1–3 mit Fahrer und Rundennummer.
-- Konstanz: Fahrer mit der geringsten Standardabweichung der Rundenzeiten.
-- Die meisten gewonnenen und die meisten verlorenen Positionen.
+- Konstanz: Fahrer mit der geringsten Standardabweichung der Rundenzeiten; gezählt werden nur saubere Runden (keine Boxenrunde, höchstens 107 % der eigenen Bestzeit, mindestens fünf Runden).
+- Die meisten gewonnenen und die meisten verlorenen Plätze gegenüber der Startaufstellung der Klasse.
 - Die meistgenutzte Reifenmischung mit Rundenzahl.
 
 ## F-010 — Incidents
 
-Prio S · Status offen
+Prio S · Status fertig
 
 Der Anwender sieht alle Zwischenfälle einer Session als Zeitleiste.
 
-- Spalten: Session-Zeit (Restzeit wird aus der Session-Länge berechnet), Typ,
-  Fahrer, Klasse, Runde, Detail.
-- Typen: Kontakt (mit Stärke und Gegner), Track Limits, Strafe.
+- Spalten: Session-Zeit, Restzeit (bei zeitbegrenzter Session), Typ, Fahrer, Klasse, Runde, Detail.
+- Typen: Kontakt (mit Fahrzeug oder Objekt, mit Stärke), Schaden, Track Limits (mit Verwarnpunkten) und Strafe (verhängt oder abgesessen).
 - Filter nach Typ, Klasse und Fahrer.
-- Track Limits und Strafen gibt es nur in neueren Mehrspieler-Dateien; fehlen sie,
-  zeigt die Ansicht nur die Kontakte oder einen Hinweis.
+- Die Ereignisse stehen nur in neueren Mehrspieler-Dateien; fehlen sie, entfällt der Reiter.
 
 ## F-011 — Session-Chat
 
-Prio K · Status offen
+Prio K · Status fertig
 
-Die App zeigt den Chat-Verlauf einer Session als eigenen Reiter. Chat gibt es nur in
-neueren Mehrspieler-Dateien; der Reiter erscheint nur, wenn Nachrichten vorhanden
-sind.
+Die App zeigt den Chat-Verlauf einer Session als eigenen Reiter. Chat gibt es nur in neueren Mehrspieler-Dateien; der Reiter erscheint nur, wenn Nachrichten vorhanden sind.
 
 ## F-012 — Telemetrie-Vergleich zweier Runden
 
