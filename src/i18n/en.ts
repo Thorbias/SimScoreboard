@@ -132,6 +132,26 @@ export const en = {
   'inc.penaltyDetail': '{penalty} – {reason}',
   'chat.empty': 'No chat messages in this session.',
 
+  'nav.records': 'Records',
+  'records.title': 'Personal bests',
+  'records.needName':
+    'Set your driver name in the settings to see your personal bests.',
+  'records.empty': 'No lap times of yours were found in the sessions yet.',
+  'records.layouts': '{n} layouts',
+  'records.sessions': '{n} sessions',
+  'records.bestQuali': 'Best qualifying lap',
+  'records.bestRace': 'Best race lap',
+  'records.totalLaps': 'Laps driven',
+  'records.cars': 'Cars',
+  'records.date': 'Date',
+  'records.session': 'Session',
+  'records.toBest': 'To class best',
+  'records.noTime': 'No timed lap yet',
+
+  'fav.add': 'Mark as favourite',
+  'fav.remove': 'Remove from favourites',
+  'filter.favorites': 'Favourites only',
+
   'settings.title': 'Settings',
   'settings.driver': 'Your driver names',
   'settings.driverHelp':

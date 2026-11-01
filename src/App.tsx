@@ -1,6 +1,7 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
 import { LibraryView } from './ui/LibraryView';
+import { RecordsView } from './ui/RecordsView';
 import { SessionView } from './ui/SessionView';
 import { SettingsView } from './ui/SettingsView';
 
@@ -18,9 +19,19 @@ function Shell() {
         <nav>
           <a
             href={routes.library()}
-            aria-current={route.name !== 'settings' ? 'page' : undefined}
+            aria-current={
+              route.name === 'library' || route.name === 'session'
+                ? 'page'
+                : undefined
+            }
           >
             {t('nav.library')}
+          </a>
+          <a
+            href={routes.records()}
+            aria-current={route.name === 'records' ? 'page' : undefined}
+          >
+            {t('nav.records')}
           </a>
           <a
             href={routes.settings()}
@@ -33,6 +44,7 @@ function Shell() {
       <main>
         {route.name === 'library' && <LibraryView />}
         {route.name === 'session' && <SessionView id={route.id} />}
+        {route.name === 'records' && <RecordsView />}
         {route.name === 'settings' && <SettingsView />}
       </main>
     </div>

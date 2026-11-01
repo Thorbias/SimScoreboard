@@ -24,8 +24,12 @@ import {
   resultFilesFromList,
   supportsDirectoryPicker,
 } from '../library/sources';
-import { parseSession } from '../results/parse';
-import type { Session, SessionSummary } from '../results/types';
+import { parseSession, upgradeSummary } from '../results/parse';
+import {
+  SUMMARY_VERSION,
+  type Session,
+  type SessionSummary,
+} from '../results/types';
 import { openStore, type Store, type StoredSession } from '../storage/store';
 
 export type FolderState = 'none' | 'needs-permission' | 'connected';
@@ -56,9 +60,12 @@ export interface AppState {
   folder: FolderState;
   canPickDirectory: boolean;
   aliases: string[];
+  /** IDs (file names) of the sessions marked as favourite. */
+  favorites: string[];
   languageSetting: LanguageSetting;
   language: Language;
   t: Translate;
+  toggleFavorite(id: string): Promise<void>;
   chooseFolder(): Promise<void>;
   chooseFiles(files: FileList | null): Promise<void>;
   reconnectFolder(): Promise<void>;
@@ -93,10 +100,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [sourceVersion, setSourceVersion] = useState(0);
   const [folder, setFolder] = useState<FolderState>('none');
   const [aliases, setAliasesState] = useState<string[]>([]);
+  const [favorites, setFavoritesState] = useState<string[]>([]);
   const [languageSetting, setLanguageSettingState] =
     useState<LanguageSetting>('auto');
 
   const storeRef = useRef<Store | null>(null);
+  const favoritesRef = useRef<string[]>([]);
   const filesRef = useRef(new Map<string, File>());
   const knownRef = useRef(
     new Map<string, { size: number; lastModified: number }>(),
@@ -179,13 +188,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setPersistent(store.persistent);
       const stored = await store.getSessions();
       for (const item of stored) {
-        knownRef.current.set(item.summary.id, {
-          size: item.size,
-          lastModified: item.lastModified,
-        });
+        // Records of an older version stay out of `known`, so the next scan
+        // reads their files again.
+        if (item.version === SUMMARY_VERSION) {
+          knownRef.current.set(item.summary.id, {
+            size: item.size,
+            lastModified: item.lastModified,
+          });
+        }
       }
-      setSessions(stored.map((s) => s.summary));
+      setSessions(stored.map((s) => upgradeSummary(s.summary)));
       setAliasesState((await store.getSetting<string[]>('aliases')) ?? []);
+      favoritesRef.current =
+        (await store.getSetting<string[]>('favorites')) ?? [];
+      setFavoritesState(favoritesRef.current);
       setLanguageSettingState(
         (await store.getSetting<LanguageSetting>('language')) ?? 'auto',
       );
@@ -237,6 +253,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await storeRef.current?.setSetting('aliases', next);
   }, []);
 
+  const toggleFavorite = useCallback(async (id: string) => {
+    const current = favoritesRef.current;
+    const next = current.includes(id)
+      ? current.filter((f) => f !== id)
+      : [...current, id];
+    favoritesRef.current = next;
+    setFavoritesState(next);
+    await storeRef.current?.setSetting('favorites', next);
+  }, []);
+
   const setLanguageSetting = useCallback(async (next: LanguageSetting) => {
     setLanguageSettingState(next);
     await storeRef.current?.setSetting('language', next);
@@ -257,6 +283,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     folder,
     canPickDirectory: supportsDirectoryPicker(),
     aliases,
+    favorites,
+    toggleFavorite,
     languageSetting,
     language,
     t,

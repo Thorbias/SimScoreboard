@@ -130,7 +130,20 @@ export interface SessionSummary {
 export interface EntrySummary {
   driverName: string;
   carClass: string;
+  carType: string;
   carNumber: string;
   position: number | null;
   classPosition: number | null;
+  /** Best lap time in seconds, null without a timed lap. */
+  bestLap: number | null;
+  /** Sector times of the best lap; null where the file has none. */
+  bestLapSectors: [number | null, number | null, number | null];
+  /** Completed laps. */
+  lapCount: number;
 }
+
+/**
+ * Version of the index records. Raise it when the summary gains fields; stored
+ * records of an older version are re-read from the files on the next scan.
+ */
+export const SUMMARY_VERSION = 2;

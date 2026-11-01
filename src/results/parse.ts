@@ -140,13 +140,35 @@ export function parseSession(xml: string, fileName: string): Session {
   };
 }
 
+/**
+ * Fills the fields that records of an older index version lack, so the library
+ * can show them until the files are read again.
+ */
+export function upgradeSummary(summary: SessionSummary): SessionSummary {
+  return {
+    ...summary,
+    entries: summary.entries.map((e) => ({
+      ...e,
+      carType: e.carType ?? '',
+      bestLap: e.bestLap ?? null,
+      bestLapSectors: e.bestLapSectors ?? [null, null, null],
+      lapCount: e.lapCount ?? 0,
+    })),
+  };
+}
+
 export function summarize(session: Session): SessionSummary {
   const entries: EntrySummary[] = session.entries.map((e) => ({
     driverName: e.driverName,
     carClass: e.carClass,
+    carType: e.carType,
     carNumber: e.carNumber,
     position: e.position,
     classPosition: e.classPosition,
+    bestLap: e.bestLap,
+    bestLapSectors: e.laps.find((l) => l.time !== null && l.time === e.bestLap)
+      ?.sectors ?? [null, null, null],
+    lapCount: e.lapCount,
   }));
   return {
     id: session.id,

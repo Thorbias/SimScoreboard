@@ -13,6 +13,8 @@ import {
   type LibraryFilter,
 } from '../library/filters';
 import type { SessionSummary, SessionType } from '../results/types';
+import { CountryLabel } from './CountryLabel';
+import { FavoriteButton } from './FavoriteButton';
 import { FolderBar } from './FolderBar';
 
 const TYPES: SessionType[] = ['practice', 'qualifying', 'race'];
@@ -31,7 +33,7 @@ function SessionRow({ session }: { session: SessionSummary }) {
   const { t, language, aliases } = useApp();
   const own = ownResult(session, aliases);
   return (
-    <li>
+    <li className="session-item">
       <a className="session-row" href={routes.session(session.id)}>
         <span className={`badge type-${session.type}`}>
           {t(`type.${session.type}`)}
@@ -49,19 +51,21 @@ function SessionRow({ session }: { session: SessionSummary }) {
           )}
         </span>
       </a>
+      <FavoriteButton id={session.id} />
     </li>
   );
 }
 
 export function LibraryView() {
-  const { t, sessions, ready, folder, persistent, scan, language } = useApp();
+  const { t, sessions, ready, folder, persistent, scan, language, favorites } =
+    useApp();
   const [filter, setFilter] = useState<LibraryFilter>(NO_FILTER);
   const [fromText, setFromText] = useState('');
   const [toText, setToText] = useState('');
 
   const filtered = useMemo(
-    () => filterSessions(sessions, filter),
-    [sessions, filter],
+    () => filterSessions(sessions, filter, favorites),
+    [sessions, filter, favorites],
   );
   const groups = useMemo(() => groupByEvent(filtered), [filtered]);
   const tracks = useMemo(() => uniqueTracks(sessions), [sessions]);
@@ -71,6 +75,7 @@ export function LibraryView() {
     filter.type !== 'all' ||
     filter.track !== '' ||
     filter.carClass !== '' ||
+    filter.favoritesOnly ||
     fromText !== '' ||
     toText !== '';
 
@@ -152,6 +157,16 @@ export function LibraryView() {
               }}
             />
           </label>
+          <label className="check">
+            <input
+              type="checkbox"
+              checked={filter.favoritesOnly}
+              onChange={(e) =>
+                setFilter({ ...filter, favoritesOnly: e.target.checked })
+              }
+            />
+            {t('filter.favorites')}
+          </label>
           {filtering && (
             <button
               onClick={() => {
@@ -183,7 +198,13 @@ export function LibraryView() {
       {groups.map((group) => (
         <section className="event" key={group.key}>
           <h3>
-            {group.title}
+            <span>
+              {group.title}
+              <CountryLabel
+                venue={group.sessions[0]?.trackVenue ?? group.title}
+                course={group.trackCourse}
+              />
+            </span>
             <span className="event-date">
               {formatDateTime(group.time, language)}
             </span>

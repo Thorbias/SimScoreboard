@@ -13,6 +13,7 @@ export interface LibraryFilter {
   from: number | null;
   /** Epoch ms, inclusive. */
   to: number | null;
+  favoritesOnly: boolean;
 }
 
 export const NO_FILTER: LibraryFilter = {
@@ -21,6 +22,7 @@ export const NO_FILTER: LibraryFilter = {
   carClass: '',
   from: null,
   to: null,
+  favoritesOnly: false,
 };
 
 /** When a session happened; the file name time is the most reliable. */
@@ -33,8 +35,10 @@ export function sessionTime(
 export function filterSessions(
   sessions: readonly SessionSummary[],
   filter: LibraryFilter,
+  favorites: readonly string[] = [],
 ): SessionSummary[] {
   return sessions.filter((s) => {
+    if (filter.favoritesOnly && !favorites.includes(s.id)) return false;
     if (filter.type !== 'all' && s.type !== filter.type) return false;
     if (filter.track && s.trackCourse !== filter.track) return false;
     if (filter.carClass && !s.classes.includes(filter.carClass)) return false;

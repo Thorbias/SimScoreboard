@@ -135,6 +135,27 @@ export const de: Record<MessageKey, string> = {
   'inc.penaltyDetail': '{penalty} – {reason}',
   'chat.empty': 'Keine Chat-Nachrichten in dieser Session.',
 
+  'nav.records': 'Bestzeiten',
+  'records.title': 'Persönliche Bestzeiten',
+  'records.needName':
+    'Trage deinen Fahrernamen in den Einstellungen ein, um deine Bestzeiten zu sehen.',
+  'records.empty':
+    'In den Sessions wurden noch keine Rundenzeiten von dir gefunden.',
+  'records.layouts': '{n} Layouts',
+  'records.sessions': '{n} Sessions',
+  'records.bestQuali': 'Beste Qualifying-Runde',
+  'records.bestRace': 'Beste Rennrunde',
+  'records.totalLaps': 'Gefahrene Runden',
+  'records.cars': 'Fahrzeuge',
+  'records.date': 'Datum',
+  'records.session': 'Session',
+  'records.toBest': 'Zur Klassenbestzeit',
+  'records.noTime': 'Noch keine gewertete Runde',
+
+  'fav.add': 'Als Favorit markieren',
+  'fav.remove': 'Aus Favoriten entfernen',
+  'filter.favorites': 'Nur Favoriten',
+
   'settings.title': 'Einstellungen',
   'settings.driver': 'Deine Fahrernamen',
   'settings.driverHelp':

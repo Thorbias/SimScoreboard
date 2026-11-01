@@ -1,0 +1,160 @@
+/* Personal bests, favourites and country labels */
+
+.country {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+  margin-left: 10px;
+}
+
+.session-item {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--line);
+}
+
+.session-list li:first-child.session-item {
+  border-top: none;
+}
+
+.session-item .session-row {
+  flex: 1;
+  border-top: none;
+  min-width: 0;
+}
+
+button.fav {
+  border: none;
+  background: none;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0 14px;
+  color: var(--muted);
+}
+
+button.fav[aria-pressed='true'] {
+  color: var(--win);
+}
+
+button.fav:hover {
+  background: var(--panel-2);
+}
+
+.session-header h2 button.fav {
+  font-size: 1.4rem;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+
+.filters label.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  padding-bottom: 6px;
+}
+
+.records-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.venue-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.venue-list button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--panel);
+}
+
+.venue-list button[aria-pressed='true'] {
+  border-color: var(--accent);
+}
+
+.venue-list .country {
+  margin-left: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.chips .chip {
+  margin-right: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.records-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+}
+
+.records-head h2 {
+  margin: 0;
+}
+
+.inline-select {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 0 0 20px;
+}
+
+.stat.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.layout-section {
+  margin-bottom: 20px;
+}
+
+.layout-section h4 {
+  margin: 12px 0 6px;
+  color: var(--muted);
+}
+
+.record-link {
+  text-decoration: none;
+}
+
+.record-link:hover .badge {
+  border-color: var(--text);
+}
+
+@media (max-width: 800px) {
+  .records-layout {
+    grid-template-columns: 1fr;
+  }
+}

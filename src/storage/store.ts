@@ -1,6 +1,8 @@
 import type { SessionSummary } from '../results/types';
 
 export interface StoredSession {
+  /** `SUMMARY_VERSION` at the time the record was written. */
+  version: number;
   summary: SessionSummary;
   /** Size and modification time of the file, to detect changes on a rescan. */
   size: number;

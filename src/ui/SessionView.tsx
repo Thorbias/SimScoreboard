@@ -6,6 +6,8 @@ import { sessionTime } from '../library/filters';
 import { classesOf, type Scope } from '../results/table';
 import type { Session } from '../results/types';
 import { ChatView } from './ChatView';
+import { CountryLabel } from './CountryLabel';
+import { FavoriteButton } from './FavoriteButton';
 import { IncidentsView, isIncident } from './IncidentsView';
 import { LapChartView } from './LapChartView';
 import { PositionChartView } from './PositionChartView';
@@ -48,10 +50,19 @@ function SessionHeader({ session }: { session: Session }) {
         </span>
         {session.trackEvent}
       </p>
-      <h2>{session.trackVenue || session.trackCourse}</h2>
+      <h2>
+        {session.trackVenue || session.trackCourse}
+        <FavoriteButton id={session.id} />
+      </h2>
       {session.trackCourse && session.trackCourse !== session.trackVenue && (
         <p className="layout">{session.trackCourse}</p>
       )}
+      <p className="layout">
+        <CountryLabel
+          venue={session.trackVenue || session.trackCourse}
+          course={session.trackCourse}
+        />
+      </p>
       <ul className="facts">
         {facts.map((fact) => (
           <li key={fact}>{fact}</li>

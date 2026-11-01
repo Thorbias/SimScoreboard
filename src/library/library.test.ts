@@ -14,9 +14,13 @@ function entry(name: string, classPosition = 1): EntrySummary {
   return {
     driverName: name,
     carClass: 'GT3',
+    carType: 'Car',
     carNumber: '1',
     position: classPosition,
     classPosition,
+    bestLap: null,
+    bestLapSectors: [null, null, null],
+    lapCount: 0,
   };
 }
 
@@ -83,6 +87,15 @@ describe('filterSessions', () => {
     expect(ids({ carClass: 'Hyper' })).toEqual(['2']);
     expect(ids({ from: 150 })).toEqual(['2']);
     expect(ids({ to: 150 })).toEqual(['1']);
+  });
+
+  it('keeps only favourites when asked', () => {
+    expect(
+      filterSessions(list, { ...NO_FILTER, favoritesOnly: true }, ['2']).map(
+        (s) => s.id,
+      ),
+    ).toEqual(['2']);
+    expect(filterSessions(list, NO_FILTER, ['2'])).toHaveLength(2);
   });
 
   it('lists tracks and classes for the filter menus', () => {
