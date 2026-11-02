@@ -153,6 +153,8 @@ export function upgradeSummary(summary: SessionSummary): SessionSummary {
       bestLap: e.bestLap ?? null,
       bestLapSectors: e.bestLapSectors ?? [null, null, null],
       lapCount: e.lapCount ?? 0,
+      classGridPosition: e.classGridPosition ?? null,
+      finishStatus: e.finishStatus ?? '',
     })),
   };
 }
@@ -169,6 +171,8 @@ export function summarize(session: Session): SessionSummary {
     bestLapSectors: e.laps.find((l) => l.time !== null && l.time === e.bestLap)
       ?.sectors ?? [null, null, null],
     lapCount: e.lapCount,
+    classGridPosition: e.classGridPosition,
+    finishStatus: e.finishStatus,
   }));
   return {
     id: session.id,

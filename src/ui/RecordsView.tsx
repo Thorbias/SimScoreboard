@@ -13,6 +13,7 @@ import {
 import { trackTitle } from '../library/tracks';
 import { CountryLabel } from './CountryLabel';
 import { OverviewDetail } from './OverviewView';
+import { ProgressChart } from './ProgressChart';
 
 const keyOf = (venue: string, course: string) => `${venue}\u0000${course}`;
 const trackKey = (t: TrackRecords) => keyOf(t.venue, t.course);
@@ -166,6 +167,7 @@ function TrackDetail({
                 </tbody>
               </table>
             </div>
+            <ProgressChart history={c.history} />
           </section>
         ))}
     </div>

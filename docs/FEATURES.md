@@ -193,6 +193,7 @@ Fahrzeug. Die Zuordnung „eigener Fahrer" über mehrere Dateien beruht auf F-00
   gesamt, Fahrzeuge, Sessions.
 - Je Klasse eine Tabelle der Rekorde pro Fahrzeug mit Session-Typ, Datum,
   Sektoren, Rundenzeit und Abstand zur Klassenbestzeit.
+- Je Klasse ein Diagramm der Entwicklung: die beste Runde jeder Session als Punkt und die persönliche Bestzeit bisher als Stufenlinie.
 - Filter nach Klasse.
 - Von jedem Rekord führt ein Sprung zur Session und, falls Telemetrie vorhanden
   ist, in den Telemetrie-Vergleich.
@@ -237,5 +238,9 @@ Als erster Eintrag der Bestzeiten fasst der Gesamtüberblick alles zusammen, was
 
 - Kennzahlen: Sessions, gefahrene Runden, gefahrene Strecke in Kilometern, Streckenvarianten, Rennen, Siege und Podien (in der Klasse) mit Anteil an den Rennen.
 - Je Klasse die fünf wichtigsten Fahrzeuge: auf wie vielen Streckenvarianten das Fahrzeug die schnellste eigene Runde der Klasse hält (Anzahl und Anteil, zum Beispiel 911er 20 %, BMW 75 %, McLaren 5 %) und wie viele Runden es gefahren wurde. Fahrzeuge ohne Bestzeit erscheinen nach Runden.
-- Die meistgefahrenen Streckenvarianten, mit Sprung in die Details der Strecke.
+- Die meistgefahrenen Streckenvarianten als Tabelle mit Anteil an den gefahrenen Runden, mit Sprung in die Details der Strecke.
+- Form: Ausfälle (DNF und Disqualifikation) im Verhältnis zu den Rennen, durchschnittlicher Zielplatz und durchschnittlich gewonnene Plätze der letzten zehn Rennen sowie die Liste dieser Rennen mit Start, Ziel und Platzveränderung in der Klasse.
+- Rekorde: Zahl der Klassenrekorde der letzten 30 Tage sowie die fünf neuesten und die fünf ältesten Klassenrekorde mit Alter in Tagen.
+- Mehrspieler und Einzelspieler: Anteil der Sessions und der Runden je Modus.
+- Aktivität: gefahrene Runden pro Monat der letzten zwölf Monate als Säulen.
 - Gezählt wird nur, was zum eigenen Fahrer gehört (F-003); jede Streckenvariante zählt einzeln (F-014).

@@ -21,6 +21,8 @@ function entry(name: string, classPosition = 1): EntrySummary {
     bestLap: null,
     bestLapSectors: [null, null, null],
     lapCount: 0,
+    classGridPosition: null,
+    finishStatus: '',
   };
 }
 

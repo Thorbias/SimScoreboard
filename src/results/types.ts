@@ -140,10 +140,14 @@ export interface EntrySummary {
   bestLapSectors: [number | null, number | null, number | null];
   /** Completed laps. */
   lapCount: number;
+  /** Starting position within the class; null in sessions without a grid. */
+  classGridPosition: number | null;
+  /** `None`, `Finished Normally`, `DNF`, `DQ`, or whatever the game writes. */
+  finishStatus: string;
 }
 
 /**
  * Version of the index records. Raise it when the summary gains fields; stored
  * records of an older version are re-read from the files on the next scan.
  */
-export const SUMMARY_VERSION = 2;
+export const SUMMARY_VERSION = 3;

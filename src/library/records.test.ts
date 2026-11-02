@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import type { EntrySummary, SessionSummary } from '../results/types';
-import { buildOverview, buildRecords } from './records';
+import {
+  buildOverview,
+  buildRecords,
+  recentMonths,
+  runningBest,
+} from './records';
 
 function entry(over: Partial<EntrySummary>): EntrySummary {
   return {
@@ -13,6 +18,8 @@ function entry(over: Partial<EntrySummary>): EntrySummary {
     bestLap: 100,
     bestLapSectors: [30, 40, 30],
     lapCount: 10,
+    classGridPosition: null,
+    finishStatus: '',
     ...over,
   };
 }
@@ -262,5 +269,188 @@ describe('buildOverview', () => {
     expect(empty.sessionCount).toBe(0);
     expect(empty.classes).toEqual([]);
     expect(empty.topTracks).toEqual([]);
+  });
+});
+
+const day = (y: number, m: number, d: number) =>
+  new Date(y, m - 1, d, 12).getTime();
+
+describe('progress over time', () => {
+  it('lists the best lap of every session, oldest first', () => {
+    const track = buildRecords(
+      [
+        session({
+          id: 'late',
+          endedAt: day(2026, 3, 1),
+          entries: [entry({ bestLap: 98 })],
+        }),
+        session({
+          id: 'early',
+          endedAt: day(2026, 1, 1),
+          entries: [entry({ bestLap: 101 })],
+        }),
+        session({
+          id: 'mid',
+          endedAt: day(2026, 2, 1),
+          entries: [entry({ bestLap: 103 })],
+        }),
+      ],
+      ['Max Muster'],
+    )[0]!;
+    const history = track.classes[0]!.history;
+    expect(history.map((h) => h.sessionId)).toEqual(['early', 'mid', 'late']);
+    expect(runningBest(history).map((r) => r.best)).toEqual([101, 101, 98]);
+  });
+
+  it('keeps classes apart', () => {
+    const track = buildRecords(
+      [
+        session({ id: '1', entries: [entry({ bestLap: 100 })] }),
+        session({
+          id: '2',
+          entries: [entry({ carClass: 'Hyper', bestLap: 90 })],
+        }),
+      ],
+      ['Max Muster'],
+    )[0]!;
+    expect(track.classes.map((c) => [c.carClass, c.history.length])).toEqual([
+      ['GT3', 1],
+      ['Hyper', 1],
+    ]);
+  });
+});
+
+describe('recentMonths', () => {
+  it('fills gaps with zero months and crosses the year', () => {
+    const months = recentMonths(
+      [
+        { month: '2025-11', laps: 10, sessions: 1 },
+        { month: '2026-02', laps: 30, sessions: 2 },
+      ],
+      5,
+    );
+    expect(months.map((m) => m.month)).toEqual([
+      '2025-10',
+      '2025-11',
+      '2025-12',
+      '2026-01',
+      '2026-02',
+    ]);
+    expect(months.map((m) => m.laps)).toEqual([0, 10, 0, 0, 30]);
+  });
+
+  it('is empty without activity', () => {
+    expect(recentMonths([])).toEqual([]);
+  });
+});
+
+describe('buildOverview: activity, modes, form and record ages', () => {
+  const me = (over: Partial<EntrySummary>) =>
+    entry({ driverName: 'Max Muster', ...over });
+  const NOW = day(2026, 6, 30);
+
+  const sessions = [
+    session({
+      id: 'old-race',
+      type: 'race',
+      mode: 'Multiplayer',
+      endedAt: day(2026, 1, 10),
+      trackCourse: 'Layout 1',
+      entries: [
+        me({
+          bestLap: 100,
+          lapCount: 10,
+          classPosition: 4,
+          classGridPosition: 6,
+          finishStatus: 'Finished Normally',
+        }),
+      ],
+    }),
+    session({
+      id: 'dnf-race',
+      type: 'race',
+      mode: 'Multiplayer',
+      endedAt: day(2026, 6, 20),
+      trackCourse: 'Layout 2',
+      entries: [
+        me({
+          bestLap: 120,
+          lapCount: 3,
+          classPosition: 9,
+          classGridPosition: 5,
+          finishStatus: 'DNF',
+        }),
+      ],
+    }),
+    session({
+      id: 'sp-quali',
+      type: 'qualifying',
+      mode: 'Race Weekend',
+      endedAt: day(2026, 6, 25),
+      trackCourse: 'Layout 2',
+      entries: [me({ bestLap: 118, lapCount: 5 })],
+    }),
+    session({
+      id: 'last-race',
+      type: 'race',
+      mode: 'Multiplayer',
+      endedAt: day(2026, 6, 28),
+      trackCourse: 'Layout 1',
+      entries: [
+        me({
+          bestLap: 99,
+          lapCount: 8,
+          classPosition: 2,
+          classGridPosition: 3,
+          finishStatus: 'Finished Normally',
+        }),
+      ],
+    }),
+  ];
+  const overview = buildOverview(sessions, ['Max Muster'], undefined, NOW);
+
+  it('splits the sessions into multiplayer and the rest', () => {
+    expect(overview.modes.multiplayer).toEqual({ sessions: 3, laps: 21 });
+    expect(overview.modes.other).toEqual({ sessions: 1, laps: 5 });
+  });
+
+  it('sums the laps per month', () => {
+    expect(overview.activity).toEqual([
+      { month: '2026-01', laps: 10, sessions: 1 },
+      { month: '2026-06', laps: 16, sessions: 3 },
+    ]);
+  });
+
+  it('describes the form over the latest races, newest first', () => {
+    expect(overview.form.races).toBe(3);
+    expect(overview.form.dnfs).toBe(1);
+    expect(overview.form.recent.map((r) => r.sessionId)).toEqual([
+      'last-race',
+      'dnf-race',
+      'old-race',
+    ]);
+    expect(overview.form.averageFinish).toBeCloseTo((2 + 9 + 4) / 3);
+    // grid minus finish: +1, -4, +2
+    expect(overview.form.averageGain).toBeCloseTo((1 - 4 + 2) / 3);
+  });
+
+  it('lists the newest and the oldest class records and counts the recent ones', () => {
+    // Layout 1 GT3 best: 99 on 28 June. Layout 2 GT3 best: 118 on 25 June.
+    expect(overview.newestRecords.map((r) => r.course)).toEqual([
+      'Layout 1',
+      'Layout 2',
+    ]);
+    expect(overview.oldestRecords.map((r) => r.course)).toEqual([
+      'Layout 2',
+      'Layout 1',
+    ]);
+    expect(overview.recentRecordCount).toBe(2);
+    const later = buildOverview(
+      sessions,
+      ['Max Muster'],
+      undefined,
+      day(2026, 12, 31),
+    );
+    expect(later.recentRecordCount).toBe(0);
   });
 });
