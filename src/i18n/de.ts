@@ -95,7 +95,7 @@ export const de: Record<MessageKey, string> = {
     'Kein Fahrer ausgewählt. Füge einen hinzu oder klicke in den Ergebnissen auf einen Fahrer.',
   'lap.showChart': 'Diagramm anzeigen',
   'lap.cutoff':
-    'Runden, die langsamer als 125 % des Medians sind, werden im Diagramm abgeschnitten. Runden ohne Zeit sind Lücken.',
+    'Runden, die langsamer als 125 % des Medians sind, werden im Diagramm abgeschnitten. Wo eine Runde keine Zeit hat oder abgeschnitten ist, verbindet eine gestrichelte Linie die Nachbarrunden.',
   'lap.empty': 'Keine Rundenzeiten in dieser Session.',
   'lap.lap': 'Runde',
   'lap.time': 'Zeit',

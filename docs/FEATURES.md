@@ -99,7 +99,7 @@ Der Anwender vergleicht den Rundenzeiten-Verlauf von bis zu vier Fahrern Runde f
 - Bis zu vier Fahrer (A bis D), je eine Linie in eigener Farbe: A orange (der eigene Fahrer), B cyan, C rosa, D limette. Vorgewählt sind der eigene Fahrer und der schnellste Fahrer seiner Klasse.
 - Jeder Fahrer hat ein Dropdown und ein X zum Entfernen; die übrigen rücken auf (aus C wird B, aus D wird C). Mit „Fahrer hinzufügen“ kommt der schnellste noch freie Fahrer dazu. Auch der eigene Fahrer lässt sich entfernen.
 - Ein Klick auf einen Fahrer in der Ergebnistabelle wechselt in diesen Reiter und setzt ihn auf den nächsten freien Platz (A, B, C, D; ist der eigene Fahrer schon A, beginnt es bei B). Sind alle vier belegt, ersetzt jeder weitere Klick Fahrer D.
-- Runden ohne gewertete Zeit erscheinen als Lücke; sehr langsame Runden (über 125 % des Medians) sind im Diagramm abgeschnitten. Die Bestrunde jedes Fahrers ist in der Tabelle hervorgehoben.
+- Runden ohne gewertete Zeit und sehr langsame Runden (über 125 % des Medians), die im Diagramm abgeschnitten sind, werden durch eine gestrichelte Linie zwischen den Nachbarrunden überbrückt, damit die Linie nicht abreißt. Die Bestrunde jedes Fahrers ist in der Tabelle hervorgehoben.
 - Darunter eine Tabelle mit Runde, Sektoren 1–3 und Rundenzeit aller gewählten Fahrer sowie dem Delta jedes Fahrers zu A.
 - Die Diagrammansicht lässt sich ausblenden, sodass nur die Tabelle bleibt.
 

@@ -51,9 +51,14 @@ function LapPlot({ rows, names }: { rows: MultiLapRow[]; names: string[] }) {
     const clip = (v: number | null | undefined) =>
       v == null || v > limit ? null : v;
 
+    // Laps without a time and the cut-off slow laps leave gaps. Every driver
+    // gets a second, dashed series that bridges them; it is drawn first, so the
+    // solid line covers it wherever there is no gap.
+    const values = names.map((_, i) => rows.map((r) => clip(r.laps[i]?.time)));
     const data: uPlot.AlignedData = [
       rows.map((r) => r.lap),
-      ...names.map((_, i) => rows.map((r) => clip(r.laps[i]?.time))),
+      ...values,
+      ...values,
     ];
 
     const muted = cssVar('--muted');
@@ -93,11 +98,35 @@ function LapPlot({ rows, names }: { rows: MultiLapRow[]; names: string[] }) {
           ...names.map((name, i) => ({
             label: name,
             stroke: cssVar(SLOT_VARS[i] ?? '--muted'),
+            width: 1.5,
+            dash: [6, 5],
+            spanGaps: true,
+            value: lapValue,
+            points: { show: false },
+          })),
+          ...names.map((name, i) => ({
+            label: name,
+            stroke: cssVar(SLOT_VARS[i] ?? '--muted'),
             width: 2,
             value: lapValue,
             points: { show: true, size: 6 },
           })),
         ],
+        hooks: {
+          ready: [
+            (u) => {
+              // The bridging series are not drivers of their own: keep them
+              // out of the legend.
+              const rowsInLegend = u.root.querySelectorAll(
+                '.u-legend .u-series',
+              );
+              for (let i = 1; i <= names.length; i++) {
+                const row = rowsInLegend[i];
+                if (row instanceof HTMLElement) row.style.display = 'none';
+              }
+            },
+          ],
+        },
       },
       data,
       el,

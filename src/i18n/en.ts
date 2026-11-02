@@ -92,7 +92,7 @@ export const en = {
     'No driver selected. Add one, or click a driver in the results.',
   'lap.showChart': 'Show chart',
   'lap.cutoff':
-    'Laps slower than 125% of the median are cut off in the chart. Laps without a time are gaps.',
+    'Laps slower than 125% of the median are cut off in the chart. Where a lap has no time or is cut off, a dashed line connects the laps next to it.',
   'lap.empty': 'No lap times in this session.',
   'lap.lap': 'Lap',
   'lap.time': 'Time',
