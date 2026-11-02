@@ -13,6 +13,38 @@ export function findEntry(session: Session, name: string): Entry | undefined {
 
 // ---------------------------------------------------------------- lap chart
 
+/** Identifies an entry within a session. */
+export function entryKey(e: Entry): string {
+  return `${e.carNumber}|${e.driverName}`;
+}
+
+/**
+ * The two drivers a lap chart starts with. A is the own driver, otherwise the
+ * first entry. B is `pickedB` when given (e.g. clicked in the results), else the
+ * fastest rival, preferably from A's class.
+ */
+export function lapChartDefaults(
+  choices: Entry[],
+  isOwn: (entry: Entry) => boolean,
+  pickedB: string | null = null,
+): { a: string; b: string } {
+  const picked = pickedB
+    ? choices.find((e) => entryKey(e) === pickedB)
+    : undefined;
+  const a =
+    choices.find(isOwn) ?? choices.find((e) => e !== picked) ?? choices[0];
+  if (picked && picked !== a) {
+    return { a: a ? entryKey(a) : '', b: entryKey(picked) };
+  }
+  const rivals = choices.filter((e) => e !== a);
+  const sameClass = rivals.filter((e) => e.carClass === a?.carClass);
+  const pool = sameClass.length > 0 ? sameClass : rivals;
+  const b = pool
+    .filter((e) => e.bestLap !== null)
+    .sort((x, y) => (x.bestLap as number) - (y.bestLap as number))[0];
+  return { a: a ? entryKey(a) : '', b: b ? entryKey(b) : '' };
+}
+
 export interface LapRow {
   lap: number;
   a: Lap | undefined;

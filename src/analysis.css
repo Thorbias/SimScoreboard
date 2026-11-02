@@ -212,3 +212,31 @@ table.results th.group-b {
   font-variant-numeric: tabular-nums;
   min-width: 3.5rem;
 }
+
+table.results tr.clickable {
+  cursor: pointer;
+}
+
+table.results tr.clickable:hover td {
+  background: var(--panel-2);
+}
+
+table.results tr.own.clickable:hover td {
+  background: color-mix(in srgb, var(--you) 22%, transparent);
+}
+
+button.driver-link {
+  border: none;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+button.driver-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}

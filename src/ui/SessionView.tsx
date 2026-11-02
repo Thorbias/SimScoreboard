@@ -5,7 +5,9 @@ import { formatDateTime } from '../format/date';
 import { sessionTime } from '../library/filters';
 import { trackTitle } from '../library/tracks';
 import { classesOf, type Scope } from '../results/table';
-import type { Session } from '../results/types';
+import { isOwnDriver } from '../library/names';
+import { entryKey } from '../results/analysis';
+import type { Entry, Session } from '../results/types';
 import { ChatView } from './ChatView';
 import { CountryLabel } from './CountryLabel';
 import { FavoriteButton } from './FavoriteButton';
@@ -70,7 +72,13 @@ function SessionHeader({ session }: { session: Session }) {
   );
 }
 
-function SessionResults({ session }: { session: Session }) {
+function SessionResults({
+  session,
+  onPick,
+}: {
+  session: Session;
+  onPick: (entry: Entry) => void;
+}) {
   const { t } = useApp();
   const classes = classesOf(session);
   const [carClass, setCarClass] = useState('');
@@ -106,9 +114,9 @@ function SessionResults({ session }: { session: Session }) {
       {session.entries.length === 0 ? (
         <p className="empty">{t('results.empty')}</p>
       ) : session.type === 'race' ? (
-        <RaceTable session={session} scope={scope} />
+        <RaceTable session={session} scope={scope} onPick={onPick} />
       ) : (
-        <QualiTable session={session} scope={scope} />
+        <QualiTable session={session} scope={scope} onPick={onPick} />
       )}
     </section>
   );
@@ -131,10 +139,17 @@ function availableTabs(session: Session): Tab[] {
 }
 
 function SessionBody({ session }: { session: Session }) {
-  const { t } = useApp();
+  const { t, aliases } = useApp();
   const tabs = availableTabs(session);
   const [tab, setTab] = useState<Tab>('results');
   const active = tabs.includes(tab) ? tab : 'results';
+  // The driver picked in the results, shown as driver B in the lap chart.
+  const [rival, setRival] = useState<string | null>(null);
+
+  const pickDriver = (entry: Entry) => {
+    setRival(isOwnDriver(entry.driverName, aliases) ? null : entryKey(entry));
+    setTab('lapChart');
+  };
 
   return (
     <>
@@ -144,14 +159,21 @@ function SessionBody({ session }: { session: Session }) {
             key={id}
             role="tab"
             aria-selected={active === id}
-            onClick={() => setTab(id)}
+            onClick={() => {
+              setRival(null);
+              setTab(id);
+            }}
           >
             {t(`tab.${id}`)}
           </button>
         ))}
       </div>
-      {active === 'results' && <SessionResults session={session} />}
-      {active === 'lapChart' && <LapChartView session={session} />}
+      {active === 'results' && (
+        <SessionResults session={session} onPick={pickDriver} />
+      )}
+      {active === 'lapChart' && (
+        <LapChartView session={session} pickedB={rival} />
+      )}
       {active === 'positions' && <PositionChartView session={session} />}
       {active === 'statistics' && <StatisticsView session={session} />}
       {active === 'incidents' && <IncidentsView session={session} />}

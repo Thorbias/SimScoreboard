@@ -5,7 +5,13 @@ import { useApp } from '../app/AppContext';
 import { formatLapTime } from '../format/lapTime';
 import { formatSector } from '../format/time';
 import { isOwnDriver } from '../library/names';
-import { compareLaps, median, type LapRow } from '../results/analysis';
+import {
+  compareLaps,
+  entryKey,
+  lapChartDefaults,
+  median,
+  type LapRow,
+} from '../results/analysis';
 import type { Entry, Session } from '../results/types';
 
 const CHART_HEIGHT = 320;
@@ -15,10 +21,6 @@ function cssVar(name: string): string {
   return getComputedStyle(document.documentElement)
     .getPropertyValue(name)
     .trim();
-}
-
-function entryKey(e: Entry): string {
-  return `${e.carNumber}|${e.driverName}`;
 }
 
 function entryLabel(e: Entry): string {
@@ -125,7 +127,14 @@ function bestTime(entry: Entry | undefined): number | null {
   return entry?.bestLap ?? null;
 }
 
-export function LapChartView({ session }: { session: Session }) {
+export function LapChartView({
+  session,
+  pickedB = null,
+}: {
+  session: Session;
+  /** Key of a driver to show as B, e.g. picked in the results. */
+  pickedB?: string | null;
+}) {
   const { t, aliases } = useApp();
 
   const choices = useMemo(
@@ -136,17 +145,15 @@ export function LapChartView({ session }: { session: Session }) {
     [session],
   );
 
-  const defaults = useMemo(() => {
-    const a =
-      choices.find((e) => isOwnDriver(e.driverName, aliases)) ?? choices[0];
-    const rivals = choices.filter((e) => e !== a);
-    const sameClass = rivals.filter((e) => e.carClass === a?.carClass);
-    const pool = sameClass.length > 0 ? sameClass : rivals;
-    const b = pool
-      .filter((e) => e.bestLap !== null)
-      .sort((x, y) => (x.bestLap as number) - (y.bestLap as number))[0];
-    return { a: a ? entryKey(a) : '', b: b ? entryKey(b) : '' };
-  }, [choices, aliases]);
+  const defaults = useMemo(
+    () =>
+      lapChartDefaults(
+        choices,
+        (e) => isOwnDriver(e.driverName, aliases),
+        pickedB,
+      ),
+    [choices, aliases, pickedB],
+  );
 
   const [keyA, setKeyA] = useState<string | null>(null);
   const [keyB, setKeyB] = useState<string | null>(null);

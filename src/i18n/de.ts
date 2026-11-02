@@ -57,6 +57,7 @@ export const de: Record<MessageKey, string> = {
   'results.overall': 'Gesamt',
   'results.empty': 'Diese Session hat kein Ergebnis.',
   'results.you': 'Du',
+  'results.compareLaps': 'Rundenzeiten vergleichen',
 
   'col.pos': 'Pos',
   'col.number': '#',

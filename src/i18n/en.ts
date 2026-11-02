@@ -54,6 +54,7 @@ export const en = {
   'results.overall': 'Overall',
   'results.empty': 'This session has no results.',
   'results.you': 'You',
+  'results.compareLaps': 'Compare lap times',
 
   'col.pos': 'Pos',
   'col.number': '#',

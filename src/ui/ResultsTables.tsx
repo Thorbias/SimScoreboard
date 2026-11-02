@@ -6,12 +6,42 @@ import { qualiRows, raceRows, type Gap, type Scope } from '../results/table';
 import type { Entry, Session } from '../results/types';
 import { SectorBar, type SegmentRole } from './SectorBar';
 
-function DriverCell({ entry }: { entry: Entry }) {
+/** A table row can open the lap chart for its driver if it has laps. */
+function canPick(entry: Entry, onPick?: (entry: Entry) => void): boolean {
+  return onPick !== undefined && entry.laps.length > 0;
+}
+
+function rowClass(own: boolean, clickable: boolean): string | undefined {
+  const classes = [own ? 'own' : '', clickable ? 'clickable' : '']
+    .filter(Boolean)
+    .join(' ');
+  return classes || undefined;
+}
+
+function DriverCell({
+  entry,
+  onPick,
+}: {
+  entry: Entry;
+  onPick?: (entry: Entry) => void;
+}) {
   const { aliases, t } = useApp();
   const own = isOwnDriver(entry.driverName, aliases);
   return (
     <td className="driver">
-      {entry.driverName}
+      {canPick(entry, onPick) ? (
+        <button
+          className="driver-link"
+          onClick={(e) => {
+            e.stopPropagation();
+            onPick?.(entry);
+          }}
+        >
+          {entry.driverName}
+        </button>
+      ) : (
+        entry.driverName
+      )}
       {own && <span className="badge you">{t('results.you')}</span>}
     </td>
   );
@@ -45,9 +75,11 @@ function GapText({ gap }: { gap: Gap }) {
 export function RaceTable({
   session,
   scope,
+  onPick,
 }: {
   session: Session;
   scope: Scope;
+  onPick?: (entry: Entry) => void;
 }) {
   const { aliases, t } = useApp();
   const rows = raceRows(session, scope);
@@ -73,13 +105,24 @@ export function RaceTable({
           {rows.map((row) => (
             <tr
               key={`${row.entry.driverName}|${row.entry.carNumber}`}
-              className={
-                isOwnDriver(row.entry.driverName, aliases) ? 'own' : undefined
+              className={rowClass(
+                isOwnDriver(row.entry.driverName, aliases),
+                canPick(row.entry, onPick),
+              )}
+              title={
+                canPick(row.entry, onPick)
+                  ? t('results.compareLaps')
+                  : undefined
+              }
+              onClick={
+                canPick(row.entry, onPick)
+                  ? () => onPick?.(row.entry)
+                  : undefined
               }
             >
               <td className="num">{row.rank}</td>
               <td className="num">{row.entry.carNumber}</td>
-              <DriverCell entry={row.entry} />
+              <DriverCell entry={row.entry} onPick={onPick} />
               <CarCell entry={row.entry} showClass={showClass} />
               <td>{row.tyre ?? '–'}</td>
               <td className={row.fastestInClass ? 'num fastest' : 'num'}>
@@ -106,9 +149,11 @@ export function RaceTable({
 export function QualiTable({
   session,
   scope,
+  onPick,
 }: {
   session: Session;
   scope: Scope;
+  onPick?: (entry: Entry) => void;
 }) {
   const { aliases, t } = useApp();
   const rows = qualiRows(session, scope);
@@ -136,13 +181,24 @@ export function QualiTable({
           {rows.map((row) => (
             <tr
               key={`${row.entry.driverName}|${row.entry.carNumber}`}
-              className={
-                isOwnDriver(row.entry.driverName, aliases) ? 'own' : undefined
+              className={rowClass(
+                isOwnDriver(row.entry.driverName, aliases),
+                canPick(row.entry, onPick),
+              )}
+              title={
+                canPick(row.entry, onPick)
+                  ? t('results.compareLaps')
+                  : undefined
+              }
+              onClick={
+                canPick(row.entry, onPick)
+                  ? () => onPick?.(row.entry)
+                  : undefined
               }
             >
               <td className="num">{row.rank}</td>
               <td className="num">{row.entry.carNumber}</td>
-              <DriverCell entry={row.entry} />
+              <DriverCell entry={row.entry} onPick={onPick} />
               <CarCell entry={row.entry} showClass={showClass} />
               <td>{row.tyre ?? '–'}</td>
               <td>
