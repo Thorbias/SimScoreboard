@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-022 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-023 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -281,3 +281,12 @@ Ein Organisator fasst Sessions zu einer Liga zusammen, die App berechnet die Fah
 3. **Schritte:** (a) Formel-Parser und -Auswertung in `src/league/formula.ts` mit Tests (Syntaxfehler, Grenzfälle, keine Seiteneffekte); (b) Datenmodell und Format `src/league/types.ts` mit Version und leerem Signaturfeld; (c) Wertung `src/league/standings.ts` mit Tests (Klassen, Aliase, Korrekturen); (d) Speichern und Laden; (e) Oberfläche: Liga-Seite unter `#/league`.
 4. **Verifikation:** `npm run check`; Abnahme der Oberfläche durch den Entwickler; danach diesen Eintrag kondensieren.
 5. **Stolpersteine:** keine echten Fahrernamen in Fixtures; CSS-Klassen sind global (GUIDELINES).
+## F-022 — Boxenstoppzeiten
+
+Prio S · Status offen · wartet auf die Telemetrie (Backlog 7)
+
+Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der Telemetrie.
+
+- Quelle ist ausschließlich die Telemetrie (Ereignis `In Pits` und Streckenposition, siehe ADR-0008). Die Result-XML kennt nur die Zahl der Stopps und die Runde (`pit`), keine Standzeit; geschätzte Zeiten aus Rundenzeiten gibt es bewusst nicht.
+- Ohne Aufzeichnung zur Session steht kein Wert da, keine Näherung.
+- Offen: Anzeigeort (Ergebnisse oder Analyse), Aufteilung in Boxengasse und Stillstand, Zuordnung der Aufzeichnung zur Session. Wird beim Start geklärt, ob ein eigener Branch nötig ist.

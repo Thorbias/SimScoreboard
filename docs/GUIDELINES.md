@@ -155,14 +155,32 @@ Er steht beim Eintrag und wird beim Abschluss entfernt. Aufbau:
 
 ## Git
 
-- Branch `main` ist immer lauffähig und ist der **Release-Stand**: Ein Push auf
-  `main` veröffentlicht die Seite über GitHub Pages
-  ([pages.yml](../.github/workflows/pages.yml)).
-- **Gearbeitet wird auf Feature-Branches** (`feature/<thema>`, bei Fehlern
-  `fix/<thema>`), die nach `origin` gepusht werden. Nach `main` kommt ein Branch
-  erst zu einem Release, wenn der Entwickler abgenommen hat und
-  `npm run check` grün ist (Merge ohne Fast-Forward, damit der Release sichtbar
-  bleibt).
+### Branches
+
+- **`main` ist der Release-Stand.** Aus `main` baut der Workflow
+  [pages.yml](../.github/workflows/pages.yml) die Seite auf GitHub Pages: Ein Push
+  auf `main` veröffentlicht. Hier landen nur Releases, immer lauffähig, `npm run
+  check` grün, vom Entwickler abgenommen.
+- **`dev` ist der Entwicklungsstand.** Von `dev` zweigen die Feature-Branches ab
+  und kehren dorthin zurück. `dev` wird in der Regel auf den Entwicklungsrechnern
+  gepusht. Ein Release ist der Merge von `dev` nach `main` (ohne Fast-Forward,
+  `git merge --no-ff`, damit das Release in der Historie sichtbar bleibt).
+- **Auf `dev` direkt** werden gepflegt und gemacht: `BACKLOG.md`, `FEATURES.md`,
+  `BUGS.md`, ADRs, Ideations und sonstige Dokumentation sowie kleine Features und
+  Korrekturen, die kaum Code berühren.
+- **Feature-Branches** (`feature/<thema>`, für Fehler `fix/<thema>`) tragen den
+  Code größerer Vorhaben. Ob ein Vorhaben einen eigenen Branch bekommt, wird beim
+  Anlegen des Features entschieden — nicht jedes Feature braucht einen. Ein
+  Feature-Branch wird gepusht und nach der Abnahme mit `--no-ff` nach `dev`
+  gemerged. Dokumentation, die er braucht (ADR, Backlog), kommt zuerst auf `dev`
+  und wird in den Branch hineingeholt, nicht umgekehrt.
+- **Abhängigkeiten:** Ein Feature, das auf ein anderes wartet, bekommt seinen Branch
+  erst, wenn die Voraussetzung auf `dev` steht. Bis dahin steht es im Backlog mit
+  „Abhängig von“.
+
+### Regeln
+
+- Branch `main` ist immer lauffähig; `dev` soll es auch sein.
 - Kleine, thematisch fokussierte Commits; Commit-Format: kurze imperative
   Zusammenfassung auf Englisch, bei Bedarf Details im Body.
 - Keine Commits und keine Pushes ohne ausdrückliche Freigabe.
