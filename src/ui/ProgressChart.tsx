@@ -4,6 +4,7 @@ import 'uplot/dist/uPlot.min.css';
 import { useApp } from '../app/AppContext';
 import { formatLapTime } from '../format/lapTime';
 import { runningBest, type LapPoint } from '../library/records';
+import { observeWidth } from './plotSize';
 
 const HEIGHT = 220;
 
@@ -82,21 +83,22 @@ export function ProgressChart({ history }: { history: LapPoint[] }) {
       el,
     );
 
-    const observer = new ResizeObserver(() =>
-      plot.setSize({ width: el.clientWidth, height: HEIGHT }),
+    const stop = observeWidth(el, (width) =>
+      plot.setSize({ width, height: HEIGHT }),
     );
-    observer.observe(el);
     return () => {
-      observer.disconnect();
+      stop();
       plot.destroy();
     };
   }, [history, t, theme]);
 
   if (history.length < 2) return null;
   return (
-    <div className="progress">
+    <div className="progress-chart">
       <h5>{t('progress.title')}</h5>
-      <div className="lap-plot" ref={host} />
+      <div className="lap-plot">
+        <div className="lap-plot-host" ref={host} />
+      </div>
     </div>
   );
 }

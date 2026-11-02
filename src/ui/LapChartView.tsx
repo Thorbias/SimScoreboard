@@ -16,6 +16,7 @@ import {
   type MultiLapRow,
 } from '../results/lapSelection';
 import type { Entry, Session } from '../results/types';
+import { observeWidth } from './plotSize';
 
 const CHART_HEIGHT = 320;
 const CUTOFF_FACTOR = 1.25;
@@ -102,17 +103,20 @@ function LapPlot({ rows, names }: { rows: MultiLapRow[]; names: string[] }) {
       el,
     );
 
-    const observer = new ResizeObserver(() =>
-      plot.setSize({ width: el.clientWidth, height: CHART_HEIGHT }),
+    const stop = observeWidth(el, (width) =>
+      plot.setSize({ width, height: CHART_HEIGHT }),
     );
-    observer.observe(el);
     return () => {
-      observer.disconnect();
+      stop();
       plot.destroy();
     };
   }, [rows, names, t, theme]);
 
-  return <div className="lap-plot" ref={host} />;
+  return (
+    <div className="lap-plot">
+      <div className="lap-plot-host" ref={host} />
+    </div>
+  );
 }
 
 const delta = (v: number | null) =>

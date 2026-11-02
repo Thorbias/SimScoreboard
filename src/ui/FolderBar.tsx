@@ -44,7 +44,7 @@ export function FolderBar() {
           </button>
         )}
         {scan.active && (
-          <span className="progress">
+          <span className="scan-progress">
             <SectorProgress value={scan.done / Math.max(scan.total, 1)} />
             {t('scan.progress', { done: scan.done, total: scan.total })}
           </span>

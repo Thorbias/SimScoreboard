@@ -40,6 +40,11 @@ Befehle: `npm test` (Vitest), `npm run typecheck`, `npm run lint`,
   UI-Komponenten zunächst ohne automatisierte Tests (manuelle Abnahme).
 - **Vor jedem Commit:** Tests, Typecheck und Build laufen grün. Ein Commit mit
   roten Tests ist nicht erlaubt.
+- **CSS-Klassen sind global.** Vor einem neuen Klassennamen prüfen, ob er schon
+  vergeben ist (`grep -rn "\.name" src`), und beschreibende Namen wählen (`progress`
+  führte dazu, dass ein Diagramm endlos wuchs: eine fremde Regel machte seinen
+  Rahmen zur Box, die sich an den Inhalt anpasst). Diagramme messen ihre Breite an
+  einem Element ohne eigenes Padding und passen sich nur bei geänderter Breite an.
 
 ## Projektorganisation
 

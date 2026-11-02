@@ -68,6 +68,12 @@
   margin-bottom: 4px;
 }
 
+/* The chart measures this element, which has no padding of its own. */
+.lap-plot-host {
+  width: 100%;
+  min-width: 0;
+}
+
 .lap-plot .u-legend {
   color: var(--text);
 }
