@@ -22,13 +22,16 @@ Everything runs locally in your browser. Your race files are never uploaded.
 - **Analysis:** lap time comparison of up to four drivers, position chart,
   statistics per class, incidents, penalties and chat.
 - **Personal bests:** your fastest laps per track layout, class and car.
+- **League:** build a league from race sessions, with standings per class from
+  a points formula you write, merged driver names and corrections. The
+  organizer shares the league as a file; others open it as a copy.
 - **Demo:** try the app without game files, with anonymized sample sessions
   ("Try the demo"). Your own sessions and settings are not touched.
 - **Local only:** the index and your settings stay in your browser. English and
   German, light and dark.
 
 Planned: telemetry comparison of two laps, track maps from your own telemetry,
-and custom leagues and cups.
+and cups, signed league files and sharing through cloud storage.
 
 ## Use it online
 

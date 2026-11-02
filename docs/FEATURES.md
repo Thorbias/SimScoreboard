@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-024 (F-021 ist für die Liga auf feature/league vergeben) — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-024 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -256,6 +256,24 @@ Die App lässt sich ohne Spieldateien ausprobieren, mit Beispiel-Sessions, in de
 - Die Demo steht neben der echten Bibliothek: Sessions, Favoriten und Ergebnisse der Demo werden nie gespeichert, eigene Sessions, Fahrernamen, Favoriten und der lokale Index bleiben unberührt. Eigene Fahrernamen und der Index sind während der Demo gesperrt.
 - Die Dateien entstehen mit `tools/anonymize-results.mjs --demo` und werden auf Namensreste getestet (siehe [GUIDELINES.md](GUIDELINES.md), Datenschutz).
 
+## F-021 — Liga (Version 1, nur Organisator)
+
+Prio S · Status fertig
+
+Ein Organisator fasst Sessions zu einer Liga zusammen, die App berechnet die Fahrerwertung, und die Liga lässt sich als Datei weitergeben, die Mitspieler nur lesen. Ausgangspunkt sind [IDEA-0001](ideations/IDEA-0001-custom-league.md) und [IDEA-0002](ideations/IDEA-0002-liga-speicherort-und-teilen.md).
+
+- Rollen: Der Organisator schreibt, alle anderen lesen. Den Schreibschutz stellt der Speicher her (Freigabe-Rechte des Ordners); die App prüft ihn nicht. Eine Signatur folgt später ([IDEA-0003](ideations/IDEA-0003-liga-signatur.md)); das Datenformat sieht dafür ein leeres Feld vor.
+- Liga: Name, Klassen-Regel und Punkteformel. Läufe sind Sessions des Typs Rennen, die der Organisator auswählt und in eine Reihenfolge bringt.
+- Punkteformel: Der Organisator gibt einen Ausdruck vor, der pro Fahrer und Lauf die Punkte berechnet. Variablen: `position` (Platz in der Wertungsklasse), `overallPosition`, `starters` (Teilnehmer der Klasse), `fastestLap` (1 für schnellste Runde der Klasse, sonst 0), `pole` (1 bei Pole in der Qualifikation), `finished` (1 wenn gewertet), `laps`, `leaderLaps` (Runden des Klassensiegers). Funktionen: `min`, `max`, `round`, `floor`, `if(Bedingung, dann, sonst)`, dazu `+ - * / %`, Vergleiche und `and`/`or`. Beispiel: `if(position <= 10, 11 - position, 0) + fastestLap`.
+- Sicherheit der Formel: ein eigener kleiner Parser mit festem Wortschatz, kein `eval` (die Content-Security-Policy erlaubt es ohnehin nicht). Fehler in der Formel zeigt die App mit Position im Text an, bevor sie rechnet.
+- Vorlagen für Formeln (zum Beispiel gängige Punktetabellen) kommen später; Version 1 hat nur das Eingabefeld.
+- Wertung: nur Fahrer, getrennt je Klasse. Tabelle mit Platz, Fahrer, Punkten je Lauf und Summe; dazu der Verlauf der Punkte über die Läufe.
+- Fahrer zusammenführen: Result-Dateien haben keine stabile ID ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Der Organisator ordnet mehrere Namen einer Person zu (Aliasliste je Liga).
+- Korrekturen: Nachträglich möglich sind Zeitstrafen, Disqualifikationen, ein manuell geänderter Platz und Punkte-Zu- oder Abschläge, jeweils mit Begründung. Die Originaldaten bleiben unverändert; die Korrekturen liegen als eigene Einträge in der Liga und sind in der Tabelle als solche erkennbar.
+- Speichern: lesbares, versioniertes JSON in einem Ordner, den der Organisator wählt (File System Access API; auch ein Ordner, den ein Cloud-Client synchronisiert). Ohne Chromium gibt es Export und Import als Datei.
+- Teilen: Mitspieler öffnen die Liga-Datei in der App und sehen die Tabelle ohne Schreibmöglichkeit. Dateien der Läufe müssen sie nicht haben: die Liga-Datei enthält die ausgewerteten Ergebnisse je Lauf.
+- Datenschutz: Die Liga-Datei enthält Namen anderer Fahrer. Beim Speichern und Teilen weist die App darauf hin.
+
 ## F-022 — Boxenstoppzeiten
 
 Prio S · Status offen · wartet auf die Telemetrie (Backlog 7)
@@ -268,7 +286,7 @@ Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der
 
 ## F-023 — Liga im Cloud-Speicher
 
-Prio S · Status offen · wartet auf die Liga (Backlog 15)
+Prio S · Status offen · aufbauend auf F-021
 
 Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Zwei Stufen, zusammen umgesetzt.
 

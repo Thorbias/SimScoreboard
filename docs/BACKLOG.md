@@ -18,7 +18,7 @@ Aufzeichnung einschalten, eine Session fahren, die Datei nach `samples/` legen
 (siehe [samples/README.md](../samples/README.md)). Gebaut und in Abnahme sind
 Bestzeiten, Favoriten und Streckenland (Punkte 5 und 8). Das Design mit
 Pit-Orange steht ([ADR-0005](decisions/ADR-0005-design-tokens-und-markenakzent.md)).
-Ohne Telemetrie bietet sich danach Punkt 13 (Offline-Betrieb) an.
+Die Liga Version 1 (Organisator) ist abgenommen und auf `dev`; als Nächstes die Liga im Cloud-Speicher (Punkt 17). Ohne Telemetrie bietet sich außerdem Punkt 13 (Offline-Betrieb) an.
 
 Noch **nicht entschieden**:
 
@@ -45,4 +45,4 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 13 | Chore | TODO | Offline-Betrieb: Service Worker, der die statischen Dateien zwischenspeichert (NF-002) | – |
 | 14 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-020 Demo-Daten | – |
 | 16 | Feature | TODO | F-022 Boxenstoppzeiten aus der Telemetrie (keine Schätzung aus Rundenzeiten) | 7 |
-| 17 | Feature | TODO | F-023 Liga im Cloud-Speicher: Datei-Handle merken und Liga aus Adresse öffnen, optional Google Drive ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Cloud-Projekt (Client-ID, API-Key) muss der Betreiber anlegen | 15 |
+| 17 | Feature | TODO | F-023 Liga im Cloud-Speicher: Datei-Handle merken und Liga aus Adresse öffnen, optional Google Drive ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Cloud-Projekt (Client-ID, API-Key) muss der Betreiber anlegen | – |
