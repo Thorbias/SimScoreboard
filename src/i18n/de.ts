@@ -144,6 +144,8 @@ export const de: Record<MessageKey, string> = {
 
   'nav.records': 'Bestzeiten',
   'records.title': 'Persönliche Bestzeiten',
+  'records.trackCount': '{n} Strecken',
+  'records.back': 'Zurück zu den Bestzeiten',
   'records.needName':
     'Trage deinen Fahrernamen in den Einstellungen ein, um deine Bestzeiten zu sehen.',
   'records.empty':

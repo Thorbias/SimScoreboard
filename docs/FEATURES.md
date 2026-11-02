@@ -184,8 +184,10 @@ Prio M · Status offen
 Der Anwender sieht seine besten Runden geordnet nach Strecke, Fahrzeugklasse und
 Fahrzeug. Die Zuordnung „eigener Fahrer" über mehrere Dateien beruht auf F-003.
 
-- Linke Liste aller Strecken mit Layout-Anzahl, Session-Anzahl und der Bestzeit je
-  Klasse.
+- Links die Liste aller Strecken, jede Streckenvariante als eigener Eintrag (Zeiten
+  verschiedener Layouts lassen sich nicht vergleichen) mit Land, Session-Anzahl und
+  der Bestzeit je Klasse. Die Liste bleibt stehen, während rechts die Details der
+  gewählten Strecke stehen; das Layout gleicht dem der Sessions (F-002).
 - Detailansicht einer Strecke: beste Qualifying- und Rennrunde, gefahrene Runden
   gesamt, Fahrzeuge, Sessions.
 - Je Klasse eine Tabelle der Rekorde pro Fahrzeug mit Session-Typ, Datum,

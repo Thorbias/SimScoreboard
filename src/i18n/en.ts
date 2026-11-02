@@ -141,6 +141,8 @@ export const en = {
 
   'nav.records': 'Records',
   'records.title': 'Personal bests',
+  'records.trackCount': '{n} tracks',
+  'records.back': 'Back to personal bests',
   'records.needName':
     'Set your driver name in the settings to see your personal bests.',
   'records.empty': 'No lap times of yours were found in the sessions yet.',

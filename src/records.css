@@ -41,41 +41,6 @@ button.fav:hover {
   padding: 0 10px;
 }
 
-.records-layout {
-  display: grid;
-  grid-template-columns: minmax(240px, 300px) 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.venue-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.venue-list button {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  text-align: left;
-  padding: 10px 12px;
-  background: var(--panel);
-}
-
-.venue-list button[aria-pressed='true'] {
-  border-color: var(--accent);
-}
-
-.venue-list .country {
-  margin-left: 0;
-}
-
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -138,12 +103,6 @@ button.fav:hover {
 
 .record-link:hover .badge {
   border-color: var(--text);
-}
-
-@media (max-width: 800px) {
-  .records-layout {
-    grid-template-columns: 1fr;
-  }
 }
 
 .layout-name {

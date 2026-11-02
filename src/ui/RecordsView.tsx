@@ -185,39 +185,77 @@ export function RecordsView() {
   }
   if (tracks.length === 0) return <p className="empty">{t('records.empty')}</p>;
 
+  // On a wide screen the first track is shown until another one is picked. On a
+  // narrow screen the list stays alone until a track is chosen.
   const track = tracks.find((x) => trackKey(x) === selected) ?? tracks[0]!;
 
+  const pick = (key: string | null) => {
+    setSelected(key);
+    setCarClass('');
+  };
+
   return (
-    <>
-      <h2>{t('records.title')}</h2>
-      <div className="records-layout">
-        <ul className="venue-list">
-          {tracks.map((x) => (
-            <li key={trackKey(x)}>
-              <button
-                aria-pressed={trackKey(x) === trackKey(track)}
-                onClick={() => setSelected(trackKey(x))}
-              >
-                <strong>{trackTitle(x.venue, x.course)}</strong>
-                <span className="muted">
-                  <CountryLabel venue={x.venue} course={x.course} />
-                </span>
-                <span className="muted">
-                  {t('records.sessions', { n: x.sessionCount })}
-                </span>
-                <span className="chips">
-                  {x.classes.map((c) => (
-                    <span className="chip" key={c.carClass}>
-                      {c.carClass} {formatLapTime(c.best)}
+    <div className={selected ? 'split has-session' : 'split'}>
+      <aside className="master" aria-label={t('records.title')}>
+        <h2 className="list-title">
+          {t('records.title')}
+          <span className="count">
+            {t('records.trackCount', { n: tracks.length })}
+          </span>
+        </h2>
+        <section className="event">
+          <ul className="session-list">
+            {tracks.map((x) => {
+              const key = trackKey(x);
+              const isSelected = key === trackKey(track);
+              return (
+                <li
+                  key={key}
+                  className={
+                    isSelected ? 'session-item selected' : 'session-item'
+                  }
+                >
+                  <button
+                    className="track-row"
+                    aria-pressed={isSelected}
+                    onClick={() => pick(key)}
+                  >
+                    <span className="track-title">
+                      {trackTitle(x.venue, x.course)}
                     </span>
-                  ))}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
+                    <span className="track-meta">
+                      <CountryLabel venue={x.venue} course={x.course} />
+                      <span>
+                        {t('records.sessions', { n: x.sessionCount })}
+                      </span>
+                    </span>
+                    <span className="chips">
+                      {x.classes.map((c) => (
+                        <span className="chip" key={c.carClass}>
+                          {c.carClass} {formatLapTime(c.best)}
+                        </span>
+                      ))}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </aside>
+      <section className="detail">
+        <a
+          className="back"
+          href={routes.records()}
+          onClick={(e) => {
+            e.preventDefault();
+            pick(null);
+          }}
+        >
+          ← {t('records.back')}
+        </a>
         <TrackDetail track={track} carClass={carClass} onClass={setCarClass} />
-      </div>
-    </>
+      </section>
+    </div>
   );
 }

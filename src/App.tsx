@@ -8,8 +8,10 @@ import { SettingsView } from './ui/SettingsView';
 function Shell() {
   const { t } = useApp();
   const route = useRoute();
-  // The sessions page keeps its list on the left; the other pages use the full width.
-  const split = route.name === 'sessions' || route.name === 'session';
+  // Sessions and personal bests keep their list on the left and fill the screen
+  // height; the other pages use the full width and scroll as a whole.
+  const onSessions = route.name === 'sessions' || route.name === 'session';
+  const split = onSessions || route.name === 'records';
 
   return (
     <div className={split ? 'app app-split' : 'app'}>
@@ -23,7 +25,10 @@ function Shell() {
         </span>
         <p className="tagline">{t('app.tagline')}</p>
         <nav>
-          <a href={routes.sessions()} aria-current={split ? 'page' : undefined}>
+          <a
+            href={routes.sessions()}
+            aria-current={onSessions ? 'page' : undefined}
+          >
             {t('nav.sessions')}
           </a>
           <a
@@ -41,7 +46,7 @@ function Shell() {
         </nav>
       </header>
       <main>
-        {split && (
+        {onSessions && (
           <SessionsPage
             selectedId={route.name === 'session' ? route.id : null}
           />
