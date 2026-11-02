@@ -167,6 +167,10 @@ Runde in Kennzahlen zusammen.
 
 - Streckenkarte aus den Positionsdaten einer Runde (sofern die Daten sie
   enthalten), mit Zeiger passend zum Zeit-Zeiger des Vergleichs.
+- Die Form jeder Streckenvariante wird aus der eigenen Telemetrie gewonnen und
+  lokal gespeichert; sie kann später als kleines Symbol je Variante in Bibliothek
+  und Bestzeiten dienen. Eine Quelle aus öffentlichen Karten ist verworfen
+  (uneinheitliche Lizenzen, Lücken bei den Varianten).
 - Einfärbung wählbar nach Geschwindigkeit, Eingaben oder Sektoren.
 - Kennzahlen: Höchstgeschwindigkeit, Durchschnittsgeschwindigkeit,
   Kraftstoffverbrauch der Runde. Der Verbrauch ist optional: `fuelUsed` fand sich

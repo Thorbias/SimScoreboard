@@ -20,7 +20,6 @@ const COUNTRIES: [needles: string[], code: string][] = [
   [['barcelona', 'catalunya'], 'ES'],
   [['lusail', 'losail'], 'QA'],
   [['silverstone'], 'GB'],
-  [['nürburgring', 'nurburgring'], 'DE'],
 ];
 
 /** Every country code the track table can return. */

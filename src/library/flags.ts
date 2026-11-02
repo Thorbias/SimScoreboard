@@ -3,7 +3,6 @@
 import be from 'flag-icons/flags/4x3/be.svg';
 import bh from 'flag-icons/flags/4x3/bh.svg';
 import br from 'flag-icons/flags/4x3/br.svg';
-import de from 'flag-icons/flags/4x3/de.svg';
 import es from 'flag-icons/flags/4x3/es.svg';
 import fr from 'flag-icons/flags/4x3/fr.svg';
 import gb from 'flag-icons/flags/4x3/gb.svg';
@@ -17,7 +16,6 @@ const FLAGS: Record<string, string> = {
   BE: be,
   BH: bh,
   BR: br,
-  DE: de,
   ES: es,
   FR: fr,
   GB: gb,
