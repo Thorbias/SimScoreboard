@@ -30,7 +30,13 @@ Everything runs locally in your browser. Your race files are never uploaded.
 Planned: telemetry comparison of two laps, track maps from your own telemetry,
 and custom leagues and cups.
 
-## Run it
+## Use it online
+
+The app is hosted on GitHub Pages: <https://thorbias.github.io/SimScoreboard/>.
+Open it in a Chromium browser (Chrome, Edge), choose your folder, or try the
+demo. The files are read in your browser and never uploaded.
+
+## Run it locally
 
 You need [Node.js](https://nodejs.org) 26 (the version is in `.nvmrc`; a version
 manager such as [fnm](https://github.com/Schniz/fnm) picks it up).

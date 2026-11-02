@@ -40,8 +40,7 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 5 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-015 Favoriten, F-018 Streckenland und Flagge. Danach FEATURES.md kondensieren | – |
 | 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1 |
 | 8 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-014 Persönliche Bestzeiten, F-019 Gesamtüberblick. Danach FEATURES.md kondensieren | – |
-| 10 | Chore | TODO | Namen absichern: Markenprüfung „SimScoreboard" (DPMA, EUIPO, USPTO), Domain registrieren, GitHub-Repo umbenennen und `origin` anpassen, Pages-Adresse danach prüfen ([ADR-0006](decisions/ADR-0006-projektname-simscoreboard.md)) | – |
+| 10 | Chore | TODO | Namen absichern: Markenprüfung „SimScoreboard" (DPMA, EUIPO, USPTO), Domain registrieren (Repo und `origin` heißen schon so) ([ADR-0006](decisions/ADR-0006-projektname-simscoreboard.md)) | – |
 | 11 | Chore | TODO | Anonymisierte Telemetrie-Fixtures ableiten (die Result-Fixtures gibt es, siehe `tools/anonymize-results.mjs`) | 1 |
-| 12 | Chore | IN PROGRESS | GitHub Pages: Workflow `.github/workflows/pages.yml` steht (Check, dann Deploy bei Push auf `main`); offen: in den Repo-Einstellungen unter Pages die Quelle „GitHub Actions“ wählen, ersten Lauf prüfen, Adresse in README eintragen | – |
 | 13 | Chore | TODO | Offline-Betrieb: Service Worker, der die statischen Dateien zwischenspeichert (NF-002) | – |
 | 14 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-020 Demo-Daten | – |
