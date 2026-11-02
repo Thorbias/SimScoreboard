@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-021 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-023 (F-021 ist für die Liga auf feature/league vergeben) — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -255,3 +255,13 @@ Die App lässt sich ohne Spieldateien ausprobieren, mit Beispiel-Sessions, in de
 - Inhalt: 14 vollständige Sessions aus fünf Events (Bahrain, Spa im Mehrspieler, Algarve, Spa als Rennwochenende gegen KI, ein Mehrklassen-Rennen) mit Training, Qualifying und Rennen. Zeiten, Ergebnisse, Zwischenfälle und Strafen sind echt; Fahrer heißen „Driver 07“, der eigene „Demo Driver“, Teams „Team 03“; der Chat besteht aus neutralen Sätzen.
 - Die Demo steht neben der echten Bibliothek: Sessions, Favoriten und Ergebnisse der Demo werden nie gespeichert, eigene Sessions, Fahrernamen, Favoriten und der lokale Index bleiben unberührt. Eigene Fahrernamen und der Index sind während der Demo gesperrt.
 - Die Dateien entstehen mit `tools/anonymize-results.mjs --demo` und werden auf Namensreste getestet (siehe [GUIDELINES.md](GUIDELINES.md), Datenschutz).
+
+## F-022 — Boxenstoppzeiten
+
+Prio S · Status offen · wartet auf die Telemetrie (Backlog 7)
+
+Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der Telemetrie.
+
+- Quelle ist ausschließlich die Telemetrie (Ereignis `In Pits` und Streckenposition, siehe ADR-0008). Die Result-XML kennt nur die Zahl der Stopps und die Runde (`pit`), keine Standzeit; geschätzte Zeiten aus Rundenzeiten gibt es bewusst nicht.
+- Ohne Aufzeichnung zur Session steht kein Wert da, keine Näherung.
+- Offen: Anzeigeort (Ergebnisse oder Analyse), Aufteilung in Boxengasse und Stillstand, Zuordnung der Aufzeichnung zur Session. Wird beim Start geklärt, ob ein eigener Branch nötig ist.
