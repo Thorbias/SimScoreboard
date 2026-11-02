@@ -266,14 +266,15 @@ Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der
 - Ohne Aufzeichnung zur Session steht kein Wert da, keine Näherung.
 - Offen: Anzeigeort (Ergebnisse oder Analyse), Aufteilung in Boxengasse und Stillstand, Zuordnung der Aufzeichnung zur Session. Wird beim Start geklärt, ob ein eigener Branch nötig ist.
 
-## F-023 — Liga in Google Drive
+## F-023 — Liga im Cloud-Speicher
 
 Prio S · Status offen · wartet auf die Liga (Backlog 15)
 
-Der Organisator speichert die Liga aus der App in Google Drive, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)).
+Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Zwei Stufen, zusammen umgesetzt.
 
-- Organisator: Anmeldung mit Google (nur Zugriff auf Dateien, die die App selbst anlegt), „In Drive speichern“ legt die Datei an oder aktualisiert sie. Vor dem Überschreiben einer neueren Version in Drive fragt die App nach.
-- Mitspieler: Drive-Link einfügen, keine Anmeldung. Die Liga ist eine Kopie mit gemerkter Quelle, „Aktualisieren“ holt den neuesten Stand.
-- Den Schreibschutz stellt Drive her (Freigabe: jeder mit dem Link darf ansehen, nur der Organisator bearbeiten).
-- Datenschutz-Hinweis vor dem ersten Speichern in Drive: die Datei enthält Namen anderer Fahrer und verlässt den Rechner.
-- Voraussetzung ist ein Google-Cloud-Projekt des Betreibers (Client-ID, API-Key); die Schritte stehen beim Umsetzungsauftrag.
+- Stufe 1, ohne Zugangsdaten: „Speichern“ überschreibt dieselbe Datei (das Datei-Handle der Liga wird gemerkt); liegt sie in einem synchronisierten Ordner (zum Beispiel Google Drive für Desktop), verteilt der Cloud-Client sie. Mitspieler öffnen die Liga aus einer Adresse (`https`, Cross-Origin erlaubt), „Aktualisieren“ holt den neuesten Stand. Die Liga ist eine lokale Kopie mit gemerkter Quelle.
+- Stufe 2, optional: Google Drive direkt. Organisator mit Google-Anmeldung (nur Zugriff auf Dateien, die die App selbst anlegt), „In Drive speichern“ legt die Datei an oder aktualisiert sie und fragt vor dem Überschreiben einer neueren Version. Mitspieler fügen den Drive-Link ein, ohne Anmeldung.
+- Drive gibt es nur, wenn Client-ID und API-Key beim Bauen gesetzt sind (Umgebungsvariablen); sonst fehlt es in der Oberfläche, und die Content-Security-Policy bleibt ohne Google-Adressen. So laufen Forks und Selbst-Hoster ohne eigenes Google-Projekt.
+- Den Schreibschutz stellt der Speicher her (Freigabe: nur der Organisator darf bearbeiten).
+- Datenschutz-Hinweis vor dem ersten Speichern in die Cloud und beim Laden aus einer Adresse: die Datei enthält Namen anderer Fahrer und verlässt den Rechner, die Seite verbindet sich nach außen.
+- Voraussetzung für Stufe 2 ist ein Google-Cloud-Projekt des Betreibers (Client-ID, API-Key); die Schritte stehen beim Umsetzungsauftrag.
