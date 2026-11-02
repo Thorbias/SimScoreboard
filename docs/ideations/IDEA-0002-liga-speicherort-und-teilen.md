@@ -9,7 +9,7 @@
 - **Die Seite liegt auf GitHub Pages**, für alle Nutzer erreichbar. Die **Liga-Daten
   liegen nicht dort**, sondern an einem Speicherort, den die Liga wählt. Der
   Standard ist **lokal**.
-- **Das Repository ist klonbar und selbst hostbar.** Wer will, betreibt SimPaddock
+- **Das Repository ist klonbar und selbst hostbar.** Wer will, betreibt SimScoreboard
   auf einem eigenen Server, und dort können dann auch die Liga-Daten liegen.
 - **Teilen über Cloud-Speicher.** Google Drive, OneDrive und weitere Anbieter
   lassen sich als Speicherort der Liga-Daten anbinden, damit alle Mitspieler auf

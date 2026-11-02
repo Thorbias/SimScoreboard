@@ -1,6 +1,6 @@
-# Features — SimPaddock
+# Features — SimScoreboard
 
-> Was SimPaddock können soll und was offen ist. **Lebenszyklus der Fähigkeit**,
+> Was SimScoreboard können soll und was offen ist. **Lebenszyklus der Fähigkeit**,
 > nicht Arbeitsstand: ob gerade jemand daran arbeitet, steht ausschließlich in
 > [BACKLOG.md](BACKLOG.md) (`TODO`/`IN PROGRESS`) — ein „in Arbeit" gibt es hier
 > bewusst **nicht**.
@@ -27,7 +27,7 @@ mit dem Projektgerüst.
 
 Prio M · Status fertig
 
-Der Anwender gibt den Ordner mit den Spieldaten frei, und SimPaddock liest alle Sessions ein, ohne dass Dateien den Rechner verlassen.
+Der Anwender gibt den Ordner mit den Spieldaten frei, und SimScoreboard liest alle Sessions ein, ohne dass Dateien den Rechner verlassen.
 
 - Akzeptiert wird der Spielordner, `UserData` oder `Results`; die Result-Dateien werden darunter gefunden.
 - Chromium-Browser: Ordnerzugriff über die File System Access API; das Handle bleibt gespeichert, nach einem Neustart genügt ein Klick auf „Ordner neu verbinden“. Beim Verbinden werden neue und geänderte Dateien nachgelesen, verschwundene aus dem Index entfernt.
@@ -51,7 +51,7 @@ Der Anwender durchsucht alle eingelesenen Sessions in einer Liste, neueste zuers
 
 Prio M · Status fertig
 
-Der Anwender legt seine Fahrernamen fest, und SimPaddock markiert ihn in Liste und Ergebnissen mit einem eigenen Badge.
+Der Anwender legt seine Fahrernamen fest, und SimScoreboard markiert ihn in Liste und Ergebnissen mit einem eigenen Badge.
 
 - Die Namen werden in den Einstellungen gepflegt; Vorschläge aus den häufigsten Namen der eingelesenen Sessions erleichtern die Wahl.
 - Das Spiel liefert keine stabile Fahrer-ID, und das Kennzeichen „Spieler“ gilt im Mehrspieler für alle Menschen. Deshalb gibt es eine Liste von Aliassen; der Abgleich ignoriert Groß- und Kleinschreibung und angehängte `#`-Kennungen.

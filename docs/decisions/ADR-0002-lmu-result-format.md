@@ -5,7 +5,7 @@
 
 ## Kontext
 
-Die erste Ausbaustufe von SimPaddock liest die Session-Ergebnisse, die Le Mans
+Die erste Ausbaustufe von SimScoreboard liest die Session-Ergebnisse, die Le Mans
 Ultimate selbst schreibt. Bisher beruhte das Bild der Dateiformate auf Recherche
 ([quellen/](../quellen/README.md)). Dieses ADR hält fest, was an **echten Dateien
 verifiziert** wurde.
@@ -23,7 +23,7 @@ mit Fahrerwechsel und eine echte Telemetrie-Aufzeichnung (siehe „Offen“).
 
 ## Entscheidung
 
-SimPaddock liest die **Result-XML-Dateien** des Spiels als Quelle für
+SimScoreboard liest die **Result-XML-Dateien** des Spiels als Quelle für
 Session-Kopf, Ergebnisse, Runden, Incidents, Strafen und Chat. Ein Parser
 übersetzt sie in das normalisierte Domänenmodell
 ([ARCHITECTURE.md](../ARCHITECTURE.md)); die Oberfläche kennt das Dateiformat

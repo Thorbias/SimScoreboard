@@ -1,7 +1,7 @@
 /*
  * Design tokens. The neutral surfaces, the radii and the spacing follow
  * SimPosture so both apps read as one family; the brand accent, the timing
- * colours and the sector bar are SimPaddock's own (ADR-0005).
+ * colours and the sector bar are SimScoreboard's own (ADR-0005).
  *
  * Dark is the default. Light applies when the user picks it
  * (`data-theme="light"` on <html>) or, without a choice, when the system asks

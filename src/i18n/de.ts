@@ -1,7 +1,7 @@
 import type { MessageKey } from './en';
 
 export const de: Record<MessageKey, string> = {
-  'app.name': 'SimPaddock',
+  'app.name': 'SimScoreboard',
   'app.tagline':
     'Session-Auswertung für Le Mans Ultimate, komplett in deinem Browser.',
   'nav.library': 'Bibliothek',
@@ -163,7 +163,7 @@ export const de: Record<MessageKey, string> = {
   'settings.title': 'Einstellungen',
   'settings.driver': 'Deine Fahrernamen',
   'settings.driverHelp':
-    'SimPaddock markiert dich in allen Listen. Trage jeden Namen ein, unter dem du gefahren bist. Die Online-Kennung nach # wird ignoriert.',
+    'SimScoreboard markiert dich in allen Listen. Trage jeden Namen ein, unter dem du gefahren bist. Die Online-Kennung nach # wird ignoriert.',
   'settings.driverPlaceholder': 'Fahrername',
   'settings.add': 'Hinzufügen',
   'settings.remove': 'Entfernen',

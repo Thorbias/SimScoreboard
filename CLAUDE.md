@@ -1,4 +1,4 @@
-# SimPaddock — Claude Code
+# SimScoreboard — Claude Code
 
 Universeller Projektkontext: [AGENTS.md](AGENTS.md)
 

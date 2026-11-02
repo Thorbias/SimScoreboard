@@ -1,7 +1,20 @@
 export type ThemeSetting = 'auto' | 'light' | 'dark';
 export type Theme = 'light' | 'dark';
 
-const STORAGE_KEY = 'simpaddock.theme';
+const STORAGE_KEY = 'simscoreboard.theme';
+/** The key under the former name of the app; read once and moved. */
+const LEGACY_STORAGE_KEY = 'simpaddock.theme';
+
+/** The part of `Storage` this module needs, so tests can pass a stand-in. */
+export type ThemeStorage = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
+
+function defaultStorage(): ThemeStorage | null {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
 
 export function isThemeSetting(value: unknown): value is ThemeSetting {
   return value === 'auto' || value === 'light' || value === 'dark';
@@ -21,18 +34,31 @@ export function resolveTheme(
  * can be read before the first paint. It can be unavailable (private mode,
  * blocked site data); then the app simply follows the system.
  */
-export function loadThemeSetting(): ThemeSetting {
+export function loadThemeSetting(
+  storage: ThemeStorage | null = defaultStorage(),
+): ThemeSetting {
   try {
-    const value = window.localStorage.getItem(STORAGE_KEY);
-    return isThemeSetting(value) ? value : 'auto';
+    if (!storage) return 'auto';
+    const value = storage.getItem(STORAGE_KEY);
+    if (isThemeSetting(value)) return value;
+    const legacy = storage.getItem(LEGACY_STORAGE_KEY);
+    if (isThemeSetting(legacy)) {
+      storage.setItem(STORAGE_KEY, legacy);
+      storage.removeItem(LEGACY_STORAGE_KEY);
+      return legacy;
+    }
+    return 'auto';
   } catch {
     return 'auto';
   }
 }
 
-export function saveThemeSetting(setting: ThemeSetting): void {
+export function saveThemeSetting(
+  setting: ThemeSetting,
+  storage: ThemeStorage | null = defaultStorage(),
+): void {
   try {
-    window.localStorage.setItem(STORAGE_KEY, setting);
+    storage?.setItem(STORAGE_KEY, setting);
   } catch {
     // The choice then only lasts for this visit.
   }

@@ -1,7 +1,7 @@
 # Bugs
 
 > Getrenntes Tracking von **Fehlern** — bewusst separat von
-> [FEATURES.md](FEATURES.md) (was SimPaddock *können soll*). Hier stehen nur
+> [FEATURES.md](FEATURES.md) (was SimScoreboard *können soll*). Hier stehen nur
 > **offene Bugs**: reproduzierbares Fehlverhalten gegenüber dem erwarteten
 > Verhalten. Behobene Bugs werden entfernt — die Historie steht in Git
 > (`git log docs/BUGS.md`).

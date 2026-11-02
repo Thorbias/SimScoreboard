@@ -5,14 +5,14 @@
 
 ## Kontext
 
-SimPaddock gehört zur Markenfamilie von SimPosture ([PRODUCT.md](../PRODUCT.md)).
+SimScoreboard gehört zur Markenfamilie von SimPosture ([PRODUCT.md](../PRODUCT.md)).
 Geteilt wird nur das Branding, kein Code. SimPosture beschreibt sein Design im
 eigenen Repository: Material Design 3 als Grundlage, Graphit-Flächen, Electric Cyan
 (`#22C7F2`) als Akzent für „Analyse“, Inter als Schrift, ein 4/8/16/24-Raster und die
 Prinzipien „Precision over Decoration“, „Data first“ und „Calm Experience“. Das
 Markenmotiv dort ist das Analyse-Overlay (Messlinien und Winkel auf dem Foto).
 
-SimPaddock zeigt Ergebnisse und Zeiten. Motorsport-Zeitenanzeigen haben feste
+SimScoreboard zeigt Ergebnisse und Zeiten. Motorsport-Zeitenanzeigen haben feste
 Farbbedeutungen (Violett für schnellste, Grün für persönliche Bestzeit), und die App
 muss Daten zweier Fahrer gegenüberstellen. Der Markenakzent darf diesen Bedeutungen
 nicht in die Quere kommen.
@@ -45,8 +45,8 @@ nicht in die Quere kommen.
   Neigung des SimPosture-Logos. Sie ist Funktion, keine Dekoration: Als
   Wortmarken-Begleiter in Violett, Grün und Orange, im Qualifying je Fahrer mit
   den schnellsten Sektoren der Klasse und als Fortschrittsbalken beim Einlesen.
-- **Wortmarke statt Monogramm.** Beide Apps hätten „SP“; SimPaddock führt „Sim“ in
-  Textfarbe und „Paddock“ kursiv in Orange. Das Favicon ist die Sektor-Leiste.
+- **Wortmarke statt Monogramm.** Beide Apps hätten „SP“; SimScoreboard führt „Sim“ in
+  Textfarbe und „Scoreboard“ kursiv in Orange. Das Favicon ist die Sektor-Leiste.
 - **Schrift:** Inter als Variable Font, lokal eingebunden (`@fontsource-variable/
   inter`, Lizenz OFL), nicht von einem Fremdserver. Zeiten stehen mit
   tabellarischen Ziffern.
@@ -74,7 +74,7 @@ nicht in die Quere kommen.
 - Die Position-Chart-Palette für die übrigen Fahrer meidet den Orange-Bereich, damit
   „du“ nie mit einem anderen verwechselt wird.
 - Gleiche Neutrale auf beiden Seiten heißt: Ändert SimPosture seine Flächen, sollte
-  SimPaddock nachziehen. Es gibt dafür keinen geteilten Code, nur diese Tabelle.
+  SimScoreboard nachziehen. Es gibt dafür keinen geteilten Code, nur diese Tabelle.
 - Inter ist im Bundle enthalten; das erhöht die Ladegröße um einige Dutzend KB.
 - Die Flaggen kommen als SVG aus dem Paket `flag-icons` (MIT). Nur die Länder der
   Streckentabelle gelangen ins Bundle. Emoji-Flaggen wären unter Windows nur zwei

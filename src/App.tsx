@@ -15,7 +15,7 @@ function Shell() {
       <header className="top">
         <a className="brand" href={routes.library()}>
           <span>Sim</span>
-          <span className="brand-name">Paddock</span>
+          <span className="brand-name">Scoreboard</span>
         </a>
         <span className="brand-bar">
           <SectorBar segments={BRAND_SEGMENTS} size="lg" />

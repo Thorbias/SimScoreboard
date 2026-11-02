@@ -1,4 +1,4 @@
-# Architektur — SimPaddock
+# Architektur — SimScoreboard
 
 > Technische Ausrichtung. Wird fortgeschrieben, wenn sich der Aufbau durch neue
 > Features oder Entscheidungen (ADRs) ändert. **Stand 2026-11-01:** Das Modell der

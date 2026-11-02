@@ -1,4 +1,4 @@
-# Guidelines — SimPaddock
+# Guidelines — SimScoreboard
 
 > Wie wir arbeiten. Die Konventionen folgen bewusst dem Schwesterprojekt
 > SimPosture, damit beide Projekte gleich bedient werden. Wächst mit dem Projekt.

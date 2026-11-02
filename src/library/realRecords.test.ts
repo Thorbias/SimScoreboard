@@ -6,10 +6,10 @@ import { parseSession, summarize } from '../results/parse';
 import { buildRecords } from './records';
 import { countryOf } from './tracks';
 
-// Local smoke test: SIMPADDOCK_RESULTS is a results folder, SIMPADDOCK_OWN a
+// Local smoke test: SIMSCOREBOARD_RESULTS is a results folder, SIMSCOREBOARD_OWN a
 // driver name found in it.
-const dir = process.env.SIMPADDOCK_RESULTS;
-const own = process.env.SIMPADDOCK_OWN;
+const dir = process.env.SIMSCOREBOARD_RESULTS;
+const own = process.env.SIMSCOREBOARD_OWN;
 
 describe.skipIf(!dir || !own)('personal bests from real files', () => {
   it('builds records and knows the country of every venue', () => {

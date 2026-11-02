@@ -1,28 +1,53 @@
-# SimPaddock
+# SimScoreboard
 
-Open-source, browser-based analysis for **Le Mans Ultimate**: review session
-results, compare laps, analyze telemetry and keep your personal bests organized.
-Custom league support is planned.
+Open-source, browser-based results and lap time overview for **Le Mans
+Ultimate**: read the result files the game writes, browse your sessions, compare
+laps, keep your personal bests organized, and later run a league or cup.
 
 Everything runs locally in your browser. Your race files are never uploaded.
 
-> **Status:** project set up, no code yet. SimPaddock is an unofficial community
-> project and is not affiliated with the makers of Le Mans Ultimate.
+> **Status:** early development. The results, analysis and personal best views
+> work; telemetry and the league function are planned. SimScoreboard is an
+> unofficial community project and is not affiliated with the makers of Le Mans
+> Ultimate.
 
-## Planned scope
+## What it does today
 
-- Session library with filters (practice, qualifying, race)
-- Results by class, lap chart, position chart, statistics, incidents
-- Telemetry comparison of two laps (speed, throttle, brake, steering, gear, energy)
-- Personal lap records by track, car and class
-- Custom leagues (later)
+- **Session library:** reads the result files from your game folder, groups the
+  sessions by event, filters by type, track layout, class and date, and marks
+  your favourites.
+- **Results:** race and qualifying results by class or overall, with gaps, best
+  laps, fastest sectors, and your own driver highlighted.
+- **Analysis:** lap time comparison of up to four drivers, position chart,
+  statistics per class, incidents, penalties and chat.
+- **Personal bests:** your fastest laps per track layout, class and car.
+- **Local only:** the index and your settings stay in your browser. English and
+  German, light and dark.
+
+Planned: telemetry comparison of two laps, track maps from your own telemetry,
+and custom leagues and cups.
+
+## Run it
+
+You need [Node.js](https://nodejs.org) 26 (the version is in `.nvmrc`; a version
+manager such as [fnm](https://github.com/Schniz/fnm) picks it up).
+
+```bash
+npm install
+npm run dev     # development server
+npm run check   # typecheck, lint, tests and build
+```
+
+Open the page in a Chromium browser (Chrome, Edge) and choose your Le Mans
+Ultimate folder, its `UserData` folder or the `Results` folder. Other browsers
+can pick the folder with a file dialog, but cannot remember it.
 
 ## Documentation
 
 | Document | Content |
 |---|---|
 | [docs/PRODUCT.md](docs/PRODUCT.md) | Vision, audience, scope, non-goals |
-| [docs/FEATURES.md](docs/FEATURES.md) | Planned features |
+| [docs/FEATURES.md](docs/FEATURES.md) | Features and their status |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Technical direction |
 | [docs/BACKLOG.md](docs/BACKLOG.md) | What is next, handover notes |
 | [docs/GUIDELINES.md](docs/GUIDELINES.md) | How we work |
@@ -30,6 +55,10 @@ Everything runs locally in your browser. Your race files are never uploaded.
 | [docs/ideations/](docs/ideations/) | Ideas in progress |
 | [AGENTS.md](AGENTS.md) | Context for AI coding agents |
 
+The project documentation is in German; code, UI texts and this file are in
+English.
+
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Third-party material that is bundled with the site is listed in
+[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

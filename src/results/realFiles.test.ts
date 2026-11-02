@@ -7,8 +7,8 @@ import { parseSession, summarize } from './parse';
 import { classesOf, qualiRows, raceRows } from './table';
 
 // Local smoke test against a real results folder. Skipped unless
-// SIMPADDOCK_RESULTS points at one, e.g. the game's UserData/Log/Results.
-const dir = process.env.SIMPADDOCK_RESULTS;
+// SIMSCOREBOARD_RESULTS points at one, e.g. the game's UserData/Log/Results.
+const dir = process.env.SIMSCOREBOARD_RESULTS;
 
 describe.skipIf(!dir)('real result files', () => {
   it('parses every file without throwing', () => {

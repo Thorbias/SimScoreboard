@@ -1,4 +1,4 @@
-# SimPaddock — Agent-Kontext
+# SimScoreboard — Agent-Kontext
 
 Diese Datei ist der universelle Einstiegspunkt für KI-Coding-Agenten auf allen
 Entwicklungsrechnern (Windows-PC und MacBook Air). Der gesamte Projektkontext
@@ -42,14 +42,14 @@ Auswertungstools gehören nirgends ins Repository (siehe GUIDELINES).
 **Ganz lesen** (klein, beantworten „wo stehen wir, was ist als Nächstes dran"):
 
 1. [docs/BACKLOG.md](docs/BACKLOG.md) — Wo stehen wir? Was ist als Nächstes dran?
-2. [docs/PRODUCT.md](docs/PRODUCT.md) — Was ist SimPaddock, für wen, was nicht?
+2. [docs/PRODUCT.md](docs/PRODUCT.md) — Was ist SimScoreboard, für wen, was nicht?
 
 **Outline, Details bei Bedarf:**
 
 3. [docs/GUIDELINES.md](docs/GUIDELINES.md) — Wie arbeiten wir? Sprache,
    Datenschutz der Beispieldateien, Dokumentenlandschaft, Weg einer Idee, IDs,
    Git. Den zum Sitzungsziel passenden Abschnitt vor dem Arbeiten ganz lesen.
-4. [docs/FEATURES.md](docs/FEATURES.md) — Was soll SimPaddock können? Outline mit
+4. [docs/FEATURES.md](docs/FEATURES.md) — Was soll SimScoreboard können? Outline mit
    `grep '^## F-' docs/FEATURES.md`; die vom Sitzungsziel berührten Einträge ganz
    lesen.
 5. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Technische Ausrichtung

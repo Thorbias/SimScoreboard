@@ -1,5 +1,5 @@
 export const en = {
-  'app.name': 'SimPaddock',
+  'app.name': 'SimScoreboard',
   'app.tagline':
     'Session analysis for Le Mans Ultimate, entirely in your browser.',
   'nav.library': 'Library',
@@ -159,7 +159,7 @@ export const en = {
   'settings.title': 'Settings',
   'settings.driver': 'Your driver names',
   'settings.driverHelp':
-    'SimPaddock marks you in all lists. Add every name you have raced under. The online suffix after # is ignored.',
+    'SimScoreboard marks you in all lists. Add every name you have raced under. The online suffix after # is ignored.',
   'settings.driverPlaceholder': 'Driver name',
   'settings.add': 'Add',
   'settings.remove': 'Remove',

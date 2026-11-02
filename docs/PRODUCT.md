@@ -1,13 +1,13 @@
-# Produkt — SimPaddock
+# Produkt — SimScoreboard
 
-> Der **Rahmen** des Produkts: was SimPaddock ist, für wen, welche Qualitäts-
+> Der **Rahmen** des Produkts: was SimScoreboard ist, für wen, welche Qualitäts-
 > anforderungen gelten und was bewusst **nicht** dazugehört. Dauerhaftes
 > Dokument — es beschreibt keine einzelnen Funktionen und keinen Arbeitsstand
 > (der steht in [BACKLOG.md](BACKLOG.md)).
 
 ## 1. Vision & Zweck
 
-SimPaddock macht aus den Dateien, die Le Mans Ultimate ohnehin schreibt,
+SimScoreboard macht aus den Dateien, die Le Mans Ultimate ohnehin schreibt,
 verwertbare Erkenntnisse: Ergebnisse prüfen, Runden vergleichen, Telemetrie
 auswerten und die eigenen Bestzeiten ordnen — komplett im Browser, Open Source
 und ohne Konto.

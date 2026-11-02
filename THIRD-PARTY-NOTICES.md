@@ -1,6 +1,6 @@
 # Third-party notices
 
-SimPaddock itself is MIT-licensed (see [LICENSE](LICENSE)). The built site
+SimScoreboard itself is MIT-licensed (see [LICENSE](LICENSE)). The built site
 bundles the following third-party material. All of it is free to redistribute;
 the copyright notices below are kept as the licenses require.
 

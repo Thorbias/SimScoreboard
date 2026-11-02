@@ -8,7 +8,7 @@
 > **Offene Ideations:** siehe [`docs/ideations/`](ideations/) — unpriorisiert und
 > bewusst nicht in dieser Tabelle.
 
-## Übergabe (Stand 2026-11-01)
+## Übergabe (Stand 2026-11-02)
 
 Das Projektgerüst sowie die Ausbaustufen „Results“ und „Analyse“ stehen und sind
 abgenommen (Bibliothek, Ergebnisse, Lap Chart, Position Chart, Statistiken,
@@ -22,8 +22,9 @@ Ohne Telemetrie bietet sich danach Punkt 13 (Offline-Betrieb) an.
 
 Noch **nicht entschieden**:
 
-- Ob der Name „SimPaddock" frei ist (GitHub, Domain, Marke) — nicht geprüft
-  (Punkt 10).
+- Ob die Marke „SimScoreboard" frei ist (DPMA, EUIPO, USPTO). Konto, Repos und
+  Domains sind geprüft ([ADR-0006](decisions/ADR-0006-projektname-simscoreboard.md)),
+  die Markenregister nicht (Punkt 10).
 
 **Typ:** `Feature` · `ARC` (Architektur-Enabler → ADR) · `Design` · `Chore`.
 **Status:** `TODO` · `IN PROGRESS`.
@@ -39,7 +40,7 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 5 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-015 Favoriten, F-018 Streckenland und Flagge. Danach FEATURES.md kondensieren | – |
 | 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1 |
 | 8 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-014 Persönliche Bestzeiten. Danach FEATURES.md kondensieren | – |
-| 10 | Chore | TODO | Namensprüfung „SimPaddock": GitHub, Domain, Marken- und Namenskonflikte | – |
+| 10 | Chore | TODO | Namen absichern: Markenprüfung „SimScoreboard" (DPMA, EUIPO, USPTO), Domain registrieren, GitHub-Repo umbenennen und `origin` anpassen, Pages-Adresse danach prüfen ([ADR-0006](decisions/ADR-0006-projektname-simscoreboard.md)) | – |
 | 11 | Chore | TODO | Anonymisierte Telemetrie-Fixtures ableiten (die Result-Fixtures gibt es, siehe `tools/anonymize-results.mjs`) | 1 |
 | 12 | Chore | TODO | GitHub Pages einrichten (nur nach ausdrücklicher Freigabe) | – |
 | 13 | Chore | TODO | Offline-Betrieb: Service Worker, der die statischen Dateien zwischenspeichert (NF-002) | – |

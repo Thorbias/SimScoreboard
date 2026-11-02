@@ -45,7 +45,9 @@ export function createMemoryStore(): Store {
   };
 }
 
-const DB_NAME = 'simpaddock';
+const DB_NAME = 'simscoreboard';
+/** The database of the app under its former name; its data is carried over once. */
+export const LEGACY_DB_NAME = 'simpaddock';
 const DB_VERSION = 1;
 const SESSIONS = 'sessions';
 const SETTINGS = 'settings';
@@ -79,11 +81,80 @@ function openDb(): Promise<IDBDatabase> {
   });
 }
 
+async function isEmpty(db: IDBDatabase): Promise<boolean> {
+  const sessions = await request(
+    db.transaction(SESSIONS).objectStore(SESSIONS).count(),
+  );
+  const settings = await request(
+    db.transaction(SETTINGS).objectStore(SETTINGS).count(),
+  );
+  return sessions === 0 && settings === 0;
+}
+
+function openExisting(name: string): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    const open = indexedDB.open(name);
+    open.onsuccess = () => resolve(open.result);
+    open.onerror = () => reject(open.error);
+  });
+}
+
+/**
+ * The app used to store its data in a database called `simpaddock`. On the
+ * first start under the new name the index, the driver names, the favourites and
+ * the folder access are copied over and the old database is deleted. Nothing is
+ * done if the new database already holds data, if the old one does not exist, or
+ * if the browser cannot list databases; the library is then simply read again.
+ */
+async function migrateLegacy(target: IDBDatabase): Promise<void> {
+  try {
+    if (typeof indexedDB.databases !== 'function') return;
+    const known = await indexedDB.databases();
+    if (!known.some((d) => d.name === LEGACY_DB_NAME)) return;
+    if (!(await isEmpty(target))) return;
+
+    const legacy = await openExisting(LEGACY_DB_NAME);
+    try {
+      if (
+        !legacy.objectStoreNames.contains(SESSIONS) ||
+        !legacy.objectStoreNames.contains(SETTINGS)
+      ) {
+        return;
+      }
+      const sessions = await request(
+        legacy.transaction(SESSIONS).objectStore(SESSIONS).getAll(),
+      );
+      const keys = await request(
+        legacy.transaction(SETTINGS).objectStore(SETTINGS).getAllKeys(),
+      );
+      const values = await request(
+        legacy.transaction(SETTINGS).objectStore(SETTINGS).getAll(),
+      );
+
+      const tx = target.transaction([SESSIONS, SETTINGS], 'readwrite');
+      for (const item of sessions) tx.objectStore(SESSIONS).put(item);
+      keys.forEach((key, i) => tx.objectStore(SETTINGS).put(values[i], key));
+      await done(tx);
+    } finally {
+      legacy.close();
+    }
+    await new Promise<void>((resolve) => {
+      const del = indexedDB.deleteDatabase(LEGACY_DB_NAME);
+      del.onsuccess = () => resolve();
+      del.onerror = () => resolve();
+      del.onblocked = () => resolve();
+    });
+  } catch {
+    // A failed migration must never keep the app from starting.
+  }
+}
+
 export async function openStore(): Promise<Store> {
   try {
     const db = await openDb();
     // Probe once: some browsers open the database but fail on first use.
     await request(db.transaction(SETTINGS).objectStore(SETTINGS).count());
+    await migrateLegacy(db);
     return {
       persistent: true,
       getSessions: () =>

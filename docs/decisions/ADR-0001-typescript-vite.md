@@ -5,18 +5,18 @@
 
 ## Kontext
 
-SimPaddock wertet LMU-Dateien rein clientseitig im Browser aus. Kernaufgaben:
+SimScoreboard wertet LMU-Dateien rein clientseitig im Browser aus. Kernaufgaben:
 Ordnerzugriff über die File System Access API, Parsen großer Dateimengen in Web
 Workern, voraussichtlich DuckDB-WASM für die Telemetrie, viele interaktive Charts
 (Rundenzeiten, Positionsverlauf, überlagerte Telemetriekanäle mit Zoom).
 
 Das Schwesterprojekt SimPosture nutzt Kotlin Multiplatform mit Compose
-Multiplatform. Der Stack wäre für SimPaddock der naheliegende, weil gleiche
+Multiplatform. Der Stack wäre für SimScoreboard der naheliegende, weil gleiche
 Werkzeuge.
 
 ## Entscheidung
 
-SimPaddock wird mit **TypeScript** und **Vite** als reine Webanwendung gebaut.
+SimScoreboard wird mit **TypeScript** und **Vite** als reine Webanwendung gebaut.
 Die Markenfamilie mit SimPosture läuft über Name, Farben und Design-Tokens, nicht
 über geteilten Code.
 
