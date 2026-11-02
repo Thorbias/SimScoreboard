@@ -134,6 +134,7 @@ Der Anwender sieht alle Zwischenfälle einer Session als Zeitleiste.
 - Spalten: Session-Zeit, Restzeit (bei zeitbegrenzter Session), Typ, Fahrer, Klasse, Runde, Detail.
 - Typen: Kontakt (mit Fahrzeug oder Objekt, mit Stärke), Schaden, Track Limits (mit Verwarnpunkten) und Strafe (verhängt oder abgesessen).
 - Filter nach Typ, Klasse und Fahrer.
+- Gab es im Umkreis von zwei Minuten vor und nach einem Zwischenfall Chat-Nachrichten, zeigt die Zeile eine Sprechblase mit der Zahl der Nachrichten. Ein Klick öffnet ein kleines Chatfenster mit diesen Nachrichten und einer Markierung, wann der Zwischenfall war. Der Chat-Reiter (F-011) bleibt davon unberührt.
 - Die Ereignisse stehen nur in neueren Mehrspieler-Dateien; fehlen sie, entfällt der Reiter.
 
 ## F-011 — Session-Chat

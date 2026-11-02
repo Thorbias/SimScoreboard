@@ -140,6 +140,12 @@ export const de: Record<MessageKey, string> = {
   'inc.damage': 'Schaden: {part}',
   'inc.served': '{penalty} abgesessen',
   'inc.penaltyDetail': '{penalty} – {reason}',
+  'inc.chat': 'Chat',
+  'inc.chatShow': 'Chat um diesen Zwischenfall anzeigen ({n})',
+  'inc.chatTitle': 'Chat um {time}',
+  'inc.chatWindow':
+    'Nachrichten von {minutes} Minuten vor bis {minutes} Minuten nach dem Zwischenfall.',
+  'inc.chatClose': 'Schließen',
   'chat.empty': 'Keine Chat-Nachrichten in dieser Session.',
 
   'nav.records': 'Bestzeiten',

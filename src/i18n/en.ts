@@ -137,6 +137,12 @@ export const en = {
   'inc.damage': '{part} damage',
   'inc.served': '{penalty} served',
   'inc.penaltyDetail': '{penalty} – {reason}',
+  'inc.chat': 'Chat',
+  'inc.chatShow': 'Show chat around this incident ({n})',
+  'inc.chatTitle': 'Chat around {time}',
+  'inc.chatWindow':
+    'Messages from {minutes} minutes before to {minutes} minutes after the incident.',
+  'inc.chatClose': 'Close',
   'chat.empty': 'No chat messages in this session.',
 
   'nav.records': 'Records',
