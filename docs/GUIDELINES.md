@@ -155,7 +155,14 @@ Er steht beim Eintrag und wird beim Abschluss entfernt. Aufbau:
 
 ## Git
 
-- Branch `main` ist immer lauffähig.
+- Branch `main` ist immer lauffähig und ist der **Release-Stand**: Ein Push auf
+  `main` veröffentlicht die Seite über GitHub Pages
+  ([pages.yml](../.github/workflows/pages.yml)).
+- **Gearbeitet wird auf Feature-Branches** (`feature/<thema>`, bei Fehlern
+  `fix/<thema>`), die nach `origin` gepusht werden. Nach `main` kommt ein Branch
+  erst zu einem Release, wenn der Entwickler abgenommen hat und
+  `npm run check` grün ist (Merge ohne Fast-Forward, damit der Release sichtbar
+  bleibt).
 - Kleine, thematisch fokussierte Commits; Commit-Format: kurze imperative
   Zusammenfassung auf Englisch, bei Bedarf Details im Body.
 - Keine Commits und keine Pushes ohne ausdrückliche Freigabe.

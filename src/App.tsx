@@ -1,5 +1,6 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
+import { LeaguePage } from './ui/LeagueView';
 import { LogoMark } from './ui/LogoMark';
 import { RecordsView } from './ui/RecordsView';
 import { SessionsPage } from './ui/SessionsPage';
@@ -11,7 +12,8 @@ function Shell() {
   // Sessions and personal bests keep their list on the left and fill the screen
   // height; the other pages use the full width and scroll as a whole.
   const onSessions = route.name === 'sessions' || route.name === 'session';
-  const split = onSessions || route.name === 'records';
+  const split =
+    onSessions || route.name === 'records' || route.name === 'league';
 
   return (
     <div className={split ? 'app app-split' : 'app'}>
@@ -36,6 +38,12 @@ function Shell() {
             {t('nav.records')}
           </a>
           <a
+            href={routes.league()}
+            aria-current={route.name === 'league' ? 'page' : undefined}
+          >
+            {t('nav.league')}
+          </a>
+          <a
             href={routes.settings()}
             aria-current={route.name === 'settings' ? 'page' : undefined}
           >
@@ -56,6 +64,7 @@ function Shell() {
           />
         )}
         {route.name === 'records' && <RecordsView />}
+        {route.name === 'league' && <LeaguePage selectedId={route.id} />}
         {route.name === 'settings' && <SettingsView />}
       </main>
     </div>
