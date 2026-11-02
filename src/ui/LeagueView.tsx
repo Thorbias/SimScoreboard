@@ -1,12 +1,26 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useApp } from '../app/AppContext';
 import { routes } from '../app/route';
 import { formatDate } from '../format/date';
-import { createLeague, newId, parseLeague } from '../league/file';
-import { saveLeagueFile } from '../league/fileIo';
+import {
+  createLeague,
+  newId,
+  parseLeague,
+  serializeLeague,
+} from '../league/file';
+import { leagueFileName, saveLeagueFile } from '../league/fileIo';
 import { checkFormula } from '../league/formula';
 import { mergedInto, mergeInto } from '../league/people';
 import { snapshotRace } from '../league/race';
+import { preloadDriveAuth, requestDriveToken } from '../league/drive/auth';
+import {
+  driveDownloadUrl,
+  driveFileId,
+  driveShareLink,
+  saveToDrive,
+  shareDriveFile,
+} from '../league/drive/api';
+import { driveConfig } from '../league/drive/config';
 import { fetchLeague, parseLeagueAddress } from '../league/source';
 import {
   computeStandings,
@@ -95,7 +109,14 @@ function LeagueList({
   // Loads a league from an address. A league that came from the same address
   // is replaced by the newest version; any other gets a copy of its own.
   const openAddress = async () => {
-    const url = parseLeagueAddress(address);
+    const driveId = driveFileId(address);
+    if (driveId && !driveConfig) {
+      setError(t('league.openFailed', { message: t('league.drive.notSetUp') }));
+      return;
+    }
+    // A Drive link is read with the API key; the link shown and compared is
+    // the share link, the key stays out of the stored data.
+    const url = driveId ? driveShareLink(driveId) : parseLeagueAddress(address);
     if (!url) {
       setError(
         t('league.openFailed', { message: t('league.address.invalid') }),
@@ -105,7 +126,11 @@ function LeagueList({
     setError(null);
     setLoading(true);
     try {
-      const league = await fetchLeague(url);
+      const league = await fetchLeague(
+        driveId && driveConfig
+          ? driveDownloadUrl(driveId, driveConfig.apiKey)
+          : url,
+      );
       const same = leagues.some(
         (l) => l.id === league.id && leagueLinks[l.id]?.url === url,
       );
@@ -114,7 +139,11 @@ function LeagueList({
           ? league
           : { ...league, id: newId('league') };
       await saveLeague(copy);
-      await setLeagueLink(copy.id, { ...leagueLinks[copy.id], url });
+      await setLeagueLink(copy.id, {
+        ...leagueLinks[copy.id],
+        url,
+        ...(driveId ? { driveId } : {}),
+      });
       setAddress('');
       window.location.hash = routes.league(copy.id);
     } catch (e) {
@@ -703,12 +732,63 @@ function SettingsTab({
     }
   };
 
+  useEffect(() => {
+    if (driveConfig) preloadDriveAuth().catch(() => undefined);
+  }, []);
+
+  const saveDrive = async () => {
+    if (!driveConfig) return;
+    setStatus(null);
+    setError(null);
+    try {
+      // Asking for access opens a window, so it comes first, right after the click.
+      const token = await requestDriveToken(driveConfig.clientId);
+      const file = await saveToDrive({
+        token,
+        name: leagueFileName(league.name),
+        text: serializeLeague(league),
+        known:
+          link?.driveId && link.driveVersion && !link.url
+            ? { id: link.driveId, version: link.driveVersion }
+            : null,
+        confirmOverwrite: () => window.confirm(t('league.drive.newer')),
+      });
+      if (!file) return;
+      await setLeagueLink(league.id, {
+        handle: link?.handle,
+        driveId: file.id,
+        driveVersion: file.version,
+      });
+      setStatus(t('league.drive.saved'));
+    } catch (e) {
+      setError(t('league.saveFailed', { message: message(e) }));
+    }
+  };
+
+  const shareDrive = async () => {
+    if (!driveConfig || !link?.driveId) return;
+    if (!window.confirm(t('league.drive.shareConfirm'))) return;
+    setStatus(null);
+    setError(null);
+    try {
+      const token = await requestDriveToken(driveConfig.clientId);
+      await shareDriveFile(token, link.driveId);
+      setStatus(t('league.drive.shared'));
+    } catch (e) {
+      setError(t('league.saveFailed', { message: message(e) }));
+    }
+  };
+
   const refresh = async () => {
     if (!link?.url || !window.confirm(t('league.refreshConfirm'))) return;
     setStatus(null);
     setError(null);
     try {
-      const fresh = await fetchLeague(link.url);
+      const fresh = await fetchLeague(
+        link.driveId && driveConfig
+          ? driveDownloadUrl(link.driveId, driveConfig.apiKey)
+          : link.url,
+      );
       await saveLeague({ ...fresh, id: league.id });
       setStatus(t('league.refreshed'));
     } catch (e) {
@@ -753,6 +833,34 @@ function SettingsTab({
       )}
       {link?.url && (
         <p className="hint">{t('league.source', { url: link.url })}</p>
+      )}
+      {driveConfig && (
+        <>
+          <h4>{t('league.drive')}</h4>
+          <p className="hint">{t('league.drive.hint')}</p>
+          {link?.driveId && !link.url && (
+            <p className="hint">
+              {t('league.drive.link')}{' '}
+              <input
+                readOnly
+                className="league-formula"
+                value={driveShareLink(link.driveId)}
+                aria-label={t('league.drive.link')}
+                onFocus={(e) => e.currentTarget.select()}
+              />
+            </p>
+          )}
+          <p>
+            <button onClick={() => void saveDrive()}>
+              {t('league.drive.save')}
+            </button>{' '}
+            {link?.driveId && !link.url && (
+              <button onClick={() => void shareDrive()}>
+                {t('league.drive.share')}
+              </button>
+            )}
+          </p>
+        </>
       )}
       <p>
         <button className="primary" onClick={() => void save(false)}>

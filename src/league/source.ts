@@ -7,6 +7,10 @@ export interface LeagueLink {
   url?: string;
   /** The file the league is saved to; kept only in this browser. */
   handle?: FileSystemFileHandle;
+  /** The Google Drive file the league was saved to or loaded from. */
+  driveId?: string;
+  /** Drive's version of that file when it was last saved or loaded here. */
+  driveVersion?: string;
 }
 
 type FetchLike = (

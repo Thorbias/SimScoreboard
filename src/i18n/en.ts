@@ -253,6 +253,21 @@ export const en = {
   'league.delete': 'Delete league',
   'league.deleteConfirm': 'Delete this league from this browser?',
   'league.save': 'Save as file',
+  'league.drive': 'Google Drive',
+  'league.drive.hint':
+    'Saving to Drive sends the league file, with the driver names, to Google. The app only sees files it created itself.',
+  'league.drive.save': 'Save to Google Drive',
+  'league.drive.saved': 'League saved to Google Drive.',
+  'league.drive.newer':
+    'The file in Google Drive was changed since you last saved it here. Overwrite it?',
+  'league.drive.share': 'Share by link',
+  'league.drive.shareConfirm':
+    'Everyone who has the link will be able to read this league, including the driver names. Continue?',
+  'league.drive.shared':
+    'Everyone with the link can now read the league. Send them the link.',
+  'league.drive.link': 'Link for the players:',
+  'league.drive.notSetUp':
+    'Google Drive is not set up on this site. Use a plain https address.',
   'league.saveToFile': 'Save',
   'league.saveAs': 'Save as…',
   'league.saveFailed': 'The file could not be saved: {message}',

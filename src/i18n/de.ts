@@ -260,6 +260,21 @@ export const de: Record<MessageKey, string> = {
   'league.delete': 'Liga löschen',
   'league.deleteConfirm': 'Diese Liga aus diesem Browser löschen?',
   'league.save': 'Als Datei speichern',
+  'league.drive': 'Google Drive',
+  'league.drive.hint':
+    'Beim Speichern in Drive geht die Liga-Datei mit den Fahrernamen an Google. Die App sieht nur Dateien, die sie selbst angelegt hat.',
+  'league.drive.save': 'In Google Drive speichern',
+  'league.drive.saved': 'Liga in Google Drive gespeichert.',
+  'league.drive.newer':
+    'Die Datei in Google Drive wurde geändert, seit du sie hier zuletzt gespeichert hast. Überschreiben?',
+  'league.drive.share': 'Per Link freigeben',
+  'league.drive.shareConfirm':
+    'Jeder mit dem Link kann diese Liga lesen, auch die Fahrernamen. Fortfahren?',
+  'league.drive.shared':
+    'Jeder mit dem Link kann die Liga jetzt lesen. Schicke den Mitspielern den Link.',
+  'league.drive.link': 'Link für die Mitspieler:',
+  'league.drive.notSetUp':
+    'Google Drive ist auf dieser Seite nicht eingerichtet. Nutze eine normale https-Adresse.',
   'league.saveToFile': 'Speichern',
   'league.saveAs': 'Speichern unter …',
   'league.saveFailed': 'Die Datei konnte nicht gespeichert werden: {message}',
