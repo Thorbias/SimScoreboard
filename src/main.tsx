@@ -6,6 +6,7 @@ import '@fontsource-variable/inter';
 import './design/tokens.css';
 import './styles.css';
 import './design/brand.css';
+import './layout.css';
 import './analysis.css';
 import './records.css';
 

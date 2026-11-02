@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from 'react';
 
 export type Route =
-  | { name: 'library' }
+  | { name: 'sessions' }
   | { name: 'records' }
   | { name: 'settings' }
   | { name: 'session'; id: string };
@@ -13,11 +13,11 @@ export function parseRoute(hash: string): Route {
   const session = /^session\/(.+)$/.exec(path);
   if (session)
     return { name: 'session', id: decodeURIComponent(session[1] as string) };
-  return { name: 'library' };
+  return { name: 'sessions' };
 }
 
 export const routes = {
-  library: () => '#/',
+  sessions: () => '#/',
   records: () => '#/records',
   settings: () => '#/settings',
   session: (id: string) => `#/session/${encodeURIComponent(id)}`,

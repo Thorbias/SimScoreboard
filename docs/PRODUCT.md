@@ -35,7 +35,7 @@ Organisatoren.
 |---|---|---|
 | NF-001 | Datenschutz | Die Dateien des Spiels werden nur lokal im Browser verarbeitet und nie hochgeladen |
 | NF-002 | Offline | Nach dem ersten Laden funktioniert die Anwendung ohne Internetverbindung |
-| NF-003 | Skalierung | Bibliotheken mit über 1.000 Sessions bleiben flink: Parsen in Web Workern, Liste nur mit Metadaten, Details bei Bedarf |
+| NF-003 | Skalierung | Sammlungen mit über 1.000 Sessions bleiben flink: Parsen in Web Workern, Liste nur mit Metadaten, Details bei Bedarf |
 | NF-004 | Sprachen | UI mehrsprachfähig (i18n); Englisch ist Default |
 | NF-005 | Lizenz | MIT; keine Übernahme von Code, Branding oder Assets Dritter |
 
@@ -52,7 +52,7 @@ Organisatoren.
 
 ## 6. Reihenfolge der Ausbaustufen
 
-1. **Results:** Session-Bibliothek, Ergebnisse nach Klasse, Qualifying.
+1. **Results:** Session-Liste, Ergebnisse nach Klasse, Qualifying.
 2. **Analyse:** Lap Chart, Position Chart, Statistics, Incidents.
 3. **Telemetry:** Zwei Runden vergleichen, Delta, Streckenkarte.
 4. **Lap Times:** Persönliche Bestzeiten pro Strecke, Auto und Klasse.

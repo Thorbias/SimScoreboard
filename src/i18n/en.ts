@@ -2,7 +2,7 @@ export const en = {
   'app.name': 'SimScoreboard',
   'app.tagline':
     'Session analysis for Le Mans Ultimate, entirely in your browser.',
-  'nav.library': 'Library',
+  'nav.sessions': 'Sessions',
   'nav.settings': 'Settings',
 
   'folder.choose': 'Choose folder',
@@ -25,6 +25,7 @@ export const en = {
   'library.memoryOnly':
     'Local storage is not available, so the index is kept in memory only.',
 
+  'filter.title': 'Filter',
   'filter.type': 'Session type',
   'filter.track': 'Track',
   'filter.class': 'Class',
@@ -40,7 +41,8 @@ export const en = {
   'row.win': 'Win',
   'row.you': 'You: P{pos}',
 
-  'session.back': 'Back to library',
+  'session.back': 'Back to sessions',
+  'sessions.pick': 'Choose a session from the list to see its results.',
   'session.loading': 'Loading session…',
   'session.notConnected': 'Connect your folder to open this session.',
   'session.failed': 'This session could not be read.',
@@ -172,7 +174,7 @@ export const en = {
   'settings.languageAuto': 'Automatic',
   'settings.index': 'Local index',
   'settings.indexHelp':
-    'The index holds a short summary of every session so the library opens quickly. Deleting it does not touch your game files.',
+    'The index holds a short summary of every session so the session list opens quickly. Deleting it does not touch your game files.',
   'settings.clearIndex': 'Delete local index',
   'settings.clearConfirm': 'Delete the local index?',
 } as const;

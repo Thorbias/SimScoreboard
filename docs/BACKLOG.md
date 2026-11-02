@@ -11,7 +11,7 @@
 ## Übergabe (Stand 2026-11-02)
 
 Das Projektgerüst sowie die Ausbaustufen „Results“ und „Analyse“ stehen und sind
-abgenommen (Bibliothek, Ergebnisse, Lap Chart, Position Chart, Statistiken,
+abgenommen (Sessions, Ergebnisse, Lap Chart, Position Chart, Statistiken,
 Incidents, Chat; ADR-0002 bis ADR-0004). Nächster Schritt: die Telemetrie
 (Punkt 1). Sie wartet auf eine echte Aufzeichnung: im Spiel die automatische
 Aufzeichnung einschalten, eine Session fahren, die Datei nach `samples/` legen

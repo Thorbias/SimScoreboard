@@ -4,7 +4,7 @@ export const de: Record<MessageKey, string> = {
   'app.name': 'SimScoreboard',
   'app.tagline':
     'Session-Auswertung für Le Mans Ultimate, komplett in deinem Browser.',
-  'nav.library': 'Bibliothek',
+  'nav.sessions': 'Sessions',
   'nav.settings': 'Einstellungen',
 
   'folder.choose': 'Ordner wählen',
@@ -28,6 +28,7 @@ export const de: Record<MessageKey, string> = {
   'library.memoryOnly':
     'Der lokale Speicher ist nicht verfügbar, der Index liegt nur im Arbeitsspeicher.',
 
+  'filter.title': 'Filter',
   'filter.type': 'Session-Typ',
   'filter.track': 'Strecke',
   'filter.class': 'Klasse',
@@ -43,7 +44,8 @@ export const de: Record<MessageKey, string> = {
   'row.win': 'Sieg',
   'row.you': 'Du: P{pos}',
 
-  'session.back': 'Zurück zur Bibliothek',
+  'session.back': 'Zurück zu den Sessions',
+  'sessions.pick': 'Wähle links eine Session aus, um ihre Ergebnisse zu sehen.',
   'session.loading': 'Session wird geladen…',
   'session.notConnected': 'Verbinde deinen Ordner, um diese Session zu öffnen.',
   'session.failed': 'Diese Session konnte nicht gelesen werden.',
@@ -176,7 +178,7 @@ export const de: Record<MessageKey, string> = {
   'settings.languageAuto': 'Automatisch',
   'settings.index': 'Lokaler Index',
   'settings.indexHelp':
-    'Der Index speichert eine kurze Zusammenfassung jeder Session, damit die Bibliothek schnell öffnet. Das Löschen berührt deine Spieldateien nicht.',
+    'Der Index speichert eine kurze Zusammenfassung jeder Session, damit die Session-Liste schnell öffnet. Das Löschen berührt deine Spieldateien nicht.',
   'settings.clearIndex': 'Lokalen Index löschen',
   'settings.clearConfirm': 'Den lokalen Index löschen?',
 };

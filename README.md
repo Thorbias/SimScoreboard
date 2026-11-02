@@ -13,9 +13,10 @@ Everything runs locally in your browser. Your race files are never uploaded.
 
 ## What it does today
 
-- **Session library:** reads the result files from your game folder, groups the
-  sessions by event, filters by type, track layout, class and date, and marks
-  your favourites.
+- **Sessions:** reads the result files from your game folder and lists the
+  sessions grouped by event, with filters for type, track layout, class and
+  date, and favourites. The list stays on the left while the chosen session is
+  open on the right.
 - **Results:** race and qualifying results by class or overall, with gaps, best
   laps, fastest sectors, and your own driver highlighted.
 - **Analysis:** lap time comparison of up to four drivers, position chart,

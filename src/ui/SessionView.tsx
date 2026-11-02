@@ -215,7 +215,7 @@ function SessionLoader({ id }: { id: string }) {
 
   return (
     <>
-      <a className="back" href={routes.library()}>
+      <a className="back" href={routes.sessions()}>
         ← {t('session.back')}
       </a>
       {load.status === 'loading' && <p>{t('session.loading')}</p>}

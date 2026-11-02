@@ -18,22 +18,6 @@
   box-shadow: 0 0 0 1px var(--line);
 }
 
-.session-item {
-  display: flex;
-  align-items: stretch;
-  border-top: 1px solid var(--line);
-}
-
-.session-list li:first-child.session-item {
-  border-top: none;
-}
-
-.session-item .session-row {
-  flex: 1;
-  border-top: none;
-  min-width: 0;
-}
-
 button.fav {
   border: none;
   background: none;
@@ -55,14 +39,6 @@ button.fav:hover {
   font-size: 1.4rem;
   vertical-align: middle;
   padding: 0 10px;
-}
-
-.filters label.check {
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  color: var(--text);
-  padding-bottom: 6px;
 }
 
 .records-layout {

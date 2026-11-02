@@ -20,8 +20,9 @@ Stack: **TypeScript + Vite** ([ADR-0001](docs/decisions/ADR-0001-typescript-vite
 Schwesterprojekt in derselben Markenfamilie: SimPosture (eigenes Repo, KMP; es
 wird nur das Branding geteilt, kein Code).
 
-**Stand:** Das Projektgerüst steht (Vite, React, TypeScript, Tests), Fachcode gibt
-es noch nicht. Die Result-XML ist an echten Dateien geprüft
+**Stand:** Die Ausbaustufen „Results“ und „Analyse“ sowie Bestzeiten stehen (Parser,
+lokaler Index, Sessions-Seite mit Liste links und Details rechts, Rundenvergleich,
+Statistiken). Die Result-XML ist an echten Dateien geprüft
 ([ADR-0002](docs/decisions/ADR-0002-lmu-result-format.md)); die Telemetrie wartet
 auf eine echte Aufzeichnung. Die Übergabe mit dem nächsten Schritt steht oben in
 [docs/BACKLOG.md](docs/BACKLOG.md).

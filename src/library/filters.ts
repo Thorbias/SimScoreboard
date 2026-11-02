@@ -5,7 +5,7 @@ import type {
 } from '../results/types';
 import { isOwnDriver } from './names';
 
-export interface LibraryFilter {
+export interface SessionFilter {
   type: SessionType | 'all';
   track: string;
   carClass: string;
@@ -16,7 +16,7 @@ export interface LibraryFilter {
   favoritesOnly: boolean;
 }
 
-export const NO_FILTER: LibraryFilter = {
+export const NO_FILTER: SessionFilter = {
   type: 'all',
   track: '',
   carClass: '',
@@ -34,7 +34,7 @@ export function sessionTime(
 
 export function filterSessions(
   sessions: readonly SessionSummary[],
-  filter: LibraryFilter,
+  filter: SessionFilter,
   favorites: readonly string[] = [],
 ): SessionSummary[] {
   return sessions.filter((s) => {

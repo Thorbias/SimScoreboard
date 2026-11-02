@@ -35,16 +35,17 @@ Der Anwender gibt den Ordner mit den Spieldaten frei, und SimScoreboard liest al
 - Das Einlesen läuft im Hintergrund (Web Worker) mit Fortschrittsanzeige; nicht lesbare Dateien werden gezählt und gemeldet.
 - Technik: [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md).
 
-## F-002 — Session-Bibliothek
+## F-002 — Sessions
 
 Prio M · Status fertig
 
-Der Anwender durchsucht alle eingelesenen Sessions in einer Liste, neueste zuerst.
+Der Anwender durchsucht alle eingelesenen Sessions in einer Liste, neueste zuerst. Die Liste steht links und bleibt sichtbar, während rechts die gewählte Session mit ihren Reitern geöffnet ist; so lässt sich schnell zwischen Sessions wechseln.
 
-- Filter nach Session-Typ (Training, Qualifying, Rennen), Strecke, Zeitraum und Fahrzeugklasse.
+- Filter nach Session-Typ (Training, Qualifying, Rennen), Strecke, Zeitraum, Fahrzeugklasse und Favoriten; sie sind in der Liste eingeklappt und zeigen die Zahl der aktiven Filter.
 - Sessions desselben Events (gleiche Strecke und Event-Start im Kopf der Datei) werden gruppiert angezeigt.
 - Jede Zeile zeigt Session-Typ, Datum, beteiligte Klassen und das Ergebnis des eigenen Fahrers, bei einem Klassensieg mit Sieg-Marke.
-- Die Anzahl der Sessions steht im Listenkopf.
+- Die Anzahl der Sessions steht im Listenkopf; die geöffnete Session ist in der Liste hervorgehoben.
+- Auf einem schmalen Bildschirm zeigt die App entweder die Liste oder die Session, mit Rückweg zur Liste.
 - Land und Flagge der Strecke: F-018.
 
 ## F-003 — Eigener Fahrer markiert
@@ -168,8 +169,8 @@ Runde in Kennzahlen zusammen.
 - Streckenkarte aus den Positionsdaten einer Runde (sofern die Daten sie
   enthalten), mit Zeiger passend zum Zeit-Zeiger des Vergleichs.
 - Die Form jeder Streckenvariante wird aus der eigenen Telemetrie gewonnen und
-  lokal gespeichert; sie kann später als kleines Symbol je Variante in Bibliothek
-  und Bestzeiten dienen. Eine Quelle aus öffentlichen Karten ist verworfen
+  lokal gespeichert; sie kann später als kleines Symbol je Variante in der Session-Liste
+  und den Bestzeiten dienen. Eine Quelle aus öffentlichen Karten ist verworfen
   (uneinheitliche Lizenzen, Lücken bei den Varianten).
 - Einfärbung wählbar nach Geschwindigkeit, Eingaben oder Sektoren.
 - Kennzahlen: Höchstgeschwindigkeit, Durchschnittsgeschwindigkeit,
@@ -197,7 +198,7 @@ Fahrzeug. Die Zuordnung „eigener Fahrer" über mehrere Dateien beruht auf F-00
 
 Prio K · Status offen
 
-Der Anwender markiert Sessions als Favorit und filtert die Bibliothek danach.
+Der Anwender markiert Sessions als Favorit und filtert die Session-Liste danach.
 
 ## F-016 — Lokaler Index und Einstellungen
 
@@ -221,6 +222,6 @@ Die Oberfläche gibt es auf Englisch und Deutsch; Englisch ist der Standard, Deu
 
 Prio K · Status offen
 
-Die App zeigt zu jeder Strecke Land und Flagge in Bibliothek, Session-Kopf und Bestzeiten.
+Die App zeigt zu jeder Strecke Land und Flagge in der Session-Liste, im Session-Kopf und in den Bestzeiten.
 
 - Die Result-Dateien nennen nur Venue, Course und Event; Land und Flagge kommen aus einer eigenen Streckentabelle im Projekt. Ist eine Strecke dort nicht bekannt, entfällt die Angabe.

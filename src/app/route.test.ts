@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { parseRoute, routes } from './route';
 
 describe('routes', () => {
-  it('defaults to the library', () => {
-    expect(parseRoute('')).toEqual({ name: 'library' });
-    expect(parseRoute('#/')).toEqual({ name: 'library' });
-    expect(parseRoute('#/unknown')).toEqual({ name: 'library' });
+  it('defaults to the sessions page', () => {
+    expect(parseRoute('')).toEqual({ name: 'sessions' });
+    expect(parseRoute('#/')).toEqual({ name: 'sessions' });
+    expect(parseRoute('#/unknown')).toEqual({ name: 'sessions' });
   });
 
   it('parses settings and sessions', () => {

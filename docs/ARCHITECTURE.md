@@ -39,8 +39,8 @@
 Ordner/Dateien ──► Parser (Worker) ──► Domänenmodell ──► Index (IndexedDB, nur Metadaten)
                                               │                       │
                                               ▼                       ▼
-                                    Details bei Bedarf        Session-Bibliothek
-                                    (Ergebnis, Runden,        Bestzeiten-Bibliothek
+                                    Details bei Bedarf        Session-Liste     
+                                    (Ergebnis, Runden,        Bestzeiten-Ansicht 
                                      Incidents, Telemetrie)
 ```
 

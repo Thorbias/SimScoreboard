@@ -1,19 +1,20 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
-import { LibraryView } from './ui/LibraryView';
 import { BRAND_SEGMENTS, SectorBar } from './ui/SectorBar';
 import { RecordsView } from './ui/RecordsView';
-import { SessionView } from './ui/SessionView';
+import { SessionsPage } from './ui/SessionsPage';
 import { SettingsView } from './ui/SettingsView';
 
 function Shell() {
   const { t } = useApp();
   const route = useRoute();
+  // The sessions page keeps its list on the left; the other pages use the full width.
+  const split = route.name === 'sessions' || route.name === 'session';
 
   return (
-    <div className="app">
+    <div className={split ? 'app app-split' : 'app'}>
       <header className="top">
-        <a className="brand" href={routes.library()}>
+        <a className="brand" href={routes.sessions()}>
           <span>Sim</span>
           <span className="brand-name">Scoreboard</span>
         </a>
@@ -22,15 +23,8 @@ function Shell() {
         </span>
         <p className="tagline">{t('app.tagline')}</p>
         <nav>
-          <a
-            href={routes.library()}
-            aria-current={
-              route.name === 'library' || route.name === 'session'
-                ? 'page'
-                : undefined
-            }
-          >
-            {t('nav.library')}
+          <a href={routes.sessions()} aria-current={split ? 'page' : undefined}>
+            {t('nav.sessions')}
           </a>
           <a
             href={routes.records()}
@@ -47,8 +41,11 @@ function Shell() {
         </nav>
       </header>
       <main>
-        {route.name === 'library' && <LibraryView />}
-        {route.name === 'session' && <SessionView id={route.id} />}
+        {split && (
+          <SessionsPage
+            selectedId={route.name === 'session' ? route.id : null}
+          />
+        )}
         {route.name === 'records' && <RecordsView />}
         {route.name === 'settings' && <SettingsView />}
       </main>
