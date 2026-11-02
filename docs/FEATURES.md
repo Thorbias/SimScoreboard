@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-020 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-021 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -244,3 +244,14 @@ Als erster Eintrag der Bestzeiten fasst der Gesamtüberblick alles zusammen, was
 - Mehrspieler und Einzelspieler: Anteil der Sessions und der Runden je Modus.
 - Aktivität: gefahrene Runden pro Monat der letzten zwölf Monate als Säulen.
 - Gezählt wird nur, was zum eigenen Fahrer gehört (F-003); jede Streckenvariante zählt einzeln (F-014).
+
+## F-020 — Demo-Daten
+
+Prio S · Status offen
+
+Die App lässt sich ohne Spieldateien ausprobieren, mit Beispiel-Sessions, in denen alle Namen anonymisiert sind.
+
+- Start: „Demo ausprobieren“ in der Session-Liste (solange kein Ordner verbunden ist) und in den Einstellungen; „Demo beenden“ im Banner und in den Einstellungen.
+- Inhalt: 14 vollständige Sessions aus fünf Events (Bahrain, Spa im Mehrspieler, Algarve, Spa als Rennwochenende gegen KI, ein Mehrklassen-Rennen) mit Training, Qualifying und Rennen. Zeiten, Ergebnisse, Zwischenfälle und Strafen sind echt; Fahrer heißen „Driver 07“, der eigene „Demo Driver“, Teams „Team 03“; der Chat besteht aus neutralen Sätzen.
+- Die Demo steht neben der echten Bibliothek: Sessions, Favoriten und Ergebnisse der Demo werden nie gespeichert, eigene Sessions, Fahrernamen, Favoriten und der lokale Index bleiben unberührt. Eigene Fahrernamen und der Index sind während der Demo gesperrt.
+- Die Dateien entstehen mit `tools/anonymize-results.mjs --demo` und werden auf Namensreste getestet (siehe [GUIDELINES.md](GUIDELINES.md), Datenschutz).

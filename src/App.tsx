@@ -6,7 +6,7 @@ import { SessionsPage } from './ui/SessionsPage';
 import { SettingsView } from './ui/SettingsView';
 
 function Shell() {
-  const { t } = useApp();
+  const { t, demo, stopDemo } = useApp();
   const route = useRoute();
   // Sessions and personal bests keep their list on the left and fill the screen
   // height; the other pages use the full width and scroll as a whole.
@@ -45,6 +45,12 @@ function Shell() {
           </a>
         </nav>
       </header>
+      {demo && (
+        <div className="demo-banner" role="status">
+          <span>{t('demo.banner')}</span>
+          <button onClick={stopDemo}>{t('demo.exit')}</button>
+        </div>
+      )}
       <main>
         {onSessions && (
           <SessionsPage

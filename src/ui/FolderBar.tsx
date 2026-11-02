@@ -3,12 +3,12 @@ import { SectorProgress } from './SectorBar';
 
 export function FolderBar() {
   const app = useApp();
-  const { t, scan, folder, canPickDirectory } = app;
+  const { t, scan, folder, canPickDirectory, demo, demoError } = app;
 
   return (
     <section className="folder-bar" aria-label={t('folder.choose')}>
       <div className="folder-actions">
-        {folder === 'needs-permission' && (
+        {!demo && folder === 'needs-permission' && (
           <button
             className="primary"
             onClick={() => void app.reconnectFolder()}
@@ -16,7 +16,7 @@ export function FolderBar() {
             {t('folder.reconnect')}
           </button>
         )}
-        {canPickDirectory ? (
+        {demo ? null : canPickDirectory ? (
           <button
             className={folder === 'none' ? 'primary' : ''}
             onClick={() => void app.chooseFolder()}
@@ -38,6 +38,11 @@ export function FolderBar() {
             />
           </label>
         )}
+        {!demo && folder === 'none' && (
+          <button onClick={() => void app.startDemo()}>
+            {t('demo.start')}
+          </button>
+        )}
         {scan.active && (
           <span className="progress">
             <SectorProgress value={scan.done / Math.max(scan.total, 1)} />
@@ -45,7 +50,12 @@ export function FolderBar() {
           </span>
         )}
       </div>
-      {folder === 'none' && <p className="hint">{t('folder.hint')}</p>}
+      {!demo && folder === 'none' && <p className="hint">{t('folder.hint')}</p>}
+      {demoError && (
+        <p className="notice error" role="alert">
+          {t('demo.failed', { message: demoError })}
+        </p>
+      )}
       {folder === 'needs-permission' && (
         <p className="hint">{t('folder.reconnectHint')}</p>
       )}

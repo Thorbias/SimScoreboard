@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rF [
+<!ENTITY rFEnt "rFactor Entity">
+]>
+<rFactorXML version="1.0">
+<RaceResults>
+<Setting>Multiplayer</Setting>
+<ServerName></ServerName>
+<ClientFuelVisible>2</ClientFuelVisible>
+<PlayerFile>Settings</PlayerFile>
+<DateTime>1792930520</DateTime>
+<TimeString>2026/10/25 13:15:20</TimeString>
+<TrackVenue>Bahrain International Circuit</TrackVenue>
+<TrackCourse>Bahrain Outer Circuit</TrackCourse>
+<TrackEvent>Bahrain Outer Circuit</TrackEvent>
+<TrackData>Installed\Locations\Track\layout.mas</TrackData>
+<TrackLength>3511.1</TrackLength>
+<GameVersion>1.4200</GameVersion>
+<Dedicated>0</Dedicated>
+<ConnectionType upload="10000" download="20000">Connection</ConnectionType>
+<RaceLaps>0</RaceLaps>
+<RaceTime>20</RaceTime>
+<MechFailRate>1</MechFailRate>
+<DamageMult>100</DamageMult>
+<FuelMult>1</FuelMult>
+<TireMult>1</TireMult>
+<VehiclesAllowed>BMW_M4_LMGT3,</VehiclesAllowed>
+<ParcFerme>3</ParcFerme>
+<FixedSetups>0</FixedSetups>
+<FreeSettings>63</FreeSettings>
+<FixedUpgrades>0</FixedUpgrades>
+<TireWarmers>1</TireWarmers>
+<Race>
+<DateTime>1792931246</DateTime>
+<TimeString>2026/10/25 13:27:26</TimeString>
+<Laps>2147483647</Laps>
+<Minutes>20</Minutes>
+<Stream>
+<ChatMessage et="45.2">Guest 01: Good luck everyone</ChatMessage>
+<ChatMessage et="59.8">Guest 02: Sorry about that</ChatMessage>
+<ChatMessage et="67.4">Guest 01: Nice battle</ChatMessage>
+<ChatMessage et="71.6">Guest 01: Watch the gap</ChatMessage>
+<Penalty Driver="Driver 16" ID="18" Penalty="Drive Thru" Time="0" Laps="0" Reason="Reason" et="126.3">Driver 16 received Drive Thru penalty, 0s, 0laps for Reason Result: penalties=1, 1st=Drive Thru,0s</Penalty>
+<Incident et="133.1">Driver 06(1) reported contact (76.24) with another vehicle Driver 07(2)</Incident>
+<Incident et="133.1">Driver 07(2) reported contact (112.43) with another vehicle Driver 06(1)</Incident>
+<Incident et="144.4">Driver 19(3) reported contact (709.63) with another vehicle Driver 18(4)</Incident>
+<Incident et="144.4">Driver 18(4) reported contact (701.91) with another vehicle Driver 19(3)</Incident>
+<Incident et="145.1">Driver 05(5) reported contact (450.32) with another vehicle Driver 11(6)</Incident>
+<Incident et="145.1">Driver 11(6) reported contact (598.80) with another vehicle Driver 05(5)</Incident>
+<Incident et="145.3">Driver 12(7) reported contact (818.79) with another vehicle Driver 10(8)</Incident>
+<Incident et="145.3">Driver 10(8) reported contact (975.94) with another vehicle Driver 12(7)</Incident>
+<Incident et="145.8">Driver 12(7) reported contact (880.22) with another vehicle Driver 20(9)</Incident>
+<Incident et="145.8">Driver 20(9) reported contact (973.78) with another vehicle Driver 12(7)</Incident>
+<Incident et="147.0">Driver 20(9) reported contact (458.99) with another vehicle Driver 08(10)</Incident>
+<Incident et="147.1">Driver 08(10) reported contact (917.13) with another vehicle Driver 20(9)</Incident>
+<Incident et="147.7">Driver 20(9) reported contact (948.57) with another vehicle Driver 12(7)</Incident>
+<Incident et="147.7">Driver 12(7) reported contact (1054.59) with another vehicle Driver 20(9)</Incident>
+<Incident et="148.2">Driver 15(11) reported contact (680.48) with another vehicle Driver 19(3)</Incident>
+<Incident et="148.2">Driver 19(3) reported contact (645.16) with another vehicle Driver 15(11)</Incident>
+<Incident et="150.1">Driver 12(7) reported contact (1094.65) with another vehicle Driver 08(10)</Incident>
+<Incident et="150.2">Driver 08(10) reported contact (923.53) with another vehicle Driver 12(7)</Incident>
+<Incident et="150.2">Driver 14(12) reported contact (171.72) with another vehicle Driver 10(8)</Incident>
+<Incident et="150.2">Driver 10(8) reported contact (188.75) with another vehicle Driver 14(12)</Incident>
+<Incident et="150.2">Driver 14(12) reported contact (401.11) with another vehicle Driver 10(8)</Incident>
+<Incident et="151.0">Driver 20(9) reported contact (1499.42) with another vehicle Driver 10(8)</Incident>
+<Incident et="151.0">Driver 10(8) reported contact (1470.06) with another vehicle Driver 20(9)</Incident>
+<Incident et="151.6">Driver 20(9) reported contact (1274.84) with another vehicle Driver 14(12)</Incident>
+<Incident et="151.6">Driver 14(12) reported contact (1276.34) with another vehicle Driver 20(9)</Incident>
+<Incident et="152.0">Driver 06(1) reported contact (364.80) with another vehicle Driver 01(13)</Incident>
+<Incident et="152.0">Driver 01(13) reported contact (981.53) with another vehicle Driver 06(1)</Incident>
+<Incident et="152.3">Driver 15(11) reported contact (1063.05) with another vehicle Driver 19(3)</Incident>
+<Incident et="152.3">Driver 19(3) reported contact (1064.77) with another vehicle Driver 15(11)</Incident>
+<Incident et="153.8">Driver 20(9) reported contact (1390.39) with another vehicle Driver 08(10)</Incident>
+<ChatMessage et="153.9">Guest 02: Clean start</ChatMessage>
+<TrackLimits Driver="Driver 11" ID="6" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="153.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 11" ID="6" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="153.9">No Further Action</TrackLimits>
+<Incident et="153.9">Driver 15(11) reported contact (1123.29) with another vehicle Driver 19(3)</Incident>
+<Incident et="153.9">Driver 08(10) reported contact (1626.90) with another vehicle Driver 20(9)</Incident>
+<Incident et="153.9">Driver 19(3) reported contact (1442.33) with another vehicle Driver 15(11)</Incident>
+<Sector et="154.0">Driver 18(4) reports new suspension damage</Sector>
+<TrackLimits Driver="Driver 14" ID="12" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="154.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="154.1">No Further Action</TrackLimits>
+<Incident et="154.1">Driver 18(4) reported contact (3142.90) with another vehicle Driver 10(8)</Incident>
+<TrackLimits Driver="Driver 06" ID="1" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="154.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="154.1">No Further Action</TrackLimits>
+<Incident et="154.1">Driver 10(8) reported contact (2394.32) with another vehicle Driver 18(4)</Incident>
+<TrackLimits Driver="Driver 01" ID="13" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="154.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="154.3">No Further Action</TrackLimits>
+<Incident et="154.4">Driver 14(12) reported contact (1618.02) with another vehicle Driver 19(3)</Incident>
+<Incident et="154.4">Driver 19(3) reported contact (1670.80) with another vehicle Driver 14(12)</Incident>
+<Incident et="155.4">Driver 15(11) reported contact (25.37) with another vehicle Driver 19(3)</Incident>
+<Sector et="156.1">Driver 14(12) reports new suspension damage</Sector>
+<Incident et="156.2">Driver 14(12) reported contact (3060.09) with Immovable</Incident>
+<TrackLimits Driver="Driver 16" ID="18" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="156.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="156.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="158.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="158.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="158.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="158.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="159.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="159.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="160.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="160.7">No Further Action</TrackLimits>
+<Incident et="162.2">Driver 18(4) reported contact (19.31) with another vehicle Driver 09(14)</Incident>
+<Incident et="162.3">Driver 18(4) reported contact (58.72) with another vehicle Driver 09(14)</Incident>
+<Incident et="162.3">Driver 09(14) reported contact (50.78) with another vehicle Driver 18(4)</Incident>
+<Incident et="162.3">Driver 09(14) reported contact (137.81) with another vehicle Driver 18(4)</Incident>
+<TrackLimits Driver="Driver 14" ID="12" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="163.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="163.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="163.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="163.5">No Further Action</TrackLimits>
+<Incident et="170.4">Driver 11(6) reported contact (979.66) with another vehicle Driver 13(15)</Incident>
+<Incident et="171.0">Driver 11(6) reported contact (17.72) with Post</Incident>
+<Incident et="171.0">Driver 11(6) reported contact (20.54) with Post</Incident>
+<Incident et="171.1">Driver 11(6) reported contact (45.21) with Post</Incident>
+<Incident et="171.2">Driver 11(6) reported contact (43.80) with Post</Incident>
+<TrackLimits Driver="Driver 11" ID="6" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="172.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 11" ID="6" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="172.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="175.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="175.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 02" ID="20" Lap="0" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="177.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 02" ID="20" Lap="0" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="177.9">Warning</TrackLimits>
+<Incident et="184.0">Driver 06(1) reported contact (146.64) with another vehicle Driver 01(13)</Incident>
+<Incident et="184.0">Driver 01(13) reported contact (80.38) with another vehicle Driver 06(1)</Incident>
+<Incident et="184.2">Driver 01(13) reported contact (97.94) with another vehicle Driver 06(1)</Incident>
+<TrackLimits Driver="Driver 16" ID="18" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="184.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="184.4">No Further Action</TrackLimits>
+<Incident et="184.5">Driver 01(13) reported contact (284.10) with another vehicle Driver 06(1)</Incident>
+<Incident et="184.5">Driver 06(1) reported contact (139.29) with another vehicle Driver 01(13)</Incident>
+<TrackLimits Driver="Driver 09" ID="14" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="184.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="184.8">No Further Action</TrackLimits>
+<Incident et="184.9">Driver 01(13) reported contact (225.67) with another vehicle Driver 06(1)</Incident>
+<TrackLimits Driver="Driver 14" ID="12" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="185.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="185.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="191.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="191.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="204.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="204.1">No Further Action</TrackLimits>
+<Incident et="207.9">Driver 18(4) reported contact (1203.70) with another vehicle Driver 17(16)</Incident>
+<Incident et="208.0">Driver 17(16) reported contact (1184.17) with another vehicle Driver 18(4)</Incident>
+<TrackLimits Driver="Driver 08" ID="10" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="215.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="215.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="0" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="220.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="0" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="220.4">Warning</TrackLimits>
+<Incident et="235.5">Driver 20(9) reported contact (51.44) with Post</Incident>
+<Incident et="235.5">Driver 20(9) reported contact (65.48) with Post</Incident>
+<TrackLimits Driver="Driver 14" ID="12" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="238.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="238.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="1" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="242.6">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="1" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="242.6">Warning</TrackLimits>
+<Penalty Driver="Driver 16" ID="18" Penalty="Stop/Go" Time="10" Laps="0" Reason="Reason" et="248.8">Driver 16 received Stop/Go penalty, 10s, 0laps for Reason Result: penalties=2, 1st=Drive Thru,0s</Penalty>
+<Incident et="259.9">Driver 20(9) reported contact (180.91) with another vehicle Driver 12(7)</Incident>
+<Incident et="259.9">Driver 20(9) reported contact (204.56) with another vehicle Driver 12(7)</Incident>
+<TrackLimits Driver="Driver 20" ID="9" Lap="1" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="263.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="1" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="263.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="265.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="265.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="1" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="266.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="1" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="266.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="266.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="266.3">No Further Action</TrackLimits>
+<Incident et="268.4">Driver 17(16) reported contact (14.84) with another vehicle Driver 08(10)</Incident>
+<Incident et="268.5">Driver 08(10) reported contact (136.49) with another vehicle Driver 17(16)</Incident>
+<Incident et="268.5">Driver 17(16) reported contact (65.57) with another vehicle Driver 08(10)</Incident>
+<TrackLimits Driver="Driver 08" ID="10" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="271.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="271.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="273.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="273.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="1" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="274.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="1" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="274.8">No Further Action</TrackLimits>
+<Incident et="277.0">Driver 08(10) reported contact (179.36) with another vehicle Driver 17(16)</Incident>
+<Incident et="277.1">Driver 08(10) reported contact (459.86) with another vehicle Driver 17(16)</Incident>
+<Incident et="277.8">Driver 08(10) reported contact (459.60) with another vehicle Driver 17(16)</Incident>
+<Incident et="277.8">Driver 08(10) reported contact (459.60) with another vehicle Driver 17(16)</Incident>
+<Incident et="278.0">Driver 17(16) reported contact (751.89) with another vehicle Driver 08(10)</Incident>
+<Incident et="278.5">Driver 17(16) reported contact (844.35) with another vehicle Driver 08(10)</Incident>
+<Incident et="278.5">Driver 08(10) reported contact (1200.18) with another vehicle Driver 17(16)</Incident>
+<Sector et="292.8">Driver 19(3) reports new suspension damage</Sector>
+<Incident et="292.9">Driver 19(3) reported contact (4698.69) with Immovable</Incident>
+<TrackLimits Driver="Driver 19" ID="3" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="296.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="296.1">No Further Action</TrackLimits>
+<Incident et="307.3">Driver 20(9) reported contact (485.22) with another vehicle Driver 12(7)</Incident>
+<Incident et="307.3">Driver 12(7) reported contact (768.10) with another vehicle Driver 20(9)</Incident>
+<TrackLimits Driver="Driver 19" ID="3" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="308.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="1" WarningPoints="0" CurrentPoints="0" Resolution="7" et="308.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="2" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="318.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="2" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="318.2">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="17" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="332.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="2" WarningPoints="0.75" CurrentPoints="0.75" Resolution="4" et="333.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="2" WarningPoints="0.75" CurrentPoints="0.75" Resolution="4" et="333.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="2" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="335.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="2" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="335.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="335.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="335.7">No Further Action</TrackLimits>
+<Penalty et="342.7">Driver 16 served 1st Stop/Go penalty, result: penalties=1, 1st=Drive Thru,0s</Penalty>
+<TrackLimits Driver="Driver 20" ID="9" Lap="2" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="344.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="2" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="344.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="2" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="351.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="2" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="351.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="357.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="2" WarningPoints="0" CurrentPoints="0" Resolution="7" et="357.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="2" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="359.7">Warning</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="2" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="359.7">Warning</TrackLimits>
+<Incident et="371.2">Demo Driver(17) reported contact (327.68) with another vehicle Driver 06(1)</Incident>
+<Incident et="371.3">Driver 06(1) reported contact (344.10) with another vehicle Demo Driver(17)</Incident>
+<Incident et="371.6">Driver 06(1) reported contact (41.04) with Post</Incident>
+<Incident et="371.6">Demo Driver(17) reported contact (486.32) with another vehicle Driver 06(1)</Incident>
+<Incident et="371.6">Driver 06(1) reported contact (41.71) with Post</Incident>
+<Incident et="372.2">Demo Driver(17) reported contact (16.98) with Post</Incident>
+<Incident et="372.7">Driver 06(1) reported contact (3.70) with Post</Incident>
+<Incident et="372.8">Driver 06(1) reported contact (9.80) with Post</Incident>
+<Incident et="372.8">Driver 06(1) reported contact (104.85) with Post</Incident>
+<Incident et="372.9">Driver 06(1) reported contact (149.06) with another vehicle Demo Driver(17)</Incident>
+<Incident et="373.1">Demo Driver(17) reported contact (176.16) with another vehicle Driver 06(1)</Incident>
+<Incident et="373.3">Demo Driver(17) reported contact (56.19) with Post</Incident>
+<Incident et="373.4">Driver 06(1) reported contact (401.04) with another vehicle Demo Driver(17)</Incident>
+<Incident et="373.4">Driver 06(1) reported contact (424.87) with another vehicle Driver 01(13)</Incident>
+<Incident et="373.5">Driver 01(13) reported contact (675.98) with another vehicle Driver 06(1)</Incident>
+<Incident et="374.7">Demo Driver(17) reported contact (235.47) with another vehicle Driver 06(1)</Incident>
+<Incident et="374.8">Driver 06(1) reported contact (264.38) with another vehicle Demo Driver(17)</Incident>
+<Incident et="375.1">Demo Driver(17) reported contact (283.54) with another vehicle Driver 06(1)</Incident>
+<TrackLimits Driver="Driver 06" ID="1" Lap="3" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="375.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="3" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="375.2">No Further Action</TrackLimits>
+<Incident et="375.3">Driver 06(1) reported contact (280.67) with another vehicle Demo Driver(17)</Incident>
+<Incident et="376.4">Demo Driver(17) reported contact (456.27) with another vehicle Driver 06(1)</Incident>
+<Incident et="376.4">Driver 06(1) reported contact (570.41) with another vehicle Demo Driver(17)</Incident>
+<Sector et="376.8">Demo Driver(17) reports new suspension damage</Sector>
+<Incident et="376.8">Demo Driver(17) reported contact (1045.78) with another vehicle Driver 06(1)</Incident>
+<Incident et="376.9">Driver 06(1) reported contact (1042.76) with another vehicle Demo Driver(17)</Incident>
+<TrackLimits Driver="Demo Driver" ID="17" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="383.8">No Further Action</TrackLimits>
+<ChatMessage et="388.0">Guest 03: GG</ChatMessage>
+<TrackLimits Driver="Driver 15" ID="11" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="393.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="393.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="2" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="408.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="2" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="408.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="410.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="410.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="3" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="414.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="3" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="414.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="3" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="415.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="3" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="415.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="415.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="415.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 11" ID="6" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="418.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 11" ID="6" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="418.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 11" ID="6" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="422.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 11" ID="6" Lap="3" WarningPoints="0" CurrentPoints="0" Resolution="7" et="422.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="3" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="429.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="3" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="429.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="17" Lap="3" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="436.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="3" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="439.1">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="3" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="439.1">Warning</TrackLimits>
+<Incident et="457.5">Driver 20(9) reported contact (1016.06) with another vehicle Driver 14(12)</Incident>
+<Incident et="457.5">Driver 14(12) reported contact (839.42) with another vehicle Driver 20(9)</Incident>
+<Penalty et="476.1">Driver 16 served 1st Drive Thru penalty, result: penalties=0, 1st=Drive Thru,0s</Penalty>
+<TrackLimits Driver="Driver 01" ID="13" Lap="4" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="481.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="4" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="481.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="4" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="484.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="4" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="484.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="4" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="484.3">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="4" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="484.3">Warning</TrackLimits>
+<Incident et="485.9">Driver 06(1) reported contact (330.67) with another vehicle Driver 07(2)</Incident>
+<Incident et="485.9">Driver 07(2) reported contact (263.09) with another vehicle Driver 06(1)</Incident>
+<TrackLimits Driver="Driver 19" ID="3" Lap="3" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="487.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 19" ID="3" Lap="3" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="487.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="17" Lap="4" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="490.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="4" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="493.7">Warning</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="4" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="493.7">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="4" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="494.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="4" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="494.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="501.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="501.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="4" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="505.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="4" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="505.0">Warning</TrackLimits>
+<Incident et="516.8">Driver 19(3) reported contact (2292.21) with Immovable</Incident>
+<Incident et="516.8">Driver 19(3) reported contact (449.88) with Wheel</Incident>
+<Incident et="517.2">Driver 19(3) reported contact (77.96) with Wheel</Incident>
+<Incident et="517.9">Driver 19(3) reported contact (29.04) with Wheel</Incident>
+<Incident et="518.2">Driver 19(3) reported contact (8.25) with Wheel</Incident>
+<Incident et="519.1">Driver 19(3) reported contact (8.25) with Wheel</Incident>
+<Incident et="519.7">Driver 19(3) reported contact (12.84) with Wheel</Incident>
+<Incident et="520.8">Driver 19(3) reported contact (8.07) with Wheel</Incident>
+<Incident et="521.7">Driver 19(3) reported contact (9.30) with Wheel</Incident>
+<Incident et="522.2">Driver 19(3) reported contact (51.55) with Immovable</Incident>
+<Incident et="523.1">Driver 19(3) reported contact (6.63) with Wheel</Incident>
+<Incident et="523.6">Driver 19(3) reported contact (42.96) with Immovable</Incident>
+<Incident et="524.1">Driver 19(3) reported contact (6.88) with Wheel</Incident>
+<Incident et="525.5">Driver 19(3) reported contact (56.76) with Immovable</Incident>
+<Incident et="526.2">Driver 19(3) reported contact (36.87) with Immovable</Incident>
+<Incident et="527.3">Driver 19(3) reported contact (63.09) with Immovable</Incident>
+<Incident et="527.6">Driver 06(1) reported contact (1404.43) with another vehicle Driver 07(2)</Incident>
+<Incident et="527.6">Driver 07(2) reported contact (1506.58) with another vehicle Driver 06(1)</Incident>
+<TrackLimits Driver="Driver 07" ID="2" Lap="5" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="536.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="5" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="536.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="5" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="545.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="5" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="545.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="5" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="547.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="5" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="547.2">Warning</TrackLimits>
+<Incident et="554.7">Driver 20(9) reported contact (318.43) with another vehicle Driver 12(7)</Incident>
+<Incident et="554.7">Driver 12(7) reported contact (373.10) with another vehicle Driver 20(9)</Incident>
+<TrackLimits Driver="Driver 13" ID="15" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="559.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="559.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="570.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="570.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="570.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="570.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="5" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="571.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="5" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="571.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="572.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="572.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="584.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="584.3">No Further Action</TrackLimits>
+<Incident et="587.5">Driver 20(9) reported contact (924.40) with another vehicle Driver 07(2)</Incident>
+<Incident et="587.5">Driver 07(2) reported contact (905.82) with another vehicle Driver 20(9)</Incident>
+<TrackLimits Driver="Driver 20" ID="9" Lap="5" WarningPoints="0" CurrentPoints="1" Resolution="7" et="591.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="5" WarningPoints="0" CurrentPoints="1" Resolution="7" et="591.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="6" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="610.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="6" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="610.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="616.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="4" WarningPoints="0" CurrentPoints="0" Resolution="7" et="616.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="6" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="618.1">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="6" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="618.1">Warning</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="6" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="629.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="6" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="629.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="6" WarningPoints="0" CurrentPoints="1" Resolution="7" et="631.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="6" WarningPoints="0" CurrentPoints="1" Resolution="7" et="631.1">No Further Action</TrackLimits>
+<Incident et="633.0">Driver 14(12) reported contact (209.97) with another vehicle Driver 12(7)</Incident>
+<Incident et="633.0">Driver 12(7) reported contact (204.61) with another vehicle Driver 14(12)</Incident>
+<TrackLimits Driver="Driver 18" ID="4" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="634.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="634.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="6" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="643.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="6" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="643.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="649.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="649.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="6" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="652.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="6" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="652.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="6" WarningPoints="0" CurrentPoints="1" Resolution="7" et="654.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="6" WarningPoints="0" CurrentPoints="1" Resolution="7" et="654.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="6" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="658.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="6" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="658.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="660.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="660.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="662.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="662.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="664.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="664.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="6" WarningPoints="0.5" CurrentPoints="1.25" Resolution="4" et="671.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="6" WarningPoints="0.5" CurrentPoints="1.25" Resolution="4" et="671.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="675.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="5" WarningPoints="0" CurrentPoints="0" Resolution="7" et="675.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="685.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="6" WarningPoints="0" CurrentPoints="0" Resolution="7" et="685.3">No Further Action</TrackLimits>
+<Incident et="686.9">Driver 14(12) reported contact (207.87) with another vehicle Driver 12(7)</Incident>
+<Incident et="686.9">Driver 12(7) reported contact (230.00) with another vehicle Driver 14(12)</Incident>
+<TrackLimits Driver="Driver 05" ID="5" Lap="7" WarningPoints="0.5" CurrentPoints="1.25" Resolution="4" et="704.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="7" WarningPoints="0.5" CurrentPoints="1.25" Resolution="4" et="704.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="705.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="705.0">No Further Action</TrackLimits>
+<Incident et="707.0">Driver 20(9) reported contact (1653.45) with another vehicle Driver 12(7)</Incident>
+<Incident et="707.0">Driver 12(7) reported contact (1658.45) with another vehicle Driver 20(9)</Incident>
+<TrackLimits Driver="Driver 06" ID="1" Lap="7" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="713.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="7" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="713.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="714.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="714.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="7" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="718.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="7" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="718.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="7" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="723.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="7" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="723.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="7" WarningPoints="0.75" CurrentPoints="1.75" Resolution="4" et="724.3">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="7" WarningPoints="0.75" CurrentPoints="1.75" Resolution="4" et="724.3">Warning</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="7" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="725.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="7" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="725.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="725.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="725.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="732.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="732.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="7" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="733.6">Warning</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="7" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="733.6">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="741.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="741.0">No Further Action</TrackLimits>
+<Incident et="744.8">Driver 07(2) reported contact (1569.16) with another vehicle Driver 10(8)</Incident>
+<Incident et="744.8">Driver 10(8) reported contact (1534.09) with another vehicle Driver 07(2)</Incident>
+<TrackLimits Driver="Driver 18" ID="4" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="748.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="748.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="6" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="750.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="6" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="750.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="7" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="750.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="7" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="750.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="7" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="755.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="7" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="755.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="756.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="756.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="760.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="760.6">No Further Action</TrackLimits>
+<Incident et="763.9">Driver 15(11) reported contact (1903.79) with another vehicle Driver 20(9)</Incident>
+<Incident et="763.9">Driver 20(9) reported contact (1848.41) with another vehicle Driver 15(11)</Incident>
+<TrackLimits Driver="Driver 05" ID="5" Lap="8" WarningPoints="0.5" CurrentPoints="1.75" Resolution="4" et="782.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="8" WarningPoints="0.5" CurrentPoints="1.75" Resolution="4" et="782.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="8" WarningPoints="0.25" CurrentPoints="1.5" Resolution="4" et="787.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="8" WarningPoints="0.25" CurrentPoints="1.5" Resolution="4" et="787.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="798.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="798.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="8" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="800.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="8" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="800.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="8" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="808.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="8" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="808.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="817.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="817.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="8" WarningPoints="0.25" CurrentPoints="1.75" Resolution="4" et="819.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="8" WarningPoints="0.25" CurrentPoints="1.75" Resolution="4" et="819.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="822.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="822.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="8" WarningPoints="0.5" CurrentPoints="1.5" Resolution="4" et="825.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="8" WarningPoints="0.5" CurrentPoints="1.5" Resolution="4" et="825.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="9" WarningPoints="0" CurrentPoints="1.75" Resolution="7" et="826.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="9" WarningPoints="0" CurrentPoints="1.75" Resolution="7" et="826.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="832.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="7" WarningPoints="0" CurrentPoints="0" Resolution="7" et="832.4">No Further Action</TrackLimits>
+<Incident et="833.3">Driver 07(2) reported contact (1195.99) with another vehicle Driver 17(16)</Incident>
+<Incident et="833.4">Driver 17(16) reported contact (721.44) with another vehicle Driver 07(2)</Incident>
+<TrackLimits Driver="Driver 07" ID="2" Lap="8" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="836.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="8" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="836.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="839.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="8" WarningPoints="0" CurrentPoints="0" Resolution="7" et="839.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="9" WarningPoints="0.25" CurrentPoints="2" Resolution="4" et="846.6">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="9" WarningPoints="0.25" CurrentPoints="2" Resolution="4" et="846.6">Warning</TrackLimits>
+<Incident et="858.8">Driver 15(11) reported contact (766.68) with another vehicle Driver 12(7)</Incident>
+<Incident et="858.8">Driver 12(7) reported contact (458.04) with another vehicle Driver 15(11)</Incident>
+<Incident et="860.4">Driver 15(11) reported contact (850.56) with another vehicle Driver 12(7)</Incident>
+<Incident et="860.4">Driver 12(7) reported contact (751.14) with another vehicle Driver 15(11)</Incident>
+<Sector et="867.2">Driver 15(11) reports new suspension damage</Sector>
+<Incident et="867.3">Driver 15(11) reported contact (2716.01) with Immovable</Incident>
+<Incident et="868.3">Driver 15(11) reported contact (692.55) with Immovable</Incident>
+<TrackLimits Driver="Driver 15" ID="11" Lap="9" WarningPoints="0" CurrentPoints="0" Resolution="7" et="871.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="9" WarningPoints="0" CurrentPoints="0" Resolution="7" et="871.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="9" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="876.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="9" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="876.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="9" WarningPoints="0" CurrentPoints="2" Resolution="7" et="878.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="9" WarningPoints="0" CurrentPoints="2" Resolution="7" et="878.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="9" WarningPoints="0" CurrentPoints="0" Resolution="7" et="879.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="9" WarningPoints="0" CurrentPoints="0" Resolution="7" et="879.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="9" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="886.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="9" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="886.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="9" WarningPoints="0" CurrentPoints="0" Resolution="7" et="892.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="9" WarningPoints="0" CurrentPoints="0" Resolution="7" et="892.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="9" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="893.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="9" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="893.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="924.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="924.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="10" WarningPoints="0.5" CurrentPoints="2.25" Resolution="4" et="928.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="10" WarningPoints="0.5" CurrentPoints="2.25" Resolution="4" et="928.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="945.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="945.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="10" WarningPoints="0.25" CurrentPoints="1.25" Resolution="4" et="946.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="10" WarningPoints="0.25" CurrentPoints="1.25" Resolution="4" et="946.8">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="10" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="951.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="10" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="951.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="10" WarningPoints="0.25" CurrentPoints="2" Resolution="4" et="952.6">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="10" WarningPoints="0.25" CurrentPoints="2" Resolution="4" et="952.6">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="10" WarningPoints="0.25" CurrentPoints="2.25" Resolution="4" et="955.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="10" WarningPoints="0.25" CurrentPoints="2.25" Resolution="4" et="955.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="970.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="970.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="973.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="973.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="9" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="1000.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="9" WarningPoints="0.25" CurrentPoints="0.5" Resolution="4" et="1000.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="11" WarningPoints="0.75" CurrentPoints="2.75" Resolution="4" et="1023.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="11" WarningPoints="0.75" CurrentPoints="2.75" Resolution="4" et="1023.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="11" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="1023.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="11" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="1023.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="11" WarningPoints="0" CurrentPoints="2.75" Resolution="7" et="1025.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="11" WarningPoints="0" CurrentPoints="2.75" Resolution="7" et="1025.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="11" WarningPoints="0.5" CurrentPoints="2.75" Resolution="4" et="1026.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="11" WarningPoints="0.5" CurrentPoints="2.75" Resolution="4" et="1026.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1031.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1031.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="11" WarningPoints="0" CurrentPoints="1.5" Resolution="7" et="1031.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="11" WarningPoints="0" CurrentPoints="1.5" Resolution="7" et="1031.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1036.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 13" ID="15" Lap="10" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1036.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="12" WarningPoints="0.25" CurrentPoints="2.5" Resolution="4" et="1052.1">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="12" WarningPoints="0.25" CurrentPoints="2.5" Resolution="4" et="1052.1">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1056.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1056.1">No Further Action</TrackLimits>
+<ChatMessage et="1061.4">Guest 02: Thanks for the race</ChatMessage>
+<TrackLimits Driver="Driver 09" ID="14" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1063.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1063.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1064.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1064.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="12" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="1070.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="12" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="1070.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1071.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="11" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1071.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="12" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="1077.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="12" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="1077.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1091.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1091.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1099.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1099.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="12" WarningPoints="0.25" CurrentPoints="0" Resolution="2" et="1101.8">Drive Through Penalty</TrackLimits>
+<Penalty Driver="Driver 20" ID="9" Penalty="Drive Thru" Time="0" Laps="0" Reason="Reason" et="1101.8">Driver 20 received Drive Thru penalty, 0s, 0laps for Reason Result: penalties=1, 1st=Drive Thru,0s</Penalty>
+<TrackLimits Driver="Driver 20" ID="9" Lap="12" WarningPoints="0.25" CurrentPoints="0" Resolution="2" et="1101.8">Drive Through Penalty</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1118.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="12" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1118.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="12" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="1118.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="12" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="1118.4">Warning</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="11" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="1121.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="11" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="1121.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="12" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1123.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="12" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1123.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="12" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1138.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="12" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1138.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 02" ID="20" Lap="13" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="1140.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 02" ID="20" Lap="13" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="1140.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1161.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1161.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="13" WarningPoints="0.25" CurrentPoints="1.75" Resolution="4" et="1168.3">Warning</TrackLimits>
+<TrackLimits Driver="Driver 10" ID="8" Lap="13" WarningPoints="0.25" CurrentPoints="1.75" Resolution="4" et="1168.3">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="13" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="1172.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="13" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="1172.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1178.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1178.7">No Further Action</TrackLimits>
+<Incident et="1204.2">Driver 06(1) reported contact (118.27) with another vehicle Driver 20(9)</Incident>
+<Incident et="1204.2">Driver 20(9) reported contact (97.80) with another vehicle Driver 06(1)</Incident>
+<TrackLimits Driver="Driver 07" ID="2" Lap="13" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="1213.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="13" WarningPoints="0.25" CurrentPoints="1" Resolution="4" et="1213.9">Warning</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1216.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1216.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="14" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1219.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="14" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1219.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1221.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="13" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1221.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="14" WarningPoints="0.5" CurrentPoints="0" Resolution="2" et="1230.5">Drive Through Penalty</TrackLimits>
+<Penalty Driver="Driver 05" ID="5" Penalty="Drive Thru" Time="0" Laps="0" Reason="Reason" et="1230.5">Driver 05 received Drive Thru penalty, 0s, 0laps for Reason Result: penalties=1, 1st=Drive Thru,0s</Penalty>
+<TrackLimits Driver="Driver 05" ID="5" Lap="14" WarningPoints="0.5" CurrentPoints="0" Resolution="2" et="1230.5">Drive Through Penalty</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="14" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="1250.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 20" ID="9" Lap="14" WarningPoints="0" CurrentPoints="0.25" Resolution="7" et="1250.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="14" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1263.7">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="14" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1263.7">No Further Action</TrackLimits>
+<Penalty Driver="Driver 20" ID="9" Penalty="Disqualify" et="1275.6">Disqualify</Penalty>
+<Penalty et="1275.6">Driver 20 served 1st Drive Thru penalty, result: penalties=0, 1st=Drive Thru,0s</Penalty>
+<Penalty et="1284.7">Driver 05 served 1st Drive Thru penalty, result: penalties=0, 1st=Drive Thru,0s</Penalty>
+<TrackLimits Driver="Driver 18" ID="4" Lap="14" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1315.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 18" ID="4" Lap="14" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1315.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="15" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1342.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="15" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1342.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="15" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1343.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="15" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1343.8">No Further Action</TrackLimits>
+<Penalty Driver="Driver 01" ID="13" Penalty="Stop/Go" Time="100" Laps="0" Reason="Reason" et="1346.3">Driver 01 received Stop/Go penalty, 100s, 0laps for Reason Result: penalties=1, 1st=Stop/Go,100s</Penalty>
+<TrackLimits Driver="Driver 07" ID="2" Lap="15" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1347.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 07" ID="2" Lap="15" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1347.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="17" Lap="16" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="1355.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="14" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="1357.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 16" ID="18" Lap="14" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="1357.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="15" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1372.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 03" ID="19" Lap="15" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1372.2">No Further Action</TrackLimits>
+<Sector et="1383.6">Driver 09(14) reports new suspension damage</Sector>
+<Incident et="1383.7">Driver 09(14) reported contact (491.67) with another vehicle Driver 08(10)</Incident>
+<Incident et="1383.8">Driver 08(10) reported contact (569.92) with another vehicle Driver 09(14)</Incident>
+<TrackLimits Driver="Driver 12" ID="7" Lap="16" WarningPoints="0" CurrentPoints="2.75" Resolution="7" et="1394.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 12" ID="7" Lap="16" WarningPoints="0" CurrentPoints="2.75" Resolution="7" et="1394.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="16" WarningPoints="0.5" CurrentPoints="1.5" Resolution="4" et="1399.0">Warning</TrackLimits>
+<TrackLimits Driver="Driver 06" ID="1" Lap="16" WarningPoints="0.5" CurrentPoints="1.5" Resolution="4" et="1399.0">Warning</TrackLimits>
+<ChatMessage et="1402.2">Guest 02: Box this lap?</ChatMessage>
+<TrackLimits Driver="Driver 01" ID="13" Lap="16" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="1402.6">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 01" ID="13" Lap="16" WarningPoints="0" CurrentPoints="1.25" Resolution="7" et="1402.6">No Further Action</TrackLimits>
+<Incident et="1403.5">Driver 09(14) reported contact (139.66) with another vehicle Driver 08(10)</Incident>
+<Incident et="1403.6">Driver 08(10) reported contact (112.17) with another vehicle Driver 09(14)</Incident>
+<TrackLimits Driver="Driver 05" ID="5" Lap="16" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="1404.2">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="16" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="1404.2">Warning</TrackLimits>
+<Incident et="1404.4">Driver 09(14) reported contact (355.88) with another vehicle Driver 08(10)</Incident>
+<Incident et="1404.4">Driver 08(10) reported contact (188.15) with another vehicle Driver 09(14)</Incident>
+<Incident et="1407.3">Driver 09(14) reported contact (154.30) with another vehicle Driver 08(10)</Incident>
+<Incident et="1407.4">Driver 08(10) reported contact (223.50) with another vehicle Driver 09(14)</Incident>
+<Incident et="1408.2">Driver 09(14) reported contact (196.41) with another vehicle Driver 08(10)</Incident>
+<Incident et="1408.6">Driver 08(10) reported contact (290.11) with another vehicle Driver 09(14)</Incident>
+<TrackLimits Driver="Driver 08" ID="10" Lap="16" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="1410.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 08" ID="10" Lap="16" WarningPoints="0" CurrentPoints="0.75" Resolution="7" et="1410.9">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="16" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1412.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 14" ID="12" Lap="16" WarningPoints="0" CurrentPoints="1" Resolution="7" et="1412.2">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="16" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="1421.1">Warning</TrackLimits>
+<TrackLimits Driver="Driver 09" ID="14" Lap="16" WarningPoints="0.25" CurrentPoints="0.25" Resolution="4" et="1421.1">Warning</TrackLimits>
+<ChatMessage et="1422.2">Guest 03: Good luck everyone</ChatMessage>
+<TrackLimits Driver="Driver 17" ID="16" Lap="16" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1424.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 17" ID="16" Lap="16" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1424.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="16" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="1424.5">Warning</TrackLimits>
+<TrackLimits Driver="Driver 05" ID="5" Lap="16" WarningPoints="0.5" CurrentPoints="1" Resolution="4" et="1424.5">Warning</TrackLimits>
+<Incident et="1436.3">Driver 09(14) reported contact (380.20) with another vehicle Driver 08(10)</Incident>
+<Incident et="1436.4">Driver 08(10) reported contact (104.23) with another vehicle Driver 09(14)</Incident>
+<Incident et="1436.6">Driver 08(10) reported contact (184.24) with another vehicle Driver 09(14)</Incident>
+<Penalty Driver="Driver 07" ID="2" Penalty="Stop/Go" Time="100" Laps="0" Reason="Reason" et="1448.9">Driver 07 received Stop/Go penalty, 100s, 0laps for Reason Result: penalties=1, 1st=Stop/Go,100s</Penalty>
+<Penalty et="1450.6">Driver 07 finished before serving penalty, added 125 seconds to totalET</Penalty>
+<Penalty et="1450.6">Driver 07 served 1st Stop/Go penalty, result: penalties=0, 1st=Stop/Go,100s</Penalty>
+<TrackLimits Driver="Driver 15" ID="11" Lap="16" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1453.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Driver 15" ID="11" Lap="16" WarningPoints="0" CurrentPoints="0" Resolution="7" et="1453.3">No Further Action</TrackLimits>
+<Penalty et="1455.4">Driver 01 finished before serving penalty, added 125 seconds to totalET</Penalty>
+<Penalty et="1455.4">Driver 01 served 1st Stop/Go penalty, result: penalties=0, 1st=Stop/Go,100s</Penalty>
+<ChatMessage et="1457.2">Guest 04: Sorry about that</ChatMessage>
+<ChatMessage et="1482.2">Guest 02: Nice battle</ChatMessage>
+</Stream>
+<FormationAndStart>1</FormationAndStart>
+<MostLapsCompleted>17</MostLapsCompleted>
+<Driver>
+<Name>Driver 01</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #10</VehName>
+<Category>WEC 2025, GT3, Porsche 911 GT3 R LMGT3</Category>
+<CarType>Porsche 911 GT3 R LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>10</CarNumber>
+<TeamName>Team 01</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>2</GridPos>
+<Position>13</Position>
+<ClassGridPos>2</ClassGridPos>
+<ClassPosition>13</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="4" et="126.2625" s1="43.9357" s2="16.0872" s3="22.6672" topspeed="251.80" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">82.6902</Lap>
+<Lap num="2" p="5" et="208.9600" s1="37.5730" s2="16.2244" s3="22.0168" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8142</Lap>
+<Lap num="3" p="5" et="284.7800" s1="36.3277" s2="15.7194" s3="21.9795" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.0266</Lap>
+<Lap num="4" p="3" et="358.8000" s1="37.5974" s2="15.7081" s3="22.1021" topspeed="258.10" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.4076</Lap>
+<Lap num="5" p="3" et="434.2200" s1="36.6297" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="6" p="3" et="508.2000" s1="36.4159" s2="15.4708" s3="22.0135" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.9002</Lap>
+<Lap num="7" p="3" et="582.1001" s1="36.4252" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="8" p="2" et="656.5801" s1="36.6917" s2="15.8831" s3="22.0874" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6621</Lap>
+<Lap num="9" p="2" et="731.2400" s1="36.2190" s2="15.5916" s3="21.9429" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.7535</Lap>
+<Lap num="10" p="2" et="804.9800" s1="37.0210" s2="15.7595" s3="21.8821" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6627</Lap>
+<Lap num="11" p="2" et="879.6599" s1="36.3668" s2="15.6481" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="12" p="2" et="953.8000" s1="36.4951" s2="15.5320" s3="22.0865" topspeed="249.99" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.1137</Lap>
+<Lap num="13" p="2" et="1027.9199" s1="36.5361" s2="15.9799" s3="22.5303" topspeed="250.44" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0463</Lap>
+<Lap num="14" p="2" et="1102.9600" s1="36.6915" s2="15.9056" s3="22.1885" topspeed="243.69" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7856</Lap>
+<Lap num="15" p="2" et="1177.7400" s1="37.0790" s2="15.6499" s3="22.1567" topspeed="240.99" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.8856</Lap>
+<Lap num="16" p="2" et="1252.6399" s1="37.9634" s2="15.8328" s3="22.9614" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.7576</Lap>
+<Lap num="17" p="10" et="1329.3999" s1="38.1699" s2="21.4907" s3="66.3319" topspeed="232.88" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium" pit="1">125.9926</Lap>
+<BestLapTime>73.7535</BestLapTime>
+<FinishTime>1454.1174</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 02</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #8</VehName>
+<Category>ELMS 2026, GT3, Mercedes-AMG LMGT3</Category>
+<CarType>Mercedes-AMG LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>8</CarNumber>
+<TeamName>Team 02</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>1</GridPos>
+<Position>1</Position>
+<ClassGridPos>1</ClassGridPos>
+<ClassPosition>1</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="1" et="126.2625" s1="41.2368" topspeed="250.44" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="2" p="1" et="205.3401" s1="36.2728" s2="15.5455" s3="22.2509" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.0692</Lap>
+<Lap num="3" p="1" et="279.3999" s1="36.4356" s2="15.6892" s3="22.1402" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.2650</Lap>
+<Lap num="4" p="1" et="353.6599" s1="36.2931" s2="15.5030" s3="22.0323" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.8283</Lap>
+<Lap num="5" p="1" et="427.5000" s1="36.2727" s2="15.6694" s3="22.0167" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.9588</Lap>
+<Lap num="6" p="1" et="501.4600" s1="36.2190" s2="15.5819" s3="22.0099" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.8109</Lap>
+<Lap num="7" p="1" et="575.2600" s1="36.4364" s2="16.2649" s3="22.5386" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.2399</Lap>
+<Lap num="8" p="1" et="650.5000" s1="36.7077" s2="15.5422" s3="22.0040" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.2539</Lap>
+<Lap num="9" p="1" et="724.7600" s1="36.4401" s2="15.6012" s3="21.9404" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.9818</Lap>
+<Lap num="10" p="1" et="798.7400" s1="36.2768" s2="15.4663" s3="22.2311" topspeed="257.65" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.9742</Lap>
+<Lap num="11" p="1" et="872.7200" s1="36.4341" s2="15.7025" s3="21.9672" topspeed="257.65" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.1038</Lap>
+<Lap num="12" p="1" et="946.8201" s1="36.6016" s2="15.6122" s3="21.9948" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.2085</Lap>
+<Lap num="13" p="1" et="1021.0200" s1="36.3522" s2="15.6134" s3="22.1870" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.1526</Lap>
+<Lap num="14" p="1" et="1095.1799" s1="36.7739" s2="15.9634" s3="22.0392" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7765</Lap>
+<Lap num="15" p="1" et="1169.9600" s1="36.5942" s2="15.7181" s3="22.4567" topspeed="257.65" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7690</Lap>
+<Lap num="16" p="1" et="1244.7200" s1="36.7382" s2="15.7971" s3="21.9777" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.5129</Lap>
+<Lap num="17" p="1" et="1319.2400" s1="36.7406" s2="15.8263" s3="21.8900" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.4569</Lap>
+<BestLapTime>73.8109</BestLapTime>
+<FinishTime>1267.4375</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 03</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #2</VehName>
+<Category>WEC 2026, GT3, Aston Martin Vantage AMR LMGT3</Category>
+<CarType>Aston Martin Vantage AMR LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>2</CarNumber>
+<TeamName>Team 03</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>20</GridPos>
+<Position>14</Position>
+<ClassGridPos>20</ClassGridPos>
+<ClassPosition>14</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="9" et="126.2625" s1="51.3663" s2="15.8426" s3="22.3245" topspeed="249.54" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">89.5334</Lap>
+<Lap num="2" p="9" et="215.8000" s1="36.9272" s2="15.9533" s3="22.4810" topspeed="247.74" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3615</Lap>
+<Lap num="3" p="8" et="291.1599" s1="36.9648" s2="15.4976" s3="22.3732" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.8355</Lap>
+<Lap num="4" p="6" et="366.0000" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6794</Lap>
+<Lap num="5" p="6" et="441.6799" s1="37.1750" s2="15.5333" s3="22.0175" topspeed="249.54" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7258</Lap>
+<Lap num="6" p="5" et="516.3999" s1="36.5010" s2="15.2781" s3="22.2109" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">73.9901</Lap>
+<Lap num="7" p="5" et="590.3999" s1="37.4542" s2="15.3422" s3="22.2742" topspeed="243.69" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0706</Lap>
+<Lap num="8" p="15" et="665.4600" s1="64.8269" s2="19.4557" s3="23.0980" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">107.3806</Lap>
+<Lap num="9" p="15" et="772.8401" s1="36.8826" s2="16.1091" s3="22.3290" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3208</Lap>
+<Lap num="10" p="15" et="848.1799" s1="36.7288" s2="16.6693" s3="22.2608" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6588</Lap>
+<Lap num="11" p="14" et="923.8201" s1="38.9805" s2="16.8279" s3="22.7052" topspeed="248.64" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.5136</Lap>
+<Lap num="12" p="15" et="1002.3401" s1="37.5497" s2="26.3734" s3="27.2593" topspeed="247.29" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">91.1824</Lap>
+<Lap num="13" p="15" et="1093.5200" s1="37.6595" s2="15.3994" s3="22.2156" topspeed="244.59" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.2745</Lap>
+<Lap num="14" p="15" et="1168.8000" s1="36.7883" s2="16.3246" s3="23.4359" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.5488</Lap>
+<Lap num="15" p="14" et="1245.3401" s1="38.4344" s2="15.8297" s3="22.1394" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.4036</Lap>
+<Lap num="16" p="14" et="1321.7600" s1="36.9364" s2="16.5636" s3="22.8828" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.3828</Lap>
+<BestLapTime>73.9901</BestLapTime>
+<FinishTime>1271.8774</FinishTime>
+<Laps>16</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="16">PlayerControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Demo Driver</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #1</VehName>
+<Category>WEC 2024, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>1</CarNumber>
+<TeamName>Team 04</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>4</GridPos>
+<Position>2</Position>
+<ClassGridPos>4</ClassGridPos>
+<ClassPosition>2</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="3" et="126.2625" s1="43.8071" s2="15.9355" s3="22.3178" topspeed="249.09" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">82.0605</Lap>
+<Lap num="2" p="3" et="208.3401" s1="37.3067" s2="15.6648" s3="22.0846" topspeed="255.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0562</Lap>
+<Lap num="3" p="3" et="283.3799" s1="36.9001" s2="15.7532" s3="22.4224" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0757</Lap>
+<Lap num="4" p="7" et="358.4600" s1="47.1303" s2="15.7648" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="5" p="7" et="443.5601" s1="36.7651" s2="16.0732" s3="22.1668" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0051</Lap>
+<Lap num="6" p="6" et="518.5601" s1="36.8662" s2="15.4869" s3="22.0828" topspeed="255.56" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.4359</Lap>
+<Lap num="7" p="6" et="593.0000" s1="36.7441" s2="15.8019" s3="22.1060" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6520</Lap>
+<Lap num="8" p="5" et="667.6599" s1="36.8192" s2="15.7243" s3="22.2180" topspeed="255.57" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7614</Lap>
+<Lap num="9" p="5" et="742.4199" s1="36.7751" s2="15.7315" s3="22.1411" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6477</Lap>
+<Lap num="10" p="4" et="817.0601" s1="36.7686" s2="15.5182" s3="22.1814" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.4681</Lap>
+<Lap num="11" p="4" et="891.5400" s1="37.0967" s2="15.4228" s3="22.1711" topspeed="255.56" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6906</Lap>
+<Lap num="12" p="4" et="966.2200" s1="36.8920" s2="15.5864" s3="22.1436" topspeed="255.58" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6221</Lap>
+<Lap num="13" p="4" et="1040.8401" s1="36.6572" s2="15.5293" s3="22.1461" topspeed="256.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.3326</Lap>
+<Lap num="14" p="4" et="1115.1799" s1="36.7004" s2="15.4326" s3="22.2053" topspeed="256.34" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.3384</Lap>
+<Lap num="15" p="4" et="1189.5200" s1="36.8763" s2="15.5933" s3="22.1400" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6096</Lap>
+<Lap num="16" p="3" et="1264.1201" s1="37.3516" s2="15.5458" s3="22.1871" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0845</Lap>
+<Lap num="17" p="2" et="1339.2200" topspeed="256.33" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<BestLapTime>74.3326</BestLapTime>
+<FinishTime>1288.5423</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,ABS=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 05</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #15</VehName>
+<Category>WEC 2024, GT3, Porsche 911 GT3 R LMGT3</Category>
+<CarType>Porsche 911 GT3 R LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>15</CarNumber>
+<TeamName>Team 05</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>3</GridPos>
+<Position>5</Position>
+<ClassGridPos>3</ClassGridPos>
+<ClassPosition>5</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="2" et="126.2625" s1="43.1130" s2="15.7464" s3="22.4121" topspeed="248.64" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">81.2715</Lap>
+<Lap num="2" p="2" et="207.5400" s1="36.6404" s2="15.6533" s3="22.1263" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.4200</Lap>
+<Lap num="3" p="2" et="281.9600" s1="36.7929" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="4" p="2" et="356.6001" s1="36.6431" s2="15.8673" s3="22.1569" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6672</Lap>
+<Lap num="5" p="2" et="431.2800" s1="36.9059" s2="15.6379" s3="22.2946" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.8385</Lap>
+<Lap num="6" p="2" et="506.1201" s1="36.8333" s2="15.9052" s3="22.4047" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.1431</Lap>
+<Lap num="7" p="2" et="581.2600" s1="36.7088" s2="15.9285" s3="22.6230" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.2603</Lap>
+<Lap num="8" p="3" et="656.5200" s1="37.3225" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="9" p="3" et="731.7000" s1="36.5434" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="10" p="3" et="806.1201" s1="36.9476" s2="16.1278" s3="22.2449" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3203</Lap>
+<Lap num="11" p="3" et="881.4399" s1="36.8134" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="12" p="3" et="956.0400" s1="37.1763" s2="16.3420" s3="22.3755" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8938</Lap>
+<Lap num="13" p="3" et="1031.9399" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="14" p="3" et="1107.1399" s1="37.0225" s2="15.9113" s3="22.1556" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0894</Lap>
+<Lap num="15" p="3" et="1182.2200" s1="37.4733" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium" pit="1">--.----</Lap>
+<Lap num="16" p="6" et="1261.8999" s1="57.0471" s2="15.9633" s3="22.2273" topspeed="248.19" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">95.2377</Lap>
+<Lap num="17" p="5" et="1357.1399" s1="36.5729" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<BestLapTime>74.4200</BestLapTime>
+<FinishTime>1305.3376</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,ABS=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 06</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #13</VehName>
+<Category>WEC 2025, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>13</CarNumber>
+<TeamName>Team 06</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>7</GridPos>
+<Position>3</Position>
+<ClassGridPos>7</ClassGridPos>
+<ClassPosition>3</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="5" et="126.2625" s1="44.4677" s2="15.6850" s3="22.6631" topspeed="250.90" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">82.8158</Lap>
+<Lap num="2" p="4" et="209.0801" s1="37.1465" s2="15.5573" s3="22.0321" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7359</Lap>
+<Lap num="3" p="4" et="283.8201" s1="36.7993" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="4" p="5" et="358.6201" s1="40.4231" s2="15.8987" s3="22.0661" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.3879</Lap>
+<Lap num="5" p="5" et="437.0000" s1="36.8983" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="6" p="4" et="512.5601" s1="38.8624" s2="15.7433" s3="22.1890" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.7947</Lap>
+<Lap num="7" p="4" et="589.3401" s1="37.1928" s2="15.6983" s3="22.9486" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8397</Lap>
+<Lap num="8" p="4" et="665.1799" s1="37.3306" s2="16.1125" s3="22.1665" topspeed="251.35" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6096</Lap>
+<Lap num="9" p="4" et="740.8000" s1="37.1571" s2="16.1284" s3="22.1526" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.4381</Lap>
+<Lap num="10" p="5" et="816.2400" s1="37.0093" s2="15.5223" s3="31.2551" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">83.7867</Lap>
+<Lap num="11" p="6" et="900.0200" s1="38.5023" s2="15.8645" s3="22.1432" topspeed="247.74" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.5100</Lap>
+<Lap num="12" p="6" et="976.5200" s1="36.6938" s2="15.6915" s3="22.2467" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.6320</Lap>
+<Lap num="13" p="6" et="1051.1599" s1="36.6588" s2="15.5509" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="14" p="6" et="1125.6201" s1="36.9553" s2="15.3115" s3="22.2928" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.5597</Lap>
+<Lap num="15" p="5" et="1200.1799" s1="38.0508" s2="15.7368" s3="22.8629" topspeed="250.90" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.6505</Lap>
+<Lap num="16" p="4" et="1276.8401" s1="36.8079" s2="15.5590" s3="22.1536" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.5204</Lap>
+<Lap num="17" p="3" et="1351.3601" s1="37.0713" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<BestLapTime>74.5204</BestLapTime>
+<FinishTime>1300.7375</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 07</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #3</VehName>
+<Category>WEC 2024, GT3, McLaren 720S LMGT3 Evo</Category>
+<CarType>McLaren 720S LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>3</CarNumber>
+<TeamName>Team 07</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>8</GridPos>
+<Position>12</Position>
+<ClassGridPos>8</ClassGridPos>
+<ClassPosition>12</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="6" et="126.2625" s1="44.8404" s2="16.2184" s3="22.2938" topspeed="248.64" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">83.3526</Lap>
+<Lap num="2" p="6" et="209.6201" s1="37.4422" s2="16.2187" s3="22.4227" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0837</Lap>
+<Lap num="3" p="6" et="285.7000" s1="36.7896" s2="16.0329" s3="22.1084" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.9309</Lap>
+<Lap num="4" p="4" et="360.6399" s1="38.1663" s2="15.7243" s3="22.1548" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0454</Lap>
+<Lap num="5" p="4" et="436.6799" s1="36.8783" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="6" p="11" et="512.2400" s1="48.0219" s2="16.1063" s3="28.2755" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">92.4036</Lap>
+<Lap num="7" p="11" et="604.6599" s1="37.2308" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="8" p="14" et="680.0601" s1="37.3696" s2="16.3391" s3="35.9789" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">89.6876</Lap>
+<Lap num="9" p="13" et="769.7400" s1="37.1793" s2="16.0646" s3="22.9986" topspeed="251.35" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.2425</Lap>
+<Lap num="10" p="13" et="845.9800" s1="37.0072" s2="15.9211" s3="22.1974" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.1258</Lap>
+<Lap num="11" p="13" et="921.1201" s1="36.6513" s2="15.9193" s3="21.9583" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.5289</Lap>
+<Lap num="12" p="12" et="995.6399" s1="37.5451" s2="15.8813" s3="22.0077" topspeed="259.00" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.4341</Lap>
+<Lap num="13" p="12" et="1071.0801" s1="36.6587" s2="15.9435" s3="22.6293" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.2314</Lap>
+<Lap num="14" p="12" et="1146.3000" s1="36.7900" s2="15.8274" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="15" p="11" et="1221.2600" s1="37.5192" s2="16.0931" s3="22.3489" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9612</Lap>
+<Lap num="16" p="11" et="1297.2200" s1="37.3020" s2="16.6727" s3="22.9838" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.9585</Lap>
+<Lap num="17" p="9" et="1374.1799" s1="37.6208" s2="16.3649" s3="22.3000" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.2858</Lap>
+<BestLapTime>74.5289</BestLapTime>
+<FinishTime>1449.2175</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,ABS=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 08</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #5</VehName>
+<Category>WEC 2026, GT3, Mercedes-AMG LMGT3</Category>
+<CarType>Mercedes-AMG LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>5</CarNumber>
+<TeamName>Team 08</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>9</GridPos>
+<Position>7</Position>
+<ClassGridPos>9</ClassGridPos>
+<ClassPosition>7</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="17" et="126.2625" s1="58.0975" s2="15.6428" s3="23.3139" topspeed="249.54" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">97.0542</Lap>
+<Lap num="2" p="16" et="223.3201" s1="37.1476" s2="17.7737" s3="26.8004" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">81.7217</Lap>
+<Lap num="3" p="16" et="305.0400" s1="37.3425" s2="16.8914" s3="22.7841" topspeed="258.55" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.0181</Lap>
+<Lap num="4" p="15" et="382.0601" s1="36.5735" s2="15.8966" s3="22.0804" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.5505</Lap>
+<Lap num="5" p="14" et="456.6201" s1="36.7011" s2="15.7959" s3="22.2932" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7902</Lap>
+<Lap num="6" p="13" et="531.3999" s1="37.1929" s2="17.5125" s3="23.1802" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.8857</Lap>
+<Lap num="7" p="13" et="609.3000" s1="37.6986" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="8" p="11" et="685.5601" s1="37.0748" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="9" p="11" et="761.5601" s1="36.9799" s2="16.3543" s3="22.2143" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5485</Lap>
+<Lap num="10" p="10" et="837.1001" s1="37.4932" s2="15.8987" s3="22.2899" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6817</Lap>
+<Lap num="11" p="10" et="912.7800" s1="37.0474" s2="15.6804" s3="22.2388" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.9666</Lap>
+<Lap num="12" p="10" et="987.7600" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="13" p="9" et="1063.6399" s1="36.9731" s2="16.0122" s3="22.3632" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3485</Lap>
+<Lap num="14" p="9" et="1138.9800" s1="37.8064" s2="15.8512" s3="22.1628" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8204</Lap>
+<Lap num="15" p="8" et="1214.8000" s1="37.4639" s2="16.1929" s3="22.5753" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.2321</Lap>
+<Lap num="16" p="8" et="1291.0400" s1="37.6825" s2="17.0823" s3="24.1586" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.9233</Lap>
+<Lap num="17" p="7" et="1369.9600" s1="38.7803" s2="16.0736" s3="23.1886" topspeed="249.99" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.0425</Lap>
+<BestLapTime>74.5505</BestLapTime>
+<FinishTime>1321.7375</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 09</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #17</VehName>
+<Category>ELMS 2026, GT3, Ferrari 296 LMGT3 Evo</Category>
+<CarType>Ferrari 296 LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>17</CarNumber>
+<TeamName>Team 09</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>13</GridPos>
+<Position>6</Position>
+<ClassGridPos>13</ClassGridPos>
+<ClassPosition>6</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="15" et="126.2625" s1="53.1757" s2="19.3395" s3="22.2646" topspeed="247.74" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">94.7798</Lap>
+<Lap num="2" p="13" et="221.0601" s1="37.7134" s2="15.9844" s3="22.1391" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8370</Lap>
+<Lap num="3" p="13" et="296.8799" s1="37.0338" s2="16.0996" s3="22.3872" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5207</Lap>
+<Lap num="4" p="12" et="372.3999" s1="37.3951" s2="15.8588" s3="22.3007" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5546</Lap>
+<Lap num="5" p="15" et="447.9600" s1="36.8049" s2="27.5035" s3="22.3185" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">86.6269</Lap>
+<Lap num="6" p="14" et="534.6001" s1="37.2131" s2="15.9816" s3="22.6693" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8639</Lap>
+<Lap num="7" p="14" et="610.4600" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.1325</Lap>
+<Lap num="8" p="12" et="687.5801" s1="37.1064" s2="16.1415" s3="23.7681" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.0160</Lap>
+<Lap num="9" p="12" et="764.6001" s1="37.5681" s2="16.1829" s3="22.2921" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0431</Lap>
+<Lap num="10" p="11" et="840.6399" s1="37.2310" s2="15.7662" s3="22.6533" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6505</Lap>
+<Lap num="11" p="11" et="916.3000" s1="36.7980" s2="15.6641" s3="22.2896" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.7516</Lap>
+<Lap num="12" p="11" et="991.0400" s1="36.8990" s2="15.7560" s3="23.3899" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0449</Lap>
+<Lap num="13" p="10" et="1067.1001" s1="37.5889" s2="16.0859" s3="22.0873" topspeed="249.54" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.7621</Lap>
+<Lap num="14" p="10" et="1142.8601" s1="38.2708" s2="16.1104" s3="22.3046" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.6857</Lap>
+<Lap num="15" p="9" et="1219.5400" s1="37.9089" s2="15.9143" s3="22.2839" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1072</Lap>
+<Lap num="16" p="9" et="1295.6399" s1="37.0565" s2="15.7316" s3="22.3740" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.1621</Lap>
+<Lap num="17" p="6" et="1370.8201" s1="37.7961" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<BestLapTime>74.7516</BestLapTime>
+<FinishTime>1321.2575</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 10</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #11</VehName>
+<Category>WEC 2026, GT3, McLaren 720S LMGT3 Evo</Category>
+<CarType>McLaren 720S LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>11</CarNumber>
+<TeamName>Team 10</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>10</GridPos>
+<Position>11</Position>
+<ClassGridPos>10</ClassGridPos>
+<ClassPosition>11</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="18" et="126.2625" s1="62.3284" s2="16.2096" topspeed="246.84" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="2" p="15" et="227.7800" s1="37.8702" s2="16.1291" s3="23.0175" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.0168</Lap>
+<Lap num="3" p="15" et="304.8000" s1="37.0527" s2="15.5878" s3="22.3297" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.9702</Lap>
+<Lap num="4" p="14" et="379.7600" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="5" p="12" et="455.2200" s1="37.2483" s2="15.6039" s3="22.2707" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.1229</Lap>
+<Lap num="6" p="12" et="530.3601" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="7" p="12" et="605.1201" s1="37.2283" s2="16.4602" s3="22.3184" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0069</Lap>
+<Lap num="8" p="10" et="681.1201" s1="37.0240" s2="15.9584" s3="23.1970" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1794</Lap>
+<Lap num="9" p="10" et="757.3000" s1="37.4875" s2="15.5114" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="10" p="9" et="832.3601" s1="37.0337" s2="15.4722" s3="22.3271" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.8330</Lap>
+<Lap num="11" p="9" et="907.2000" s1="37.2691" s2="15.8114" s3="22.1431" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.2236</Lap>
+<Lap num="12" p="9" et="982.4199" s1="36.8832" s2="15.7672" s3="22.2928" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">74.9432</Lap>
+<Lap num="13" p="8" et="1057.3601" s1="37.9331" s2="15.8262" s3="22.2266" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9858</Lap>
+<Lap num="14" p="8" et="1133.3601" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="15" p="7" et="1208.3999" s1="37.4177" s2="15.8955" s3="22.6116" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9248</Lap>
+<Lap num="16" p="7" et="1284.3401" s1="37.6848" s2="16.0548" s3="27.7479" topspeed="250.44" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium" pit="1">81.4875</Lap>
+<Lap num="17" p="13" et="1365.8201" s1="80.8585" s2="15.6497" s3="22.3547" topspeed="246.84" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">118.8629</Lap>
+<BestLapTime>74.8330</BestLapTime>
+<FinishTime>1358.4174</FinishTime>
+<Laps>17</Laps>
+<Pitstops>1</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 11</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #12</VehName>
+<Category>WEC 2026, GT3, Porsche 911 GT3 R LMGT3</Category>
+<CarType>Porsche 911 GT3 R LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>12</CarNumber>
+<TeamName>Team 11</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>6</GridPos>
+<Position>20</Position>
+<ClassGridPos>6</ClassGridPos>
+<ClassPosition>20</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="8" et="126.2625" s1="50.7347" s2="16.0653" s3="22.3762" topspeed="247.29" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">89.1763</Lap>
+<Lap num="2" p="7" et="215.4399" s1="36.6425" s2="15.9501" s3="22.4239" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.0165</Lap>
+<Lap num="3" p="7" et="290.4600" s1="37.1111" s2="15.8004" s3="22.5554" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.4669</Lap>
+<BestLapTime>75.0165</BestLapTime>
+<Laps>3</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>DNF</FinishStatus>
+<DNFReason>DNF</DNFReason>
+<ControlAndAids startLap="1" endLap="3">PlayerControl,ABS=1,Clutch,Opposite,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 12</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #6</VehName>
+<Category>WEC 2025, GT3, Mercedes-AMG LMGT3</Category>
+<CarType>Mercedes-AMG LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>6</CarNumber>
+<TeamName>Team 12</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>12</GridPos>
+<Position>4</Position>
+<ClassGridPos>12</ClassGridPos>
+<ClassPosition>4</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="13" et="126.2625" s1="52.1874" s2="17.2251" s3="22.9819" topspeed="245.49" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">92.3943</Lap>
+<Lap num="2" p="11" et="218.6599" s1="37.4325" s2="16.3094" s3="22.1185" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8605</Lap>
+<Lap num="3" p="12" et="294.5200" s1="37.4294" s2="16.2064" s3="22.2886" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9244</Lap>
+<Lap num="4" p="11" et="370.4600" s1="37.4005" s2="15.8808" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="5" p="11" et="446.0000" s1="37.4499" s2="16.4707" s3="22.2649" topspeed="258.10" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1855</Lap>
+<Lap num="6" p="9" et="522.1799" s1="37.1686" s2="15.8834" s3="22.4651" topspeed="257.20" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5170</Lap>
+<Lap num="7" p="8" et="597.7000" topspeed="257.65" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="8" p="8" et="673.7400" s1="38.1168" s2="16.8927" s3="22.6078" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.6174</Lap>
+<Lap num="9" p="8" et="751.3601" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="10" p="7" et="826.4399" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="11" p="7" et="903.3601" s1="36.9786" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="12" p="7" et="978.3401" s1="36.9141" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="13" p="7" et="1053.5801" s1="37.3060" s2="16.0563" s3="22.0985" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.4608</Lap>
+<Lap num="14" p="7" et="1129.0400" s1="37.2214" s2="16.0610" s3="22.0610" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3435</Lap>
+<Lap num="15" p="6" et="1204.3799" s1="36.9833" s2="16.3173" s3="22.1570" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.4575</Lap>
+<Lap num="16" p="5" et="1279.8401" s1="36.9553" s2="16.0839" s3="22.2307" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.2699</Lap>
+<Lap num="17" p="4" et="1355.1001" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.3710</Lap>
+<BestLapTime>75.2699</BestLapTime>
+<FinishTime>1305.2175</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,ABS=1,Steering=2,Clutch,Opposite,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 13</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #19</VehName>
+<Category>WEC 2026, GT3, Ferrari 296 LMGT3 Evo</Category>
+<CarType>Ferrari 296 LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>19</CarNumber>
+<TeamName>Team 13</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>17</GridPos>
+<Position>18</Position>
+<ClassGridPos>17</ClassGridPos>
+<ClassPosition>18</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="20" et="126.2625" topspeed="240.53" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="2" p="20" et="306.3601" s1="38.1150" s2="16.9326" s3="22.6790" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.7265</Lap>
+<Lap num="3" p="19" et="384.0801" s1="38.3112" s2="16.0963" s3="22.5439" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.9514</Lap>
+<Lap num="4" p="17" et="461.0400" s1="37.1956" s2="15.9194" s3="22.4080" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5230</Lap>
+<Lap num="5" p="17" et="536.5601" s1="48.5892" s2="17.3263" s3="22.5797" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">88.4952</Lap>
+<Lap num="6" p="18" et="625.0601" s1="37.4774" s2="16.2608" s3="22.7676" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.5058</Lap>
+<Lap num="7" p="18" et="701.5601" s1="37.1830" s2="16.3521" s3="22.3961" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9313</Lap>
+<Lap num="8" p="17" et="777.5000" s1="37.8351" s2="16.4446" s3="22.6551" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.9348</Lap>
+<Lap num="9" p="17" et="854.4199" s1="37.5868" s2="16.2812" s3="22.3046" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1726</Lap>
+<Lap num="10" p="17" et="930.6001" s1="37.4872" s2="16.0157" s3="22.3678" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.8708</Lap>
+<Lap num="11" p="18" et="1006.4800" s1="48.4877" s2="16.3105" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="12" p="105" et="--.---" topspeed="243.24" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<BestLapTime>75.5230</BestLapTime>
+<Laps>12</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>DNF</FinishStatus>
+<DNFReason>DNF</DNFReason>
+<ControlAndAids startLap="1" endLap="11">PlayerControl</ControlAndAids>
+<ControlAndAids startLap="12" endLap="12">UnknownControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 14</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #18</VehName>
+<Category>WEC 2026, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>18</CarNumber>
+<TeamName>Team 14</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>16</GridPos>
+<Position>8</Position>
+<ClassGridPos>16</ClassGridPos>
+<ClassPosition>8</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="11" et="126.2625" s1="52.4627" s2="16.4722" s3="22.3571" topspeed="245.94" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">91.2920</Lap>
+<Lap num="2" p="10" et="217.5601" s1="37.3243" s2="16.2698" s3="22.5611" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1552</Lap>
+<Lap num="3" p="10" et="293.7200" s1="37.4583" s2="15.5970" s3="22.4989" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5542</Lap>
+<Lap num="4" p="9" et="369.2800" s1="37.0415" s2="16.6668" s3="22.3701" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0785</Lap>
+<Lap num="5" p="9" et="445.3601" s1="37.5391" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="6" p="8" et="521.2000" s1="37.4394" s2="16.2741" s3="22.4411" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1546</Lap>
+<Lap num="7" p="9" et="597.3601" s1="37.3833" s2="16.6234" s3="22.5696" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.5763</Lap>
+<Lap num="8" p="9" et="673.9399" s1="38.6088" s2="16.7415" s3="22.9684" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.3187</Lap>
+<Lap num="9" p="9" et="752.2600" s1="36.9825" s2="16.6395" s3="22.6254" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.2473</Lap>
+<Lap num="10" p="8" et="828.5000" s1="37.5370" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="11" p="8" et="904.6599" s1="37.1696" s2="15.9294" s3="22.4825" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5815</Lap>
+<Lap num="12" p="8" et="980.2400" s1="37.9820" s2="15.9380" s3="22.7236" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.6437</Lap>
+<Lap num="13" p="11" et="1056.8799" s1="46.7716" s2="17.3759" s3="22.5427" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">86.6902</Lap>
+<Lap num="14" p="11" et="1143.5801" s1="37.9193" s2="16.0868" s3="22.4609" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.4670</Lap>
+<Lap num="15" p="10" et="1220.0400" s1="37.6833" s2="15.9131" s3="22.3424" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9388</Lap>
+<Lap num="16" p="10" et="1295.9800" s1="37.2698" s2="15.9858" s3="22.3391" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.5947</Lap>
+<Lap num="17" p="8" et="1371.5801" s1="37.7841" s2="16.4655" s3="22.2864" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.5359</Lap>
+<BestLapTime>75.5542</BestLapTime>
+<FinishTime>1321.8376</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,ABS=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 15</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #14</VehName>
+<Category>WEC 2026, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>14</CarNumber>
+<TeamName>Team 15</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>14</GridPos>
+<Position>10</Position>
+<ClassGridPos>14</ClassGridPos>
+<ClassPosition>10</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="7" et="126.2625" s1="49.1456" s2="16.7199" s3="22.6524" topspeed="248.19" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">88.5180</Lap>
+<Lap num="2" p="8" et="214.8000" s1="37.0089" s2="16.2132" s3="22.8129" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0349</Lap>
+<Lap num="3" p="9" et="290.8201" s1="38.1336" s2="16.6073" s3="22.5037" topspeed="250.90" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.2445</Lap>
+<Lap num="4" p="8" et="368.0601" s1="38.0197" s2="16.5986" s3="22.3078" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.9261</Lap>
+<Lap num="5" p="8" et="445.0000" s1="37.0534" s2="16.2848" s3="22.2744" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6127</Lap>
+<Lap num="6" p="7" et="520.6001" s1="37.3501" s2="16.3325" s3="22.4226" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1052</Lap>
+<Lap num="7" p="7" et="596.7200" s1="36.9925" s2="16.3618" s3="22.2949" topspeed="256.30" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6492</Lap>
+<Lap num="8" p="6" et="672.3601" s1="37.3120" s2="16.6849" s3="22.7465" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.7433</Lap>
+<Lap num="9" p="6" et="749.1001" s1="37.3346" s2="16.1444" s3="22.8939" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.3729</Lap>
+<Lap num="10" p="12" et="825.4800" s1="53.5208" s2="17.5913" s3="22.5543" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">93.6664</Lap>
+<Lap num="11" p="12" et="919.1399" s1="37.3112" s2="16.5344" s3="22.3386" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.1841</Lap>
+<Lap num="12" p="13" et="995.3201" s1="38.2339" s2="16.6707" s3="22.8730" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.7776</Lap>
+<Lap num="13" p="13" et="1073.1001" s1="37.6713" s2="16.1873" s3="22.9534" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.8119</Lap>
+<Lap num="14" p="13" et="1149.9199" s1="37.8140" s2="17.0309" s3="25.2153" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">80.0602</Lap>
+<Lap num="15" p="12" et="1229.9800" s1="37.6699" s2="16.3395" s3="23.0660" topspeed="251.35" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.0754</Lap>
+<Lap num="16" p="12" et="1307.0601" s1="36.9941" s2="16.6875" s3="22.9766" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.6582</Lap>
+<Lap num="17" p="12" et="1383.7200" s1="37.6902" s2="16.5278" s3="22.9948" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.2128</Lap>
+<BestLapTime>75.6127</BestLapTime>
+<FinishTime>1334.6574</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 16</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #4</VehName>
+<Category>ELMS 2026, GT3, Ferrari 296 LMGT3 Evo</Category>
+<CarType>Ferrari 296 LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>4</CarNumber>
+<TeamName>Team 16</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>15</GridPos>
+<Position>16</Position>
+<ClassGridPos>15</ClassGridPos>
+<ClassPosition>16</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="10" et="126.2625" topspeed="242.34" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium" pit="1">--.----</Lap>
+<Lap num="2" p="19" et="216.9600" s1="75.5948" s2="16.1070" s3="27.9149" topspeed="244.59" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium" pit="1">119.6167</Lap>
+<Lap num="3" p="18" et="336.5801" s1="73.6965" s2="15.9374" s3="27.0235" topspeed="247.74" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium" pit="1">116.6575</Lap>
+<Lap num="4" p="18" et="453.2200" s1="58.8351" s2="15.8723" s3="22.6006" topspeed="245.49" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">97.3081</Lap>
+<Lap num="5" p="18" et="550.5400" s1="37.3170" s2="15.7389" s3="22.7226" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.7784</Lap>
+<Lap num="6" p="18" et="626.3201" s1="37.6146" s2="15.7519" s3="22.4250" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.7915</Lap>
+<Lap num="7" p="18" et="702.1001" s1="37.1981" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="8" p="18" et="778.2200" s1="37.3340" s2="16.7773" s3="22.8317" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.9431</Lap>
+<Lap num="9" p="18" et="855.1599" s1="37.2818" s2="16.2361" s3="22.7972" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.3151</Lap>
+<Lap num="10" p="18" et="931.4600" s1="37.0824" s2="15.9566" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="11" p="17" et="1006.9600" s1="37.5295" s2="15.7072" s3="22.4393" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6760</Lap>
+<Lap num="12" p="17" et="1082.6399" s1="46.1522" s2="15.9521" s3="23.0764" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">85.1808</Lap>
+<Lap num="13" p="17" et="1167.8201" s1="37.2225" s2="15.8535" s3="22.5859" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6620</Lap>
+<Lap num="14" p="16" et="1243.4800" s1="37.6028" s2="16.2092" s3="22.6931" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.5051</Lap>
+<Lap num="15" p="16" et="1320.0000" s1="40.4387" s2="15.7268" s3="22.4834" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.6489</Lap>
+<BestLapTime>75.6620</BestLapTime>
+<FinishTime>1272.3774</FinishTime>
+<Laps>15</Laps>
+<Pitstops>2</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="15">PlayerControl,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 17</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #9</VehName>
+<Category>WEC 2026, GT3, McLaren 720S LMGT3 Evo</Category>
+<CarType>McLaren 720S LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>9</CarNumber>
+<TeamName>Team 17</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>11</GridPos>
+<Position>9</Position>
+<ClassGridPos>11</ClassGridPos>
+<ClassPosition>9</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="16" et="126.2625" s1="54.7646" s2="16.9647" s3="23.7492" topspeed="249.09" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">95.4786</Lap>
+<Lap num="2" p="17" et="221.7600" s1="38.3145" s2="18.2371" s3="27.9732" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">84.5247</Lap>
+<Lap num="3" p="17" et="306.2800" s1="37.7910" s2="16.9147" s3="22.3813" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.0870</Lap>
+<Lap num="4" p="16" et="383.3601" s1="37.4959" s2="16.6477" s3="22.5319" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.6755</Lap>
+<Lap num="5" p="16" et="460.0400" s1="37.2932" s2="16.3552" s3="22.3818" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.0302</Lap>
+<Lap num="6" p="15" et="536.0601" s1="37.7462" s2="16.9996" s3="23.3031" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.0489</Lap>
+<Lap num="7" p="15" et="614.1201" s1="39.1307" s2="16.4707" s3="22.3350" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.9363</Lap>
+<Lap num="8" p="13" et="692.0601" s1="37.4321" s2="16.7366" s3="22.5851" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.7539</Lap>
+<Lap num="9" p="14" et="768.8000" s1="37.4545" s2="16.3730" s3="24.1668" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.9943</Lap>
+<Lap num="10" p="14" et="846.8000" s1="37.6903" s2="16.6093" s3="22.4028" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.7024</Lap>
+<Lap num="11" p="15" et="923.5000" s1="38.9628" s2="17.0318" s3="23.5534" topspeed="249.54" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">79.5480</Lap>
+<Lap num="12" p="14" et="1003.0601" s1="37.6868" s2="16.6893" s3="22.6218" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.9979</Lap>
+<Lap num="13" p="14" et="1080.0601" s1="37.1835" s2="16.2708" s3="22.2948" topspeed="254.50" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.7490</Lap>
+<Lap num="14" p="14" et="1155.8000" s1="37.1295" s2="16.5006" s3="22.3499" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.9800</Lap>
+<Lap num="15" p="13" et="1231.7800" s1="37.3121" s2="16.6620" s3="22.2417" topspeed="254.95" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.2158</Lap>
+<Lap num="16" p="13" et="1308.0000" s1="37.5933" s2="16.5983" s3="22.2570" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.4485</Lap>
+<Lap num="17" p="12" et="1384.4399" s1="37.6412" s2="16.2549" s3="22.5542" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.4503</Lap>
+<BestLapTime>75.7490</BestLapTime>
+<FinishTime>1334.6374</FinishTime>
+<Laps>17</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="17">PlayerControl,ABS=1,Braking=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 18</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #16</VehName>
+<Category>WEC 2025, GT3, Mercedes-AMG LMGT3</Category>
+<CarType>Mercedes-AMG LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>16</CarNumber>
+<TeamName>Team 18</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>18</GridPos>
+<Position>15</Position>
+<ClassGridPos>18</ClassGridPos>
+<ClassPosition>15</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="14" et="126.2625" s1="54.0430" s2="17.1287" s3="22.9936" topspeed="245.04" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">94.1653</Lap>
+<Lap num="2" p="14" et="220.4399" s1="38.8884" s2="16.9590" s3="22.9137" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.7611</Lap>
+<Lap num="3" p="14" et="299.2000" s1="37.7803" s2="16.3987" s3="22.5579" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.7369</Lap>
+<Lap num="4" p="13" et="375.9399" s1="37.8791" s2="16.3085" s3="22.6280" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.8156</Lap>
+<Lap num="5" p="13" et="452.7600" s1="38.3232" s2="16.6745" s3="22.7045" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.7021</Lap>
+<Lap num="6" p="16" et="530.4600" s1="42.5974" s2="17.5779" s3="23.5694" topspeed="251.35" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">83.7447</Lap>
+<Lap num="7" p="16" et="614.2000" s1="38.5997" s2="16.3289" s3="24.2412" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">79.1698</Lap>
+<Lap num="8" p="16" et="693.3601" s1="38.7016" s2="32.8629" s3="23.9538" topspeed="251.80" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">95.5183</Lap>
+<Lap num="9" p="16" et="788.8799" s1="38.7042" s2="17.4791" s3="22.8511" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">79.0343</Lap>
+<Lap num="10" p="16" et="867.9199" s1="38.1683" s2="16.9645" s3="22.8837" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.0165</Lap>
+<Lap num="11" p="16" et="945.9399" s1="39.0699" s2="17.2151" s3="23.0740" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">79.3589</Lap>
+<Lap num="12" p="16" et="1025.3000" s1="40.6235" s2="16.6565" s3="22.7719" topspeed="252.70" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">80.0519</Lap>
+<Lap num="13" p="16" et="1105.3401" s1="39.9976" s2="16.7869" s3="22.9785" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">79.7629</Lap>
+<Lap num="14" p="16" et="1185.1201" s1="38.4562" s2="16.4478" s3="23.0797" topspeed="252.25" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">77.9836</Lap>
+<Lap num="15" p="15" et="1263.1001" s1="40.4915" s2="19.0673" s3="22.9944" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">82.5531</Lap>
+<Lap num="16" p="15" et="1345.6399" s1="38.3462" s2="16.7244" s3="23.0334" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.1040</Lap>
+<BestLapTime>76.7369</BestLapTime>
+<FinishTime>1297.4975</FinishTime>
+<Laps>16</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="16">PlayerControl,ABS=1,Braking=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 19</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>0c630e00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #20</VehName>
+<Category>WEC 2026, GT3, Porsche 911 GT3 R LMGT3</Category>
+<CarType>Porsche 911 GT3 R LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>20</CarNumber>
+<TeamName>Team 19</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>19</GridPos>
+<Position>19</Position>
+<ClassGridPos>19</ClassGridPos>
+<ClassPosition>19</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="19" et="126.2625" topspeed="237.38" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">117.4725</Lap>
+<Lap num="2" p="18" et="243.7400" s1="47.7640" s2="21.1107" s3="23.3017" topspeed="247.74" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">92.1764</Lap>
+<Lap num="3" p="18" et="335.9199" topspeed="247.74" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="4" p="17" et="416.2200" s1="38.1623" s2="16.5150" s3="23.8110" topspeed="247.29" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">78.4883</Lap>
+<BestLapTime>78.4883</BestLapTime>
+<Laps>4</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>DNF</FinishStatus>
+<DNFReason>Engine</DNFReason>
+<ControlAndAids startLap="1" endLap="4">PlayerControl,ABS=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 20</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>18c61c00 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #7</VehName>
+<Category>WEC 2024, GT3, Lamborghini Huracan LMGT3 Evo2</Category>
+<CarType>Lamborghini Huracan LMGT3 Evo2</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>7</CarNumber>
+<TeamName>Team 20</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>5</GridPos>
+<Position>17</Position>
+<ClassGridPos>5</ClassGridPos>
+<ClassPosition>17</ClassPosition>
+<LapRankIncludingDiscos>21</LapRankIncludingDiscos>
+<Lap num="1" p="12" et="126.2625" s1="53.5527" s2="16.1210" s3="22.3506" topspeed="248.64" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">92.0243</Lap>
+<Lap num="2" p="12" et="218.3000" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="3" p="11" et="294.8601" topspeed="256.75" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="4" p="10" et="370.0601" s1="36.9479" s2="16.1680" s3="22.5090" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.6249</Lap>
+<Lap num="5" p="10" et="445.6799" s1="37.9007" topspeed="255.40" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="6" p="10" et="521.8201" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="7" p="10" et="599.1599" s1="36.8821" s2="15.7810" s3="22.4382" topspeed="253.15" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.1013</Lap>
+<Lap num="8" p="7" et="674.2600" s1="37.2548" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="9" p="7" et="749.2800" s1="38.5301" s2="15.7813" s3="22.1222" topspeed="257.65" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">76.4336</Lap>
+<Lap num="10" p="6" et="825.7000" s1="37.6132" s2="15.5617" s3="22.1721" topspeed="255.85" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3470</Lap>
+<Lap num="11" p="5" et="901.0601" s1="37.0615" topspeed="254.05" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="12" p="5" et="975.7200" s1="36.7806" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="13" p="5" et="1050.1599" s1="36.8579" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="14" p="5" et="1124.9399" s1="37.3096" topspeed="253.60" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="15" p="5" et="1200.1799" s1="37.2203" s2="15.9254" s3="22.2422" topspeed="251.80" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">75.3879</Lap>
+<BestLapTime>75.1013</BestLapTime>
+<Laps>15</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>DQ</FinishStatus>
+<ControlAndAids startLap="1" endLap="15">PlayerControl,ABS=1,Clutch,AutoBlip</ControlAndAids>
+</Driver>
+</Race>
+</RaceResults>
+</rFactorXML>

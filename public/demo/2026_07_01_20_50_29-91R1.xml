@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rF [
+<!ENTITY rFEnt "rFactor Entity">
+]>
+<rFactorXML version="1.0">
+<RaceResults>
+<Setting>Race Weekend</Setting>
+<PlayerFile>Settings</PlayerFile>
+<DateTime>1782929133</DateTime>
+<TimeString>2026/07/01 20:05:33</TimeString>
+<TrackVenue>Circuit de Spa-Francorchamps</TrackVenue>
+<TrackCourse>Circuit de Spa-Francorchamps</TrackCourse>
+<TrackEvent>6 Hours of Spa-Francorchamps</TrackEvent>
+<TrackData>Installed\Locations\Track\layout.mas</TrackData>
+<TrackLength>6981.6</TrackLength>
+<GameVersion>1.3000</GameVersion>
+<Dedicated>0</Dedicated>
+<ConnectionType upload="2000" download="10000">Connection</ConnectionType>
+<RaceLaps>0</RaceLaps>
+<RaceTime>20</RaceTime>
+<MechFailRate>1</MechFailRate>
+<DamageMult>75</DamageMult>
+<FuelMult>1</FuelMult>
+<TireMult>1</TireMult>
+<VehiclesAllowed>Porsche_911_GT3_R_LMGT3,</VehiclesAllowed>
+<ParcFerme>3</ParcFerme>
+<FixedSetups>0</FixedSetups>
+<FreeSettings>11</FreeSettings>
+<FixedUpgrades>0</FixedUpgrades>
+<TireWarmers>1</TireWarmers>
+<Race>
+<DateTime>1782930339</DateTime>
+<TimeString>2026/07/01 20:25:39</TimeString>
+<Laps>2147483647</Laps>
+<Minutes>20</Minutes>
+<Stream>
+<Incident et="130.8">Driver 07(1) reported contact (61.37) with another vehicle Driver 09(2)</Incident>
+<Incident et="130.9">Driver 07(1) reported contact (219.92) with another vehicle Driver 09(2)</Incident>
+<Incident et="130.9">Driver 07(1) reported contact (219.92) with another vehicle Driver 09(2)</Incident>
+<Incident et="131.0">Driver 09(2) reported contact (485.48) with Immovable</Incident>
+<Incident et="132.9">Driver 15(3) reported contact (1098.76) with another vehicle Driver 14(4)</Incident>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="145.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="0" WarningPoints="0" CurrentPoints="0" Resolution="7" et="219.7">No Further Action</TrackLimits>
+<Incident et="276.0">Demo Driver(5) reported contact (36.01) with another vehicle Driver 02(6)</Incident>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="1" WarningPoints="0.5" CurrentPoints="0.5" Resolution="4" et="296.7">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="1" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="313.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="2" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="436.1">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="2" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="439.1">No Further Action</TrackLimits>
+<Incident et="571.2">Demo Driver(5) reported contact (150.78) with Immovable</Incident>
+<Incident et="571.2">Demo Driver(5) reported contact (321.76) with Immovable</Incident>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="3" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="573.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="3" WarningPoints="0" CurrentPoints="0.5" Resolution="7" et="581.0">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="3" WarningPoints="0.25" CurrentPoints="0.75" Resolution="4" et="586.0">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="3" WarningPoints="0.5" CurrentPoints="1.25" Resolution="4" et="687.3">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="4" WarningPoints="0.75" CurrentPoints="2" Resolution="4" et="732.7">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="4" WarningPoints="0.5" CurrentPoints="2.5" Resolution="4" et="775.8">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="4" WarningPoints="0" CurrentPoints="2.5" Resolution="7" et="832.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="5" WarningPoints="0.5" CurrentPoints="3" Resolution="4" et="878.8">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="5" WarningPoints="0" CurrentPoints="3" Resolution="7" et="947.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="5" WarningPoints="0" CurrentPoints="3" Resolution="7" et="977.5">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="6" WarningPoints="0" CurrentPoints="3" Resolution="7" et="1015.4">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="7" WarningPoints="0.5" CurrentPoints="3.5" Resolution="4" et="1167.8">Warning</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="7" WarningPoints="0" CurrentPoints="3.5" Resolution="7" et="1208.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="7" WarningPoints="0" CurrentPoints="3.5" Resolution="7" et="1237.3">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="7" WarningPoints="0" CurrentPoints="3.5" Resolution="7" et="1266.8">No Further Action</TrackLimits>
+<TrackLimits Driver="Demo Driver" ID="5" Lap="8" WarningPoints="0" CurrentPoints="3.5" Resolution="7" et="1353.4">No Further Action</TrackLimits>
+</Stream>
+<FormationAndStart>0</FormationAndStart>
+<MostLapsCompleted>9</MostLapsCompleted>
+<Driver>
+<Name>Demo Driver</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #91</VehName>
+<Category>WEC 2024, GT3, Porsche 911 GT3 R LMGT3</Category>
+<CarType>Porsche 911 GT3 R LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>91</CarNumber>
+<TeamName>Team 01</TeamName>
+<isPlayer>1</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>1</GridPos>
+<Position>1</Position>
+<ClassGridPos>1</ClassGridPos>
+<ClassPosition>1</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="2" et="119.5350" s1="42.5341" s2="66.2518" s3="40.6061" topspeed="251.85" fuel="0.286" fuelUsed="0.041" ve="0.392" veUsed="0.058" twfl="0.976" twfr="0.976" twrl="0.976" twrr="0.976" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3920</Lap>
+<Lap num="2" p="1" et="268.9270" topspeed="256.30" fuel="0.251" fuelUsed="0.035" ve="0.345" veUsed="0.047" twfl="0.969" twfr="0.969" twrl="0.969" twrr="0.969" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="3" p="1" et="413.5054" s1="38.9826" s2="65.0565" s3="40.8466" topspeed="254.95" fuel="0.216" fuelUsed="0.035" ve="0.294" veUsed="0.051" twfl="0.961" twfr="0.957" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">144.8857</Lap>
+<Lap num="4" p="1" et="558.3911" topspeed="255.85" fuel="0.180" fuelUsed="0.035" ve="0.247" veUsed="0.047" twfl="0.949" twfr="0.945" twrl="0.953" twrr="0.953" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="5" p="1" et="703.1074" topspeed="255.85" fuel="0.149" fuelUsed="0.031" ve="0.200" veUsed="0.047" twfl="0.937" twfr="0.937" twrl="0.945" twrr="0.949" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="6" p="1" et="847.6939" topspeed="251.80" fuel="0.114" fuelUsed="0.035" ve="0.149" veUsed="0.051" twfl="0.929" twfr="0.925" twrl="0.937" twrr="0.941" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="7" p="1" et="993.1405" s1="38.8534" s2="65.1292" s3="40.4882" topspeed="255.08" fuel="0.078" fuelUsed="0.035" ve="0.102" veUsed="0.047" twfl="0.918" twfr="0.914" twrl="0.929" twrr="0.933" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">144.4707</Lap>
+<Lap num="8" p="1" et="1137.6112" topspeed="254.05" fuel="0.043" fuelUsed="0.035" ve="0.055" veUsed="0.047" twfl="0.902" twfr="0.902" twrl="0.922" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">--.----</Lap>
+<Lap num="9" p="1" et="1284.0825" s1="39.8230" s2="65.7518" s3="40.7229" topspeed="254.60" fuel="0.012" fuelUsed="0.031" ve="0.008" veUsed="0.047" twfl="0.890" twfr="0.890" twrl="0.914" twrr="0.922" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">146.2977</Lap>
+<BestLapTime>144.4707</BestLapTime>
+<FinishTime>1310.8452</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">PlayerControl,TC=2,ABS=1,Stability=1,Clutch,Invulnerable,SpinRecovery,AutoBlip</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 02</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #46</VehName>
+<Category>WEC 2024, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>46</CarNumber>
+<TeamName>Team 02</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>2</GridPos>
+<Position>2</Position>
+<ClassGridPos>2</ClassGridPos>
+<ClassPosition>2</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="1" et="119.5350" s1="42.5197" s2="65.8076" s3="40.7801" topspeed="255.06" fuel="0.463" fuelUsed="0.043" ve="0.631" veUsed="0.059" twfl="0.957" twfr="0.961" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.1074</Lap>
+<Lap num="2" p="2" et="268.6424" s1="39.8316" s2="65.6802" s3="40.8079" topspeed="255.40" fuel="0.427" fuelUsed="0.035" ve="0.580" veUsed="0.051" twfl="0.941" twfr="0.945" twrl="0.941" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">146.3198</Lap>
+<Lap num="3" p="2" et="414.9622" s1="39.2162" s2="65.8450" s3="40.8043" topspeed="254.95" fuel="0.392" fuelUsed="0.035" ve="0.533" veUsed="0.047" twfl="0.925" twfr="0.929" twrl="0.925" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">145.8655</Lap>
+<Lap num="4" p="2" et="560.8277" s1="39.2249" s2="66.0115" s3="40.8929" topspeed="254.95" fuel="0.353" fuelUsed="0.039" ve="0.482" veUsed="0.051" twfl="0.910" twfr="0.914" twrl="0.910" twrr="0.914" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">146.1293</Lap>
+<Lap num="5" p="2" et="706.9570" s1="39.3141" s2="66.1724" s3="40.9660" topspeed="254.66" fuel="0.318" fuelUsed="0.035" ve="0.435" veUsed="0.047" twfl="0.890" twfr="0.898" twrl="0.894" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">146.4525</Lap>
+<Lap num="6" p="2" et="853.4095" s1="39.3746" s2="66.3452" s3="41.0338" topspeed="254.50" fuel="0.282" fuelUsed="0.035" ve="0.384" veUsed="0.051" twfl="0.875" twfr="0.882" twrl="0.878" twrr="0.882" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">146.7535</Lap>
+<Lap num="7" p="2" et="1000.1631" s1="39.4307" s2="66.4805" s3="41.0856" topspeed="254.50" fuel="0.247" fuelUsed="0.035" ve="0.337" veUsed="0.047" twfl="0.859" twfr="0.871" twrl="0.863" twrr="0.867" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">146.9967</Lap>
+<Lap num="8" p="2" et="1147.1598" s1="39.4786" s2="66.5757" s3="41.1346" topspeed="254.50" fuel="0.212" fuelUsed="0.035" ve="0.286" veUsed="0.051" twfl="0.843" twfr="0.855" twrl="0.847" twrr="0.851" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.1890</Lap>
+<Lap num="9" p="2" et="1294.3488" s1="39.4697" s2="66.6320" s3="41.1250" topspeed="254.50" fuel="0.176" fuelUsed="0.035" ve="0.239" veUsed="0.047" twfl="0.824" twfr="0.839" twrl="0.827" twrr="0.835" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.2267</Lap>
+<BestLapTime>145.8655</BestLapTime>
+<FinishTime>1322.0404</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 03</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #777</VehName>
+<Category>WEC 2024, GT3, Aston Martin Vantage AMR LMGT3</Category>
+<CarType>Aston Martin Vantage AMR LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>777</CarNumber>
+<TeamName>Team 03</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>3</GridPos>
+<Position>3</Position>
+<ClassGridPos>3</ClassGridPos>
+<ClassPosition>3</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="3" et="119.5350" s1="43.0130" s2="66.9278" s3="40.8836" topspeed="256.30" fuel="0.447" fuelUsed="0.040" ve="0.624" veUsed="0.056" twfl="0.957" twfr="0.957" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.8244</Lap>
+<Lap num="2" p="3" et="270.3594" s1="39.3086" s2="66.7970" s3="40.8955" topspeed="255.40" fuel="0.412" fuelUsed="0.035" ve="0.573" veUsed="0.051" twfl="0.937" twfr="0.941" twrl="0.945" twrr="0.949" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.0011</Lap>
+<Lap num="3" p="3" et="417.3605" s1="39.3328" s2="66.8866" s3="40.9327" topspeed="255.40" fuel="0.376" fuelUsed="0.035" ve="0.525" veUsed="0.047" twfl="0.918" twfr="0.925" twrl="0.929" twrr="0.933" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.1522</Lap>
+<Lap num="4" p="3" et="564.5127" s1="39.4145" s2="67.0245" s3="40.9913" topspeed="255.07" fuel="0.341" fuelUsed="0.035" ve="0.475" veUsed="0.051" twfl="0.898" twfr="0.910" twrl="0.914" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.4304</Lap>
+<Lap num="5" p="3" et="711.9431" s1="39.4622" s2="67.1852" s3="41.0604" topspeed="254.95" fuel="0.306" fuelUsed="0.035" ve="0.427" veUsed="0.047" twfl="0.882" twfr="0.894" twrl="0.898" twrr="0.906" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.7078</Lap>
+<Lap num="6" p="3" et="859.6509" s1="39.5180" s2="67.3364" s3="41.1296" topspeed="254.95" fuel="0.271" fuelUsed="0.035" ve="0.376" veUsed="0.051" twfl="0.863" twfr="0.875" twrl="0.882" twrr="0.890" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.9840</Lap>
+<Lap num="7" p="3" et="1007.6349" s1="39.5845" s2="67.4613" s3="41.2051" topspeed="254.95" fuel="0.235" fuelUsed="0.035" ve="0.329" veUsed="0.047" twfl="0.847" twfr="0.859" twrl="0.867" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.2509</Lap>
+<Lap num="8" p="3" et="1155.8857" s1="39.6918" s2="67.5458" s3="41.2078" topspeed="254.95" fuel="0.200" fuelUsed="0.035" ve="0.278" veUsed="0.051" twfl="0.827" twfr="0.843" twrl="0.851" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.4453</Lap>
+<Lap num="9" p="3" et="1304.3311" s1="39.6539" s2="67.5898" s3="41.8580" topspeed="254.95" fuel="0.165" fuelUsed="0.035" ve="0.231" veUsed="0.047" twfl="0.808" twfr="0.827" twrl="0.835" twrr="0.847" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.1018</Lap>
+<BestLapTime>147.0011</BestLapTime>
+<FinishTime>1333.8979</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 04</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #31</VehName>
+<Category>WEC 2024, GT3, BMW M4 LMGT3</Category>
+<CarType>BMW M4 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>31</CarNumber>
+<TeamName>Team 02</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>5</GridPos>
+<Position>4</Position>
+<ClassGridPos>5</ClassGridPos>
+<ClassPosition>4</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="4" et="119.5350" s1="43.3294" s2="67.1542" s3="41.1041" topspeed="257.20" fuel="0.455" fuelUsed="0.044" ve="0.624" veUsed="0.056" twfl="0.957" twfr="0.961" twrl="0.957" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.5878</Lap>
+<Lap num="2" p="4" et="271.1228" s1="39.3604" s2="66.9134" s3="41.0942" topspeed="254.62" fuel="0.420" fuelUsed="0.035" ve="0.573" veUsed="0.051" twfl="0.941" twfr="0.945" twrl="0.941" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.3681</Lap>
+<Lap num="3" p="4" et="418.4909" s1="39.3780" s2="67.0022" s3="41.1362" topspeed="254.53" fuel="0.384" fuelUsed="0.035" ve="0.522" veUsed="0.051" twfl="0.925" twfr="0.929" twrl="0.925" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.5164</Lap>
+<Lap num="4" p="4" et="566.0073" s1="39.4354" s2="67.1609" s3="41.1808" topspeed="254.50" fuel="0.349" fuelUsed="0.035" ve="0.475" veUsed="0.047" twfl="0.906" twfr="0.914" twrl="0.910" twrr="0.914" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.7771</Lap>
+<Lap num="5" p="4" et="713.7844" s1="39.5085" s2="67.3322" s3="41.2916" topspeed="254.24" fuel="0.314" fuelUsed="0.035" ve="0.424" veUsed="0.051" twfl="0.890" twfr="0.898" twrl="0.894" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.1324</Lap>
+<Lap num="6" p="4" et="861.9168" s1="39.5784" s2="67.4987" s3="41.2865" topspeed="254.06" fuel="0.275" fuelUsed="0.039" ve="0.376" veUsed="0.047" twfl="0.875" twfr="0.882" twrl="0.878" twrr="0.882" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.3636</Lap>
+<Lap num="7" p="4" et="1010.2804" s1="39.6389" s2="67.6455" s3="41.3960" topspeed="254.05" fuel="0.239" fuelUsed="0.035" ve="0.329" veUsed="0.047" twfl="0.859" twfr="0.871" twrl="0.863" twrr="0.867" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6804</Lap>
+<Lap num="8" p="4" et="1158.9608" s1="39.6781" s2="67.7047" s3="41.3953" topspeed="254.05" fuel="0.204" fuelUsed="0.035" ve="0.278" veUsed="0.051" twfl="0.843" twfr="0.855" twrl="0.843" twrr="0.851" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.7781</Lap>
+<Lap num="9" p="4" et="1307.7389" s1="39.6981" s2="67.7614" s3="42.0914" topspeed="254.05" fuel="0.169" fuelUsed="0.035" ve="0.231" veUsed="0.047" twfl="0.824" twfr="0.839" twrl="0.827" twrr="0.835" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.5509</Lap>
+<BestLapTime>147.3681</BestLapTime>
+<FinishTime>1337.7548</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 05</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #27</VehName>
+<Category>WEC 2024, GT3, Aston Martin Vantage AMR LMGT3</Category>
+<CarType>Aston Martin Vantage AMR LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>27</CarNumber>
+<TeamName>Team 04</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>4</GridPos>
+<Position>5</Position>
+<ClassGridPos>4</ClassGridPos>
+<ClassPosition>5</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="5" et="119.5350" s1="43.6904" s2="67.4518" s3="41.1565" topspeed="257.20" fuel="0.447" fuelUsed="0.040" ve="0.624" veUsed="0.056" twfl="0.957" twfr="0.957" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">152.2987</Lap>
+<Lap num="2" p="5" et="271.8337" s1="39.5294" s2="67.2920" s3="41.0367" topspeed="255.01" fuel="0.412" fuelUsed="0.035" ve="0.573" veUsed="0.051" twfl="0.937" twfr="0.941" twrl="0.945" twrr="0.949" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.8582</Lap>
+<Lap num="3" p="5" et="419.6919" s1="39.4551" s2="67.3668" s3="41.0724" topspeed="254.95" fuel="0.376" fuelUsed="0.035" ve="0.525" veUsed="0.047" twfl="0.922" twfr="0.925" twrl="0.929" twrr="0.933" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.8943</Lap>
+<Lap num="4" p="5" et="567.5861" s1="39.4833" s2="67.5068" s3="41.1541" topspeed="254.96" fuel="0.341" fuelUsed="0.035" ve="0.475" veUsed="0.051" twfl="0.902" twfr="0.910" twrl="0.914" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.1442</Lap>
+<Lap num="5" p="5" et="715.7303" s1="39.5149" s2="67.6557" s3="41.2688" topspeed="254.95" fuel="0.306" fuelUsed="0.035" ve="0.427" veUsed="0.047" twfl="0.882" twfr="0.894" twrl="0.898" twrr="0.906" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.4394</Lap>
+<Lap num="6" p="5" et="864.1697" s1="39.5745" s2="67.8077" s3="41.2411" topspeed="254.67" fuel="0.271" fuelUsed="0.035" ve="0.376" veUsed="0.051" twfl="0.867" twfr="0.878" twrl="0.882" twrr="0.890" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6232</Lap>
+<Lap num="7" p="5" et="1012.7929" s1="39.6519" s2="67.9491" s3="41.2887" topspeed="254.54" fuel="0.235" fuelUsed="0.035" ve="0.329" veUsed="0.047" twfl="0.847" twfr="0.859" twrl="0.867" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.8897</Lap>
+<Lap num="8" p="5" et="1161.6826" s1="39.6777" s2="68.0261" s3="41.3248" topspeed="254.58" fuel="0.200" fuelUsed="0.035" ve="0.282" veUsed="0.047" twfl="0.827" twfr="0.843" twrl="0.851" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.0287</Lap>
+<Lap num="9" p="5" et="1310.7113" s1="39.6792" s2="68.0739" s3="42.0149" topspeed="254.50" fuel="0.165" fuelUsed="0.035" ve="0.231" veUsed="0.051" twfl="0.812" twfr="0.827" twrl="0.839" twrr="0.851" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.7679</Lap>
+<BestLapTime>147.8582</BestLapTime>
+<FinishTime>1340.9442</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 06</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #92</VehName>
+<Category>WEC 2024, GT3, Porsche 911 GT3 R LMGT3</Category>
+<CarType>Porsche 911 GT3 R LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>92</CarNumber>
+<TeamName>Team 05</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>8</GridPos>
+<Position>7</Position>
+<ClassGridPos>8</ClassGridPos>
+<ClassPosition>7</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="7" et="119.5350" s1="44.7306" s2="67.0315" s3="41.2596" topspeed="252.25" fuel="0.482" fuelUsed="0.047" ve="0.624" veUsed="0.056" twfl="0.961" twfr="0.961" twrl="0.957" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">153.0217</Lap>
+<Lap num="2" p="7" et="272.5567" s1="39.9749" s2="66.9059" s3="41.2068" topspeed="251.41" fuel="0.447" fuelUsed="0.035" ve="0.573" veUsed="0.051" twfl="0.945" twfr="0.949" twrl="0.937" twrr="0.937" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.0876</Lap>
+<Lap num="3" p="7" et="420.6443" s1="39.9073" s2="66.8339" s3="41.2014" topspeed="251.35" fuel="0.408" fuelUsed="0.039" ve="0.525" veUsed="0.047" twfl="0.933" twfr="0.937" twrl="0.918" twrr="0.922" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.9426</Lap>
+<Lap num="4" p="7" et="568.5869" s1="39.9147" s2="67.0951" s3="41.3969" topspeed="251.80" fuel="0.373" fuelUsed="0.035" ve="0.478" veUsed="0.047" twfl="0.918" twfr="0.922" twrl="0.898" twrr="0.902" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.4067</Lap>
+<Lap num="5" p="7" et="716.9935" s1="39.9644" s2="67.2693" s3="41.3981" topspeed="251.38" fuel="0.333" fuelUsed="0.039" ve="0.427" veUsed="0.051" twfl="0.906" twfr="0.910" twrl="0.878" twrr="0.882" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6318</Lap>
+<Lap num="6" p="7" et="865.6254" s1="39.9567" s2="67.5668" s3="41.4893" topspeed="252.25" fuel="0.294" fuelUsed="0.039" ve="0.380" veUsed="0.047" twfl="0.890" twfr="0.894" twrl="0.859" twrr="0.867" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.0128</Lap>
+<Lap num="7" p="7" et="1014.6382" s1="39.9607" s2="67.8181" s3="41.4690" topspeed="252.25" fuel="0.259" fuelUsed="0.035" ve="0.333" veUsed="0.047" twfl="0.875" twfr="0.882" twrl="0.839" twrr="0.847" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.2478</Lap>
+<Lap num="8" p="7" et="1163.8860" s1="40.0333" s2="67.7180" s3="41.6318" topspeed="251.80" fuel="0.220" fuelUsed="0.039" ve="0.286" veUsed="0.047" twfl="0.863" twfr="0.871" twrl="0.824" twrr="0.831" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3832</Lap>
+<Lap num="9" p="7" et="1313.2692" s1="40.0042" s2="67.9380" s3="42.2397" topspeed="251.96" fuel="0.184" fuelUsed="0.035" ve="0.235" veUsed="0.051" twfl="0.847" twfr="0.855" twrl="0.804" twrr="0.812" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1819</Lap>
+<BestLapTime>147.9426</BestLapTime>
+<FinishTime>1343.9160</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 07</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #81</VehName>
+<Category>WEC 2024, GT3, Chevrolet Corvette Z06 LMGT3.R</Category>
+<CarType>Chevrolet Corvette Z06 LMGT3.R</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>81</CarNumber>
+<TeamName>Team 06</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>6</GridPos>
+<Position>6</Position>
+<ClassGridPos>6</ClassGridPos>
+<ClassPosition>6</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="6" et="119.5350" s1="44.2151" s2="67.3447" s3="41.1651" topspeed="254.05" fuel="0.451" fuelUsed="0.044" ve="0.631" veUsed="0.059" twfl="0.961" twfr="0.961" twrl="0.953" twrr="0.953" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">152.7249</Lap>
+<Lap num="2" p="6" et="272.2599" s1="39.5504" s2="67.3427" s3="41.0587" topspeed="254.05" fuel="0.416" fuelUsed="0.035" ve="0.580" veUsed="0.051" twfl="0.945" twfr="0.949" twrl="0.937" twrr="0.937" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">147.9517</Lap>
+<Lap num="3" p="6" et="420.2116" s1="39.5212" s2="67.3951" s3="41.1356" topspeed="253.33" fuel="0.380" fuelUsed="0.035" ve="0.533" veUsed="0.047" twfl="0.929" twfr="0.933" twrl="0.918" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.0518</Lap>
+<Lap num="4" p="6" et="568.2634" s1="39.5839" s2="67.5322" s3="41.2504" topspeed="252.70" fuel="0.345" fuelUsed="0.035" ve="0.482" veUsed="0.051" twfl="0.914" twfr="0.918" twrl="0.898" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.3665</Lap>
+<Lap num="5" p="6" et="716.6299" s1="39.6516" s2="67.7396" s3="41.2943" topspeed="252.43" fuel="0.310" fuelUsed="0.035" ve="0.435" veUsed="0.047" twfl="0.898" twfr="0.906" twrl="0.878" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6854</Lap>
+<Lap num="6" p="6" et="865.3152" s1="39.7199" s2="67.9214" s3="41.3469" topspeed="252.33" fuel="0.275" fuelUsed="0.035" ve="0.384" veUsed="0.051" twfl="0.882" twfr="0.890" twrl="0.859" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.9882</Lap>
+<Lap num="7" p="6" et="1014.3035" s1="39.7859" s2="68.0214" s3="41.4266" topspeed="252.25" fuel="0.239" fuelUsed="0.035" ve="0.333" veUsed="0.051" twfl="0.867" twfr="0.878" twrl="0.839" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.2339</Lap>
+<Lap num="8" p="6" et="1163.5374" s1="39.8030" s2="68.1030" s3="41.4526" topspeed="252.25" fuel="0.204" fuelUsed="0.035" ve="0.286" veUsed="0.047" twfl="0.851" twfr="0.863" twrl="0.820" twrr="0.824" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3586</Lap>
+<Lap num="9" p="6" et="1312.8960" s1="39.8287" s2="68.1915" s3="42.1302" topspeed="252.25" fuel="0.169" fuelUsed="0.035" ve="0.235" veUsed="0.051" twfl="0.839" twfr="0.847" twrl="0.800" twrr="0.804" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1505</Lap>
+<BestLapTime>147.9517</BestLapTime>
+<FinishTime>1343.5115</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 08</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #87</VehName>
+<Category>WEC 2024, GT3, Lexus RCF LMGT3</Category>
+<CarType>Lexus RCF LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>87</CarNumber>
+<TeamName>Team 07</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>10</GridPos>
+<Position>8</Position>
+<ClassGridPos>10</ClassGridPos>
+<ClassPosition>8</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="8" et="119.5350" s1="45.0286" s2="67.2330" s3="41.2232" topspeed="254.05" fuel="0.525" fuelUsed="0.047" ve="0.639" veUsed="0.061" twfl="0.961" twfr="0.965" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">153.4847</Lap>
+<Lap num="2" p="8" et="273.0197" s1="39.8355" s2="67.1645" s3="41.3922" topspeed="253.60" fuel="0.482" fuelUsed="0.043" ve="0.592" veUsed="0.047" twfl="0.949" twfr="0.949" twrl="0.945" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.3922</Lap>
+<Lap num="3" p="8" et="421.4119" s1="39.7433" s2="67.0906" s3="41.3523" topspeed="252.25" fuel="0.443" fuelUsed="0.039" ve="0.541" veUsed="0.051" twfl="0.933" twfr="0.937" twrl="0.929" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.1862</Lap>
+<Lap num="4" p="8" et="569.5981" s1="39.7569" s2="67.1873" s3="41.3647" topspeed="251.81" fuel="0.400" fuelUsed="0.043" ve="0.490" veUsed="0.051" twfl="0.922" twfr="0.925" twrl="0.914" twrr="0.914" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.3088</Lap>
+<Lap num="5" p="8" et="717.9069" s1="39.7955" s2="67.3152" s3="41.4262" topspeed="251.80" fuel="0.361" fuelUsed="0.039" ve="0.439" veUsed="0.051" twfl="0.906" twfr="0.914" twrl="0.898" twrr="0.902" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.5369</Lap>
+<Lap num="6" p="8" et="866.4438" s1="39.8498" s2="67.4497" s3="41.3319" topspeed="251.80" fuel="0.322" fuelUsed="0.039" ve="0.392" veUsed="0.047" twfl="0.894" twfr="0.898" twrl="0.882" twrr="0.886" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6314</Lap>
+<Lap num="7" p="8" et="1015.0753" s1="39.8952" s2="67.7820" s3="41.5923" topspeed="253.15" fuel="0.278" fuelUsed="0.043" ve="0.341" veUsed="0.051" twfl="0.878" twfr="0.886" twrl="0.867" twrr="0.871" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.2695</Lap>
+<Lap num="8" p="8" et="1164.3447" s1="39.9348" s2="67.8573" s3="41.4286" topspeed="253.15" fuel="0.239" fuelUsed="0.039" ve="0.294" veUsed="0.047" twfl="0.867" twfr="0.875" twrl="0.851" twrr="0.855" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.2207</Lap>
+<Lap num="9" p="8" et="1313.5654" s1="39.9617" s2="68.0034" s3="42.3041" topspeed="254.16" fuel="0.200" fuelUsed="0.039" ve="0.243" veUsed="0.051" twfl="0.851" twfr="0.863" twrl="0.835" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.2692</Lap>
+<BestLapTime>148.1862</BestLapTime>
+<FinishTime>1344.2996</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 09</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #82</VehName>
+<Category>WEC 2024, GT3, Chevrolet Corvette Z06 LMGT3.R</Category>
+<CarType>Chevrolet Corvette Z06 LMGT3.R</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>82</CarNumber>
+<TeamName>Team 06</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>7</GridPos>
+<Position>9</Position>
+<ClassGridPos>7</ClassGridPos>
+<ClassPosition>9</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="9" et="119.5350" s1="45.1507" s2="67.5810" s3="41.4182" topspeed="255.85" fuel="0.451" fuelUsed="0.044" ve="0.631" veUsed="0.059" twfl="0.957" twfr="0.961" twrl="0.953" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">154.1499</Lap>
+<Lap num="2" p="9" et="273.6849" s1="39.6932" s2="67.2890" s3="41.2173" topspeed="253.60" fuel="0.416" fuelUsed="0.035" ve="0.584" veUsed="0.047" twfl="0.945" twfr="0.949" twrl="0.933" twrr="0.937" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.1996</Lap>
+<Lap num="3" p="9" et="421.8845" s1="39.5955" s2="67.4654" s3="41.2582" topspeed="254.95" fuel="0.380" fuelUsed="0.035" ve="0.533" veUsed="0.051" twfl="0.929" twfr="0.933" twrl="0.914" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.3190</Lap>
+<Lap num="4" p="9" et="570.2036" s1="39.6296" s2="67.6011" s3="41.2798" topspeed="253.60" fuel="0.345" fuelUsed="0.035" ve="0.482" veUsed="0.051" twfl="0.914" twfr="0.918" twrl="0.898" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.5105</Lap>
+<Lap num="5" p="9" et="718.7141" s1="39.7103" s2="67.7600" s3="41.3956" topspeed="252.70" fuel="0.310" fuelUsed="0.035" ve="0.435" veUsed="0.047" twfl="0.898" twfr="0.906" twrl="0.878" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.8660</Lap>
+<Lap num="6" p="9" et="867.5800" s1="39.7754" s2="67.9426" s3="41.4186" topspeed="252.25" fuel="0.275" fuelUsed="0.035" ve="0.384" veUsed="0.051" twfl="0.882" twfr="0.890" twrl="0.859" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.1366</Lap>
+<Lap num="7" p="9" et="1016.7166" s1="39.8083" s2="68.0500" s3="41.4500" topspeed="252.25" fuel="0.239" fuelUsed="0.035" ve="0.337" veUsed="0.047" twfl="0.867" twfr="0.878" twrl="0.839" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3083</Lap>
+<Lap num="8" p="9" et="1166.0249" s1="39.8350" s2="68.1188" s3="41.5001" topspeed="252.25" fuel="0.204" fuelUsed="0.035" ve="0.286" veUsed="0.051" twfl="0.851" twfr="0.863" twrl="0.820" twrr="0.824" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.4539</Lap>
+<Lap num="9" p="9" et="1315.4788" s1="39.8615" s2="68.2047" s3="42.1255" topspeed="252.25" fuel="0.169" fuelUsed="0.035" ve="0.239" veUsed="0.047" twfl="0.839" twfr="0.847" twrl="0.800" twrr="0.804" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1917</Lap>
+<BestLapTime>148.1996</BestLapTime>
+<FinishTime>1346.1354</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 10</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #78</VehName>
+<Category>WEC 2024, GT3, Lexus RCF LMGT3</Category>
+<CarType>Lexus RCF LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>78</CarNumber>
+<TeamName>Team 07</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>9</GridPos>
+<Position>10</Position>
+<ClassGridPos>9</ClassGridPos>
+<ClassPosition>10</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="10" et="119.5350" s1="45.3850" s2="67.5781" s3="41.5668" topspeed="255.93" fuel="0.525" fuelUsed="0.047" ve="0.643" veUsed="0.057" twfl="0.961" twfr="0.965" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">154.5300</Lap>
+<Lap num="2" p="10" et="274.0650" s1="40.0060" s2="67.0928" s3="41.3737" topspeed="251.80" fuel="0.482" fuelUsed="0.043" ve="0.592" veUsed="0.051" twfl="0.949" twfr="0.953" twrl="0.945" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.4724</Lap>
+<Lap num="3" p="10" et="422.5374" s1="39.8010" s2="67.1237" s3="41.3901" topspeed="251.85" fuel="0.443" fuelUsed="0.039" ve="0.541" veUsed="0.051" twfl="0.933" twfr="0.937" twrl="0.929" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.3148</Lap>
+<Lap num="4" p="10" et="570.8522" s1="39.8519" s2="67.2396" s3="41.4108" topspeed="251.46" fuel="0.404" fuelUsed="0.039" ve="0.494" veUsed="0.047" twfl="0.922" twfr="0.925" twrl="0.914" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.5024</Lap>
+<Lap num="5" p="10" et="719.3546" s1="39.8199" s2="67.3959" s3="41.4969" topspeed="251.84" fuel="0.361" fuelUsed="0.043" ve="0.443" veUsed="0.051" twfl="0.906" twfr="0.914" twrl="0.898" twrr="0.902" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.7128</Lap>
+<Lap num="6" p="10" et="868.0673" s1="39.8445" s2="67.5996" s3="41.5118" topspeed="252.26" fuel="0.322" fuelUsed="0.039" ve="0.392" veUsed="0.051" twfl="0.894" twfr="0.902" twrl="0.882" twrr="0.886" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.9559</Lap>
+<Lap num="7" p="10" et="1017.0232" s1="39.9808" s2="67.8466" s3="41.5608" topspeed="252.25" fuel="0.282" fuelUsed="0.039" ve="0.345" veUsed="0.047" twfl="0.878" twfr="0.886" twrl="0.867" twrr="0.871" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3882</Lap>
+<Lap num="8" p="10" et="1166.4114" s1="39.9497" s2="67.8378" s3="41.6112" topspeed="252.25" fuel="0.243" fuelUsed="0.039" ve="0.294" veUsed="0.051" twfl="0.867" twfr="0.875" twrl="0.851" twrr="0.859" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3987</Lap>
+<Lap num="9" p="10" et="1315.8101" s1="40.0601" s2="67.8818" s3="42.3278" topspeed="251.80" fuel="0.200" fuelUsed="0.043" ve="0.247" veUsed="0.047" twfl="0.851" twfr="0.863" twrl="0.835" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.2697</Lap>
+<BestLapTime>148.3148</BestLapTime>
+<FinishTime>1346.5447</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 11</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>c6180600 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #60</VehName>
+<Category>WEC 2024, GT3, Lamborghini Huracan LMGT3 Evo2</Category>
+<CarType>Lamborghini Huracan LMGT3 Evo2</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>60</CarNumber>
+<TeamName>Team 08</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>11</GridPos>
+<Position>11</Position>
+<ClassGridPos>11</ClassGridPos>
+<ClassPosition>11</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="11" et="119.5350" s1="45.4860" s2="68.2239" s3="41.9011" topspeed="257.78" fuel="0.557" fuelUsed="0.053" ve="0.631" veUsed="0.059" twfl="0.961" twfr="0.961" twrl="0.953" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">155.6110</Lap>
+<Lap num="2" p="11" et="275.1460" s1="39.5953" s2="67.6584" s3="41.4103" topspeed="254.97" fuel="0.514" fuelUsed="0.043" ve="0.580" veUsed="0.051" twfl="0.945" twfr="0.949" twrl="0.933" twrr="0.937" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6640</Lap>
+<Lap num="3" p="11" et="423.8100" s1="39.5398" s2="67.7519" s3="41.3932" topspeed="254.60" fuel="0.471" fuelUsed="0.043" ve="0.533" veUsed="0.047" twfl="0.929" twfr="0.933" twrl="0.914" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.6849</Lap>
+<Lap num="4" p="11" et="572.4949" s1="39.5099" s2="67.9395" s3="41.4356" topspeed="254.95" fuel="0.427" fuelUsed="0.043" ve="0.482" veUsed="0.051" twfl="0.914" twfr="0.922" twrl="0.894" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.8850</Lap>
+<Lap num="5" p="11" et="721.3799" s1="39.5598" s2="68.1390" s3="41.5282" topspeed="254.54" fuel="0.384" fuelUsed="0.043" ve="0.435" veUsed="0.047" twfl="0.898" twfr="0.906" twrl="0.875" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.2271</Lap>
+<Lap num="6" p="11" et="870.6069" s1="39.5436" s2="68.2885" s3="41.5768" topspeed="254.67" fuel="0.341" fuelUsed="0.043" ve="0.384" veUsed="0.051" twfl="0.882" twfr="0.894" twrl="0.855" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.4089</Lap>
+<Lap num="7" p="11" et="1020.0158" s1="39.6213" s2="68.3723" s3="41.5551" topspeed="254.50" fuel="0.298" fuelUsed="0.043" ve="0.337" veUsed="0.047" twfl="0.867" twfr="0.878" twrl="0.835" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.5486</Lap>
+<Lap num="8" p="11" et="1169.5645" s1="39.5968" s2="68.4423" s3="41.5842" topspeed="254.59" fuel="0.255" fuelUsed="0.043" ve="0.286" veUsed="0.051" twfl="0.851" twfr="0.863" twrl="0.816" twrr="0.824" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.6233</Lap>
+<Lap num="9" p="11" et="1319.1877" s1="39.6234" s2="68.5157" s3="42.2416" topspeed="254.53" fuel="0.212" fuelUsed="0.043" ve="0.239" veUsed="0.047" twfl="0.835" twfr="0.851" twrl="0.792" twrr="0.804" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.3807</Lap>
+<BestLapTime>148.6640</BestLapTime>
+<FinishTime>1350.0335</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 12</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>c6180600 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #85</VehName>
+<Category>WEC 2024, GT3, Lamborghini Huracan LMGT3 Evo2</Category>
+<CarType>Lamborghini Huracan LMGT3 Evo2</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>85</CarNumber>
+<TeamName>Team 09</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>12</GridPos>
+<Position>12</Position>
+<ClassGridPos>12</ClassGridPos>
+<ClassPosition>12</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="12" et="119.5350" s1="45.9575" s2="68.2698" s3="41.9526" topspeed="254.67" fuel="0.557" fuelUsed="0.053" ve="0.631" veUsed="0.059" twfl="0.961" twfr="0.961" twrl="0.953" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">156.1799</Lap>
+<Lap num="2" p="12" et="275.7149" s1="39.6590" s2="67.8058" s3="41.4644" topspeed="255.07" fuel="0.514" fuelUsed="0.043" ve="0.584" veUsed="0.047" twfl="0.945" twfr="0.949" twrl="0.933" twrr="0.937" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.9293</Lap>
+<Lap num="3" p="12" et="424.6442" s1="39.5645" s2="67.8880" s3="41.4672" topspeed="254.68" fuel="0.471" fuelUsed="0.043" ve="0.533" veUsed="0.051" twfl="0.929" twfr="0.933" twrl="0.914" twrr="0.918" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">148.9197</Lap>
+<Lap num="4" p="12" et="573.5639" s1="39.5598" s2="68.0635" s3="41.4800" topspeed="254.60" fuel="0.427" fuelUsed="0.043" ve="0.482" veUsed="0.051" twfl="0.914" twfr="0.918" twrl="0.894" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.1033</Lap>
+<Lap num="5" p="12" et="722.6672" s1="39.5333" s2="68.2791" s3="41.5440" topspeed="254.61" fuel="0.384" fuelUsed="0.043" ve="0.435" veUsed="0.047" twfl="0.898" twfr="0.906" twrl="0.875" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.3563</Lap>
+<Lap num="6" p="12" et="872.0236" s1="39.5448" s2="68.4127" s3="41.4969" topspeed="254.65" fuel="0.341" fuelUsed="0.043" ve="0.384" veUsed="0.051" twfl="0.882" twfr="0.890" twrl="0.855" twrr="0.859" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.4545</Lap>
+<Lap num="7" p="12" et="1021.4780" s1="39.5872" s2="68.4987" s3="41.5497" topspeed="254.57" fuel="0.298" fuelUsed="0.043" ve="0.337" veUsed="0.047" twfl="0.867" twfr="0.878" twrl="0.831" twrr="0.839" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.6355</Lap>
+<Lap num="8" p="12" et="1171.1135" s1="39.6552" s2="68.5739" s3="41.5592" topspeed="254.27" fuel="0.255" fuelUsed="0.043" ve="0.286" veUsed="0.051" twfl="0.851" twfr="0.863" twrl="0.812" twrr="0.824" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.7882</Lap>
+<Lap num="9" p="12" et="1320.9017" s1="39.6552" s2="68.6281" s3="42.2343" topspeed="254.50" fuel="0.212" fuelUsed="0.043" ve="0.239" veUsed="0.047" twfl="0.835" twfr="0.847" twrl="0.792" twrr="0.804" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.5175</Lap>
+<BestLapTime>148.9197</BestLapTime>
+<FinishTime>1351.8842</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 13</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>c6180600 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #54</VehName>
+<Category>WEC 2024, GT3, Ferrari 296 LMGT3</Category>
+<CarType>Ferrari 296 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>54</CarNumber>
+<TeamName>Team 10</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>13</GridPos>
+<Position>13</Position>
+<ClassGridPos>13</ClassGridPos>
+<ClassPosition>13</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="13" et="119.5350" s1="46.3733" s2="68.1241" s3="42.1500" topspeed="256.07" fuel="0.451" fuelUsed="0.040" ve="0.612" veUsed="0.058" twfl="0.957" twfr="0.961" twrl="0.957" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">156.6474</Lap>
+<Lap num="2" p="13" et="276.1824" s1="40.0499" s2="67.5789" s3="41.5198" topspeed="255.41" fuel="0.416" fuelUsed="0.035" ve="0.565" veUsed="0.047" twfl="0.941" twfr="0.945" twrl="0.941" twrr="0.941" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.1487</Lap>
+<Lap num="3" p="13" et="425.3311" s1="39.8851" s2="67.6700" s3="41.4921" topspeed="255.40" fuel="0.380" fuelUsed="0.035" ve="0.518" veUsed="0.047" twfl="0.925" twfr="0.929" twrl="0.922" twrr="0.925" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.0473</Lap>
+<Lap num="4" p="13" et="574.3784" s1="39.8945" s2="67.8433" s3="41.5307" topspeed="255.07" fuel="0.345" fuelUsed="0.035" ve="0.471" veUsed="0.047" twfl="0.910" twfr="0.914" twrl="0.906" twrr="0.910" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.2685</Lap>
+<Lap num="5" p="13" et="723.6469" s1="39.9116" s2="68.0328" s3="41.5403" topspeed="254.95" fuel="0.310" fuelUsed="0.035" ve="0.424" veUsed="0.047" twfl="0.894" twfr="0.902" twrl="0.890" twrr="0.894" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.4847</Lap>
+<Lap num="6" p="13" et="873.1317" s1="39.9886" s2="68.2176" s3="41.6036" topspeed="254.63" fuel="0.275" fuelUsed="0.035" ve="0.373" veUsed="0.051" twfl="0.878" twfr="0.886" twrl="0.871" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.8098</Lap>
+<Lap num="7" p="13" et="1022.9415" s1="40.0657" s2="68.3628" s3="41.6001" topspeed="254.50" fuel="0.239" fuelUsed="0.035" ve="0.325" veUsed="0.047" twfl="0.859" twfr="0.871" twrl="0.855" twrr="0.859" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.0286</Lap>
+<Lap num="8" p="13" et="1172.9701" s1="40.0775" s2="68.4457" s3="41.5958" topspeed="254.50" fuel="0.204" fuelUsed="0.035" ve="0.278" veUsed="0.047" twfl="0.843" twfr="0.855" twrl="0.839" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1190</Lap>
+<Lap num="9" p="13" et="1323.0891" s1="40.1168" s2="68.5077" s3="42.3197" topspeed="254.50" fuel="0.169" fuelUsed="0.035" ve="0.231" veUsed="0.047" twfl="0.827" twfr="0.839" twrl="0.820" twrr="0.827" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.9442</Lap>
+<BestLapTime>149.0473</BestLapTime>
+<FinishTime>1354.4983</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 14</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>c6180600 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #95</VehName>
+<Category>WEC 2024, GT3, McLaren 720S LMGT3 Evo</Category>
+<CarType>McLaren 720S LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>95</CarNumber>
+<TeamName>Team 11</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>15</GridPos>
+<Position>15</Position>
+<ClassGridPos>15</ClassGridPos>
+<ClassPosition>15</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="15" et="119.5350" s1="47.4279" s2="68.4263" s3="42.2830" topspeed="250.57" fuel="0.443" fuelUsed="0.040" ve="0.631" veUsed="0.059" twfl="0.957" twfr="0.961" twrl="0.957" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">158.1373</Lap>
+<Lap num="2" p="15" et="277.6723" s1="40.0814" s2="68.2922" s3="41.7891" topspeed="255.04" fuel="0.408" fuelUsed="0.035" ve="0.584" veUsed="0.047" twfl="0.941" twfr="0.945" twrl="0.941" twrr="0.941" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1627</Lap>
+<Lap num="3" p="15" et="427.8350" s1="39.8304" s2="68.2022" s3="41.6563" topspeed="253.71" fuel="0.373" fuelUsed="0.035" ve="0.533" veUsed="0.051" twfl="0.925" twfr="0.929" twrl="0.922" twrr="0.925" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.6889</Lap>
+<Lap num="4" p="15" et="577.5239" s1="39.8803" s2="68.3948" s3="41.6531" topspeed="253.60" fuel="0.341" fuelUsed="0.031" ve="0.486" veUsed="0.047" twfl="0.910" twfr="0.918" twrl="0.906" twrr="0.910" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.9283</Lap>
+<Lap num="5" p="15" et="727.4522" s1="39.9310" s2="68.5558" s3="41.6948" topspeed="253.60" fuel="0.306" fuelUsed="0.035" ve="0.435" veUsed="0.051" twfl="0.894" twfr="0.902" twrl="0.890" twrr="0.894" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1816</Lap>
+<Lap num="6" p="15" et="877.6338" s1="40.0328" s2="68.7418" s3="41.7792" topspeed="253.15" fuel="0.271" fuelUsed="0.035" ve="0.388" veUsed="0.047" twfl="0.878" twfr="0.886" twrl="0.871" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.5538</Lap>
+<Lap num="7" p="15" et="1028.1876" s1="40.1003" s2="68.8846" s3="41.8391" topspeed="253.15" fuel="0.235" fuelUsed="0.035" ve="0.337" veUsed="0.051" twfl="0.863" twfr="0.871" twrl="0.855" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.8241</Lap>
+<Lap num="8" p="15" et="1179.0117" s1="40.1488" s2="68.9529" s3="41.8522" topspeed="252.80" fuel="0.204" fuelUsed="0.031" ve="0.290" veUsed="0.047" twfl="0.847" twfr="0.859" twrl="0.839" twrr="0.847" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.9539</Lap>
+<Lap num="9" p="15" et="1329.9656" s1="40.1562" s2="68.9921" s3="42.5587" topspeed="252.78" fuel="0.169" fuelUsed="0.035" ve="0.239" veUsed="0.051" twfl="0.831" twfr="0.843" twrl="0.824" twrr="0.831" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.7070</Lap>
+<BestLapTime>149.6889</BestLapTime>
+<FinishTime>1362.1376</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 15</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>c6180600 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #59</VehName>
+<Category>WEC 2024, GT3, McLaren 720S LMGT3 Evo</Category>
+<CarType>McLaren 720S LMGT3 Evo</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>59</CarNumber>
+<TeamName>Team 11</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>14</GridPos>
+<Position>14</Position>
+<ClassGridPos>14</ClassGridPos>
+<ClassPosition>14</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="14" et="119.5350" s1="46.6638" s2="68.5406" s3="42.3959" topspeed="255.85" fuel="0.443" fuelUsed="0.040" ve="0.631" veUsed="0.059" twfl="0.957" twfr="0.961" twrl="0.957" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">157.6003</Lap>
+<Lap num="2" p="14" et="277.1353" s1="40.2654" s2="68.1007" s3="41.6688" topspeed="253.36" fuel="0.408" fuelUsed="0.035" ve="0.580" veUsed="0.051" twfl="0.941" twfr="0.945" twrl="0.941" twrr="0.941" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.0349</Lap>
+<Lap num="3" p="14" et="427.1702" s1="39.8608" s2="68.2151" s3="41.6558" topspeed="253.31" fuel="0.373" fuelUsed="0.035" ve="0.533" veUsed="0.047" twfl="0.925" twfr="0.929" twrl="0.922" twrr="0.925" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.7317</Lap>
+<Lap num="4" p="14" et="576.9019" s1="39.8736" s2="68.3804" s3="41.6514" topspeed="253.17" fuel="0.337" fuelUsed="0.035" ve="0.482" veUsed="0.051" twfl="0.910" twfr="0.918" twrl="0.906" twrr="0.910" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.9054</Lap>
+<Lap num="5" p="14" et="726.8073" s1="39.9644" s2="68.5613" s3="41.6677" topspeed="252.87" fuel="0.306" fuelUsed="0.031" ve="0.435" veUsed="0.047" twfl="0.894" twfr="0.902" twrl="0.890" twrr="0.894" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1934</Lap>
+<Lap num="6" p="14" et="877.0007" s1="40.0277" s2="68.7518" s3="41.8168" topspeed="252.80" fuel="0.271" fuelUsed="0.035" ve="0.384" veUsed="0.051" twfl="0.878" twfr="0.886" twrl="0.875" twrr="0.878" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.5963</Lap>
+<Lap num="7" p="14" et="1027.5969" s1="40.1056" s2="68.8636" s3="41.7888" topspeed="252.70" fuel="0.235" fuelUsed="0.035" ve="0.337" veUsed="0.047" twfl="0.863" twfr="0.871" twrl="0.855" twrr="0.863" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.7581</Lap>
+<Lap num="8" p="14" et="1178.3550" s1="40.1528" s2="68.9486" s3="41.8312" topspeed="252.44" fuel="0.200" fuelUsed="0.035" ve="0.286" veUsed="0.051" twfl="0.847" twfr="0.859" twrl="0.839" twrr="0.847" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.9326</Lap>
+<Lap num="9" p="14" et="1329.2876" s1="40.1725" s2="69.0452" s3="42.5343" topspeed="252.70" fuel="0.169" fuelUsed="0.031" ve="0.239" veUsed="0.047" twfl="0.831" twfr="0.843" twrl="0.824" twrr="0.831" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.7520</Lap>
+<BestLapTime>149.7317</BestLapTime>
+<FinishTime>1361.5045</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 16</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>c6180600 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #55</VehName>
+<Category>WEC 2024, GT3, Ferrari 296 LMGT3</Category>
+<CarType>Ferrari 296 LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>55</CarNumber>
+<TeamName>Team 10</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>16</GridPos>
+<Position>17</Position>
+<ClassGridPos>16</ClassGridPos>
+<ClassPosition>17</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="17" et="119.5350" s1="47.6759" s2="69.2439" s3="42.5551" topspeed="252.25" fuel="0.451" fuelUsed="0.040" ve="0.612" veUsed="0.058" twfl="0.957" twfr="0.961" twrl="0.957" twrr="0.957" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">159.4749</Lap>
+<Lap num="2" p="17" et="279.0099" s1="40.0271" s2="68.4269" s3="42.2962" topspeed="256.00" fuel="0.416" fuelUsed="0.035" ve="0.565" veUsed="0.047" twfl="0.941" twfr="0.945" twrl="0.941" twrr="0.941" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.7501</Lap>
+<Lap num="3" p="17" et="429.7600" s1="39.9487" s2="68.3199" s3="41.7308" topspeed="254.95" fuel="0.380" fuelUsed="0.035" ve="0.518" veUsed="0.047" twfl="0.925" twfr="0.929" twrl="0.925" twrr="0.925" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">149.9994</Lap>
+<Lap num="4" p="17" et="579.7594" s1="39.9770" s2="68.5187" s3="41.6567" topspeed="254.95" fuel="0.345" fuelUsed="0.035" ve="0.471" veUsed="0.047" twfl="0.910" twfr="0.914" twrl="0.906" twrr="0.910" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1524</Lap>
+<Lap num="5" p="17" et="729.9118" s1="40.0498" s2="68.7040" s3="41.7482" topspeed="254.62" fuel="0.310" fuelUsed="0.035" ve="0.424" veUsed="0.047" twfl="0.894" twfr="0.898" twrl="0.890" twrr="0.894" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.5020</Lap>
+<Lap num="6" p="17" et="880.4138" s1="40.1263" s2="68.8802" s3="41.7751" topspeed="254.50" fuel="0.275" fuelUsed="0.035" ve="0.376" veUsed="0.047" twfl="0.878" twfr="0.886" twrl="0.875" twrr="0.875" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.7816</Lap>
+<Lap num="7" p="17" et="1031.1954" s1="40.1958" s2="69.0061" s3="41.8234" topspeed="254.19" fuel="0.239" fuelUsed="0.035" ve="0.325" veUsed="0.051" twfl="0.863" twfr="0.871" twrl="0.855" twrr="0.859" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.0253</Lap>
+<Lap num="8" p="17" et="1182.2207" s1="40.2213" s2="69.1085" s3="41.8547" topspeed="254.23" fuel="0.204" fuelUsed="0.035" ve="0.278" veUsed="0.047" twfl="0.847" twfr="0.855" twrl="0.839" twrr="0.843" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.1846</Lap>
+<Lap num="9" p="17" et="1333.4053" s1="40.2375" s2="69.1638" s3="42.5450" topspeed="254.17" fuel="0.169" fuelUsed="0.035" ve="0.231" veUsed="0.047" twfl="0.831" twfr="0.839" twrl="0.824" twrr="0.827" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.9464</Lap>
+<BestLapTime>149.9994</BestLapTime>
+<FinishTime>1365.8167</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 17</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #77</VehName>
+<Category>WEC 2024, GT3, Ford Mustang LMGT3</Category>
+<CarType>Ford Mustang LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>77</CarNumber>
+<TeamName>Team 12</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>17</GridPos>
+<Position>16</Position>
+<ClassGridPos>17</ClassGridPos>
+<ClassPosition>16</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="16" et="119.5350" s1="47.6047" s2="68.7580" s3="42.4419" topspeed="249.21" fuel="0.482" fuelUsed="0.044" ve="0.624" veUsed="0.056" twfl="0.961" twfr="0.961" twrl="0.957" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">158.8047</Lap>
+<Lap num="2" p="16" et="278.3397" s1="40.3203" s2="68.2239" s3="41.8471" topspeed="251.35" fuel="0.443" fuelUsed="0.039" ve="0.576" veUsed="0.047" twfl="0.945" twfr="0.949" twrl="0.941" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.3913</Lap>
+<Lap num="3" p="16" et="428.7310" s1="40.1832" s2="68.2762" s3="41.6467" topspeed="251.10" fuel="0.408" fuelUsed="0.035" ve="0.525" veUsed="0.051" twfl="0.929" twfr="0.937" twrl="0.925" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.1061</Lap>
+<Lap num="4" p="16" et="578.8370" s1="40.2121" s2="68.3785" s3="41.6635" topspeed="250.90" fuel="0.369" fuelUsed="0.039" ve="0.478" veUsed="0.047" twfl="0.918" twfr="0.922" twrl="0.910" twrr="0.914" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.2541</Lap>
+<Lap num="5" p="16" et="729.0911" s1="40.2009" s2="68.5401" s3="41.7531" topspeed="250.94" fuel="0.333" fuelUsed="0.035" ve="0.427" veUsed="0.051" twfl="0.902" twfr="0.910" twrl="0.894" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.4941</Lap>
+<Lap num="6" p="16" et="879.5852" s1="40.2714" s2="68.6920" s3="41.7553" topspeed="250.90" fuel="0.294" fuelUsed="0.039" ve="0.380" veUsed="0.047" twfl="0.886" twfr="0.894" twrl="0.878" twrr="0.882" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">150.7186</Lap>
+<Lap num="7" p="16" et="1030.3038" s1="40.3423" s2="68.8419" s3="41.9135" topspeed="250.90" fuel="0.259" fuelUsed="0.035" ve="0.333" veUsed="0.047" twfl="0.875" twfr="0.882" twrl="0.863" twrr="0.867" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.0977</Lap>
+<Lap num="8" p="16" et="1181.4015" s1="40.3739" s2="68.9266" s3="41.8236" topspeed="250.90" fuel="0.220" fuelUsed="0.039" ve="0.282" veUsed="0.051" twfl="0.859" twfr="0.871" twrl="0.847" twrr="0.851" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.1241</Lap>
+<Lap num="9" p="16" et="1332.5256" s1="40.4175" s2="69.0043" s3="42.5563" topspeed="250.90" fuel="0.184" fuelUsed="0.035" ve="0.235" veUsed="0.047" twfl="0.843" twfr="0.855" twrl="0.831" twrr="0.835" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.9780</Lap>
+<BestLapTime>150.1061</BestLapTime>
+<FinishTime>1364.9687</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+<Driver>
+<Name>Driver 18</Name>
+<Connected>1</Connected>
+<VehFile>car.VEH</VehFile>
+<UpgradeCode>630c0300 00000000 00000000 00000000</UpgradeCode>
+<VehName>Car #88</VehName>
+<Category>WEC 2024, GT3, Ford Mustang LMGT3</Category>
+<CarType>Ford Mustang LMGT3</CarType>
+<CarClass>GT3</CarClass>
+<CarNumber>88</CarNumber>
+<TeamName>Team 12</TeamName>
+<isPlayer>0</isPlayer>
+<ServerScored>1</ServerScored>
+<GridPos>18</GridPos>
+<Position>18</Position>
+<ClassGridPos>18</ClassGridPos>
+<ClassPosition>18</ClassPosition>
+<LapRankIncludingDiscos>19</LapRankIncludingDiscos>
+<Lap num="1" p="18" et="119.5350" s1="47.7792" s2="69.9695" s3="42.7808" topspeed="254.17" fuel="0.482" fuelUsed="0.044" ve="0.624" veUsed="0.056" twfl="0.961" twfr="0.961" twrl="0.961" twrr="0.961" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">160.5295</Lap>
+<Lap num="2" p="18" et="280.0645" s1="41.0089" s2="68.8949" s3="41.9116" topspeed="250.90" fuel="0.443" fuelUsed="0.039" ve="0.576" veUsed="0.047" twfl="0.945" twfr="0.949" twrl="0.941" twrr="0.945" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.8154</Lap>
+<Lap num="3" p="18" et="431.8799" s1="40.2757" s2="68.9610" s3="41.8493" topspeed="250.90" fuel="0.408" fuelUsed="0.035" ve="0.525" veUsed="0.051" twfl="0.933" twfr="0.933" twrl="0.925" twrr="0.929" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.0859</Lap>
+<Lap num="4" p="18" et="582.9658" s1="40.3045" s2="69.0888" s3="41.9046" topspeed="250.90" fuel="0.369" fuelUsed="0.039" ve="0.478" veUsed="0.047" twfl="0.918" twfr="0.922" twrl="0.910" twrr="0.914" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.2979</Lap>
+<Lap num="5" p="18" et="734.2637" s1="40.3665" s2="69.2585" s3="41.9998" topspeed="250.90" fuel="0.333" fuelUsed="0.035" ve="0.427" veUsed="0.051" twfl="0.902" twfr="0.910" twrl="0.894" twrr="0.898" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.6248</Lap>
+<Lap num="6" p="18" et="885.8885" s1="40.3945" s2="69.4096" s3="41.9667" topspeed="250.65" fuel="0.294" fuelUsed="0.039" ve="0.380" veUsed="0.047" twfl="0.890" twfr="0.894" twrl="0.878" twrr="0.882" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">151.7708</Lap>
+<Lap num="7" p="18" et="1037.6593" s1="40.4845" s2="69.5460" s3="42.0665" topspeed="250.55" fuel="0.259" fuelUsed="0.035" ve="0.333" veUsed="0.047" twfl="0.875" twfr="0.882" twrl="0.863" twrr="0.867" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">152.0970</Lap>
+<Lap num="8" p="18" et="1189.7563" s1="40.5201" s2="69.6548" s3="42.1224" topspeed="250.51" fuel="0.220" fuelUsed="0.039" ve="0.282" veUsed="0.051" twfl="0.859" twfr="0.867" twrl="0.847" twrr="0.851" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">152.2974</Lap>
+<Lap num="9" p="18" et="1342.0537" s1="40.5555" s2="70.3721" s3="42.1725" topspeed="250.49" fuel="0.184" fuelUsed="0.035" ve="0.235" veUsed="0.047" twfl="0.847" twfr="0.855" twrl="0.831" twrr="0.835" fcompound="0,Medium" rcompound="0,Medium" FL="0,Medium" FR="0,Medium" RL="0,Medium" RR="0,Medium">153.1001</Lap>
+<BestLapTime>151.0859</BestLapTime>
+<FinishTime>1375.6188</FinishTime>
+<Laps>9</Laps>
+<Pitstops>0</Pitstops>
+<FinishStatus>Finished Normally</FinishStatus>
+<ControlAndAids startLap="1" endLap="9">AIControl</ControlAndAids>
+</Driver>
+</Race>
+</RaceResults>
+</rFactorXML>

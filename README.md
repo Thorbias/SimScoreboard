@@ -22,6 +22,8 @@ Everything runs locally in your browser. Your race files are never uploaded.
 - **Analysis:** lap time comparison of up to four drivers, position chart,
   statistics per class, incidents, penalties and chat.
 - **Personal bests:** your fastest laps per track layout, class and car.
+- **Demo:** try the app without game files, with anonymized sample sessions
+  ("Try the demo"). Your own sessions and settings are not touched.
 - **Local only:** the index and your settings stay in your browser. English and
   German, light and dark.
 

@@ -32,11 +32,13 @@ export function SettingsView() {
       <section className="panel">
         <h3>{t('settings.driver')}</h3>
         <p className="hint">{t('settings.driverHelp')}</p>
+        {app.demo && <p className="notice">{t('demo.settingsLocked')}</p>}
         <ul className="alias-list">
           {aliases.map((alias) => (
             <li key={alias}>
               <span>{alias}</span>
               <button
+                disabled={app.demo}
                 onClick={() =>
                   void app.setAliases(aliases.filter((a) => a !== alias))
                 }
@@ -54,11 +56,12 @@ export function SettingsView() {
           }}
         >
           <input
+            disabled={app.demo}
             value={draft}
             placeholder={t('settings.driverPlaceholder')}
             onChange={(e) => setDraft(e.target.value)}
           />
-          <button className="primary" type="submit">
+          <button className="primary" type="submit" disabled={app.demo}>
             {t('settings.add')}
           </button>
         </form>
@@ -116,6 +119,7 @@ export function SettingsView() {
         <h3>{t('settings.index')}</h3>
         <p className="hint">{t('settings.indexHelp')}</p>
         <button
+          disabled={app.demo}
           onClick={() => {
             if (window.confirm(t('settings.clearConfirm'))) {
               void app.clearIndex();
@@ -124,6 +128,18 @@ export function SettingsView() {
         >
           {t('settings.clearIndex')}
         </button>
+      </section>
+
+      <section className="panel">
+        <h3>{t('demo.settingsTitle')}</h3>
+        <p className="hint">{t('demo.settingsHelp')}</p>
+        {app.demo ? (
+          <button onClick={app.stopDemo}>{t('demo.exit')}</button>
+        ) : (
+          <button onClick={() => void app.startDemo()}>
+            {t('demo.start')}
+          </button>
+        )}
       </section>
     </>
   );

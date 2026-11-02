@@ -24,6 +24,7 @@ import {
   type LanguageSetting,
   type Translate,
 } from '../i18n';
+import { loadDemo } from '../library/demo';
 import { runIndexer } from '../library/indexer';
 import {
   hasReadPermission,
@@ -86,6 +87,11 @@ export interface AppState {
   setAliases(aliases: string[]): Promise<void>;
   setLanguageSetting(setting: LanguageSetting): Promise<void>;
   loadSession(id: string): Promise<Session>;
+  /** True while the bundled demo sessions are shown instead of the own library. */
+  demo: boolean;
+  demoError: string | null;
+  startDemo(): Promise<void>;
+  stopDemo(): void;
 }
 
 const IDLE_SCAN: ScanState = {
@@ -126,6 +132,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [folder, setFolder] = useState<FolderState>('none');
   const [aliases, setAliasesState] = useState<string[]>([]);
   const [favorites, setFavoritesState] = useState<string[]>([]);
+  // The demo lives next to the real library and never touches it: its sessions,
+  // favourites and files are kept apart and are gone when the demo ends.
+  const [demo, setDemo] = useState<{ ownName: string } | null>(null);
+  const [demoSessions, setDemoSessions] = useState<SessionSummary[]>([]);
+  const [demoFavorites, setDemoFavorites] = useState<string[]>([]);
+  const [demoError, setDemoError] = useState<string | null>(null);
+  const demoActiveRef = useRef(false);
+  const demoFilesRef = useRef(new Map<string, File>());
   const [languageSetting, setLanguageSettingState] =
     useState<LanguageSetting>('auto');
 
@@ -249,20 +263,64 @@ export function AppProvider({ children }: { children: ReactNode }) {
     };
   }, [scanHandle]);
 
+  const stopDemo = useCallback(() => {
+    demoActiveRef.current = false;
+    demoFilesRef.current = new Map();
+    setDemo(null);
+    setDemoSessions([]);
+    setDemoFavorites([]);
+    setDemoError(null);
+    setSourceVersion((v) => v + 1);
+  }, []);
+
+  const startDemo = useCallback(async () => {
+    setDemoError(null);
+    setScan({ ...IDLE_SCAN, active: true });
+    try {
+      const { ownName, files } = await loadDemo(import.meta.env.BASE_URL);
+      demoFilesRef.current = new Map(files.map((f) => [f.name, f]));
+      demoActiveRef.current = true;
+      setDemoSessions([]);
+      setDemoFavorites([]);
+      setDemo({ ownName });
+      setSourceVersion((v) => v + 1);
+      window.location.hash = '#/';
+      const failed = await runIndexer(files, {
+        onBatch: (items: StoredSession[]) => {
+          const byId = new Map(items.map((i) => [i.summary.id, i.summary]));
+          setDemoSessions((prev) => [
+            ...prev.filter((s) => !byId.has(s.id)),
+            ...byId.values(),
+          ]);
+        },
+        onProgress: (done, total) =>
+          setScan((prev) => ({ ...prev, done, total })),
+      });
+      setScan((prev) => ({ ...prev, active: false, failed: failed.length }));
+    } catch (error) {
+      demoActiveRef.current = false;
+      setDemo(null);
+      setScan(IDLE_SCAN);
+      setDemoError(error instanceof Error ? error.message : String(error));
+    }
+  }, []);
+
   const chooseFolder = useCallback(async () => {
+    if (demoActiveRef.current) stopDemo();
     const handle = await pickDirectory();
     if (!handle) return;
     await storeRef.current?.setSetting('folder', handle);
     await scanHandle(handle);
-  }, [scanHandle]);
+  }, [scanHandle, stopDemo]);
 
   const chooseFiles = useCallback(
     async (list: FileList | null) => {
       if (!list) return;
+      if (demoActiveRef.current) stopDemo();
       setFolder('connected');
       await runScan(resultFilesFromList(Array.from(list)));
     },
-    [runScan],
+    [runScan, stopDemo],
   );
 
   const reconnectFolder = useCallback(async () => {
@@ -273,17 +331,25 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [scanHandle]);
 
   const clearIndex = useCallback(async () => {
+    if (demoActiveRef.current) return;
     await storeRef.current?.clearSessions();
     knownRef.current.clear();
     setSessions([]);
   }, []);
 
   const setAliases = useCallback(async (next: string[]) => {
+    if (demoActiveRef.current) return;
     setAliasesState(next);
     await storeRef.current?.setSetting('aliases', next);
   }, []);
 
   const toggleFavorite = useCallback(async (id: string) => {
+    if (demoActiveRef.current) {
+      setDemoFavorites((prev) =>
+        prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id],
+      );
+      return;
+    }
     const current = favoritesRef.current;
     const next = current.includes(id)
       ? current.filter((f) => f !== id)
@@ -305,7 +371,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const loadSession = useCallback(async (id: string) => {
-    const file = filesRef.current.get(id);
+    const files = demoActiveRef.current ? demoFilesRef : filesRef;
+    const file = files.current.get(id);
     if (!file) throw new NotConnectedError();
     return parseSession(await file.text(), id);
   }, []);
@@ -313,13 +380,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const value: AppState = {
     ready,
     persistent,
-    sessions,
+    sessions: demo ? demoSessions : sessions,
     scan,
     sourceVersion,
     folder,
     canPickDirectory: supportsDirectoryPicker(),
-    aliases,
-    favorites,
+    aliases: demo ? [demo.ownName] : aliases,
+    favorites: demo ? demoFavorites : favorites,
     toggleFavorite,
     languageSetting,
     language,
@@ -334,6 +401,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setAliases,
     setLanguageSetting,
     loadSession,
+    demo: demo !== null,
+    demoError,
+    startDemo,
+    stopDemo,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -211,6 +211,15 @@ export const en = {
   'fav.remove': 'Remove from favourites',
   'filter.favorites': 'Favourites only',
 
+  'demo.start': 'Try the demo',
+  'demo.exit': 'Exit demo',
+  'demo.banner':
+    'Demo data: real sessions with anonymized driver names. Your own sessions and settings are not touched.',
+  'demo.failed': 'The demo could not be started: {message}',
+  'demo.settingsTitle': 'Demo data',
+  'demo.settingsHelp':
+    'Look around with sample sessions that need no game files. All driver names in them are anonymized.',
+  'demo.settingsLocked': 'These settings are not available in the demo.',
   'settings.title': 'Settings',
   'settings.driver': 'Your driver names',
   'settings.driverHelp':

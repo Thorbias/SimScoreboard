@@ -1,33 +1,66 @@
-// Builds anonymized, shrunken test fixtures from real Le Mans Ultimate result
-// files. Real files contain other drivers' names and must never be committed;
-// only the output of this script goes into the repository.
+// Builds anonymized result files from real Le Mans Ultimate files. Real files
+// contain other drivers' names and must never be committed; only the output of
+// this script goes into the repository.
 //
-// Usage:
+// Two modes:
+//   Fixtures (default): shrunken files for the tests: a few drivers per class
+//   and a short stream.
 //   node tools/anonymize-results.mjs <results-dir> <out-dir> <own-name> <file>...
 //
-// Besides the fixtures it writes `samples/leak-names.txt` (git-ignored) with
-// every real name seen in the sources, so a test can check the fixtures for
-// leaks on the machine that has the real files.
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+//   Demo (--demo): complete sessions for the preview: all drivers, all events
+//   that the app reads (lap-crossing scores are dropped), neutral chat texts.
+//   Also writes `manifest.json` with the list of files.
+//   node tools/anonymize-results.mjs --demo <results-dir> <out-dir> <own-name> <file>...
+//
+// Besides the output it merges every real name seen in the sources into
+// `samples/leak-names.txt` (git-ignored), so a test can check the committed
+// files for leaks on the machine that has the real files.
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 
-const [resultsDir, outDir, ownName, ...files] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const demo = args[0] === '--demo';
+if (demo) args.shift();
+const [resultsDir, outDir, ownName, ...files] = args;
 if (!resultsDir || !outDir || !ownName || files.length === 0) {
   console.error(
-    'usage: anonymize-results.mjs <results-dir> <out-dir> <own-name> <file>...',
+    'usage: anonymize-results.mjs [--demo] <results-dir> <out-dir> <own-name> <file>...',
   );
   process.exit(1);
 }
 
-const KEEP_PER_CLASS = 3;
-const MAX_STREAM_EVENTS = 150;
+const KEEP_PER_CLASS = demo ? Infinity : 3;
+const MAX_STREAM_EVENTS = demo ? Infinity : 150;
+const OWN_LABEL = demo ? 'Demo Driver' : 'Own Driver';
+const CHAT_PHRASES = [
+  'Good luck everyone',
+  'Sorry about that',
+  'Nice battle',
+  'Watch the gap',
+  'Clean start',
+  'GG',
+  'Thanks for the race',
+  'Box this lap?',
+];
 
 const tag = (name, text) =>
   text.match(new RegExp(`<${name}>([^<]*)</${name}>`))?.[1] ?? '';
 const attr = (name, text) =>
   text.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1] ?? '';
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+/** Names match without the online suffix and regardless of case, like in the app. */
+const normalize = (n) =>
+  n.split('#')[0].trim().replace(/\s+/g, ' ').toLowerCase();
+const isOwn = (n) => normalize(n) === normalize(ownName);
+/** True when `name` occurs in `text` as a word of its own, not inside another word. */
+const occurs = (name, text) =>
+  new RegExp(
+    `(?<![\\p{L}\\p{N}])${escapeRegExp(name)}(?![\\p{L}\\p{N}])`,
+    'u',
+  ).test(text);
 
 const allNames = new Set();
+const written = [];
 mkdirSync(outDir, { recursive: true });
 
 for (const file of files) {
@@ -47,8 +80,8 @@ for (const file of files) {
   }));
   for (const d of drivers) allNames.add(d.name);
 
-  // Choose the drivers to keep: the best few per class, the own driver and the
-  // first one with an unusual finish status.
+  // Choose the drivers to keep: the best few per class (all in demo mode), the
+  // own driver and the first one with an unusual finish status.
   const kept = new Set();
   const classes = [...new Set(drivers.map((d) => d.cls))];
   for (const cls of classes) {
@@ -58,7 +91,7 @@ for (const file of files) {
       .slice(0, KEEP_PER_CLASS)
       .forEach((d) => kept.add(d));
   }
-  drivers.filter((d) => d.name === ownName).forEach((d) => kept.add(d));
+  drivers.filter((d) => isOwn(d.name)).forEach((d) => kept.add(d));
   const odd = drivers.find(
     (d) => !['None', 'Finished Normally'].includes(d.status),
   );
@@ -66,26 +99,30 @@ for (const file of files) {
   const keptDrivers = drivers.filter((d) => kept.has(d));
   const keptNames = new Set(keptDrivers.map((d) => d.name));
 
-  // Pseudonyms.
+  // Pseudonyms. Every driver of the file gets one, because the stream also
+  // names drivers that are dropped from the output.
   const nameMap = new Map();
   const teamMap = new Map();
-  // Every driver of the file gets a pseudonym, because the stream also names
-  // drivers that are dropped from the output.
   drivers.forEach((d, i) => {
     nameMap.set(
       d.name,
-      d.name === ownName
-        ? 'Own Driver'
-        : `Driver ${String(i + 1).padStart(2, '0')}`,
+      isOwn(d.name) ? OWN_LABEL : `Driver ${String(i + 1).padStart(2, '0')}`,
     );
   });
   keptDrivers.forEach((d) => {
-    if (!teamMap.has(d.team))
-      teamMap.set(d.team, `Team ${String.fromCharCode(65 + teamMap.size)}`);
+    if (!teamMap.has(d.team)) {
+      const n = teamMap.size;
+      teamMap.set(
+        d.team,
+        demo
+          ? `Team ${String(n + 1).padStart(2, '0')}`
+          : `Team ${String.fromCharCode(65 + n)}`,
+      );
+    }
   });
   let guests = 0;
 
-  // Stream events: keep the ones that only involve kept drivers.
+  // Stream events.
   const streamMatch = source.match(/<Stream>([\s\S]*?)<\/Stream>/);
   const events = streamMatch
     ? [...streamMatch[1].matchAll(/<(\w+)\b[^>]*>[\s\S]*?<\/\1>/g)].map(
@@ -129,9 +166,15 @@ for (const file of files) {
         nameMap.set(n, `Guest ${String(++guests).padStart(2, '0')}`);
       }
     }
+    if (demo) {
+      // The app does not read these, and they make up most of a stream.
+      if (el === 'Score') continue;
+      if (el === 'Sector' && !/reports new/.test(ev)) continue;
+    }
     // Keep events that involve a kept driver, plus a few chat lines and penalties.
     const involvesKept = [...names].some((n) => keptNames.has(n));
     const sample =
+      demo ||
       (el === 'ChatMessage' && chatCount < 6) ||
       (el === 'Penalty' && penaltyCount++ < 6);
     if (!involvesKept && !sample) continue;
@@ -139,9 +182,12 @@ for (const file of files) {
     let out = ev;
     if (el === 'ChatMessage') {
       const [sender] = [...names];
+      const text = demo
+        ? CHAT_PHRASES[chatCount++ % CHAT_PHRASES.length]
+        : `Chat message ${++chatCount}`;
       out = out.replace(
         />[\s\S]*<\/ChatMessage>$/,
-        `>${sender}: Chat message ${++chatCount}</ChatMessage>`,
+        `>${sender}: ${text}</ChatMessage>`,
       );
     }
     if (el === 'Penalty') {
@@ -196,39 +242,54 @@ for (const file of files) {
     text = text.split(`>${real}: `).join(`>${fake}: `);
     text = text.split(`>${real} `).join(`>${fake} `);
   }
+  const label = `(?:Driver|Guest) \\d\\d|${escapeRegExp(OWN_LABEL)}`;
   text = text.replace(
-    /((?:Driver|Guest) \d\d|Own Driver)\((\d+)\)/g,
+    new RegExp(`((?:${label}))\\((\\d+)\\)`, 'g'),
     (_, n, id) => `${n}(${mappedId(n, id)})`,
   );
   text = text.replace(
-    /(Driver="(?:(?:Driver|Guest) \d\d|Own Driver)" ID=")(\d+)"/g,
+    new RegExp(`(Driver="(?:${label})" ID=")(\\d+)"`, 'g'),
     (_, pre, id) => {
       const n = pre.match(/Driver="([^"]+)"/)[1];
       return `${pre}${mappedId(n, id)}"`;
     },
   );
 
-  // Safety net: no real name may survive.
-  const leaked = [...allNames].filter(
-    (n) => n && !nameMap.has(n) && text.includes(n),
-  );
-  const leakedKept = [...nameMap.keys()].filter((n) => text.includes(n));
-  if (leaked.length || leakedKept.length) {
-    console.error(`${file}: real names left in output:`, [
-      ...leaked,
-      ...leakedKept,
-    ]);
+  // Safety net: no real name may survive, as a word of its own.
+  const real = [...new Set([...allNames, ...nameMap.keys()])].filter(Boolean);
+  const leaked = real.filter((n) => occurs(n, text));
+  if (leaked.length) {
+    console.error(`${file}: real names left in output:`, leaked);
     process.exit(2);
   }
   writeFileSync(join(outDir, basename(file)), text, 'utf8');
+  written.push(basename(file));
   console.log(
-    `${file}: ${keptDrivers.length}/${drivers.length} drivers, ${outEvents.length}/${events.length} events`,
+    `${file}: ${keptDrivers.length}/${drivers.length} drivers, ${outEvents.length}/${events.length} events, ${Math.round(text.length / 1024)} KB`,
+  );
+}
+
+if (demo) {
+  writeFileSync(
+    join(outDir, 'manifest.json'),
+    JSON.stringify(
+      { ownName: OWN_LABEL, files: [...written].sort() },
+      null,
+      2,
+    ) + '\n',
+    'utf8',
   );
 }
 
 mkdirSync('samples', { recursive: true });
+const leakFile = 'samples/leak-names.txt';
+const known = existsSync(leakFile)
+  ? readFileSync(leakFile, 'utf8').split('\n').filter(Boolean)
+  : [];
 writeFileSync(
-  'samples/leak-names.txt',
-  [...allNames].filter((n) => n.length > 3).join('\n') + '\n',
+  leakFile,
+  [...new Set([...known, ...[...allNames].filter((n) => n.length > 3)])].join(
+    '\n',
+  ) + '\n',
   'utf8',
 );

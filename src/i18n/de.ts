@@ -217,6 +217,16 @@ export const de: Record<MessageKey, string> = {
   'fav.remove': 'Aus Favoriten entfernen',
   'filter.favorites': 'Nur Favoriten',
 
+  'demo.start': 'Demo ausprobieren',
+  'demo.exit': 'Demo beenden',
+  'demo.banner':
+    'Demo-Daten: echte Sessions mit anonymisierten Fahrernamen. Deine eigenen Sessions und Einstellungen bleiben unberührt.',
+  'demo.failed': 'Die Demo konnte nicht gestartet werden: {message}',
+  'demo.settingsTitle': 'Demo-Daten',
+  'demo.settingsHelp':
+    'Schau dich mit Beispiel-Sessions um, für die keine Spieldateien nötig sind. Alle Fahrernamen darin sind anonymisiert.',
+  'demo.settingsLocked':
+    'Diese Einstellungen sind in der Demo nicht verfügbar.',
   'settings.title': 'Einstellungen',
   'settings.driver': 'Deine Fahrernamen',
   'settings.driverHelp':

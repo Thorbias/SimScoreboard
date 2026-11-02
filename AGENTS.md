@@ -109,6 +109,8 @@ abstimmen, **bevor** implementiert wird.
 Result- und Telemetrie-Dateien des Spiels enthalten **Namen anderer Fahrer**. Sie
 dürfen **nie** ins Repository. Echte Dateien liegen nur in `samples/` (per
 `.gitignore` ausgeschlossen). Für Tests werden **anonymisierte Fixtures** gebaut.
+Für die Demo liegen vollständig anonymisierte Sessions in `public/demo` (siehe
+GUIDELINES).
 
 ## Umgebungsbesonderheiten
 

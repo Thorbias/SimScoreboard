@@ -17,6 +17,12 @@ committet werden. Sie liegen in `samples/` (ignoriert). Tests nutzen
 **anonymisierte Fixtures**. Beim Anonymisieren werden Fahrernamen, Teamnamen und
 alle IDs ersetzt, die auf eine Person zurückführen.
 
+**Einzige Ausnahme** sind die Demo-Sessions in `public/demo`: vollständige, aber
+anonymisierte Result-Dateien, die mit der App ausgeliefert werden. Sie entstehen
+nur mit `tools/anonymize-results.mjs --demo`, nie von Hand. Ein Test prüft sie auf
+Namensreste, auf lokale Pfade und auf Server- und Verbindungsangaben. Neue Demo-
+Dateien werden vor dem Commit mit `git diff` angesehen.
+
 ## Keine Fremdtool-Referenzen
 
 Namen, Screenshots, Beschreibungstexte oder Links anderer Auswertungstools

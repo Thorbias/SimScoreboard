@@ -29,6 +29,9 @@
   damit die Oberfläche auch bei über 1.000 Sessions flüssig bleibt (NF-003).
 - **Index nur mit Metadaten.** Die Session-Liste lebt vom kleinen Index; die Details
   (Runden, Telemetrie) werden bei Bedarf aus der Originaldatei gelesen.
+- **Demo neben der Bibliothek.** Die anonymisierten Demo-Sessions (`public/demo`)
+  laufen durch denselben Lesepfad wie Dateien aus einem Spielordner, werden aber
+  nie gespeichert und berühren Index, Namen und Favoriten nicht.
 - **Ein normalisiertes Domänenmodell.** Die Parser übersetzen die Dateiformate in
   dieses Modell; die Oberfläche kennt keine Dateiformate. Das hält auch die
   League-Aggregation ([IDEA-0001](ideations/IDEA-0001-custom-league.md)) einfach.
