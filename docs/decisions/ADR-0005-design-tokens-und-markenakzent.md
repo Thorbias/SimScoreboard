@@ -76,5 +76,6 @@ nicht in die Quere kommen.
 - Gleiche Neutrale auf beiden Seiten heißt: Ändert SimPosture seine Flächen, sollte
   SimPaddock nachziehen. Es gibt dafür keinen geteilten Code, nur diese Tabelle.
 - Inter ist im Bundle enthalten; das erhöht die Ladegröße um einige Dutzend KB.
-- Emoji-Flaggen erscheinen unter Windows als zwei Buchstaben (siehe F-018). Echte
-  Flaggenbilder wären ein eigenes Thema.
+- Die Flaggen kommen als SVG aus dem Paket `flag-icons` (MIT). Nur die Länder der
+  Streckentabelle gelangen ins Bundle. Emoji-Flaggen wären unter Windows nur zwei
+  Buchstaben. Die Lizenzhinweise stehen in `THIRD-PARTY-NOTICES.md`.

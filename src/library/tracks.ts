@@ -23,6 +23,11 @@ const COUNTRIES: [needles: string[], code: string][] = [
   [['nürburgring', 'nurburgring'], 'DE'],
 ];
 
+/** Every country code the track table can return. */
+export const KNOWN_COUNTRY_CODES: string[] = [
+  ...new Set(COUNTRIES.map(([, code]) => code)),
+];
+
 /**
  * The name to show for a track: the venue and, when it differs, the layout.
  * Lap times only compare within a layout, so the layout must always be named.
@@ -40,13 +45,6 @@ export function countryOf(venue: string, course = ''): string | null {
     if (needles.some((n) => haystack.includes(n))) return code;
   }
   return null;
-}
-
-/** The flag as an emoji. Some systems (e.g. Windows) show the two letters instead. */
-export function flagEmoji(code: string): string {
-  return [...code.toUpperCase()]
-    .map((c) => String.fromCodePoint(0x1f1e6 + c.charCodeAt(0) - 65))
-    .join('');
 }
 
 export function countryName(code: string, language: string): string {

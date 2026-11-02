@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { countryName, countryOf, flagEmoji, trackTitle } from './tracks';
+import { countryName, countryOf, trackTitle } from './tracks';
 
 describe('trackTitle', () => {
   it('names the layout whenever it differs from the venue', () => {
@@ -25,10 +25,6 @@ describe('tracks', () => {
 
   it('has no country for an unknown track', () => {
     expect(countryOf('Somewhere Else')).toBeNull();
-  });
-
-  it('builds the flag emoji from the country code', () => {
-    expect(flagEmoji('PT')).toBe('🇵🇹');
   });
 
   it('names the country in the requested language', () => {

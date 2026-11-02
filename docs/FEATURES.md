@@ -217,6 +217,6 @@ Die Oberfläche gibt es auf Englisch und Deutsch; Englisch ist der Standard, Deu
 
 Prio K · Status offen
 
-Die App zeigt zu jeder Strecke Land und Flagge in Bibliothek und Session-Kopf.
+Die App zeigt zu jeder Strecke Land und Flagge in Bibliothek, Session-Kopf und Bestzeiten.
 
 - Die Result-Dateien nennen nur Venue, Course und Event; Land und Flagge kommen aus einer eigenen Streckentabelle im Projekt. Ist eine Strecke dort nicht bekannt, entfällt die Angabe.
