@@ -30,13 +30,6 @@ export function SectorBar({
   );
 }
 
-/** The brand bar used in the header and as favicon. */
-export const BRAND_SEGMENTS: [SegmentRole, SegmentRole, SegmentRole] = [
-  'fastest',
-  'pb',
-  'accent',
-];
-
 /**
  * A progress bar built from the same three segments. `value` runs from 0 to 1;
  * each segment fills in turn.

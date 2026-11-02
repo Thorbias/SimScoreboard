@@ -69,6 +69,7 @@
   background: var(--accent);
 }
 
-.top .brand-bar {
-  margin-left: 4px;
+.brand .logo-mark {
+  align-self: center;
+  margin-left: 8px;
 }

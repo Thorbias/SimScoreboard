@@ -1,6 +1,6 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
-import { BRAND_SEGMENTS, SectorBar } from './ui/SectorBar';
+import { LogoMark } from './ui/LogoMark';
 import { RecordsView } from './ui/RecordsView';
 import { SessionsPage } from './ui/SessionsPage';
 import { SettingsView } from './ui/SettingsView';
@@ -19,10 +19,8 @@ function Shell() {
         <a className="brand" href={routes.sessions()}>
           <span>Sim</span>
           <span className="brand-name">Scoreboard</span>
+          <LogoMark />
         </a>
-        <span className="brand-bar">
-          <SectorBar segments={BRAND_SEGMENTS} size="lg" />
-        </span>
         <p className="tagline">{t('app.tagline')}</p>
         <nav>
           <a
