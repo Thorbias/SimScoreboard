@@ -25,6 +25,7 @@ import {
   type Translate,
 } from '../i18n';
 import type { League } from '../league/types';
+import type { LeagueLink } from '../league/source';
 import { loadDemo } from '../library/demo';
 import { runIndexer } from '../library/indexer';
 import {
@@ -84,6 +85,10 @@ export interface AppState {
   /** The leagues of the user, or the in-memory ones during the demo. */
   leagues: League[];
   saveLeague(league: League): Promise<void>;
+  /** Where each league is saved to and was loaded from, by league id. */
+  leagueLinks: Record<string, LeagueLink>;
+  /** Sets or, with null, forgets the link; does nothing during the demo. */
+  setLeagueLink(id: string, link: LeagueLink | null): Promise<void>;
   deleteLeague(id: string): Promise<void>;
   chooseFolder(): Promise<void>;
   chooseFiles(files: FileList | null): Promise<void>;
@@ -153,6 +158,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const storeRef = useRef<Store | null>(null);
   const favoritesRef = useRef<string[]>([]);
   const leaguesRef = useRef<League[]>([]);
+  const [leagueLinks, setLeagueLinksState] = useState<
+    Record<string, LeagueLink>
+  >({});
+  const leagueLinksRef = useRef<Record<string, LeagueLink>>({});
   const filesRef = useRef(new Map<string, File>());
   const knownRef = useRef(
     new Map<string, { size: number; lastModified: number }>(),
@@ -256,6 +265,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setFavoritesState(favoritesRef.current);
       leaguesRef.current = (await store.getSetting<League[]>('leagues')) ?? [];
       setLeaguesState(leaguesRef.current);
+      leagueLinksRef.current =
+        (await store.getSetting<Record<string, LeagueLink>>('leagueLinks')) ??
+        {};
+      setLeagueLinksState(leagueLinksRef.current);
       setLanguageSettingState(
         (await store.getSetting<LanguageSetting>('language')) ?? 'auto',
       );
@@ -386,15 +399,32 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await storeRef.current?.setSetting('leagues', leaguesRef.current);
   }, []);
 
-  const deleteLeague = useCallback(async (id: string) => {
-    if (demoActiveRef.current) {
-      setDemoLeagues((prev) => prev.filter((l) => l.id !== id));
-      return;
-    }
-    leaguesRef.current = leaguesRef.current.filter((l) => l.id !== id);
-    setLeaguesState(leaguesRef.current);
-    await storeRef.current?.setSetting('leagues', leaguesRef.current);
-  }, []);
+  const setLeagueLink = useCallback(
+    async (id: string, link: LeagueLink | null) => {
+      if (demoActiveRef.current) return;
+      const next = { ...leagueLinksRef.current };
+      if (link) next[id] = link;
+      else delete next[id];
+      leagueLinksRef.current = next;
+      setLeagueLinksState(next);
+      await storeRef.current?.setSetting('leagueLinks', next);
+    },
+    [],
+  );
+
+  const deleteLeague = useCallback(
+    async (id: string) => {
+      if (demoActiveRef.current) {
+        setDemoLeagues((prev) => prev.filter((l) => l.id !== id));
+        return;
+      }
+      leaguesRef.current = leaguesRef.current.filter((l) => l.id !== id);
+      setLeaguesState(leaguesRef.current);
+      await storeRef.current?.setSetting('leagues', leaguesRef.current);
+      await setLeagueLink(id, null);
+    },
+    [setLeagueLink],
+  );
 
   const setThemeSetting = useCallback((next: ThemeSetting) => {
     saveThemeSetting(next);
@@ -427,6 +457,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     toggleFavorite,
     leagues: demo ? demoLeagues : leagues,
     saveLeague,
+    leagueLinks: demo ? {} : leagueLinks,
+    setLeagueLink,
     deleteLeague,
     languageSetting,
     language,

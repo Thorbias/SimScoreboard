@@ -260,6 +260,20 @@ export const de: Record<MessageKey, string> = {
   'league.delete': 'Liga löschen',
   'league.deleteConfirm': 'Diese Liga aus diesem Browser löschen?',
   'league.save': 'Als Datei speichern',
+  'league.saveToFile': 'Speichern',
+  'league.saveAs': 'Speichern unter …',
+  'league.saveFailed': 'Die Datei konnte nicht gespeichert werden: {message}',
+  'league.file': 'Gespeichert in der Datei {name} auf diesem Rechner.',
+  'league.source': 'Geladen von {url}',
+  'league.refresh': 'Von der Adresse aktualisieren',
+  'league.refreshed': 'Liga von der Adresse aktualisiert.',
+  'league.refreshConfirm':
+    'Diese Liga durch die neueste Version von der Adresse ersetzen? Änderungen hier gehen verloren.',
+  'league.address': 'Adresse einer Liga-Datei (https://…)',
+  'league.address.open': 'Von Adresse öffnen',
+  'league.address.invalid': 'die Adresse muss mit https:// beginnen',
+  'league.address.hint':
+    'Die Seite verbindet sich dann mit diesem Server. Er muss den Zugriff von anderen Seiten erlauben.',
   'league.saved': 'Liga-Datei gespeichert.',
   'league.privacy':
     'Die Datei enthält die Namen der Fahrer. Gib sie nur an Personen weiter, die diese Namen sehen dürfen.',

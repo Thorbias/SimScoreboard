@@ -11,7 +11,9 @@ const csp = [
   "script-src 'self'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
-  "connect-src 'self'",
+  // https: lets a league be loaded from an address (ADR-0009); scripts stay
+  // limited to the site itself.
+  "connect-src 'self' https:",
   "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",

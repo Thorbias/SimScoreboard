@@ -253,6 +253,20 @@ export const en = {
   'league.delete': 'Delete league',
   'league.deleteConfirm': 'Delete this league from this browser?',
   'league.save': 'Save as file',
+  'league.saveToFile': 'Save',
+  'league.saveAs': 'Save as…',
+  'league.saveFailed': 'The file could not be saved: {message}',
+  'league.file': 'Saved to the file {name} on this computer.',
+  'league.source': 'Loaded from {url}',
+  'league.refresh': 'Update from address',
+  'league.refreshed': 'League updated from the address.',
+  'league.refreshConfirm':
+    'Replace this league with the newest version from the address? Changes made here are lost.',
+  'league.address': 'Address of a league file (https://…)',
+  'league.address.open': 'Open from address',
+  'league.address.invalid': 'the address must start with https://',
+  'league.address.hint':
+    'The page then contacts that server. It has to allow access from other sites.',
   'league.saved': 'League file saved.',
   'league.privacy':
     'The file contains the names of the drivers. Share it only with people who may see them.',

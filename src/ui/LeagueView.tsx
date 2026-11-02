@@ -7,6 +7,7 @@ import { saveLeagueFile } from '../league/fileIo';
 import { checkFormula } from '../league/formula';
 import { mergedInto, mergeInto } from '../league/people';
 import { snapshotRace } from '../league/race';
+import { fetchLeague, parseLeagueAddress } from '../league/source';
 import {
   computeStandings,
   raceDriverNames,
@@ -58,8 +59,10 @@ function LeagueList({
   leagues: League[];
   selectedId: string | null;
 }) {
-  const { t, saveLeague } = useApp();
+  const { t, saveLeague, leagueLinks, setLeagueLink } = useApp();
   const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
 
@@ -86,6 +89,38 @@ function LeagueList({
       window.location.hash = routes.league(copy.id);
     } catch (e) {
       setError(t('league.openFailed', { message: message(e) }));
+    }
+  };
+
+  // Loads a league from an address. A league that came from the same address
+  // is replaced by the newest version; any other gets a copy of its own.
+  const openAddress = async () => {
+    const url = parseLeagueAddress(address);
+    if (!url) {
+      setError(
+        t('league.openFailed', { message: t('league.address.invalid') }),
+      );
+      return;
+    }
+    setError(null);
+    setLoading(true);
+    try {
+      const league = await fetchLeague(url);
+      const same = leagues.some(
+        (l) => l.id === league.id && leagueLinks[l.id]?.url === url,
+      );
+      const copy =
+        same || !leagues.some((l) => l.id === league.id)
+          ? league
+          : { ...league, id: newId('league') };
+      await saveLeague(copy);
+      await setLeagueLink(copy.id, { ...leagueLinks[copy.id], url });
+      setAddress('');
+      window.location.hash = routes.league(copy.id);
+    } catch (e) {
+      setError(t('league.openFailed', { message: message(e) }));
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -124,6 +159,25 @@ function LeagueList({
           }}
         />
       </p>
+      <form
+        className="league-new"
+        onSubmit={(e) => {
+          e.preventDefault();
+          void openAddress();
+        }}
+      >
+        <input
+          value={address}
+          placeholder={t('league.address')}
+          aria-label={t('league.address')}
+          inputMode="url"
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <button type="submit" disabled={!address.trim() || loading}>
+          {t('league.address.open')}
+        </button>
+      </form>
+      <p className="hint">{t('league.address.hint')}</p>
       {error && <p className="notice error">{error}</p>}
       {leagues.length === 0 ? (
         <p className="empty">{t('league.empty')}</p>
@@ -626,13 +680,40 @@ function SettingsTab({
   league: League;
   change: (next: League) => void;
 }) {
-  const { t, deleteLeague } = useApp();
+  const { t, deleteLeague, saveLeague, leagueLinks, setLeagueLink } = useApp();
   const [status, setStatus] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const check = checkFormula(league.formula);
+  const link = leagueLinks[league.id];
 
-  const save = async () => {
+  // With a remembered file, saving overwrites it; "save as" asks for a new one.
+  // The file written to is remembered for the next time.
+  const save = async (asNew: boolean) => {
     setStatus(null);
-    if (await saveLeagueFile(league)) setStatus(t('league.saved'));
+    setError(null);
+    try {
+      const result = await saveLeagueFile(league, asNew ? null : link?.handle);
+      if (!result.saved) return;
+      if (result.handle) {
+        await setLeagueLink(league.id, { ...link, handle: result.handle });
+      }
+      setStatus(t('league.saved'));
+    } catch (e) {
+      setError(t('league.saveFailed', { message: message(e) }));
+    }
+  };
+
+  const refresh = async () => {
+    if (!link?.url || !window.confirm(t('league.refreshConfirm'))) return;
+    setStatus(null);
+    setError(null);
+    try {
+      const fresh = await fetchLeague(link.url);
+      await saveLeague({ ...fresh, id: league.id });
+      setStatus(t('league.refreshed'));
+    } catch (e) {
+      setError(t('league.openFailed', { message: message(e) }));
+    }
   };
 
   return (
@@ -667,10 +748,30 @@ function SettingsTab({
       <h4>{t('league.save')}</h4>
       <p className="hint">{t('league.privacy')}</p>
       <p className="hint">{t('league.shared')}</p>
+      {link?.handle && (
+        <p className="hint">{t('league.file', { name: link.handle.name })}</p>
+      )}
+      {link?.url && (
+        <p className="hint">{t('league.source', { url: link.url })}</p>
+      )}
       <p>
-        <button className="primary" onClick={() => void save()}>
-          {t('league.save')}
+        <button className="primary" onClick={() => void save(false)}>
+          {link?.handle ? t('league.saveToFile') : t('league.save')}
         </button>{' '}
+        {link?.handle && (
+          <>
+            <button onClick={() => void save(true)}>
+              {t('league.saveAs')}
+            </button>{' '}
+          </>
+        )}
+        {link?.url && (
+          <>
+            <button onClick={() => void refresh()}>
+              {t('league.refresh')}
+            </button>{' '}
+          </>
+        )}
         <button
           onClick={() => {
             if (window.confirm(t('league.deleteConfirm'))) {
@@ -683,6 +784,7 @@ function SettingsTab({
         </button>
       </p>
       {status && <p className="hint">{status}</p>}
+      {error && <p className="notice error">{error}</p>}
     </>
   );
 }
