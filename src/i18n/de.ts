@@ -42,7 +42,7 @@ export const de: Record<MessageKey, string> = {
   'type.race': 'Rennen',
 
   'row.win': 'Sieg',
-  'row.you': 'Du: P{pos}',
+  'row.position': 'P{pos}',
 
   'session.back': 'Zurück zu den Sessions',
   'sessions.pick': 'Wähle links eine Session aus, um ihre Ergebnisse zu sehen.',

@@ -24,6 +24,7 @@ describe('i18n', () => {
   it('fills in values', () => {
     const t = createTranslate('en');
     expect(t('library.count', { n: 3 })).toBe('3 sessions');
-    expect(createTranslate('de')('row.you', { pos: 2 })).toBe('Du: P2');
+    expect(createTranslate('de')('library.count', { n: 4 })).toBe('4 Sessions');
+    expect(createTranslate('en')('row.position', { pos: 2 })).toBe('P2');
   });
 });

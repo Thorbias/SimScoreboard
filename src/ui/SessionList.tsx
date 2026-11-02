@@ -67,7 +67,7 @@ function SessionRow({
           {own?.won && <span className="badge win">{t('row.win')}</span>}
           {own && own.entry.classPosition !== null && (
             <span className="badge you">
-              {t('row.you', { pos: own.entry.classPosition })}
+              {t('row.position', { pos: own.entry.classPosition })}
             </span>
           )}
         </span>

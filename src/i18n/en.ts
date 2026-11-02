@@ -39,7 +39,7 @@ export const en = {
   'type.race': 'Race',
 
   'row.win': 'Win',
-  'row.you': 'You: P{pos}',
+  'row.position': 'P{pos}',
 
   'session.back': 'Back to sessions',
   'sessions.pick': 'Choose a session from the list to see its results.',
