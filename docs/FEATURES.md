@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-019 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-020 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -228,3 +228,14 @@ Prio K · Status offen
 Die App zeigt zu jeder Strecke Land und Flagge in der Session-Liste, im Session-Kopf und in den Bestzeiten.
 
 - Die Result-Dateien nennen nur Venue, Course und Event; Land und Flagge kommen aus einer eigenen Streckentabelle im Projekt. Ist eine Strecke dort nicht bekannt, entfällt die Angabe.
+
+## F-019 — Gesamtüberblick der Bestzeiten
+
+Prio S · Status offen
+
+Als erster Eintrag der Bestzeiten fasst der Gesamtüberblick alles zusammen, was der Anwender über alle Strecken gefahren ist.
+
+- Kennzahlen: Sessions, gefahrene Runden, gefahrene Strecke in Kilometern, Streckenvarianten, Rennen, Siege und Podien (in der Klasse) mit Anteil an den Rennen.
+- Je Klasse die fünf wichtigsten Fahrzeuge: auf wie vielen Streckenvarianten das Fahrzeug die schnellste eigene Runde der Klasse hält (Anzahl und Anteil, zum Beispiel 911er 20 %, BMW 75 %, McLaren 5 %) und wie viele Runden es gefahren wurde. Fahrzeuge ohne Bestzeit erscheinen nach Runden.
+- Die meistgefahrenen Streckenvarianten, mit Sprung in die Details der Strecke.
+- Gezählt wird nur, was zum eigenen Fahrer gehört (F-003); jede Streckenvariante zählt einzeln (F-014).

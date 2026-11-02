@@ -137,3 +137,187 @@ export function buildRecords(
     }))
     .sort((a, b) => b.lastDriven - a.lastDriven);
 }
+
+export interface CarShare {
+  carType: string;
+  /** On how many track layouts this car holds the fastest own lap of the class. */
+  bests: number;
+  /** Completed laps in this car. */
+  laps: number;
+  sessions: number;
+}
+
+export interface ClassOverview {
+  carClass: string;
+  /** Track layouts with a timed lap in this class. */
+  layouts: number;
+  totalLaps: number;
+  /** Most successful car first. */
+  cars: CarShare[];
+}
+
+export interface Overview {
+  sessionCount: number;
+  totalLaps: number;
+  /** Distance of all completed laps, in kilometres. */
+  distanceKm: number;
+  /** Track layouts driven. */
+  layoutCount: number;
+  /** Races in which the own driver completed at least one lap. */
+  races: number;
+  wins: number;
+  /** Class podiums, wins included. */
+  podiums: number;
+  classes: ClassOverview[];
+  /** The layouts with the most laps. */
+  topTracks: {
+    venue: string;
+    course: string;
+    laps: number;
+    sessions: number;
+  }[];
+}
+
+const TOP_TRACKS = 5;
+
+/**
+ * Totals over all sessions of the own driver: which cars set the best times per
+ * class, how much was driven, and how the races went. `tracks` can be passed in
+ * when the records were built already.
+ */
+export function buildOverview(
+  sessions: readonly SessionSummary[],
+  aliases: readonly string[],
+  tracks: readonly TrackRecords[] = buildRecords(sessions, aliases),
+): Overview {
+  let sessionCount = 0;
+  let totalLaps = 0;
+  let distanceKm = 0;
+  let races = 0;
+  let wins = 0;
+  let podiums = 0;
+  const layouts = new Map<
+    string,
+    { venue: string; course: string; laps: number; sessions: number }
+  >();
+  const cars = new Map<
+    string,
+    { carClass: string; carType: string; laps: number; sessions: number }
+  >();
+
+  for (const session of sessions) {
+    const own = session.entries.filter((e) =>
+      isOwnDriver(e.driverName, aliases),
+    );
+    if (own.length === 0) continue;
+    sessionCount += 1;
+
+    const venue = session.trackVenue || session.trackCourse;
+    const course = session.trackCourse || venue;
+    const layoutKey = `${venue}\u0000${course}`;
+    const layout = layouts.get(layoutKey) ?? {
+      venue,
+      course,
+      laps: 0,
+      sessions: 0,
+    };
+    layout.sessions += 1;
+    layouts.set(layoutKey, layout);
+
+    const carsInSession = new Set<string>();
+    for (const entry of own) {
+      totalLaps += entry.lapCount;
+      layout.laps += entry.lapCount;
+      distanceKm += (entry.lapCount * (session.trackLength ?? 0)) / 1000;
+
+      const carKey = `${entry.carClass}\u0000${entry.carType}`;
+      const car = cars.get(carKey) ?? {
+        carClass: entry.carClass,
+        carType: entry.carType,
+        laps: 0,
+        sessions: 0,
+      };
+      car.laps += entry.lapCount;
+      if (!carsInSession.has(carKey)) car.sessions += 1;
+      carsInSession.add(carKey);
+      cars.set(carKey, car);
+    }
+
+    if (session.type === 'race' && own.some((e) => e.lapCount > 0)) {
+      races += 1;
+      const positions = own
+        .map((e) => e.classPosition)
+        .filter((p): p is number => p !== null);
+      const best = positions.length > 0 ? Math.min(...positions) : null;
+      if (best === 1) wins += 1;
+      if (best !== null && best <= 3) podiums += 1;
+    }
+  }
+
+  // Which car holds the fastest lap of its class, layout by layout.
+  const bests = new Map<string, Map<string, number>>();
+  const classLayouts = new Map<string, number>();
+  for (const track of tracks) {
+    for (const c of track.classes) {
+      const winner = c.records[0]?.carType ?? '';
+      const perCar = bests.get(c.carClass) ?? new Map<string, number>();
+      perCar.set(winner, (perCar.get(winner) ?? 0) + 1);
+      bests.set(c.carClass, perCar);
+      classLayouts.set(c.carClass, (classLayouts.get(c.carClass) ?? 0) + 1);
+    }
+  }
+
+  const classNames = new Set([
+    ...bests.keys(),
+    ...[...cars.values()].map((c) => c.carClass),
+  ]);
+  const classes = [...classNames]
+    .map((carClass): ClassOverview => {
+      const shares = new Map<string, CarShare>();
+      for (const [carType, n] of bests.get(carClass) ?? []) {
+        shares.set(carType, { carType, bests: n, laps: 0, sessions: 0 });
+      }
+      for (const car of cars.values()) {
+        if (car.carClass !== carClass) continue;
+        const share = shares.get(car.carType) ?? {
+          carType: car.carType,
+          bests: 0,
+          laps: 0,
+          sessions: 0,
+        };
+        share.laps = car.laps;
+        share.sessions = car.sessions;
+        shares.set(car.carType, share);
+      }
+      const list = [...shares.values()].sort(
+        (a, b) =>
+          b.bests - a.bests ||
+          b.laps - a.laps ||
+          a.carType.localeCompare(b.carType),
+      );
+      return {
+        carClass,
+        layouts: classLayouts.get(carClass) ?? 0,
+        totalLaps: list.reduce((sum, c) => sum + c.laps, 0),
+        cars: list,
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.totalLaps - a.totalLaps || a.carClass.localeCompare(b.carClass),
+    );
+
+  return {
+    sessionCount,
+    totalLaps,
+    distanceKm,
+    layoutCount: layouts.size,
+    races,
+    wins,
+    podiums,
+    classes,
+    topTracks: [...layouts.values()]
+      .sort((a, b) => b.laps - a.laps || a.course.localeCompare(b.course))
+      .slice(0, TOP_TRACKS),
+  };
+}

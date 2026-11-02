@@ -5,14 +5,20 @@ import { formatDate } from '../format/date';
 import { formatLapTime } from '../format/lapTime';
 import { formatGap, formatSector } from '../format/time';
 import {
+  buildOverview,
   buildRecords,
   type LapRecord,
   type TrackRecords,
 } from '../library/records';
 import { trackTitle } from '../library/tracks';
 import { CountryLabel } from './CountryLabel';
+import { OverviewDetail } from './OverviewView';
 
-const trackKey = (t: TrackRecords) => `${t.venue}\u0000${t.course}`;
+const keyOf = (venue: string, course: string) => `${venue}\u0000${course}`;
+const trackKey = (t: TrackRecords) => keyOf(t.venue, t.course);
+
+/** Key of the summary entry, the first one in the list. */
+const OVERALL = 'overall';
 
 function RecordLink({ record }: { record: LapRecord }) {
   const { t, language } = useApp();
@@ -172,6 +178,10 @@ export function RecordsView() {
     () => buildRecords(sessions, aliases),
     [sessions, aliases],
   );
+  const overview = useMemo(
+    () => buildOverview(sessions, aliases, tracks),
+    [sessions, aliases, tracks],
+  );
   const [selected, setSelected] = useState<string | null>(null);
   const [carClass, setCarClass] = useState('');
 
@@ -185,9 +195,12 @@ export function RecordsView() {
   }
   if (tracks.length === 0) return <p className="empty">{t('records.empty')}</p>;
 
-  // On a wide screen the first track is shown until another one is picked. On a
-  // narrow screen the list stays alone until a track is chosen.
-  const track = tracks.find((x) => trackKey(x) === selected) ?? tracks[0]!;
+  // The summary is shown until a track is picked. On a narrow screen the list
+  // stays alone until something is chosen.
+  const track =
+    selected === null || selected === OVERALL
+      ? null
+      : (tracks.find((x) => trackKey(x) === selected) ?? null);
 
   const pick = (key: string | null) => {
     setSelected(key);
@@ -205,9 +218,30 @@ export function RecordsView() {
         </h2>
         <section className="event">
           <ul className="session-list">
+            <li
+              className={
+                track === null ? 'session-item selected' : 'session-item'
+              }
+            >
+              <button
+                className="track-row"
+                aria-pressed={track === null}
+                onClick={() => pick(OVERALL)}
+              >
+                <span className="track-title">{t('records.overall')}</span>
+                <span className="track-meta">
+                  <span>
+                    {t('records.overallMeta', {
+                      layouts: overview.layoutCount,
+                      sessions: overview.sessionCount,
+                    })}
+                  </span>
+                </span>
+              </button>
+            </li>
             {tracks.map((x) => {
               const key = trackKey(x);
-              const isSelected = key === trackKey(track);
+              const isSelected = track !== null && key === trackKey(track);
               return (
                 <li
                   key={key}
@@ -254,7 +288,18 @@ export function RecordsView() {
         >
           ← {t('records.back')}
         </a>
-        <TrackDetail track={track} carClass={carClass} onClass={setCarClass} />
+        {track ? (
+          <TrackDetail
+            track={track}
+            carClass={carClass}
+            onClass={setCarClass}
+          />
+        ) : (
+          <OverviewDetail
+            overview={overview}
+            onPickTrack={(venue, course) => pick(keyOf(venue, course))}
+          />
+        )}
       </section>
     </div>
   );

@@ -111,3 +111,69 @@ button.fav:hover {
   font-weight: 400;
   font-size: 0.85rem;
 }
+
+/* Summary over all tracks */
+
+.small {
+  font-size: 0.85rem;
+  margin: 0 0 6px;
+}
+
+.share {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.share-track {
+  width: 90px;
+  height: 6px;
+  background: var(--seg-neutral);
+  border-radius: 3px;
+  overflow: hidden;
+  flex: none;
+}
+
+.share-track i {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  background: var(--accent);
+}
+
+.top-tracks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-tracks li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+
+.top-tracks li:first-child {
+  border-top: none;
+}
+
+button.linklike {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+}
+
+button.linklike:hover {
+  border: none;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}

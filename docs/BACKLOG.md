@@ -39,7 +39,7 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 3 | ARC | TODO | ADR zur Telemetrie-Datenhaltung: ob DuckDB-WASM genutzt wird (Index und Einlesen sind in [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md) entschieden) | 1 |
 | 5 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-015 Favoriten, F-018 Streckenland und Flagge. Danach FEATURES.md kondensieren | – |
 | 7 | Feature | TODO | Telemetry: F-012 Vergleich zweier Runden, F-013 Streckenkarte und Kennzahlen | 1 |
-| 8 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-014 Persönliche Bestzeiten. Danach FEATURES.md kondensieren | – |
+| 8 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-014 Persönliche Bestzeiten, F-019 Gesamtüberblick. Danach FEATURES.md kondensieren | – |
 | 10 | Chore | TODO | Namen absichern: Markenprüfung „SimScoreboard" (DPMA, EUIPO, USPTO), Domain registrieren, GitHub-Repo umbenennen und `origin` anpassen, Pages-Adresse danach prüfen ([ADR-0006](decisions/ADR-0006-projektname-simscoreboard.md)) | – |
 | 11 | Chore | TODO | Anonymisierte Telemetrie-Fixtures ableiten (die Result-Fixtures gibt es, siehe `tools/anonymize-results.mjs`) | 1 |
 | 12 | Chore | TODO | GitHub Pages einrichten (nur nach ausdrücklicher Freigabe) | – |
