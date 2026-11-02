@@ -55,7 +55,7 @@ Der Anwender legt seine Fahrernamen fest, und SimPaddock markiert ihn in Liste u
 
 - Die Namen werden in den Einstellungen gepflegt; Vorschläge aus den häufigsten Namen der eingelesenen Sessions erleichtern die Wahl.
 - Das Spiel liefert keine stabile Fahrer-ID, und das Kennzeichen „Spieler“ gilt im Mehrspieler für alle Menschen. Deshalb gibt es eine Liste von Aliassen; der Abgleich ignoriert Groß- und Kleinschreibung und angehängte `#`-Kennungen.
-- Die Markierung erscheint in der Session-Liste und in den Ergebnistabellen. Für Diagramme und Vergleichsansichten gilt sie, sobald diese existieren (F-007, F-008, F-012).
+- Die Markierung in Pit-Orange erscheint in der Session-Liste, in den Ergebnistabellen und in den Diagrammen (F-007, F-008); für F-012 gilt sie, sobald es existiert.
 
 ## F-004 — Rennergebnis
 
@@ -93,11 +93,13 @@ Jede Session zeigt in einem Kopfbereich ihre Eckdaten.
 
 Prio S · Status fertig
 
-Der Anwender vergleicht den Rundenzeiten-Verlauf zweier Fahrer Runde für Runde.
+Der Anwender vergleicht den Rundenzeiten-Verlauf von bis zu vier Fahrern Runde für Runde.
 
-- Zwei frei wählbare Fahrer, je eine Linie in eigener Farbe; vorgewählt sind der eigene Fahrer und der schnellste Fahrer seiner Klasse.
+- Bis zu vier Fahrer (A bis D), je eine Linie in eigener Farbe: A orange (der eigene Fahrer), B cyan, C rosa, D limette. Vorgewählt sind der eigene Fahrer und der schnellste Fahrer seiner Klasse.
+- Jeder Fahrer hat ein Dropdown und ein X zum Entfernen; die übrigen rücken auf (aus C wird B, aus D wird C). Mit „Fahrer hinzufügen“ kommt der schnellste noch freie Fahrer dazu. Auch der eigene Fahrer lässt sich entfernen.
+- Ein Klick auf einen Fahrer in der Ergebnistabelle wechselt in diesen Reiter und setzt ihn auf den nächsten freien Platz (A, B, C, D; ist der eigene Fahrer schon A, beginnt es bei B). Sind alle vier belegt, ersetzt jeder weitere Klick Fahrer D.
 - Runden ohne gewertete Zeit erscheinen als Lücke; sehr langsame Runden (über 125 % des Medians) sind im Diagramm abgeschnitten. Die Bestrunde jedes Fahrers ist in der Tabelle hervorgehoben.
-- Darunter eine Tabelle mit Runde, Sektoren 1–3 und Rundenzeit beider Fahrer sowie dem Delta A–B.
+- Darunter eine Tabelle mit Runde, Sektoren 1–3 und Rundenzeit aller gewählten Fahrer sowie dem Delta jedes Fahrers zu A.
 - Die Diagrammansicht lässt sich ausblenden, sodass nur die Tabelle bleibt.
 
 ## F-008 — Position Chart

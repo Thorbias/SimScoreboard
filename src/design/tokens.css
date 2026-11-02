@@ -21,12 +21,15 @@
   --muted: #8a93a0;
   --disabled: #5b6570;
 
-  /* Brand: Pit orange. Used for actions, the active tab and the rival line. */
+  /* Brand: Pit orange. Actions, the active tab, and "you" (--you below). */
   --accent: #ff7a2f;
   --accent-text: #1a0d00;
 
   /* Roles. Each colour keeps one meaning across the whole app. */
-  --you: #22c7f2;
+  --you: #ff7a2f;
+  --rival-b: #22c7f2;
+  --rival-c: #ff6fb1;
+  --rival-d: #c6e84a;
   --fastest: #c58bff;
   --pb: #4fd36a;
   --win: #f2c14e;
@@ -75,7 +78,10 @@
   --accent: #b3470a;
   --accent-text: #ffffff;
 
-  --you: #08748f;
+  --you: #b3470a;
+  --rival-b: #08748f;
+  --rival-c: #c2185b;
+  --rival-d: #5c7a00;
   --fastest: #7d2fc4;
   --pb: #167a32;
   --win: #8a6200;
@@ -102,7 +108,10 @@
     --accent: #b3470a;
     --accent-text: #ffffff;
 
-    --you: #08748f;
+    --you: #b3470a;
+    --rival-b: #08748f;
+    --rival-c: #c2185b;
+    --rival-d: #5c7a00;
     --fastest: #7d2fc4;
     --pb: #167a32;
     --win: #8a6200;

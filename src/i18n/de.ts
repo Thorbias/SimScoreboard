@@ -86,15 +86,18 @@ export const de: Record<MessageKey, string> = {
   'tab.incidents': 'Zwischenfälle',
   'tab.chat': 'Chat',
 
-  'lap.driverA': 'Fahrer A',
-  'lap.driverB': 'Fahrer B',
+  'lap.driver': 'Fahrer {slot}',
+  'lap.add': 'Fahrer hinzufügen',
+  'lap.remove': 'Fahrer {slot} entfernen',
+  'lap.noneSelected':
+    'Kein Fahrer ausgewählt. Füge einen hinzu oder klicke in den Ergebnissen auf einen Fahrer.',
   'lap.showChart': 'Diagramm anzeigen',
   'lap.cutoff':
     'Runden, die langsamer als 125 % des Medians sind, werden im Diagramm abgeschnitten. Runden ohne Zeit sind Lücken.',
   'lap.empty': 'Keine Rundenzeiten in dieser Session.',
   'lap.lap': 'Runde',
   'lap.time': 'Zeit',
-  'lap.delta': 'Delta A–B',
+  'lap.delta': 'Delta {slot}–A',
   'lap.axisLap': 'Runde',
   'lap.axisTime': 'Rundenzeit (s)',
 

@@ -83,15 +83,18 @@ export const en = {
   'tab.incidents': 'Incidents',
   'tab.chat': 'Chat',
 
-  'lap.driverA': 'Driver A',
-  'lap.driverB': 'Driver B',
+  'lap.driver': 'Driver {slot}',
+  'lap.add': 'Add driver',
+  'lap.remove': 'Remove driver {slot}',
+  'lap.noneSelected':
+    'No driver selected. Add one, or click a driver in the results.',
   'lap.showChart': 'Show chart',
   'lap.cutoff':
     'Laps slower than 125% of the median are cut off in the chart. Laps without a time are gaps.',
   'lap.empty': 'No lap times in this session.',
   'lap.lap': 'Lap',
   'lap.time': 'Time',
-  'lap.delta': 'Delta A–B',
+  'lap.delta': 'Delta {slot}–A',
   'lap.axisLap': 'Lap',
   'lap.axisTime': 'Lap time (s)',
 

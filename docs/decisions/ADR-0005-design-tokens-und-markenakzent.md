@@ -25,13 +25,18 @@ nicht in die Quere kommen.
   `#181C21`, Linien `#262B32`; hell `#F8F9FA`, `#FFFFFF`), Inter, Radien 4/8/12/16 px
   plus Pille, 8-px-Raster, die Statusfarben (Erfolg, Warnung, Fehler, Info) und die
   Prinzipien.
-- **Markenakzent: Pit-Orange `#FF7A2F`** (hell `#B3470A`). Er steht für Aktionen
-  (Primärknopf), den aktiven Reiter, die Wortmarke und die Gegenseite in
-  Vergleichen (Linie von Fahrer B). Er ist komplementär zu SimPostures Cyan und
-  liegt rotstichiger als das Warn-Amber, es entsteht also kein Konflikt.
-- **Cyan bedeutet „du“.** Der eigene Fahrer ist in Listen, Tabellen und Diagrammen
-  cyan markiert (`--you`, hell `#08748F`). Das ist die inhaltliche Brücke zu
-  SimPosture, wo Cyan die eigene Messung zeigt.
+- **Markenakzent und „du“: Pit-Orange `#FF7A2F`** (hell `#B3470A`). Er steht für
+  Aktionen (Primärknopf), den aktiven Reiter und die Wortmarke und zugleich für
+  den eigenen Fahrer in Listen, Tabellen und Diagrammen (`--you`). Er ist
+  komplementär zu SimPostures Cyan und liegt rotstichiger als das Warn-Amber, es
+  entsteht also kein Konflikt. Die Marke und „du“ teilen sich die Farbe, weil das
+  Wichtigste auf der Seite die eigene Leistung ist.
+- **Vergleichsfarben für die übrigen Fahrer** im Rundenzeiten-Diagramm: Fahrer A
+  (der eigene) orange, B cyan `#22C7F2`, C rosa `#FF6FB1`, D limette `#C6E84A`
+  (jeweils mit dunklerer Variante im hellen Modus). Cyan bleibt damit als Farbe
+  der Familie erhalten, bedeutet aber „Gegner B“ statt „du“. Der Wechsel von
+  Cyan auf Orange für „du“ kam am 2026-11-02 auf Wunsch des Entwicklers: Cyan
+  wirkte weniger präsent als der Markenakzent.
 - **Rollenfarben** behalten je eine Bedeutung: Violett `#C58BFF` schnellste (der
   Klasse), Grün `#4FD36A` persönliche Bestzeit, Gold `#F2C14E` Sieg, Amber
   `#FFB84D` Warnung, Rot `#E85D5D` Ausfall und Fehler. Jede Rolle hat eine dunklere
@@ -66,7 +71,7 @@ nicht in die Quere kommen.
 
 - Die Farben haben je eine feste Bedeutung. Neue Ansichten dürfen sie nicht für
   etwas anderes verwenden; ein Farbwechsel läuft über die Tokens.
-- Die Position-Chart-Palette für die übrigen Fahrer meidet den Cyan-Bereich, damit
+- Die Position-Chart-Palette für die übrigen Fahrer meidet den Orange-Bereich, damit
   „du“ nie mit einem anderen verwechselt wird.
 - Gleiche Neutrale auf beiden Seiten heißt: Ändert SimPosture seine Flächen, sollte
   SimPaddock nachziehen. Es gibt dafür keinen geteilten Code, nur diese Tabelle.

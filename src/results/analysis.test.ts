@@ -1,13 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  classStats,
-  compareLaps,
-  entryKey,
-  lapAt,
-  lapChartDefaults,
-  median,
-  positionChart,
-} from './analysis';
+import { classStats, lapAt, median, positionChart } from './analysis';
 import { parseSession } from './parse';
 import { classesOf } from './table';
 import type { Entry, Lap } from './types';
@@ -79,67 +71,6 @@ describe('lapAt', () => {
     expect(lapAt(e, 150)).toBe(2);
     expect(lapAt(e, 500)).toBe(3);
     expect(lapAt(entry([]), 10)).toBeNull();
-  });
-});
-
-describe('compareLaps', () => {
-  it('lines up laps and computes the delta', () => {
-    const a = entry([lap(1, 100, 100), lap(2, 90, 190), lap(3, null, 290)]);
-    const b = entry([lap(1, 98, 98), lap(2, 91, 189)]);
-    const rows = compareLaps(a, b);
-    expect(rows.map((r) => r.lap)).toEqual([1, 2, 3]);
-    expect(rows[0]?.delta).toBeCloseTo(2);
-    expect(rows[1]?.delta).toBeCloseTo(-1);
-    expect(rows[2]?.delta).toBeNull();
-  });
-});
-
-describe('lapChartDefaults', () => {
-  function driver(
-    name: string,
-    carClass: string,
-    bestLap: number | null,
-  ): Entry {
-    return {
-      driverName: name,
-      carNumber: name.length.toString(),
-      carClass,
-      bestLap,
-      laps: [lap(1, bestLap, 100)],
-    } as Entry;
-  }
-  const me = driver('Me', 'GT3', 100);
-  const fast = driver('Fast1', 'GT3', 98);
-  const slow = driver('Slow12', 'GT3', 101);
-  const hyper = driver('Hyper', 'Hyper', 90);
-  const choices = [me, fast, slow, hyper];
-  const isOwn = (e: Entry) => e === me;
-
-  it('starts with the own driver against the fastest rival of the class', () => {
-    expect(lapChartDefaults(choices, isOwn)).toEqual({
-      a: entryKey(me),
-      b: entryKey(fast),
-    });
-  });
-
-  it('puts the picked driver on side B and keeps the own driver on A', () => {
-    expect(lapChartDefaults(choices, isOwn, entryKey(slow))).toEqual({
-      a: entryKey(me),
-      b: entryKey(slow),
-    });
-    expect(lapChartDefaults(choices, isOwn, entryKey(hyper)).b).toBe(
-      entryKey(hyper),
-    );
-  });
-
-  it('never shows the picked driver on both sides without an own driver', () => {
-    const result = lapChartDefaults(choices, () => false, entryKey(me));
-    expect(result.b).toBe(entryKey(me));
-    expect(result.a).not.toBe(result.b);
-  });
-
-  it('falls back to the default rival when the picked driver is unknown', () => {
-    expect(lapChartDefaults(choices, isOwn, 'nobody|x').b).toBe(entryKey(fast));
   });
 });
 

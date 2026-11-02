@@ -5,17 +5,24 @@ import { useApp } from '../app/AppContext';
 import { formatLapTime } from '../format/lapTime';
 import { formatSector } from '../format/time';
 import { isOwnDriver } from '../library/names';
+import { entryKey, median } from '../results/analysis';
 import {
-  compareLaps,
-  entryKey,
-  lapChartDefaults,
-  median,
-  type LapRow,
-} from '../results/analysis';
+  compareLapsMulti,
+  defaultLapDrivers,
+  MAX_LAP_DRIVERS,
+  removeLapDriver,
+  setLapDriverAt,
+  suggestLapDriver,
+  type MultiLapRow,
+} from '../results/lapSelection';
 import type { Entry, Session } from '../results/types';
 
 const CHART_HEIGHT = 320;
 const CUTOFF_FACTOR = 1.25;
+
+/** Colour token and letter of each slot. A is the own driver's highlight colour. */
+const SLOT_VARS = ['--you', '--rival-b', '--rival-c', '--rival-d'] as const;
+const SLOT_LETTERS = ['A', 'B', 'C', 'D'] as const;
 
 function cssVar(name: string): string {
   return getComputedStyle(document.documentElement)
@@ -27,15 +34,7 @@ function entryLabel(e: Entry): string {
   return `#${e.carNumber} ${e.driverName} (${e.carClass})`;
 }
 
-function LapPlot({
-  rows,
-  nameA,
-  nameB,
-}: {
-  rows: LapRow[];
-  nameA: string;
-  nameB: string;
-}) {
+function LapPlot({ rows, names }: { rows: MultiLapRow[]; names: string[] }) {
   const { t, theme } = useApp();
   const host = useRef<HTMLDivElement>(null);
 
@@ -43,8 +42,9 @@ function LapPlot({
     const el = host.current;
     if (!el) return;
 
-    const all = rows.flatMap((r) => [r.a?.time ?? null, r.b?.time ?? null]);
-    const times = all.filter((v): v is number => v !== null);
+    const times = rows
+      .flatMap((r) => r.laps.map((l) => l?.time ?? null))
+      .filter((v): v is number => v !== null);
     const mid = median(times);
     const limit = mid === null ? Infinity : mid * CUTOFF_FACTOR;
     const clip = (v: number | null | undefined) =>
@@ -52,8 +52,7 @@ function LapPlot({
 
     const data: uPlot.AlignedData = [
       rows.map((r) => r.lap),
-      rows.map((r) => clip(r.a?.time)),
-      rows.map((r) => clip(r.b?.time)),
+      ...names.map((_, i) => rows.map((r) => clip(r.laps[i]?.time))),
     ];
 
     const muted = cssVar('--muted');
@@ -90,20 +89,13 @@ function LapPlot({
         ],
         series: [
           { label: t('lap.lap') },
-          {
-            label: nameA,
-            stroke: cssVar('--you'),
+          ...names.map((name, i) => ({
+            label: name,
+            stroke: cssVar(SLOT_VARS[i] ?? '--muted'),
             width: 2,
             value: lapValue,
             points: { show: true, size: 6 },
-          },
-          {
-            label: nameB,
-            stroke: cssVar('--accent'),
-            width: 2,
-            value: lapValue,
-            points: { show: true, size: 6 },
-          },
+          })),
         ],
       },
       data,
@@ -118,24 +110,26 @@ function LapPlot({
       observer.disconnect();
       plot.destroy();
     };
-  }, [rows, nameA, nameB, t, theme]);
+  }, [rows, names, t, theme]);
 
   return <div className="lap-plot" ref={host} />;
 }
 
-function bestTime(entry: Entry | undefined): number | null {
-  return entry?.bestLap ?? null;
-}
+const delta = (v: number | null) =>
+  v === null ? '–' : `${v > 0 ? '+' : ''}${v.toFixed(3)}`;
 
 export function LapChartView({
   session,
-  pickedB = null,
+  selected,
+  onSelect,
 }: {
   session: Session;
-  /** Key of a driver to show as B, e.g. picked in the results. */
-  pickedB?: string | null;
+  /** Keys of the chosen drivers in slot order, or null to use the defaults. */
+  selected: string[] | null;
+  onSelect: (next: string[]) => void;
 }) {
   const { t, aliases } = useApp();
+  const [showChart, setShowChart] = useState(true);
 
   const choices = useMemo(
     () =>
@@ -146,52 +140,75 @@ export function LapChartView({
   );
 
   const defaults = useMemo(
-    () =>
-      lapChartDefaults(
-        choices,
-        (e) => isOwnDriver(e.driverName, aliases),
-        pickedB,
-      ),
-    [choices, aliases, pickedB],
+    () => defaultLapDrivers(choices, (e) => isOwnDriver(e.driverName, aliases)),
+    [choices, aliases],
   );
 
-  const [keyA, setKeyA] = useState<string | null>(null);
-  const [keyB, setKeyB] = useState<string | null>(null);
-  const [showChart, setShowChart] = useState(true);
-
-  const entryA = choices.find((e) => entryKey(e) === (keyA ?? defaults.a));
-  const entryB = choices.find((e) => entryKey(e) === (keyB ?? defaults.b));
-  const rows = useMemo(() => compareLaps(entryA, entryB), [entryA, entryB]);
+  const keys = useMemo(
+    () =>
+      (selected ?? defaults).filter((k) =>
+        choices.some((e) => entryKey(e) === k),
+      ),
+    [selected, defaults, choices],
+  );
+  const entries = useMemo(
+    () => keys.map((k) => choices.find((e) => entryKey(e) === k) as Entry),
+    [keys, choices],
+  );
+  const rows = useMemo(() => compareLapsMulti(entries), [entries]);
+  const names = useMemo(() => entries.map((e) => e.driverName), [entries]);
 
   if (choices.length === 0) return <p className="empty">{t('lap.empty')}</p>;
 
-  const bestA = bestTime(entryA);
-  const bestB = bestTime(entryB);
-  const delta = (v: number | null) =>
-    v === null ? '–' : `${v > 0 ? '+' : ''}${v.toFixed(3)}`;
-
-  const picker = (
-    label: string,
-    value: string,
-    onChange: (key: string) => void,
-  ) => (
-    <label>
-      {label}
-      <select value={value} onChange={(e) => onChange(e.target.value)}>
-        {choices.map((e) => (
-          <option key={entryKey(e)} value={entryKey(e)}>
-            {entryLabel(e)}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
+  const suggestion =
+    keys.length < MAX_LAP_DRIVERS ? suggestLapDriver(choices, keys) : null;
+  const best = entries.map((e) => e.bestLap);
 
   return (
     <section>
       <div className="lap-controls">
-        {picker(t('lap.driverA'), keyA ?? defaults.a, setKeyA)}
-        {picker(t('lap.driverB'), keyB ?? defaults.b, setKeyB)}
+        {keys.map((key, i) => (
+          <div className={`slot slot-${i}`} key={key}>
+            <label>
+              <span className="slot-label">
+                <i className="slot-dot" aria-hidden="true" />
+                {t('lap.driver', { slot: SLOT_LETTERS[i] ?? '' })}
+              </span>
+              <select
+                value={key}
+                onChange={(e) =>
+                  onSelect(setLapDriverAt(keys, i, e.target.value))
+                }
+              >
+                {choices.map((c) => (
+                  <option
+                    key={entryKey(c)}
+                    value={entryKey(c)}
+                    disabled={entryKey(c) !== key && keys.includes(entryKey(c))}
+                  >
+                    {entryLabel(c)}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <button
+              className="slot-remove"
+              title={t('lap.remove', { slot: SLOT_LETTERS[i] ?? '' })}
+              aria-label={t('lap.remove', { slot: SLOT_LETTERS[i] ?? '' })}
+              onClick={() => onSelect(removeLapDriver(keys, i))}
+            >
+              ×
+            </button>
+          </div>
+        ))}
+        {suggestion && (
+          <button
+            className="slot-add"
+            onClick={() => onSelect([...keys, suggestion])}
+          >
+            + {t('lap.add')}
+          </button>
+        )}
         <label className="check">
           <input
             type="checkbox"
@@ -202,71 +219,101 @@ export function LapChartView({
         </label>
       </div>
 
-      {showChart && entryA && entryB && (
+      {entries.length === 0 ? (
+        <p className="empty">{t('lap.noneSelected')}</p>
+      ) : (
         <>
-          <LapPlot
-            rows={rows}
-            nameA={entryA.driverName}
-            nameB={entryB.driverName}
-          />
-          <p className="hint">{t('lap.cutoff')}</p>
+          {showChart && (
+            <>
+              <LapPlot rows={rows} names={names} />
+              <p className="hint">{t('lap.cutoff')}</p>
+            </>
+          )}
+
+          <div className="table-wrap">
+            <table className="results">
+              <thead>
+                <tr>
+                  <th className="num">{t('lap.lap')}</th>
+                  {entries.map((e, i) => (
+                    <SlotHeader key={entryKey(e)} index={i} />
+                  ))}
+                  {entries.slice(1).map((e, i) => (
+                    <th key={`d${entryKey(e)}`} className={`num slot-${i + 1}`}>
+                      {t('lap.delta', { slot: SLOT_LETTERS[i + 1] ?? '' })}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row) => (
+                  <tr key={row.lap}>
+                    <td className="num">{row.lap}</td>
+                    {entries.map((e, i) => {
+                      const lap = row.laps[i];
+                      return (
+                        <SlotCells
+                          key={entryKey(e)}
+                          sectors={lap?.sectors}
+                          time={lap?.time ?? null}
+                          isBest={lap?.time != null && lap.time === best[i]}
+                        />
+                      );
+                    })}
+                    {row.deltas.slice(1).map((d, i) => (
+                      <td key={i} className="num">
+                        {delta(d)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </>
       )}
-
-      <div className="table-wrap">
-        <table className="results">
-          <thead>
-            <tr>
-              <th className="num">{t('lap.lap')}</th>
-              <th className="num group-a">{t('col.s1')} A</th>
-              <th className="num group-a">{t('col.s2')} A</th>
-              <th className="num group-a">{t('col.s3')} A</th>
-              <th className="num group-a">{t('lap.time')} A</th>
-              <th className="num group-b">{t('col.s1')} B</th>
-              <th className="num group-b">{t('col.s2')} B</th>
-              <th className="num group-b">{t('col.s3')} B</th>
-              <th className="num group-b">{t('lap.time')} B</th>
-              <th className="num">{t('lap.delta')}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.lap}>
-                <td className="num">{row.lap}</td>
-                {([0, 1, 2] as const).map((i) => (
-                  <td key={`a${i}`} className="num">
-                    {formatSector(row.a?.sectors[i])}
-                  </td>
-                ))}
-                <td
-                  className={
-                    row.a?.time != null && row.a.time === bestA
-                      ? 'num pb'
-                      : 'num'
-                  }
-                >
-                  {formatLapTime(row.a?.time)}
-                </td>
-                {([0, 1, 2] as const).map((i) => (
-                  <td key={`b${i}`} className="num">
-                    {formatSector(row.b?.sectors[i])}
-                  </td>
-                ))}
-                <td
-                  className={
-                    row.b?.time != null && row.b.time === bestB
-                      ? 'num pb'
-                      : 'num'
-                  }
-                >
-                  {formatLapTime(row.b?.time)}
-                </td>
-                <td className="num">{delta(row.delta)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </section>
+  );
+}
+
+function SlotHeader({ index }: { index: number }) {
+  const { t } = useApp();
+  const letter = SLOT_LETTERS[index] ?? '';
+  return (
+    <>
+      <th className={`num slot-${index}`}>
+        {t('col.s1')} {letter}
+      </th>
+      <th className={`num slot-${index}`}>
+        {t('col.s2')} {letter}
+      </th>
+      <th className={`num slot-${index}`}>
+        {t('col.s3')} {letter}
+      </th>
+      <th className={`num slot-${index}`}>
+        {t('lap.time')} {letter}
+      </th>
+    </>
+  );
+}
+
+function SlotCells({
+  sectors,
+  time,
+  isBest,
+}: {
+  sectors: [number | null, number | null, number | null] | undefined;
+  time: number | null;
+  isBest: boolean;
+}) {
+  return (
+    <>
+      {([0, 1, 2] as const).map((i) => (
+        <td key={i} className="num">
+          {formatSector(sectors?.[i])}
+        </td>
+      ))}
+      <td className={isBest ? 'num pb' : 'num'}>{formatLapTime(time)}</td>
+    </>
   );
 }

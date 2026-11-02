@@ -7,6 +7,7 @@ import { trackTitle } from '../library/tracks';
 import { classesOf, type Scope } from '../results/table';
 import { isOwnDriver } from '../library/names';
 import { entryKey } from '../results/analysis';
+import { addLapDriver } from '../results/lapSelection';
 import type { Entry, Session } from '../results/types';
 import { ChatView } from './ChatView';
 import { CountryLabel } from './CountryLabel';
@@ -143,11 +144,17 @@ function SessionBody({ session }: { session: Session }) {
   const tabs = availableTabs(session);
   const [tab, setTab] = useState<Tab>('results');
   const active = tabs.includes(tab) ? tab : 'results';
-  // The driver picked in the results, shown as driver B in the lap chart.
-  const [rival, setRival] = useState<string | null>(null);
+  // The drivers of the lap chart, A to D. Null means: not chosen yet, show the
+  // defaults. Clicking a driver in the results fills the next free slot.
+  const [lapDrivers, setLapDrivers] = useState<string[] | null>(null);
+
+  const ownKey = session.entries.find(
+    (e) => e.laps.length > 0 && isOwnDriver(e.driverName, aliases),
+  );
 
   const pickDriver = (entry: Entry) => {
-    setRival(isOwnDriver(entry.driverName, aliases) ? null : entryKey(entry));
+    const base = lapDrivers ?? (ownKey ? [entryKey(ownKey)] : []);
+    setLapDrivers(addLapDriver(base, entryKey(entry)));
     setTab('lapChart');
   };
 
@@ -159,10 +166,7 @@ function SessionBody({ session }: { session: Session }) {
             key={id}
             role="tab"
             aria-selected={active === id}
-            onClick={() => {
-              setRival(null);
-              setTab(id);
-            }}
+            onClick={() => setTab(id)}
           >
             {t(`tab.${id}`)}
           </button>
@@ -172,7 +176,11 @@ function SessionBody({ session }: { session: Session }) {
         <SessionResults session={session} onPick={pickDriver} />
       )}
       {active === 'lapChart' && (
-        <LapChartView session={session} pickedB={rival} />
+        <LapChartView
+          session={session}
+          selected={lapDrivers}
+          onSelect={setLapDrivers}
+        />
       )}
       {active === 'positions' && <PositionChartView session={session} />}
       {active === 'statistics' && <StatisticsView session={session} />}

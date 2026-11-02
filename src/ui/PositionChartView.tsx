@@ -15,10 +15,10 @@ function entryKey(e: Entry): string {
 
 /**
  * A stable colour per entry, spread around the colour wheel. The range around
- * cyan is skipped, because cyan means "you" everywhere in the app.
+ * orange is skipped, because orange means "you" everywhere in the app.
  */
 function colour(index: number): string {
-  return `hsl(${(210 + ((index * 47) % 330)) % 360} 70% 60%)`;
+  return `hsl(${(55 + ((index * 47) % 305)) % 360} 70% 60%)`;
 }
 
 export function PositionChartView({ session }: { session: Session }) {

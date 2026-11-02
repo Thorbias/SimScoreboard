@@ -1,4 +1,4 @@
-import type { Entry, Lap, Session } from './types';
+import type { Entry, Session } from './types';
 
 /** The lap a driver was on at a session time (seconds). */
 export function lapAt(entry: Entry, time: number): number | null {
@@ -16,62 +16,6 @@ export function findEntry(session: Session, name: string): Entry | undefined {
 /** Identifies an entry within a session. */
 export function entryKey(e: Entry): string {
   return `${e.carNumber}|${e.driverName}`;
-}
-
-/**
- * The two drivers a lap chart starts with. A is the own driver, otherwise the
- * first entry. B is `pickedB` when given (e.g. clicked in the results), else the
- * fastest rival, preferably from A's class.
- */
-export function lapChartDefaults(
-  choices: Entry[],
-  isOwn: (entry: Entry) => boolean,
-  pickedB: string | null = null,
-): { a: string; b: string } {
-  const picked = pickedB
-    ? choices.find((e) => entryKey(e) === pickedB)
-    : undefined;
-  const a =
-    choices.find(isOwn) ?? choices.find((e) => e !== picked) ?? choices[0];
-  if (picked && picked !== a) {
-    return { a: a ? entryKey(a) : '', b: entryKey(picked) };
-  }
-  const rivals = choices.filter((e) => e !== a);
-  const sameClass = rivals.filter((e) => e.carClass === a?.carClass);
-  const pool = sameClass.length > 0 ? sameClass : rivals;
-  const b = pool
-    .filter((e) => e.bestLap !== null)
-    .sort((x, y) => (x.bestLap as number) - (y.bestLap as number))[0];
-  return { a: a ? entryKey(a) : '', b: b ? entryKey(b) : '' };
-}
-
-export interface LapRow {
-  lap: number;
-  a: Lap | undefined;
-  b: Lap | undefined;
-  /** Time of a minus time of b; null if either has no time. */
-  delta: number | null;
-}
-
-export function compareLaps(
-  a: Entry | undefined,
-  b: Entry | undefined,
-): LapRow[] {
-  const byNum = (e: Entry | undefined) =>
-    new Map((e?.laps ?? []).map((l) => [l.num, l]));
-  const la = byNum(a);
-  const lb = byNum(b);
-  const nums = [...new Set([...la.keys(), ...lb.keys()])].sort((x, y) => x - y);
-  return nums.map((lap) => {
-    const ta = la.get(lap)?.time ?? null;
-    const tb = lb.get(lap)?.time ?? null;
-    return {
-      lap,
-      a: la.get(lap),
-      b: lb.get(lap),
-      delta: ta !== null && tb !== null ? ta - tb : null,
-    };
-  });
 }
 
 export function median(values: number[]): number | null {
