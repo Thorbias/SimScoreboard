@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-023 (F-021 ist für die Liga auf feature/league vergeben) — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-024 (F-021 ist für die Liga auf feature/league vergeben) — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -265,3 +265,15 @@ Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der
 - Quelle ist ausschließlich die Telemetrie (Ereignis `In Pits` und Streckenposition, siehe ADR-0008). Die Result-XML kennt nur die Zahl der Stopps und die Runde (`pit`), keine Standzeit; geschätzte Zeiten aus Rundenzeiten gibt es bewusst nicht.
 - Ohne Aufzeichnung zur Session steht kein Wert da, keine Näherung.
 - Offen: Anzeigeort (Ergebnisse oder Analyse), Aufteilung in Boxengasse und Stillstand, Zuordnung der Aufzeichnung zur Session. Wird beim Start geklärt, ob ein eigener Branch nötig ist.
+
+## F-023 — Liga in Google Drive
+
+Prio S · Status offen · wartet auf die Liga (Backlog 15)
+
+Der Organisator speichert die Liga aus der App in Google Drive, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)).
+
+- Organisator: Anmeldung mit Google (nur Zugriff auf Dateien, die die App selbst anlegt), „In Drive speichern“ legt die Datei an oder aktualisiert sie. Vor dem Überschreiben einer neueren Version in Drive fragt die App nach.
+- Mitspieler: Drive-Link einfügen, keine Anmeldung. Die Liga ist eine Kopie mit gemerkter Quelle, „Aktualisieren“ holt den neuesten Stand.
+- Den Schreibschutz stellt Drive her (Freigabe: jeder mit dem Link darf ansehen, nur der Organisator bearbeiten).
+- Datenschutz-Hinweis vor dem ersten Speichern in Drive: die Datei enthält Namen anderer Fahrer und verlässt den Rechner.
+- Voraussetzung ist ein Google-Cloud-Projekt des Betreibers (Client-ID, API-Key); die Schritte stehen beim Umsetzungsauftrag.

@@ -45,3 +45,4 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 13 | Chore | TODO | Offline-Betrieb: Service Worker, der die statischen Dateien zwischenspeichert (NF-002) | – |
 | 14 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-020 Demo-Daten | – |
 | 16 | Feature | TODO | F-022 Boxenstoppzeiten aus der Telemetrie (keine Schätzung aus Rundenzeiten) | 7 |
+| 17 | Feature | TODO | F-023 Liga in Google Drive: Organisator speichert, Mitspieler lesen per Link ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Cloud-Projekt (Client-ID, API-Key) muss der Betreiber anlegen | 15 |
