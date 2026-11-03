@@ -4,8 +4,10 @@ import { routes } from '../app/route';
 import { formatDate } from '../format/date';
 import {
   createLeague,
+  leagueFingerprint,
   newId,
   parseLeague,
+  saveState,
   serializeLeague,
 } from '../league/file';
 import { leagueFileName, saveLeagueFile } from '../league/fileIo';
@@ -47,7 +49,13 @@ const message = (error: unknown) =>
  * on the right. All changes are made by the organizer; whoever opens a league
  * file gets a copy of their own (ADR-0007).
  */
-export function LeaguePage({ selectedId }: { selectedId: string | null }) {
+export function LeaguePage({
+  selectedId,
+  tab,
+}: {
+  selectedId: string | null;
+  tab: string | null;
+}) {
   const { t, leagues } = useApp();
   const league = leagues.find((l) => l.id === selectedId) ?? null;
   return (
@@ -57,7 +65,11 @@ export function LeaguePage({ selectedId }: { selectedId: string | null }) {
       </aside>
       <section className="detail">
         {league ? (
-          <LeagueDetail key={league.id} league={league} />
+          <LeagueDetail
+            key={league.id}
+            league={league}
+            initialTab={TABS.find((id) => id === tab) ?? 'standings'}
+          />
         ) : (
           <p className="detail-empty">{t('league.pick')}</p>
         )}
@@ -86,7 +98,8 @@ function LeagueList({
     const league = createLeague(trimmed);
     await saveLeague(league);
     setName('');
-    window.location.hash = routes.league(league.id);
+    // A new league is not saved anywhere yet; the settings are where it is saved.
+    window.location.hash = routes.league(league.id, 'settings');
   };
 
   const open = async (file: File | undefined) => {
@@ -100,6 +113,7 @@ function LeagueList({
         ? { ...league, id: newId('league') }
         : league;
       await saveLeague(copy);
+      await setLeagueLink(copy.id, { saved: leagueFingerprint(copy) });
       window.location.hash = routes.league(copy.id);
     } catch (e) {
       setError(t('league.openFailed', { message: message(e) }));
@@ -143,6 +157,7 @@ function LeagueList({
         ...leagueLinks[copy.id],
         url,
         ...(driveId ? { driveId } : {}),
+        saved: leagueFingerprint(copy),
       });
       setAddress('');
       window.location.hash = routes.league(copy.id);
@@ -220,6 +235,14 @@ function LeagueList({
               >
                 <strong>{l.name}</strong>
                 <span className="muted">
+                  {saveState(l, leagueLinks[l.id]?.saved) !== 'saved' && (
+                    <span
+                      className="unsaved-dot"
+                      title={t('league.unsaved.short')}
+                    >
+                      ●{' '}
+                    </span>
+                  )}
                   {t('league.races', { n: l.races.length })}
                 </span>
               </a>
@@ -231,9 +254,19 @@ function LeagueList({
   );
 }
 
-function LeagueDetail({ league }: { league: League }) {
-  const { t, saveLeague } = useApp();
-  const [tab, setTab] = useState<Tab>('standings');
+function LeagueDetail({
+  league,
+  initialTab,
+}: {
+  league: League;
+  initialTab: Tab;
+}) {
+  const { t, saveLeague, leagueLinks, demo } = useApp();
+  const [tab, setTab] = useState<Tab>(initialTab);
+  // The demo keeps nothing, so there is nothing to remind of.
+  const state = demo
+    ? 'saved'
+    : saveState(league, leagueLinks[league.id]?.saved);
   const standings = useMemo(() => computeStandings(league), [league]);
   const change = (next: League) => void saveLeague(next);
 
@@ -243,6 +276,20 @@ function LeagueDetail({ league }: { league: League }) {
         ← {t('league.title')}
       </a>
       <h3>{league.name}</h3>
+      {state !== 'saved' && (
+        <div className="notice unsaved" role="status">
+          <span>
+            {state === 'never'
+              ? t('league.unsaved.never')
+              : t('league.unsaved.changed')}
+          </span>
+          {tab !== 'settings' && (
+            <button onClick={() => setTab('settings')}>
+              {t('league.unsaved.go')}
+            </button>
+          )}
+        </div>
+      )}
       <div className="tabs" role="tablist">
         {TABS.map((id) => (
           <button
@@ -252,6 +299,12 @@ function LeagueDetail({ league }: { league: League }) {
             onClick={() => setTab(id)}
           >
             {t(`league.tab.${id}`)}
+            {id === 'settings' && state !== 'saved' && (
+              <span className="unsaved-dot" aria-hidden="true">
+                {' '}
+                ●
+              </span>
+            )}
           </button>
         ))}
       </div>
@@ -723,9 +776,11 @@ function SettingsTab({
     try {
       const result = await saveLeagueFile(league, asNew ? null : link?.handle);
       if (!result.saved) return;
-      if (result.handle) {
-        await setLeagueLink(league.id, { ...link, handle: result.handle });
-      }
+      await setLeagueLink(league.id, {
+        ...link,
+        ...(result.handle ? { handle: result.handle } : {}),
+        saved: leagueFingerprint(league),
+      });
       setStatus(t('league.saved'));
     } catch (e) {
       setError(t('league.saveFailed', { message: message(e) }));
@@ -758,6 +813,7 @@ function SettingsTab({
         handle: link?.handle,
         driveId: file.id,
         driveVersion: file.version,
+        saved: leagueFingerprint(league),
       });
       setStatus(t('league.drive.saved'));
     } catch (e) {
@@ -789,7 +845,12 @@ function SettingsTab({
           ? driveDownloadUrl(link.driveId, driveConfig.apiKey)
           : link.url,
       );
-      await saveLeague({ ...fresh, id: league.id });
+      const next = { ...fresh, id: league.id };
+      await saveLeague(next);
+      await setLeagueLink(league.id, {
+        ...link,
+        saved: leagueFingerprint(next),
+      });
       setStatus(t('league.refreshed'));
     } catch (e) {
       setError(t('league.openFailed', { message: message(e) }));
@@ -891,6 +952,7 @@ function SettingsTab({
           {t('league.delete')}
         </button>
       </p>
+      <p className="hint">{t('league.deleteHint')}</p>
       {status && <p className="hint">{status}</p>}
       {error && <p className="notice error">{error}</p>}
     </>

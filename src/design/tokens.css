@@ -3,9 +3,10 @@
  * SimPosture so both apps read as one family; the brand accent, the timing
  * colours and the sector bar are SimScoreboard's own (ADR-0005).
  *
- * Dark is the default. Light applies when the user picks it
- * (`data-theme="light"` on <html>) or, without a choice, when the system asks
- * for it. The two light blocks must stay identical; a test checks that.
+ * Dark is the default, also when the system asks for light. Light applies when
+ * the user picks it (`data-theme="light"` on <html>); the system decides only
+ * after picking "auto". The two light blocks must stay identical; a test checks
+ * that.
  */
 :root {
   color-scheme: dark light;

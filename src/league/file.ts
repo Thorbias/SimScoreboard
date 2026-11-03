@@ -32,6 +32,41 @@ export function serializeLeague(league: League): string {
   return `${JSON.stringify(league, null, 2)}\n`;
 }
 
+/**
+ * A short fingerprint of the league's content (not secure, only to compare). The
+ * app remembers it at every save to tell whether the league has changed since.
+ */
+export function leagueFingerprint(league: League): string {
+  const text = JSON.stringify(league);
+  let a = 0xdeadbeef;
+  let b = 0x41c6ce57;
+  for (let i = 0; i < text.length; i++) {
+    const c = text.charCodeAt(i);
+    a = Math.imul(a ^ c, 2654435761);
+    b = Math.imul(b ^ c, 1597334677);
+  }
+  a =
+    Math.imul(a ^ (a >>> 16), 2246822507) ^
+    Math.imul(b ^ (b >>> 13), 3266489909);
+  b =
+    Math.imul(b ^ (b >>> 16), 2246822507) ^
+    Math.imul(a ^ (a >>> 13), 3266489909);
+  return (
+    (b >>> 0).toString(16).padStart(8, '0') +
+    (a >>> 0).toString(16).padStart(8, '0') +
+    text.length.toString(16)
+  );
+}
+
+/** Whether a league was saved, and if so whether it changed since. */
+export function saveState(
+  league: League,
+  saved: string | undefined,
+): 'never' | 'changed' | 'saved' {
+  if (!saved) return 'never';
+  return saved === leagueFingerprint(league) ? 'saved' : 'changed';
+}
+
 export class LeagueFileError extends Error {}
 
 const isObject = (v: unknown): v is Record<string, unknown> =>

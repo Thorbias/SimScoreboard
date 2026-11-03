@@ -251,7 +251,16 @@ export const en = {
   'league.empty': 'No leagues yet.',
   'league.races': '{n} races',
   'league.delete': 'Delete league',
-  'league.deleteConfirm': 'Delete this league from this browser?',
+  'league.deleteConfirm':
+    'Remove this league from this browser? Files you saved, on this computer or in a cloud storage such as Google Drive, are not deleted.',
+  'league.deleteHint':
+    'Deleting only removes the league from this browser. Saved files, on this computer or in a cloud storage, stay as they are.',
+  'league.unsaved.never':
+    'This league is not saved yet. It exists only in this browser until you save it as a file or to Google Drive.',
+  'league.unsaved.changed':
+    'There are changes that are not saved to the file yet.',
+  'league.unsaved.go': 'Save…',
+  'league.unsaved.short': 'Not saved',
   'league.save': 'Save as file',
   'league.drive': 'Google Drive',
   'league.drive.hint':

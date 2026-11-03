@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   createLeague,
   LeagueFileError,
+  leagueFingerprint,
   parseLeague,
+  saveState,
   serializeLeague,
 } from './file';
 import { computeStandings, raceDriverNames } from './standings';
@@ -226,5 +228,27 @@ describe('league file', () => {
 
   it('keeps the signature field empty in version 1', () => {
     expect(createLeague('x').signature).toBeNull();
+  });
+});
+
+describe('leagueFingerprint and saveState', () => {
+  it('stays the same for the same content and changes with it', () => {
+    const a = createLeague('Spa Cup');
+    expect(leagueFingerprint(a)).toBe(leagueFingerprint({ ...a }));
+    expect(leagueFingerprint(a)).not.toBe(
+      leagueFingerprint({ ...a, name: 'Spa Cup 2' }),
+    );
+    expect(leagueFingerprint(a)).not.toBe(
+      leagueFingerprint({ ...a, formula: `${a.formula} + 1` }),
+    );
+  });
+
+  it('tells never saved, changed and saved apart', () => {
+    const a = createLeague('Spa Cup');
+    expect(saveState(a, undefined)).toBe('never');
+    expect(saveState(a, leagueFingerprint(a))).toBe('saved');
+    expect(saveState({ ...a, name: 'Other' }, leagueFingerprint(a))).toBe(
+      'changed',
+    );
   });
 });

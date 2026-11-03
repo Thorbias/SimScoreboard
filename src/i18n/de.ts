@@ -258,7 +258,16 @@ export const de: Record<MessageKey, string> = {
   'league.empty': 'Noch keine Ligen.',
   'league.races': '{n} Läufe',
   'league.delete': 'Liga löschen',
-  'league.deleteConfirm': 'Diese Liga aus diesem Browser löschen?',
+  'league.deleteConfirm':
+    'Diese Liga aus diesem Browser entfernen? Gespeicherte Dateien, auf diesem Rechner oder in einem Cloud-Speicher wie Google Drive, werden nicht gelöscht.',
+  'league.deleteHint':
+    'Löschen entfernt die Liga nur aus diesem Browser. Gespeicherte Dateien, auf diesem Rechner oder im Cloud-Speicher, bleiben unverändert.',
+  'league.unsaved.never':
+    'Diese Liga ist noch nicht gespeichert. Sie existiert nur in diesem Browser, bis du sie als Datei oder in Google Drive speicherst.',
+  'league.unsaved.changed':
+    'Es gibt Änderungen, die noch nicht in der Datei gespeichert sind.',
+  'league.unsaved.go': 'Speichern …',
+  'league.unsaved.short': 'Nicht gespeichert',
   'league.save': 'Als Datei speichern',
   'league.drive': 'Google Drive',
   'league.drive.hint':

@@ -64,7 +64,9 @@ function Shell() {
           />
         )}
         {route.name === 'records' && <RecordsView />}
-        {route.name === 'league' && <LeaguePage selectedId={route.id} />}
+        {route.name === 'league' && (
+          <LeaguePage selectedId={route.id} tab={route.tab} />
+        )}
         {route.name === 'settings' && <SettingsView />}
       </main>
     </div>
