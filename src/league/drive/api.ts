@@ -23,12 +23,21 @@ const defaultFetch: FetchLike = (url, init) => fetch(url, init);
 
 const API = 'https://www.googleapis.com/drive/v3';
 const UPLOAD = 'https://www.googleapis.com/upload/drive/v3';
-const FIELDS = 'id,version,modifiedTime';
+const FIELDS = 'id,headRevisionId,version,trashed';
 
-export class DriveError extends Error {}
+export class DriveError extends Error {
+  constructor(
+    message: string,
+    readonly status?: number,
+  ) {
+    super(message);
+  }
+}
 
 export interface DriveFile {
   id: string;
+  /** The file is in the trash; Drive still answers for it. */
+  trashed?: boolean;
   /** Drive's counter for the content; it changes with every save. */
   version: string;
 }
@@ -79,17 +88,43 @@ async function call(
     throw new DriveError('Google Drive could not be reached');
   }
   if (!response.ok) {
-    throw new DriveError(`Google Drive answered with ${response.status}`);
+    // Google explains the refusal in the body; show it instead of a bare code.
+    let detail = '';
+    try {
+      const body = JSON.parse(await response.text()) as {
+        error?: { message?: string };
+      };
+      detail = body.error?.message ?? '';
+    } catch {
+      // No readable body.
+    }
+    throw new DriveError(
+      `Google Drive answered with ${response.status}${detail ? `: ${detail}` : ''}`,
+      response.status,
+    );
   }
   return response.json();
 }
 
 const asFile = (value: unknown): DriveFile => {
-  const v = value as { id?: unknown; version?: unknown } | null;
-  if (typeof v?.id !== 'string' || v.version == null) {
+  const v = value as {
+    id?: unknown;
+    headRevisionId?: unknown;
+    version?: unknown;
+    trashed?: unknown;
+  } | null;
+  // The head revision changes only when the content is saved. Drive's own
+  // version counter also moves with sharing and other metadata, which made a
+  // file look changed after the app had shared it.
+  const version = v?.headRevisionId ?? v?.version;
+  if (typeof v?.id !== 'string' || version == null) {
     throw new DriveError('Google Drive sent an unexpected answer');
   }
-  return { id: v.id, version: String(v.version) };
+  return {
+    id: v.id,
+    version: String(version),
+    ...(v.trashed === true ? { trashed: true } : {}),
+  };
 };
 
 /** Creates the file; the app can only see files it created itself. */
@@ -139,19 +174,25 @@ export async function updateDriveFile(
   );
 }
 
+/** The file's version, or null when the file does not exist (any more). */
 export async function driveFileVersion(
   token: string,
   id: string,
   fetchImpl: FetchLike = defaultFetch,
-): Promise<DriveFile> {
-  return asFile(
-    await call(
-      fetchImpl,
-      token,
-      `${API}/files/${encodeURIComponent(id)}?fields=${FIELDS}`,
-      {},
-    ),
-  );
+): Promise<DriveFile | null> {
+  try {
+    return asFile(
+      await call(
+        fetchImpl,
+        token,
+        `${API}/files/${encodeURIComponent(id)}?fields=${FIELDS}`,
+        {},
+      ),
+    );
+  } catch (error) {
+    if (error instanceof DriveError && error.status === 404) return null;
+    throw error;
+  }
 }
 
 /** Lets everyone with the link read the file (never write it). */
@@ -184,16 +225,21 @@ export interface DriveSaveInput {
 
 /**
  * Saves the league to Drive: creates the file the first time, otherwise updates
- * it, asking first when someone else saved a newer version. Returns null when
- * the user chose not to overwrite.
+ * it, asking first when someone else saved a newer version. A file that was
+ * deleted or moved to the trash in the meantime is created anew (`recreated`).
+ * Returns null when the user chose not to overwrite.
  */
 export async function saveToDrive(
   input: DriveSaveInput,
   fetchImpl: FetchLike = defaultFetch,
-): Promise<DriveFile | null> {
+): Promise<(DriveFile & { recreated?: boolean }) | null> {
   const { token, name, text, known, confirmOverwrite } = input;
   if (!known) return createDriveFile(token, name, text, fetchImpl);
   const current = await driveFileVersion(token, known.id, fetchImpl);
+  if (!current || current.trashed) {
+    const created = await createDriveFile(token, name, text, fetchImpl);
+    return { ...created, recreated: true };
+  }
   if (current.version !== known.version && !confirmOverwrite()) return null;
   return updateDriveFile(token, known.id, text, fetchImpl);
 }

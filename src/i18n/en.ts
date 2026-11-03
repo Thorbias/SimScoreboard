@@ -265,13 +265,17 @@ export const en = {
   'league.drive': 'Google Drive',
   'league.drive.hint':
     'Saving to Drive sends the league file, with the driver names, to Google. The app only sees files it created itself.',
+  'league.drive.rememberFailed':
+    'The league was saved to Google Drive, but this browser could not remember the file: {message}',
+  'league.drive.recreated':
+    'The file in Google Drive was gone (deleted or in the trash), so a new one was created. Share it again for the players.',
   'league.drive.save': 'Save to Google Drive',
   'league.drive.saved': 'League saved to Google Drive.',
   'league.drive.newer':
     'The file in Google Drive was changed since you last saved it here. Overwrite it?',
   'league.drive.share': 'Share by link',
-  'league.drive.shareConfirm':
-    'Everyone who has the link will be able to read this league, including the driver names. Continue?',
+  'league.drive.shareHint':
+    'Sharing by link lets everyone who has the link read this league, including the driver names.',
   'league.drive.deeplink':
     'Link for the players (opens SimScoreboard with this league)',
   'league.drive.deeplink.hint':

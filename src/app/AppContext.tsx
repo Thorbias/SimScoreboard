@@ -87,7 +87,7 @@ export interface AppState {
   saveLeague(league: League): Promise<void>;
   /** Where each league is saved to and was loaded from, by league id. */
   leagueLinks: Record<string, LeagueLink>;
-  /** Sets or, with null, forgets the link; does nothing during the demo. */
+  /** Sets or, with null, forgets the link; during the demo only in memory. */
   setLeagueLink(id: string, link: LeagueLink | null): Promise<void>;
   deleteLeague(id: string): Promise<void>;
   chooseFolder(): Promise<void>;
@@ -150,6 +150,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [demoError, setDemoError] = useState<string | null>(null);
   const [leagues, setLeaguesState] = useState<League[]>([]);
   const [demoLeagues, setDemoLeagues] = useState<League[]>([]);
+  const [demoLeagueLinks, setDemoLeagueLinks] = useState<
+    Record<string, LeagueLink>
+  >({});
   const demoActiveRef = useRef(false);
   const demoFilesRef = useRef(new Map<string, File>());
   const [languageSetting, setLanguageSettingState] =
@@ -293,6 +296,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setDemoSessions([]);
     setDemoFavorites([]);
     setDemoLeagues([]);
+    setDemoLeagueLinks({});
     setDemoError(null);
     setSourceVersion((v) => v + 1);
   }, []);
@@ -307,6 +311,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setDemoSessions([]);
       setDemoFavorites([]);
       setDemoLeagues([]);
+      setDemoLeagueLinks({});
       setDemo({ ownName });
       setSourceVersion((v) => v + 1);
       window.location.hash = '#/';
@@ -401,7 +406,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const setLeagueLink = useCallback(
     async (id: string, link: LeagueLink | null) => {
-      if (demoActiveRef.current) return;
+      // The links of the demo's leagues, like the leagues, stay in memory.
+      if (demoActiveRef.current) {
+        setDemoLeagueLinks((prev) => {
+          const copy = { ...prev };
+          if (link) copy[id] = link;
+          else delete copy[id];
+          return copy;
+        });
+        return;
+      }
       const next = { ...leagueLinksRef.current };
       if (link) next[id] = link;
       else delete next[id];
@@ -416,6 +430,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     async (id: string) => {
       if (demoActiveRef.current) {
         setDemoLeagues((prev) => prev.filter((l) => l.id !== id));
+        await setLeagueLink(id, null);
         return;
       }
       leaguesRef.current = leaguesRef.current.filter((l) => l.id !== id);
@@ -457,7 +472,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     toggleFavorite,
     leagues: demo ? demoLeagues : leagues,
     saveLeague,
-    leagueLinks: demo ? {} : leagueLinks,
+    leagueLinks: demo ? demoLeagueLinks : leagueLinks,
     setLeagueLink,
     deleteLeague,
     languageSetting,

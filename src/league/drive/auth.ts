@@ -19,6 +19,10 @@ interface TokenClient {
 interface Gis {
   accounts: {
     oauth2: {
+      hasGrantedAllScopes(
+        response: TokenResponse,
+        ...scopes: string[]
+      ): boolean;
       initTokenClient(config: {
         client_id: string;
         scope: string;
@@ -31,6 +35,9 @@ interface Gis {
 
 let loading: Promise<Gis> | null = null;
 let token: { value: string; expires: number } | null = null;
+// Google remembers a partial consent and then answers without asking again, so
+// after one the next request has to ask for the consent explicitly.
+let askConsent = false;
 
 const gis = () => (window as { google?: Gis }).google;
 
@@ -69,6 +76,18 @@ export async function requestDriveToken(clientId: string): Promise<string> {
           reject(new Error(response.error ?? 'No access was granted'));
           return;
         }
+        // The consent window has a checkbox for the Drive files; without it the
+        // token is valid but every Drive call is refused.
+        if (!google.accounts.oauth2.hasGrantedAllScopes(response, SCOPE)) {
+          askConsent = true;
+          reject(
+            new Error(
+              'Access to Drive files was not granted. Click again and tick the box for Drive files in the Google window',
+            ),
+          );
+          return;
+        }
+        askConsent = false;
         token = {
           value: response.access_token,
           expires: Date.now() + Number(response.expires_in ?? 3600) * 1000,
@@ -77,6 +96,6 @@ export async function requestDriveToken(clientId: string): Promise<string> {
       },
       error_callback: (error) => reject(new Error(error.type)),
     });
-    client.requestAccessToken();
+    client.requestAccessToken(askConsent ? { prompt: 'consent' } : undefined);
   });
 }

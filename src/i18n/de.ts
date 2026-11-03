@@ -272,13 +272,17 @@ export const de: Record<MessageKey, string> = {
   'league.drive': 'Google Drive',
   'league.drive.hint':
     'Beim Speichern in Drive geht die Liga-Datei mit den Fahrernamen an Google. Die App sieht nur Dateien, die sie selbst angelegt hat.',
+  'league.drive.rememberFailed':
+    'Die Liga wurde in Google Drive gespeichert, aber dieser Browser konnte sich die Datei nicht merken: {message}',
+  'league.drive.recreated':
+    'Die Datei in Google Drive war weg (gelöscht oder im Papierkorb), deshalb wurde eine neue angelegt. Gib sie für die Mitspieler erneut frei.',
   'league.drive.save': 'In Google Drive speichern',
   'league.drive.saved': 'Liga in Google Drive gespeichert.',
   'league.drive.newer':
     'Die Datei in Google Drive wurde geändert, seit du sie hier zuletzt gespeichert hast. Überschreiben?',
   'league.drive.share': 'Per Link freigeben',
-  'league.drive.shareConfirm':
-    'Jeder mit dem Link kann diese Liga lesen, auch die Fahrernamen. Fortfahren?',
+  'league.drive.shareHint':
+    'Das Freigeben per Link erlaubt jedem mit dem Link, diese Liga zu lesen, auch die Fahrernamen.',
   'league.drive.deeplink':
     'Link für die Mitspieler (öffnet SimScoreboard mit dieser Liga)',
   'league.drive.deeplink.hint':

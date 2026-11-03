@@ -158,6 +158,71 @@ describe('saveToDrive', () => {
   });
 });
 
+describe('saveToDrive with a file that is gone', () => {
+  const base = { token: 't', name: 'a.json', text: '{}' };
+  const known = { id: ID, version: '2' };
+
+  it('creates a new file when Drive no longer knows the old one', async () => {
+    const drive = fakeDrive(
+      { status: 404 },
+      { json: { id: 'NEW', version: '1' } },
+    );
+    let asked = false;
+    const file = await saveToDrive(
+      { ...base, known, confirmOverwrite: () => ((asked = true), true) },
+      drive.fetchImpl,
+    );
+    expect(file).toMatchObject({ id: 'NEW', version: '1', recreated: true });
+    expect(asked).toBe(false);
+    expect(drive.calls[1]?.method).toBe('POST');
+  });
+
+  it('creates a new file when the old one is in the trash', async () => {
+    const drive = fakeDrive(
+      { json: { id: ID, version: '9', trashed: true } },
+      { json: { id: 'NEW', version: '1' } },
+    );
+    const file = await saveToDrive(
+      { ...base, known, confirmOverwrite: () => true },
+      drive.fetchImpl,
+    );
+    expect(file?.id).toBe('NEW');
+    expect(file?.recreated).toBe(true);
+  });
+
+  it('still reports other errors', async () => {
+    const drive = fakeDrive({ status: 500 });
+    await expect(
+      saveToDrive(
+        { ...base, known, confirmOverwrite: () => true },
+        drive.fetchImpl,
+      ),
+    ).rejects.toThrow('500');
+  });
+});
+
+describe('the version that is compared', () => {
+  it('follows the content, not the counter that sharing also moves', async () => {
+    const drive = fakeDrive(
+      { json: { id: ID, headRevisionId: 'rev1', version: '7' } },
+      { json: { id: ID, headRevisionId: 'rev2', version: '8' } },
+    );
+    let asked = false;
+    const file = await saveToDrive(
+      {
+        token: 't',
+        name: 'a.json',
+        text: '{}',
+        known: { id: ID, version: 'rev1' },
+        confirmOverwrite: () => ((asked = true), true),
+      },
+      drive.fetchImpl,
+    );
+    expect(asked).toBe(false);
+    expect(file?.version).toBe('rev2');
+  });
+});
+
 describe('shareDriveFile', () => {
   it('grants read access to everyone with the link', async () => {
     const drive = fakeDrive({ json: {} });

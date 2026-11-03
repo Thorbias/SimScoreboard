@@ -475,7 +475,7 @@ function LeagueDetail({
   league: League;
   initialTab: Tab;
 }) {
-  const { t, saveLeague, leagueLinks, demo } = useApp();
+  const { t, saveLeague, leagueLinks } = useApp();
   const link = leagueLinks[league.id];
   // A league that came from a link is a copy of the organizer's: it is shown,
   // not changed, and brought up to date whenever it is opened.
@@ -501,8 +501,7 @@ function LeagueDetail({
       current = false;
     };
   }, [league.id, readOnly]);
-  // The demo keeps nothing, so there is nothing to remind of.
-  const state = demo || readOnly ? 'saved' : saveState(league, link?.saved);
+  const state = readOnly ? 'saved' : saveState(league, link?.saved);
   const standings = useMemo(() => computeStandings(league), [league]);
   const change = (next: League) => void saveLeague(next);
 
@@ -1036,6 +1035,8 @@ function SettingsTab({
   const refreshLeague = useRefreshLeague();
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [driveStatus, setDriveStatus] = useState<string | null>(null);
+  const [driveError, setDriveError] = useState<string | null>(null);
   const check = checkFormula(league.formula);
   const link = leagueLinks[league.id];
 
@@ -1064,8 +1065,8 @@ function SettingsTab({
 
   const saveDrive = async () => {
     if (!driveConfig) return;
-    setStatus(null);
-    setError(null);
+    setDriveStatus(null);
+    setDriveError(null);
     try {
       // Asking for access opens a window, so it comes first, right after the click.
       const token = await requestDriveToken(driveConfig.clientId);
@@ -1080,31 +1081,42 @@ function SettingsTab({
         confirmOverwrite: () => window.confirm(t('league.drive.newer')),
       });
       if (!file) return;
-      await setLeagueLink(league.id, {
-        handle: link?.handle,
-        driveId: file.id,
-        driveVersion: file.version,
-        ...(file.id === link?.driveId && link.shared ? { shared: true } : {}),
-        saved: leagueFingerprint(league),
-      });
-      setStatus(t('league.drive.saved'));
+      try {
+        await setLeagueLink(league.id, {
+          handle: link?.handle,
+          driveId: file.id,
+          driveVersion: file.version,
+          ...(file.id === link?.driveId && link.shared ? { shared: true } : {}),
+          saved: leagueFingerprint(league),
+        });
+      } catch (e) {
+        // The file exists in Drive but this browser could not remember it.
+        console.error(e);
+        setDriveError(
+          t('league.drive.rememberFailed', { message: message(e) }),
+        );
+        return;
+      }
+      setDriveStatus(
+        t(file.recreated ? 'league.drive.recreated' : 'league.drive.saved'),
+      );
     } catch (e) {
-      setError(t('league.saveFailed', { message: message(e) }));
+      console.error(e);
+      setDriveError(t('league.saveFailed', { message: message(e) }));
     }
   };
 
   const shareDrive = async () => {
     if (!driveConfig || !link?.driveId) return;
-    if (!window.confirm(t('league.drive.shareConfirm'))) return;
-    setStatus(null);
-    setError(null);
+    setDriveStatus(null);
+    setDriveError(null);
     try {
       const token = await requestDriveToken(driveConfig.clientId);
       await shareDriveFile(token, link.driveId);
       await setLeagueLink(league.id, { ...link, shared: true });
-      setStatus(t('league.drive.shared'));
+      setDriveStatus(t('league.drive.shared'));
     } catch (e) {
-      setError(t('league.saveFailed', { message: message(e) }));
+      setDriveError(t('league.saveFailed', { message: message(e) }));
     }
   };
 
@@ -1206,6 +1218,11 @@ function SettingsTab({
               </button>
             )}
           </p>
+          {link?.driveId && !link.url && (
+            <p className="hint">{t('league.drive.shareHint')}</p>
+          )}
+          {driveStatus && <p className="hint">{driveStatus}</p>}
+          {driveError && <p className="notice error">{driveError}</p>}
           {link?.driveId && !link.url && link.shared && (
             <div className="league-field wide">
               {t('league.drive.deeplink')}
