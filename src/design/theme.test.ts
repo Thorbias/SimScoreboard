@@ -49,8 +49,8 @@ describe('theme', () => {
     ).toBe('dark');
     expect(
       loadThemeSetting(memoryStorage({ 'simpaddock.theme': 'sepia' })),
-    ).toBe('auto');
-    expect(loadThemeSetting(null)).toBe('auto');
+    ).toBe('dark');
+    expect(loadThemeSetting(null)).toBe('dark');
   });
 
   it('saves the choice and survives a storage that throws', () => {
@@ -69,7 +69,7 @@ describe('theme', () => {
       },
     };
     expect(() => saveThemeSetting('dark', broken)).not.toThrow();
-    expect(loadThemeSetting(broken)).toBe('auto');
+    expect(loadThemeSetting(broken)).toBe('dark');
   });
 
   it('only accepts the three known settings', () => {

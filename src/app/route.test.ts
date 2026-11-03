@@ -11,10 +11,30 @@ describe('routes', () => {
   it('parses settings and sessions', () => {
     expect(parseRoute('#/settings')).toEqual({ name: 'settings' });
     expect(parseRoute('#/records')).toEqual({ name: 'records' });
-    expect(parseRoute('#/league')).toEqual({ name: 'league', id: null });
+    expect(parseRoute('#/league')).toEqual({
+      name: 'league',
+      id: null,
+      tab: null,
+    });
+    expect(parseRoute(routes.league('abc', 'settings'))).toEqual({
+      name: 'league',
+      id: 'abc',
+      tab: 'settings',
+    });
     expect(parseRoute(routes.league('league-ab 1'))).toEqual({
       name: 'league',
       id: 'league-ab 1',
+      tab: null,
+    });
+    expect(parseRoute(routes.leagueOpenDrive('1AbC_d-E'))).toEqual({
+      name: 'leagueOpen',
+      drive: '1AbC_d-E',
+      url: null,
+    });
+    expect(parseRoute(routes.leagueOpenUrl('https://x.org/a b?c=1'))).toEqual({
+      name: 'leagueOpen',
+      drive: null,
+      url: 'https://x.org/a b?c=1',
     });
     const id = '2026_10_30_14_38_02-65R1.xml';
     expect(parseRoute(routes.session(id))).toEqual({ name: 'session', id });

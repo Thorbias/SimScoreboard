@@ -1,6 +1,6 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
-import { LeaguePage } from './ui/LeagueView';
+import { LeagueOpenPage, LeaguePage } from './ui/LeagueView';
 import { LogoMark } from './ui/LogoMark';
 import { RecordsView } from './ui/RecordsView';
 import { SessionsPage } from './ui/SessionsPage';
@@ -64,7 +64,12 @@ function Shell() {
           />
         )}
         {route.name === 'records' && <RecordsView />}
-        {route.name === 'league' && <LeaguePage selectedId={route.id} />}
+        {route.name === 'league' && (
+          <LeaguePage selectedId={route.id} tab={route.tab} />
+        )}
+        {route.name === 'leagueOpen' && (
+          <LeagueOpenPage drive={route.drive} url={route.url} />
+        )}
         {route.name === 'settings' && <SettingsView />}
       </main>
     </div>

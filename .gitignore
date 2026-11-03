@@ -19,3 +19,7 @@ Thumbs.db
 # Only the README in samples/ is tracked. Tests use anonymized fixtures.
 samples/*
 !samples/README.md
+
+# Local Drive credentials
+.env.local
+.env*.local

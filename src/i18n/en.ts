@@ -251,8 +251,68 @@ export const en = {
   'league.empty': 'No leagues yet.',
   'league.races': '{n} races',
   'league.delete': 'Delete league',
-  'league.deleteConfirm': 'Delete this league from this browser?',
+  'league.deleteConfirm':
+    'Remove this league from this browser? Files you saved, on this computer or in a cloud storage such as Google Drive, are not deleted.',
+  'league.deleteHint':
+    'Deleting only removes the league from this browser. Saved files, on this computer or in a cloud storage, stay as they are.',
+  'league.unsaved.never':
+    'This league is not saved yet. It exists only in this browser until you save it as a file or to Google Drive.',
+  'league.unsaved.changed':
+    'There are changes that are not saved to the file yet.',
+  'league.unsaved.go': 'Save…',
+  'league.unsaved.short': 'Not saved',
   'league.save': 'Save as file',
+  'league.drive': 'Google Drive',
+  'league.drive.hint':
+    'Saving to Drive sends the league file, with the driver names, to Google. The app only sees files it created itself.',
+  'league.drive.rememberFailed':
+    'The league was saved to Google Drive, but this browser could not remember the file: {message}',
+  'league.drive.recreated':
+    'The file in Google Drive was gone (deleted or in the trash), so a new one was created. Share it again for the players.',
+  'league.drive.save': 'Save to Google Drive',
+  'league.drive.saved': 'League saved to Google Drive.',
+  'league.drive.newer':
+    'The file in Google Drive was changed since you last saved it here. Overwrite it?',
+  'league.drive.share': 'Share by link',
+  'league.drive.shareHint':
+    'Sharing by link lets everyone who has the link read this league, including the driver names.',
+  'league.drive.deeplink':
+    'Link for the players (opens SimScoreboard with this league)',
+  'league.drive.deeplink.hint':
+    'Send this link to the players. They are asked once before the league is loaded.',
+  'league.copy': 'Copy link',
+  'league.copied': 'Copied',
+  'league.link.title': 'Open a shared league',
+  'league.link.ask': 'Load a league from {host}?',
+  'league.readOnly': 'Read only',
+  'league.readOnly.hint':
+    'This league is shared by its organizer. You can view it but not change it; it is updated from the source whenever you open it.',
+  'league.refresh.busy': 'Updating…',
+  'league.refresh.failed':
+    'The league could not be updated, the last copy is shown: {message}',
+  'league.open.replaceConfirm':
+    'This league is already here with changes that are not saved. Replace it with the file?',
+  'league.link.load': 'Load league',
+  'league.link.cancel': 'Cancel',
+  'league.drive.shared':
+    'Everyone with the link can now read the league. Send them the link.',
+  'league.drive.link': 'Link to the league file',
+  'league.drive.notSetUp':
+    'Google Drive is not set up on this site. Use a plain https address.',
+  'league.saveToFile': 'Save',
+  'league.saveAs': 'Save as…',
+  'league.saveFailed': 'The file could not be saved: {message}',
+  'league.file': 'Saved to the file {name} on this computer.',
+  'league.source': 'Loaded from {url}',
+  'league.refresh': 'Update from address',
+  'league.refreshed': 'League updated from the address.',
+  'league.refreshConfirm':
+    'Replace this league with the newest version from the address? Changes made here are lost.',
+  'league.address': 'Address of a league file (https://…)',
+  'league.address.open': 'Open from address',
+  'league.address.invalid': 'the address must start with https://',
+  'league.address.hint':
+    'The page then contacts that server. It has to allow access from other sites.',
   'league.saved': 'League file saved.',
   'league.privacy':
     'The file contains the names of the drivers. Share it only with people who may see them.',

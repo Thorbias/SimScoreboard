@@ -258,8 +258,68 @@ export const de: Record<MessageKey, string> = {
   'league.empty': 'Noch keine Ligen.',
   'league.races': '{n} Läufe',
   'league.delete': 'Liga löschen',
-  'league.deleteConfirm': 'Diese Liga aus diesem Browser löschen?',
+  'league.deleteConfirm':
+    'Diese Liga aus diesem Browser entfernen? Gespeicherte Dateien, auf diesem Rechner oder in einem Cloud-Speicher wie Google Drive, werden nicht gelöscht.',
+  'league.deleteHint':
+    'Löschen entfernt die Liga nur aus diesem Browser. Gespeicherte Dateien, auf diesem Rechner oder im Cloud-Speicher, bleiben unverändert.',
+  'league.unsaved.never':
+    'Diese Liga ist noch nicht gespeichert. Sie existiert nur in diesem Browser, bis du sie als Datei oder in Google Drive speicherst.',
+  'league.unsaved.changed':
+    'Es gibt Änderungen, die noch nicht in der Datei gespeichert sind.',
+  'league.unsaved.go': 'Speichern …',
+  'league.unsaved.short': 'Nicht gespeichert',
   'league.save': 'Als Datei speichern',
+  'league.drive': 'Google Drive',
+  'league.drive.hint':
+    'Beim Speichern in Drive geht die Liga-Datei mit den Fahrernamen an Google. Die App sieht nur Dateien, die sie selbst angelegt hat.',
+  'league.drive.rememberFailed':
+    'Die Liga wurde in Google Drive gespeichert, aber dieser Browser konnte sich die Datei nicht merken: {message}',
+  'league.drive.recreated':
+    'Die Datei in Google Drive war weg (gelöscht oder im Papierkorb), deshalb wurde eine neue angelegt. Gib sie für die Mitspieler erneut frei.',
+  'league.drive.save': 'In Google Drive speichern',
+  'league.drive.saved': 'Liga in Google Drive gespeichert.',
+  'league.drive.newer':
+    'Die Datei in Google Drive wurde geändert, seit du sie hier zuletzt gespeichert hast. Überschreiben?',
+  'league.drive.share': 'Per Link freigeben',
+  'league.drive.shareHint':
+    'Das Freigeben per Link erlaubt jedem mit dem Link, diese Liga zu lesen, auch die Fahrernamen.',
+  'league.drive.deeplink':
+    'Link für die Mitspieler (öffnet SimScoreboard mit dieser Liga)',
+  'league.drive.deeplink.hint':
+    'Schicke den Mitspielern diesen Link. Sie werden vor dem Laden der Liga einmal gefragt.',
+  'league.copy': 'Link kopieren',
+  'league.copied': 'Kopiert',
+  'league.link.title': 'Geteilte Liga öffnen',
+  'league.link.ask': 'Eine Liga von {host} laden?',
+  'league.readOnly': 'Nur lesen',
+  'league.readOnly.hint':
+    'Diese Liga wird vom Organisator geteilt. Du kannst sie ansehen, aber nicht ändern; sie wird bei jedem Öffnen von der Quelle aktualisiert.',
+  'league.refresh.busy': 'Aktualisiere …',
+  'league.refresh.failed':
+    'Die Liga konnte nicht aktualisiert werden, die letzte Kopie wird gezeigt: {message}',
+  'league.open.replaceConfirm':
+    'Diese Liga gibt es hier schon, mit Änderungen, die nicht gespeichert sind. Durch die Datei ersetzen?',
+  'league.link.load': 'Liga laden',
+  'league.link.cancel': 'Abbrechen',
+  'league.drive.shared':
+    'Jeder mit dem Link kann die Liga jetzt lesen. Schicke den Mitspielern den Link.',
+  'league.drive.link': 'Link zur Liga-Datei',
+  'league.drive.notSetUp':
+    'Google Drive ist auf dieser Seite nicht eingerichtet. Nutze eine normale https-Adresse.',
+  'league.saveToFile': 'Speichern',
+  'league.saveAs': 'Speichern unter …',
+  'league.saveFailed': 'Die Datei konnte nicht gespeichert werden: {message}',
+  'league.file': 'Gespeichert in der Datei {name} auf diesem Rechner.',
+  'league.source': 'Geladen von {url}',
+  'league.refresh': 'Von der Adresse aktualisieren',
+  'league.refreshed': 'Liga von der Adresse aktualisiert.',
+  'league.refreshConfirm':
+    'Diese Liga durch die neueste Version von der Adresse ersetzen? Änderungen hier gehen verloren.',
+  'league.address': 'Adresse einer Liga-Datei (https://…)',
+  'league.address.open': 'Von Adresse öffnen',
+  'league.address.invalid': 'die Adresse muss mit https:// beginnen',
+  'league.address.hint':
+    'Die Seite verbindet sich dann mit diesem Server. Er muss den Zugriff von anderen Seiten erlauben.',
   'league.saved': 'Liga-Datei gespeichert.',
   'league.privacy':
     'Die Datei enthält die Namen der Fahrer. Gib sie nur an Personen weiter, die diese Namen sehen dürfen.',

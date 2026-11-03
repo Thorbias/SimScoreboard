@@ -16,6 +16,9 @@ function defaultStorage(): ThemeStorage | null {
   }
 }
 
+/** Without a saved choice the app is dark; "auto" follows the system and is picked in the settings. */
+export const DEFAULT_THEME_SETTING: ThemeSetting = 'dark';
+
 export function isThemeSetting(value: unknown): value is ThemeSetting {
   return value === 'auto' || value === 'light' || value === 'dark';
 }
@@ -38,7 +41,7 @@ export function loadThemeSetting(
   storage: ThemeStorage | null = defaultStorage(),
 ): ThemeSetting {
   try {
-    if (!storage) return 'auto';
+    if (!storage) return DEFAULT_THEME_SETTING;
     const value = storage.getItem(STORAGE_KEY);
     if (isThemeSetting(value)) return value;
     const legacy = storage.getItem(LEGACY_STORAGE_KEY);
@@ -47,9 +50,9 @@ export function loadThemeSetting(
       storage.removeItem(LEGACY_STORAGE_KEY);
       return legacy;
     }
-    return 'auto';
+    return DEFAULT_THEME_SETTING;
   } catch {
-    return 'auto';
+    return DEFAULT_THEME_SETTING;
   }
 }
 

@@ -26,15 +26,19 @@
   height: 100%;
 }
 
+/* Both panes scroll, so they clip at their edges. The focus ring (2px, offset
+   2px) of a field at the edge needs room, which the negative margin gives back
+   so the layout does not move. */
 .master,
 .detail {
   min-height: 0;
   overflow-y: auto;
-  padding-bottom: 32px;
+  padding: 0 4px 32px;
+  margin: 0 -4px;
 }
 
 .master {
-  padding-right: 6px;
+  padding-right: 10px;
 }
 
 .detail-empty {
@@ -314,7 +318,8 @@ button.track-row:hover {
   .master,
   .detail {
     overflow: visible;
-    padding-bottom: 0;
+    padding: 0;
+    margin: 0;
   }
 
   .split.has-session .master,
