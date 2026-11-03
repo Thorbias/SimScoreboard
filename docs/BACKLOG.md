@@ -18,7 +18,7 @@ Aufzeichnung einschalten, eine Session fahren, die Datei nach `samples/` legen
 (siehe [samples/README.md](../samples/README.md)). Gebaut und in Abnahme sind
 Bestzeiten, Favoriten und Streckenland (Punkte 5 und 8). Das Design mit
 Pit-Orange steht ([ADR-0005](decisions/ADR-0005-design-tokens-und-markenakzent.md)).
-Die Liga Version 1 (Organisator) ist abgenommen und auf `dev`; als Nächstes die Liga im Cloud-Speicher (Punkt 17). Ohne Telemetrie bietet sich außerdem Punkt 13 (Offline-Betrieb) an.
+Die Liga Version 1 (Organisator) und ihr Cloud-Speicher (Datei, Adresse, Google Drive, Link zum Teilen, nur lesbar für Mitspieler) sind gebaut, abgenommen und auf `dev`; offen sind die Prüfungen in Punkt 17. Ohne Telemetrie bietet sich außerdem Punkt 13 (Offline-Betrieb) an.
 
 Noch **nicht entschieden**:
 
@@ -45,4 +45,4 @@ Vorgänger erledigt ist. Details der F-Punkte in [FEATURES.md](FEATURES.md).
 | 13 | Chore | TODO | Offline-Betrieb: Service Worker, der die statischen Dateien zwischenspeichert (NF-002) | – |
 | 14 | Feature | IN PROGRESS | Gebaut, wartet auf Abnahme: F-020 Demo-Daten | – |
 | 16 | Feature | TODO | F-022 Boxenstoppzeiten aus der Telemetrie (keine Schätzung aus Rundenzeiten) | 7 |
-| 17 | Feature | TODO | F-023 Liga im Cloud-Speicher: Datei-Handle merken und Liga aus Adresse öffnen, optional Google Drive ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Cloud-Projekt (Client-ID, API-Key) muss der Betreiber anlegen | – |
+| 17 | Chore | TODO | Liga im Cloud-Speicher prüfen, was noch offen ist ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)): Abruf eines freigegebenen Links ohne Anmeldung von einem zweiten Browser-Profil, Datei-Handle nach einem Browser-Neustart, Verhalten auf einem zweiten Rechner des Organisators. Vor einem Release: Repository-Variablen `GOOGLE_CLIENT_ID` und `GOOGLE_API_KEY` setzen und die Herkunft `https://thorbias.github.io` in der Google Console eintragen | – |

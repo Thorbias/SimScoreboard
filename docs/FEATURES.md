@@ -286,13 +286,12 @@ Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der
 
 ## F-023 — Liga im Cloud-Speicher
 
-Prio S · Status offen · aufbauend auf F-021
+Prio S · Status fertig
 
-Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)). Zwei Stufen, zusammen umgesetzt.
+Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)).
 
-- Stufe 1, ohne Zugangsdaten: „Speichern“ überschreibt dieselbe Datei (das Datei-Handle der Liga wird gemerkt); liegt sie in einem synchronisierten Ordner (zum Beispiel Google Drive für Desktop), verteilt der Cloud-Client sie. Mitspieler öffnen die Liga aus einer Adresse (`https`, Cross-Origin erlaubt), „Aktualisieren“ holt den neuesten Stand. Die Liga ist eine lokale Kopie mit gemerkter Quelle.
-- Stufe 2, optional: Google Drive direkt. Organisator mit Google-Anmeldung (nur Zugriff auf Dateien, die die App selbst anlegt), „In Drive speichern“ legt die Datei an oder aktualisiert sie und fragt vor dem Überschreiben einer neueren Version. Mitspieler fügen den Drive-Link ein, ohne Anmeldung.
-- Drive gibt es nur, wenn Client-ID und API-Key beim Bauen gesetzt sind (Umgebungsvariablen); sonst fehlt es in der Oberfläche, und die Content-Security-Policy bleibt ohne Google-Adressen. So laufen Forks und Selbst-Hoster ohne eigenes Google-Projekt.
-- Den Schreibschutz stellt der Speicher her (Freigabe: nur der Organisator darf bearbeiten).
-- Datenschutz-Hinweis vor dem ersten Speichern in die Cloud und beim Laden aus einer Adresse: die Datei enthält Namen anderer Fahrer und verlässt den Rechner, die Seite verbindet sich nach außen.
-- Voraussetzung für Stufe 2 ist ein Google-Cloud-Projekt des Betreibers (Client-ID, API-Key); die Schritte stehen beim Umsetzungsauftrag.
+- Ohne Zugangsdaten: „Speichern“ überschreibt dieselbe Datei (das Datei-Handle der Liga wird gemerkt, nach einem Neustart fragt der Browser einmal nach Zugriff); liegt sie in einem synchronisierten Ordner (zum Beispiel Google Drive für Desktop), verteilt der Cloud-Client sie. Eine Liga lässt sich auch aus einer `https`-Adresse öffnen und von dort aktualisieren.
+- Google Drive direkt, nur wenn Client-ID und API-Key beim Bauen gesetzt sind (Einrichtung in [LIGA-DRIVE.md](LIGA-DRIVE.md)): Anmeldung mit Google (nur Zugriff auf Dateien, die die App selbst anlegt), „In Google Drive speichern“ legt die Datei an oder aktualisiert sie, fragt vor dem Überschreiben einer geänderten Version und legt eine gelöschte Datei neu an. „Per Link freigeben“ zeigt einen Link auf SimScoreboard, den die Mitspieler öffnen.
+- Mitspieler: Der Link fragt vor dem Laden nach. Die Liga ist eine Kopie mit gemerkter Quelle, **nur lesbar** (Schloss-Symbol) und wird bei jedem Öffnen aktualisiert; sie erscheint nie doppelt.
+- Hinweis „noch nicht gespeichert“ (Banner, Punkte) für neue und geänderte Ligen; eine neue Liga öffnet in den Einstellungen. Löschen entfernt die Liga nur aus dem Browser, nie gespeicherte Dateien.
+- Den Schreibschutz stellt der Speicher her (Freigabe: nur der Organisator darf bearbeiten). Die Liga-Datei enthält Namen anderer Fahrer; die App weist beim Speichern in die Cloud und beim Freigeben darauf hin.

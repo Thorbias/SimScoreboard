@@ -1,6 +1,6 @@
 # ADR-0009: Liga im Cloud-Speicher — Datei-Handle, Adresse und optional Google Drive
 
-- **Status:** Vorgeschlagen (die Annahmen zum Abruf sind noch zu prüfen)
+- **Status:** Angenommen und gebaut (einzelne Annahmen siehe „Noch offen“)
 - **Datum:** 2026-11-02
 
 ## Kontext
@@ -87,13 +87,37 @@ Zugangsdaten und trägt allein.
   Version); Tests laufen gegen einen Fake. Ein echter Lauf gegen Drive ist Teil
   der Abnahme.
 
-## Offen (vor der Umsetzung zu prüfen)
+## Bei der Umsetzung ergänzt
 
-- Liefert Drive eine per Link freigegebene Datei per `alt=media` und API-Key aus
-  dem Browser (CORS, Kontingent)? Sonst brauchen Mitspieler über Drive eine
-  Anmeldung, und Stufe 1 bleibt ihr Weg.
-- Erreicht `drive.file` die vom selben Projekt angelegte Datei auf einem zweiten
-  Rechner?
-- Verhalten, wenn die Datei in Drive gelöscht oder verschoben wird.
-- Ob ein Datei-Handle mit Zugriff nach einem Neustart bei jedem Browser trägt;
+- **Link zur Liga:** „Per Link freigeben“ gibt die Datei frei und zeigt einen Link
+  auf SimScoreboard (`#/league/open/<Datei-ID>`, für andere Adressen
+  `#/league/open?u=<Adresse>`). Die Datei-ID ist kurz und zufällig, eine
+  Komprimierung oder Verschleierung bringt nichts und wurde bewusst nicht gebaut.
+  Ein Link lädt nie von selbst: eine Bestätigungsseite nennt zuerst den Server.
+- **Geteilte Ligen sind nur lesbar.** Eine Liga, die aus einem Link oder einer
+  Adresse kommt, kann nicht bearbeitet werden, wird bei jedem Öffnen von der Quelle
+  aktualisiert (bei Fehlern bleibt die letzte Kopie) und trägt ein Schloss-Symbol.
+- **Keine doppelten Ligen:** Dieselbe Liga (gleiche ID) wird nie zweimal gelistet.
+  Eine Liga des Organisators (Datei, Drive oder ungespeicherte Änderungen) wird
+  beim Öffnen des Links nicht überschrieben.
+- **Vergleich vor dem Überschreiben** über die Revision des Inhalts
+  (`headRevisionId`), nicht über Drives Zähler `version`, der auch beim Freigeben
+  steigt.
+- **Gelöschte Datei:** Ist die Datei in Drive gelöscht oder im Papierkorb, legt das
+  Speichern eine neue an (neue ID, die Freigabe ist neu nötig).
+- **Demo:** Die Verknüpfungen der Demo-Ligen (Datei, Drive) bleiben im
+  Arbeitsspeicher, sonst legt jedes Speichern eine neue Drive-Datei an.
+- **Zustimmung:** Das Google-Fenster hat ein eigenes Häkchen für die Drive-Dateien.
+  Fehlt es, meldet die App das und fragt beim nächsten Mal erneut.
+
+## Noch offen
+
+- **Abruf ohne Anmeldung:** Dass Drive eine per Link freigegebene Datei per
+  `alt=media` und API-Key aus dem Browser ausliefert, ist gebaut, aber noch nicht
+  von Mitspielern in einem zweiten Browser-Profil geprüft.
+- **Zweiter Rechner:** Die Datei-ID merkt sich die App nur im Browser. Ein zweiter
+  Rechner des Organisators legt eine neue Datei an, solange die Liga dort nicht aus
+  der Datei oder dem Ordner stammt. Ob `drive.file` die Datei dort erreichen würde,
+  ist ungeprüft.
+- **Datei-Handle nach einem Neustart:** Ob der Zugriff bei jedem Browser trägt;
   sonst bleibt „Speichern unter“.
