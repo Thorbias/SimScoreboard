@@ -279,9 +279,27 @@ export const de: Record<MessageKey, string> = {
   'league.drive.share': 'Per Link freigeben',
   'league.drive.shareConfirm':
     'Jeder mit dem Link kann diese Liga lesen, auch die Fahrernamen. Fortfahren?',
+  'league.drive.deeplink':
+    'Link für die Mitspieler (öffnet SimScoreboard mit dieser Liga)',
+  'league.drive.deeplink.hint':
+    'Schicke den Mitspielern diesen Link. Sie werden vor dem Laden der Liga einmal gefragt.',
+  'league.copy': 'Link kopieren',
+  'league.copied': 'Kopiert',
+  'league.link.title': 'Geteilte Liga öffnen',
+  'league.link.ask': 'Eine Liga von {host} laden?',
+  'league.readOnly': 'Nur lesen',
+  'league.readOnly.hint':
+    'Diese Liga wird vom Organisator geteilt. Du kannst sie ansehen, aber nicht ändern; sie wird bei jedem Öffnen von der Quelle aktualisiert.',
+  'league.refresh.busy': 'Aktualisiere …',
+  'league.refresh.failed':
+    'Die Liga konnte nicht aktualisiert werden, die letzte Kopie wird gezeigt: {message}',
+  'league.open.replaceConfirm':
+    'Diese Liga gibt es hier schon, mit Änderungen, die nicht gespeichert sind. Durch die Datei ersetzen?',
+  'league.link.load': 'Liga laden',
+  'league.link.cancel': 'Abbrechen',
   'league.drive.shared':
     'Jeder mit dem Link kann die Liga jetzt lesen. Schicke den Mitspielern den Link.',
-  'league.drive.link': 'Link für die Mitspieler:',
+  'league.drive.link': 'Link zur Liga-Datei',
   'league.drive.notSetUp':
     'Google Drive ist auf dieser Seite nicht eingerichtet. Nutze eine normale https-Adresse.',
   'league.saveToFile': 'Speichern',

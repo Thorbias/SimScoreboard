@@ -104,3 +104,46 @@
 .unsaved-dot {
   color: var(--accent);
 }
+
+/* Links */
+
+.league-field.wide {
+  max-width: none;
+}
+
+.copy-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.copy-field input {
+  flex: 1;
+  min-width: 0;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.league-open {
+  max-width: 560px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+/* Read-only league */
+
+.league-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.lock-icon {
+  flex: none;
+  color: var(--muted);
+}

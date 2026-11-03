@@ -78,6 +78,249 @@ export function LeaguePage({
   );
 }
 
+/**
+ * Loads a league from an address or a Drive link and opens it. A league that
+ * came from the same address is replaced by the newest version; any other gets
+ * a copy of its own. Returns the reason when it fails, otherwise null.
+ */
+function useOpenFromAddress() {
+  const { t, leagues, saveLeague, leagueLinks, setLeagueLink } = useApp();
+  return async (input: string): Promise<string | null> => {
+    const driveId = driveFileId(input);
+    if (driveId && !driveConfig) return t('league.drive.notSetUp');
+    // A Drive file is read with the API key; the address kept and compared is
+    // the share link, so the key stays out of the stored data.
+    const url = driveId ? driveShareLink(driveId) : parseLeagueAddress(input);
+    if (!url) return t('league.address.invalid');
+    try {
+      const league = await fetchLeague(
+        driveId && driveConfig
+          ? driveDownloadUrl(driveId, driveConfig.apiKey)
+          : url,
+      );
+      // The same league is never listed twice. One that came from this address
+      // is brought up to date; one the user keeps themselves (saved to a file or
+      // Drive, or with changes) stays untouched; a plain saved copy is replaced.
+      const existing = leagues.find((l) => l.id === league.id);
+      const existingLink = existing ? leagueLinks[existing.id] : undefined;
+      const keep =
+        existing &&
+        existingLink?.url !== url &&
+        (existingLink?.url ||
+          existingLink?.handle ||
+          existingLink?.driveId ||
+          saveState(existing, existingLink?.saved) !== 'saved');
+      if (!keep) {
+        await saveLeague(league);
+        await setLeagueLink(league.id, {
+          url,
+          ...(driveId ? { driveId } : {}),
+          saved: leagueFingerprint(league),
+        });
+      }
+      window.location.hash = routes.league(league.id);
+      return null;
+    } catch (e) {
+      return message(e);
+    }
+  };
+}
+
+/**
+ * Brings a league that was loaded from an address up to date. Returns the
+ * reason when that fails (the last copy then stays), otherwise null.
+ */
+function useRefreshLeague() {
+  const { leagues, leagueLinks, saveLeague, setLeagueLink } = useApp();
+  return async (id: string): Promise<string | null> => {
+    const league = leagues.find((l) => l.id === id);
+    const link = leagueLinks[id];
+    if (!league || !link?.url) return null;
+    try {
+      const fresh = await fetchLeague(
+        link.driveId && driveConfig
+          ? driveDownloadUrl(link.driveId, driveConfig.apiKey)
+          : link.url,
+      );
+      const next = { ...fresh, id };
+      const saved = leagueFingerprint(next);
+      if (saved !== leagueFingerprint(league)) await saveLeague(next);
+      if (saved !== link.saved) await setLeagueLink(id, { ...link, saved });
+      return null;
+    } catch (e) {
+      return message(e);
+    }
+  };
+}
+
+/** What a shared link opens: asks before anything is loaded (ADR-0009). */
+export function LeagueOpenPage({
+  drive,
+  url,
+}: {
+  drive: string | null;
+  url: string | null;
+}) {
+  const { t } = useApp();
+  const openFromAddress = useOpenFromAddress();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const address = drive ?? url ?? '';
+  const valid = drive
+    ? driveConfig !== null
+    : parseLeagueAddress(address) !== null;
+  const host = drive
+    ? 'drive.google.com'
+    : parseLeagueAddress(address)
+      ? new URL(address).host
+      : '';
+
+  const load = async () => {
+    setBusy(true);
+    setError(null);
+    const failure = await openFromAddress(address);
+    setBusy(false);
+    if (failure) setError(t('league.openFailed', { message: failure }));
+  };
+
+  return (
+    <div className="league-open">
+      <h2>{t('league.link.title')}</h2>
+      {valid ? (
+        <>
+          <p>{t('league.link.ask', { host })}</p>
+          <p>
+            <button
+              className="primary"
+              disabled={busy}
+              onClick={() => void load()}
+            >
+              {t('league.link.load')}
+            </button>{' '}
+            <button onClick={() => (window.location.hash = routes.league())}>
+              {t('league.link.cancel')}
+            </button>
+          </p>
+        </>
+      ) : (
+        <>
+          <p className="notice error">
+            {drive ? t('league.drive.notSetUp') : t('league.address.invalid')}
+          </p>
+          <p>
+            <a href={routes.league()}>{t('league.title')}</a>
+          </p>
+        </>
+      )}
+      {error && <p className="notice error">{error}</p>}
+    </div>
+  );
+}
+
+/** A read-only line with the full text and a button that copies it. */
+function CopyField({ value, label }: { value: string; label: string }) {
+  const { t } = useApp();
+  const input = useRef<HTMLInputElement>(null);
+  const [copied, setCopied] = useState(false);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // No clipboard access: select the text so it can be copied by hand.
+      input.current?.select();
+    }
+  };
+  return (
+    <span className="copy-field">
+      <input
+        ref={input}
+        readOnly
+        className="league-formula"
+        value={value}
+        aria-label={label}
+        onFocus={(e) => e.currentTarget.select()}
+      />
+      <button
+        className="icon-button"
+        onClick={() => void copy()}
+        title={copied ? t('league.copied') : t('league.copy')}
+        aria-label={copied ? t('league.copied') : t('league.copy')}
+      >
+        {copied ? (
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path
+              d="M5 12.5l4.5 4.5L19 7.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <rect
+              x="9"
+              y="9"
+              width="11"
+              height="11"
+              rx="2"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            />
+            <path
+              d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+          </svg>
+        )}
+      </button>
+    </span>
+  );
+}
+
+/** A closed padlock: the league can be viewed but not changed. */
+function LockIcon({ title }: { title: string }) {
+  return (
+    <svg
+      className="lock-icon"
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      role="img"
+      aria-label={title}
+    >
+      <title>{title}</title>
+      <rect
+        x="5"
+        y="11"
+        width="14"
+        height="9"
+        rx="2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M8 11V8a4 4 0 0 1 8 0v3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+/** The address of this site, so a shared link works wherever it is hosted. */
+const appUrl = () => window.location.origin + window.location.pathname;
+
 function LeagueList({
   leagues,
   selectedId,
@@ -86,6 +329,7 @@ function LeagueList({
   selectedId: string | null;
 }) {
   const { t, saveLeague, leagueLinks, setLeagueLink } = useApp();
+  const openFromAddress = useOpenFromAddress();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
@@ -107,65 +351,31 @@ function LeagueList({
     setError(null);
     try {
       const league = parseLeague(await file.text());
-      // A copy under a new id, so opening a file never replaces a league of the
-      // same name that was changed here.
-      const copy = leagues.some((l) => l.id === league.id)
-        ? { ...league, id: newId('league') }
-        : league;
-      await saveLeague(copy);
-      await setLeagueLink(copy.id, { saved: leagueFingerprint(copy) });
-      window.location.hash = routes.league(copy.id);
+      // The same league is never listed twice: the file replaces it, after a
+      // question when the one here has changes that are not saved.
+      const existing = leagues.find((l) => l.id === league.id);
+      if (
+        existing &&
+        saveState(existing, leagueLinks[existing.id]?.saved) !== 'saved' &&
+        !window.confirm(t('league.open.replaceConfirm'))
+      ) {
+        return;
+      }
+      await saveLeague(league);
+      await setLeagueLink(league.id, { saved: leagueFingerprint(league) });
+      window.location.hash = routes.league(league.id);
     } catch (e) {
       setError(t('league.openFailed', { message: message(e) }));
     }
   };
 
-  // Loads a league from an address. A league that came from the same address
-  // is replaced by the newest version; any other gets a copy of its own.
   const openAddress = async () => {
-    const driveId = driveFileId(address);
-    if (driveId && !driveConfig) {
-      setError(t('league.openFailed', { message: t('league.drive.notSetUp') }));
-      return;
-    }
-    // A Drive link is read with the API key; the link shown and compared is
-    // the share link, the key stays out of the stored data.
-    const url = driveId ? driveShareLink(driveId) : parseLeagueAddress(address);
-    if (!url) {
-      setError(
-        t('league.openFailed', { message: t('league.address.invalid') }),
-      );
-      return;
-    }
     setError(null);
     setLoading(true);
-    try {
-      const league = await fetchLeague(
-        driveId && driveConfig
-          ? driveDownloadUrl(driveId, driveConfig.apiKey)
-          : url,
-      );
-      const same = leagues.some(
-        (l) => l.id === league.id && leagueLinks[l.id]?.url === url,
-      );
-      const copy =
-        same || !leagues.some((l) => l.id === league.id)
-          ? league
-          : { ...league, id: newId('league') };
-      await saveLeague(copy);
-      await setLeagueLink(copy.id, {
-        ...leagueLinks[copy.id],
-        url,
-        ...(driveId ? { driveId } : {}),
-        saved: leagueFingerprint(copy),
-      });
-      setAddress('');
-      window.location.hash = routes.league(copy.id);
-    } catch (e) {
-      setError(t('league.openFailed', { message: message(e) }));
-    } finally {
-      setLoading(false);
-    }
+    const failure = await openFromAddress(address);
+    setLoading(false);
+    if (failure) setError(t('league.openFailed', { message: failure }));
+    else setAddress('');
   };
 
   return (
@@ -235,14 +445,18 @@ function LeagueList({
               >
                 <strong>{l.name}</strong>
                 <span className="muted">
-                  {saveState(l, leagueLinks[l.id]?.saved) !== 'saved' && (
-                    <span
-                      className="unsaved-dot"
-                      title={t('league.unsaved.short')}
-                    >
-                      ●{' '}
-                    </span>
-                  )}
+                  {leagueLinks[l.id]?.url && (
+                    <LockIcon title={t('league.readOnly')} />
+                  )}{' '}
+                  {!leagueLinks[l.id]?.url &&
+                    saveState(l, leagueLinks[l.id]?.saved) !== 'saved' && (
+                      <span
+                        className="unsaved-dot"
+                        title={t('league.unsaved.short')}
+                      >
+                        ●{' '}
+                      </span>
+                    )}
                   {t('league.races', { n: l.races.length })}
                 </span>
               </a>
@@ -262,11 +476,33 @@ function LeagueDetail({
   initialTab: Tab;
 }) {
   const { t, saveLeague, leagueLinks, demo } = useApp();
+  const link = leagueLinks[league.id];
+  // A league that came from a link is a copy of the organizer's: it is shown,
+  // not changed, and brought up to date whenever it is opened.
+  const readOnly = Boolean(link?.url);
+  const tabs = readOnly ? TABS.filter((id) => id !== 'drivers') : TABS;
   const [tab, setTab] = useState<Tab>(initialTab);
+  const refreshLeague = useRefreshLeague();
+  const refreshRef = useRef(refreshLeague);
+  useEffect(() => {
+    refreshRef.current = refreshLeague;
+  });
+  const [refreshing, setRefreshing] = useState(readOnly);
+  const [refreshError, setRefreshError] = useState<string | null>(null);
+  useEffect(() => {
+    if (!readOnly) return;
+    let current = true;
+    void refreshRef.current(league.id).then((failure) => {
+      if (!current) return;
+      setRefreshError(failure);
+      setRefreshing(false);
+    });
+    return () => {
+      current = false;
+    };
+  }, [league.id, readOnly]);
   // The demo keeps nothing, so there is nothing to remind of.
-  const state = demo
-    ? 'saved'
-    : saveState(league, leagueLinks[league.id]?.saved);
+  const state = demo || readOnly ? 'saved' : saveState(league, link?.saved);
   const standings = useMemo(() => computeStandings(league), [league]);
   const change = (next: League) => void saveLeague(next);
 
@@ -276,6 +512,20 @@ function LeagueDetail({
         ← {t('league.title')}
       </a>
       <h3>{league.name}</h3>
+      {readOnly && (
+        <p className="hint league-badge">
+          <LockIcon title={t('league.readOnly')} />
+          <span>
+            <strong>{t('league.readOnly')}</strong> {t('league.readOnly.hint')}{' '}
+            {refreshing && t('league.refresh.busy')}
+          </span>
+        </p>
+      )}
+      {refreshError && (
+        <p className="notice error">
+          {t('league.refresh.failed', { message: refreshError })}
+        </p>
+      )}
       {state !== 'saved' && (
         <div className="notice unsaved" role="status">
           <span>
@@ -291,7 +541,7 @@ function LeagueDetail({
         </div>
       )}
       <div className="tabs" role="tablist">
-        {TABS.map((id) => (
+        {tabs.map((id) => (
           <button
             key={id}
             role="tab"
@@ -311,10 +561,14 @@ function LeagueDetail({
       {tab === 'standings' && (
         <StandingsTab league={league} standings={standings} />
       )}
-      {tab === 'races' && <RacesTab league={league} change={change} />}
-      {tab === 'drivers' && <DriversTab league={league} change={change} />}
+      {tab === 'races' && (
+        <RacesTab league={league} change={change} readOnly={readOnly} />
+      )}
+      {tab === 'drivers' && !readOnly && (
+        <DriversTab league={league} change={change} />
+      )}
       {tab === 'corrections' && (
-        <CorrectionsTab league={league} change={change} />
+        <CorrectionsTab league={league} change={change} readOnly={readOnly} />
       )}
       {tab === 'settings' && <SettingsTab league={league} change={change} />}
     </>
@@ -399,9 +653,11 @@ function StandingsLine({ row, rank }: { row: StandingsRow; rank: number }) {
 function RacesTab({
   league,
   change,
+  readOnly,
 }: {
   league: League;
   change: (next: League) => void;
+  readOnly: boolean;
 }) {
   const { t, sessions, language, loadSession } = useApp();
   const [pick, setPick] = useState('');
@@ -454,37 +710,47 @@ function RacesTab({
       <ol className="league-races">
         {league.races.map((race, i) => (
           <li key={race.id}>
-            <input
-              value={race.name}
-              aria-label={t('league.raceName')}
-              onChange={(e) => rename(i, e.target.value)}
-            />
+            {readOnly ? (
+              <strong>{race.name}</strong>
+            ) : (
+              <input
+                value={race.name}
+                aria-label={t('league.raceName')}
+                onChange={(e) => rename(i, e.target.value)}
+              />
+            )}
             <span className="muted">
               {race.track}
               {race.date ? ` · ${formatDate(race.date, language)}` : ''}
             </span>
-            <button
-              disabled={i === 0}
-              onClick={() => move(i, -1)}
-              aria-label={t('league.moveUp')}
-              title={t('league.moveUp')}
-            >
-              ↑
-            </button>
-            <button
-              disabled={i === league.races.length - 1}
-              onClick={() => move(i, 1)}
-              aria-label={t('league.moveDown')}
-              title={t('league.moveDown')}
-            >
-              ↓
-            </button>
-            <button onClick={() => remove(i)}>{t('league.removeRace')}</button>
+            {!readOnly && (
+              <>
+                <button
+                  disabled={i === 0}
+                  onClick={() => move(i, -1)}
+                  aria-label={t('league.moveUp')}
+                  title={t('league.moveUp')}
+                >
+                  ↑
+                </button>
+                <button
+                  disabled={i === league.races.length - 1}
+                  onClick={() => move(i, 1)}
+                  aria-label={t('league.moveDown')}
+                  title={t('league.moveDown')}
+                >
+                  ↓
+                </button>
+                <button onClick={() => remove(i)}>
+                  {t('league.removeRace')}
+                </button>
+              </>
+            )}
           </li>
         ))}
       </ol>
-      <h4>{t('league.addRace')}</h4>
-      {available.length === 0 ? (
+      {!readOnly && <h4>{t('league.addRace')}</h4>}
+      {readOnly ? null : available.length === 0 ? (
         <p className="hint">{t('league.addRaceNone')}</p>
       ) : (
         <p className="league-add">
@@ -510,7 +776,7 @@ function RacesTab({
           </button>
         </p>
       )}
-      {error && <p className="notice error">{error}</p>}
+      {!readOnly && error && <p className="notice error">{error}</p>}
     </>
   );
 }
@@ -583,9 +849,11 @@ const KINDS: CorrectionKind[] = [
 function CorrectionsTab({
   league,
   change,
+  readOnly,
 }: {
   league: League;
   change: (next: League) => void;
+  readOnly: boolean;
 }) {
   const { t } = useApp();
   const standings = useMemo(() => computeStandings(league), [league]);
@@ -658,18 +926,20 @@ function CorrectionsTab({
                   </td>
                   <td>{c.reason}</td>
                   <td>
-                    <button
-                      onClick={() =>
-                        change({
-                          ...league,
-                          corrections: league.corrections.filter(
-                            (x) => x.id !== c.id,
-                          ),
-                        })
-                      }
-                    >
-                      {t('league.corr.remove')}
-                    </button>
+                    {!readOnly && (
+                      <button
+                        onClick={() =>
+                          change({
+                            ...league,
+                            corrections: league.corrections.filter(
+                              (x) => x.id !== c.id,
+                            ),
+                          })
+                        }
+                      >
+                        {t('league.corr.remove')}
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -677,7 +947,7 @@ function CorrectionsTab({
           </table>
         </div>
       )}
-      {league.races.length > 0 && people.length > 0 && (
+      {!readOnly && league.races.length > 0 && people.length > 0 && (
         <>
           <h4>{t('league.corr.add')}</h4>
           <form
@@ -762,7 +1032,8 @@ function SettingsTab({
   league: League;
   change: (next: League) => void;
 }) {
-  const { t, deleteLeague, saveLeague, leagueLinks, setLeagueLink } = useApp();
+  const { t, deleteLeague, leagueLinks, setLeagueLink } = useApp();
+  const refreshLeague = useRefreshLeague();
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const check = checkFormula(league.formula);
@@ -813,6 +1084,7 @@ function SettingsTab({
         handle: link?.handle,
         driveId: file.id,
         driveVersion: file.version,
+        ...(file.id === link?.driveId && link.shared ? { shared: true } : {}),
         saved: leagueFingerprint(league),
       });
       setStatus(t('league.drive.saved'));
@@ -829,6 +1101,7 @@ function SettingsTab({
     try {
       const token = await requestDriveToken(driveConfig.clientId);
       await shareDriveFile(token, link.driveId);
+      await setLeagueLink(league.id, { ...link, shared: true });
       setStatus(t('league.drive.shared'));
     } catch (e) {
       setError(t('league.saveFailed', { message: message(e) }));
@@ -836,26 +1109,41 @@ function SettingsTab({
   };
 
   const refresh = async () => {
-    if (!link?.url || !window.confirm(t('league.refreshConfirm'))) return;
     setStatus(null);
     setError(null);
-    try {
-      const fresh = await fetchLeague(
-        link.driveId && driveConfig
-          ? driveDownloadUrl(link.driveId, driveConfig.apiKey)
-          : link.url,
-      );
-      const next = { ...fresh, id: league.id };
-      await saveLeague(next);
-      await setLeagueLink(league.id, {
-        ...link,
-        saved: leagueFingerprint(next),
-      });
-      setStatus(t('league.refreshed'));
-    } catch (e) {
-      setError(t('league.openFailed', { message: message(e) }));
-    }
+    const failure = await refreshLeague(league.id);
+    if (failure) setError(t('league.openFailed', { message: failure }));
+    else setStatus(t('league.refreshed'));
   };
+
+  if (link?.url) {
+    return (
+      <>
+        <p className="hint">{t('league.readOnly.hint')}</p>
+        <p className="hint">{t('league.source', { url: link.url })}</p>
+        <p>
+          <strong>{t('league.formula')}:</strong>{' '}
+          <code className="league-formula">{league.formula}</code>
+        </p>
+        <p>
+          <button onClick={() => void refresh()}>{t('league.refresh')}</button>{' '}
+          <button
+            onClick={() => {
+              if (window.confirm(t('league.deleteConfirm'))) {
+                void deleteLeague(league.id);
+                window.location.hash = routes.league();
+              }
+            }}
+          >
+            {t('league.delete')}
+          </button>
+        </p>
+        <p className="hint">{t('league.deleteHint')}</p>
+        {status && <p className="hint">{status}</p>}
+        {error && <p className="notice error">{error}</p>}
+      </>
+    );
+  }
 
   return (
     <>
@@ -900,16 +1188,13 @@ function SettingsTab({
           <h4>{t('league.drive')}</h4>
           <p className="hint">{t('league.drive.hint')}</p>
           {link?.driveId && !link.url && (
-            <p className="hint">
-              {t('league.drive.link')}{' '}
-              <input
-                readOnly
-                className="league-formula"
+            <div className="league-field wide">
+              {t('league.drive.link')}
+              <CopyField
                 value={driveShareLink(link.driveId)}
-                aria-label={t('league.drive.link')}
-                onFocus={(e) => e.currentTarget.select()}
+                label={t('league.drive.link')}
               />
-            </p>
+            </div>
           )}
           <p>
             <button onClick={() => void saveDrive()}>
@@ -921,6 +1206,16 @@ function SettingsTab({
               </button>
             )}
           </p>
+          {link?.driveId && !link.url && link.shared && (
+            <div className="league-field wide">
+              {t('league.drive.deeplink')}
+              <CopyField
+                value={appUrl() + routes.leagueOpenDrive(link.driveId)}
+                label={t('league.drive.deeplink')}
+              />
+              <span className="hint">{t('league.drive.deeplink.hint')}</span>
+            </div>
+          )}
         </>
       )}
       <p>
@@ -931,13 +1226,6 @@ function SettingsTab({
           <>
             <button onClick={() => void save(true)}>
               {t('league.saveAs')}
-            </button>{' '}
-          </>
-        )}
-        {link?.url && (
-          <>
-            <button onClick={() => void refresh()}>
-              {t('league.refresh')}
             </button>{' '}
           </>
         )}

@@ -272,9 +272,27 @@ export const en = {
   'league.drive.share': 'Share by link',
   'league.drive.shareConfirm':
     'Everyone who has the link will be able to read this league, including the driver names. Continue?',
+  'league.drive.deeplink':
+    'Link for the players (opens SimScoreboard with this league)',
+  'league.drive.deeplink.hint':
+    'Send this link to the players. They are asked once before the league is loaded.',
+  'league.copy': 'Copy link',
+  'league.copied': 'Copied',
+  'league.link.title': 'Open a shared league',
+  'league.link.ask': 'Load a league from {host}?',
+  'league.readOnly': 'Read only',
+  'league.readOnly.hint':
+    'This league is shared by its organizer. You can view it but not change it; it is updated from the source whenever you open it.',
+  'league.refresh.busy': 'Updating…',
+  'league.refresh.failed':
+    'The league could not be updated, the last copy is shown: {message}',
+  'league.open.replaceConfirm':
+    'This league is already here with changes that are not saved. Replace it with the file?',
+  'league.link.load': 'Load league',
+  'league.link.cancel': 'Cancel',
   'league.drive.shared':
     'Everyone with the link can now read the league. Send them the link.',
-  'league.drive.link': 'Link for the players:',
+  'league.drive.link': 'Link to the league file',
   'league.drive.notSetUp':
     'Google Drive is not set up on this site. Use a plain https address.',
   'league.saveToFile': 'Save',

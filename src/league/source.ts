@@ -13,6 +13,8 @@ export interface LeagueLink {
   driveVersion?: string;
   /** Fingerprint of the league when it was last saved or loaded (file.ts). */
   saved?: string;
+  /** The Drive file has been shared by link. */
+  shared?: boolean;
 }
 
 type FetchLike = (
