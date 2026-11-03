@@ -589,6 +589,16 @@ function StandingsTab({
       </p>
     );
   }
+  if (standings.singleStarter) {
+    return (
+      <p className="notice error">
+        {t('league.singleStarter', {
+          race: standings.singleStarter.race,
+          carClass: standings.singleStarter.carClass,
+        })}
+      </p>
+    );
+  }
   if (league.races.length === 0) {
     return <p className="empty">{t('league.noRaces')}</p>;
   }
@@ -1185,6 +1195,8 @@ function SettingsTab({
         </p>
       )}
       <p className="hint">{t('league.formula.help')}</p>
+      <p className="hint">{t('league.formula.example1')}</p>
+      <p className="hint">{t('league.formula.example2')}</p>
 
       <h4>{t('league.save')}</h4>
       <p className="hint">{t('league.privacy')}</p>

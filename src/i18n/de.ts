@@ -10,9 +10,9 @@ export const de: Record<MessageKey, string> = {
   'folder.choose': 'Ordner wählen',
   'folder.change': 'Ordner wechseln',
   'folder.reconnect': 'Ordner neu verbinden',
-  'folder.chooseResults': 'Results-Ordner wählen',
+  'folder.chooseResults': 'UserData-Ordner wählen',
   'folder.hint':
-    'Wähle den Ordner von Le Mans Ultimate, den Ordner UserData oder den Ordner Results. Deine Dateien verlassen diesen Rechner nie.',
+    'Wähle den Ordner UserData von Le Mans Ultimate, zum Beispiel SteamLibrary\\steamapps\\common\\Le Mans Ultimate\\UserData. Deine Dateien verlassen diesen Rechner nie.',
   'folder.reconnectHint':
     'Erlaube den Zugriff auf deinen Ordner erneut, um Sessions zu öffnen.',
   'folder.noResults': 'In diesem Ordner wurden keine Result-Dateien gefunden.',
@@ -337,6 +337,8 @@ export const de: Record<MessageKey, string> = {
   'league.corrected': 'Korrigiert',
   'league.dsq': 'DSQ',
   'league.formulaError': 'Die Formel hat einen Fehler: {message}',
+  'league.singleStarter':
+    '{race}, Klasse {carClass}: Ungültig, da nur ein Fahrer in der Wertung eingetragen ist. Ein gültiges Rennen erfordert mindestens zwei Teilnehmer.',
   'league.addRace': 'Lauf hinzufügen',
   'league.addRacePick': 'Rennen-Session wählen',
   'league.addRaceNone': 'Es gibt keine weiteren Rennen zum Hinzufügen.',
@@ -368,7 +370,11 @@ export const de: Record<MessageKey, string> = {
   'league.corr.remove': 'Entfernen',
   'league.formula': 'Punkteformel',
   'league.formula.help':
-    'Wird für jeden Fahrer und Lauf berechnet. Variablen: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Funktionen: if, min, max, round, floor, ceil, abs. Beispiel: if(position <= 10, 11 - position, 0) + fastestLap',
+    'Wird für jeden Fahrer und Lauf berechnet. Variablen: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Funktionen: if, min, max, round, floor, ceil, abs.',
+  'league.formula.example1':
+    'Beispiel 1 (voreingestellt): floor(40 * (1 - (position - 1) / (starters - 1))) + 10. Der Sieger bekommt 50 Punkte, der Letzte 10, dazwischen verteilen sich die Punkte gleichmäßig nach Platz. Mit 10 Startern ergibt das 50, 45, 41, 36, 32, 27, 23, 19, 14, 10. floor rundet auf ganze Punkte ab. Bei nur einem Starter in einer Klasse ist der Lauf ungültig, weil durch starters - 1 geteilt wird.',
+  'league.formula.example2':
+    'Beispiel 2: if(position <= 10, 11 - position, 0) + fastestLap. Die ersten zehn Plätze bekommen 10 bis 1 Punkt (Platz 1 zehn Punkte, Platz 10 einen Punkt), alle dahinter keinen. Dazu gibt es 1 Punkt für die schnellste Runde der Klasse.',
   'league.formula.ok': 'Die Formel ist gültig.',
   'league.formula.at': 'Stelle {position}',
   'league.name': 'Name der Liga',

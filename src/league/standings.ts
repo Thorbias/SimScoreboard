@@ -29,6 +29,11 @@ export interface ClassStandings {
 export interface Standings {
   /** Message of a formula error; the tables are empty then. */
   error: string | null;
+  /**
+   * A race with a single starter in a class, where the formula divides by
+   * zero. The race does not count as valid; the tables are empty then.
+   */
+  singleStarter: { race: string; carClass: string } | null;
   classes: ClassStandings[];
 }
 
@@ -134,6 +139,16 @@ function rankRace(
   return { order, disqualified, changed };
 }
 
+/** Thrown inside the calculation when the formula cannot rate a lone starter. */
+class SingleStarterError extends Error {
+  constructor(
+    readonly race: string,
+    readonly carClass: string,
+  ) {
+    super('Single starter');
+  }
+}
+
 /** Calculates the standings of a league (ADR-0007). */
 export function computeStandings(league: League): Standings {
   let formula;
@@ -141,7 +156,7 @@ export function computeStandings(league: League): Standings {
     formula = compileFormula(league.formula);
   } catch (error) {
     if (error instanceof FormulaError) {
-      return { error: error.message, classes: [] };
+      return { error: error.message, singleStarter: null, classes: [] };
     }
     throw error;
   }
@@ -205,7 +220,20 @@ export function computeStandings(league: League): Standings {
               laps: item.result.laps,
               leaderLaps,
             };
-            points += formula(values);
+            try {
+              points += formula(values);
+            } catch (error) {
+              // A formula like `(starters - 1)` in a divisor cannot rate a
+              // class with one starter: say so instead of "division by zero".
+              if (
+                error instanceof FormulaError &&
+                error.message === 'Division by zero' &&
+                starters < 2
+              ) {
+                throw new SingleStarterError(race.name, carClass);
+              }
+              throw error;
+            }
           }
           const known = row.cells[raceIndex];
           row.cells[raceIndex] = {
@@ -234,10 +262,17 @@ export function computeStandings(league: League): Standings {
         ),
       };
     });
-    return { error: null, classes };
+    return { error: null, singleStarter: null, classes };
   } catch (error) {
+    if (error instanceof SingleStarterError) {
+      return {
+        error: null,
+        singleStarter: { race: error.race, carClass: error.carClass },
+        classes: [],
+      };
+    }
     if (error instanceof FormulaError) {
-      return { error: error.message, classes: [] };
+      return { error: error.message, singleStarter: null, classes: [] };
     }
     throw error;
   }

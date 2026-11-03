@@ -120,6 +120,19 @@ Zugangsdaten und trägt allein.
   besorgen sie sich selbst (zum Beispiel per Drive-Synchronisation) und öffnen sie
   lokal. Das ist akzeptiert.
 
+- **Google sperrt den Abruf zeitweise (2026-11-03):** Nach vielen Abrufen derselben
+  Datei von einer Netzwerkadresse antwortete `files.get?alt=media` mit einer
+  HTML-Sperrseite („automated queries“, 403, ohne Freigabe für andere Seiten); der
+  Browser sah nur einen Netzwerkfehler. Die Metadaten mit demselben Schlüssel gingen
+  weiter, und nach einiger Zeit ging auch der Abruf wieder. Die App meldet das
+  jetzt mit den möglichen Ursachen (nicht freigegeben, gelöscht, Sperre). Als
+  Ausweg getestet und **verworfen**: die Download-Adresse von Drive
+  (`drive.usercontent.google.com/download?id=…`) liefert zwar mit
+  `Access-Control-Allow-Origin: *`, antwortet aber auf einen Abruf von einer
+  anderen Seite (`Sec-Fetch-Site: cross-site`) mit 403; im Browser ist sie nicht
+  nutzbar. Offen bleibt, wie belastbar der Abruf mit Schlüssel für viele
+  Mitspieler ist (die Sperre gilt je Netzwerkadresse).
+
 ## Noch offen
 
 - **Gesicherte Dateien über den Google Picker:** Nur bei echtem Bedarf. Der

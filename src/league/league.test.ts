@@ -136,8 +136,29 @@ describe('standings', () => {
     l.formula = '11 - nonsense';
     expect(computeStandings(l)).toEqual({
       error: 'Unknown name "nonsense"',
+      singleStarter: null,
       classes: [],
     });
+  });
+
+  it('names the race when a formula cannot rate a single starter', () => {
+    const l = league();
+    l.formula = '40 * (1 - (position - 1) / (starters - 1)) + 10';
+    expect(computeStandings(l).error).toBeNull();
+    const r1 = l.races[0];
+    if (!r1) throw new Error('missing race');
+    r1.results = [result('Anna Example', 1)];
+    expect(computeStandings(l)).toEqual({
+      error: null,
+      singleStarter: { race: 'Round 1', carClass: 'GT3' },
+      classes: [],
+    });
+  });
+
+  it('keeps reporting a division by zero that has another cause', () => {
+    const l = league();
+    l.formula = '1 / (position - 1)';
+    expect(computeStandings(l).error).toBe('Division by zero');
   });
 
   it('lists the driver names once', () => {

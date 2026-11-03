@@ -48,12 +48,17 @@ export async function fetchLeague(
 ): Promise<League> {
   const url = parseLeagueAddress(address);
   if (!url) throw new LeagueFileError('The address must start with https://');
+  const drive = new URL(url).hostname === 'www.googleapis.com';
   let response;
   try {
     response = await fetchImpl(url, { cache: 'no-store' });
   } catch {
+    // Google answers a blocked download with a page the browser hides from
+    // the site, so it looks like a network failure (ADR-0009).
     throw new LeagueFileError(
-      'The address could not be reached (the server must allow access from other sites)',
+      drive
+        ? 'The file could not be loaded from Google Drive: it must be shared with everyone who has the link and still exist; Google also blocks repeated downloads from one connection for a while (try again later)'
+        : 'The address could not be reached (the server must allow access from other sites)',
     );
   }
   if (!response.ok) {

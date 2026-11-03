@@ -80,4 +80,14 @@ describe('fetchLeague', () => {
     );
     await expect(fetchLeague(drive, answer(500, ''))).rejects.toThrow('500');
   });
+
+  it('explains a Drive download that the browser could not read', async () => {
+    const drive =
+      'https://www.googleapis.com/drive/v3/files/abc?alt=media&key=k';
+    await expect(
+      fetchLeague(drive, async () => {
+        throw new TypeError('Failed to fetch');
+      }),
+    ).rejects.toThrow('blocks repeated downloads');
+  });
 });

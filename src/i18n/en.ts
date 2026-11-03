@@ -8,9 +8,9 @@ export const en = {
   'folder.choose': 'Choose folder',
   'folder.change': 'Change folder',
   'folder.reconnect': 'Reconnect folder',
-  'folder.chooseResults': 'Choose results folder',
+  'folder.chooseResults': 'Choose UserData folder',
   'folder.hint':
-    'Pick your Le Mans Ultimate folder, its UserData folder or the Results folder. Your files never leave this computer.',
+    'Pick the UserData folder of Le Mans Ultimate, for example SteamLibrary\\steamapps\\common\\Le Mans Ultimate\\UserData. Your files never leave this computer.',
   'folder.reconnectHint': 'Allow access to your folder again to open sessions.',
   'folder.noResults': 'No result files were found in that folder.',
 
@@ -330,7 +330,9 @@ export const en = {
   'league.corrected': 'Corrected',
   'league.dsq': 'DSQ',
   'league.formulaError': 'The formula has an error: {message}',
-  'league.addRace': 'Add a race',
+  'league.singleStarter':
+    '{race}, class {carClass}: Invalid, because only one driver is entered in the rating. A valid race needs at least two participants.',
+  'league.addRace':'Add a race',
   'league.addRacePick': 'Choose a race session',
   'league.addRaceNone': 'There are no more race sessions to add.',
   'league.addRaceFailed': 'The session could not be read: {message}',
@@ -361,7 +363,11 @@ export const en = {
   'league.corr.remove': 'Remove',
   'league.formula': 'Points formula',
   'league.formula.help':
-    'Calculated for every driver and race. Variables: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Functions: if, min, max, round, floor, ceil, abs. Example: if(position <= 10, 11 - position, 0) + fastestLap',
+    'Calculated for every driver and race. Variables: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Functions: if, min, max, round, floor, ceil, abs.',
+  'league.formula.example1':
+    'Example 1 (preset): floor(40 * (1 - (position - 1) / (starters - 1))) + 10. The winner gets 50 points, the last place 10, and the points in between are spread evenly by position. With 10 starters that gives 50, 45, 41, 36, 32, 27, 23, 19, 14, 10. floor rounds down to whole points. With a single starter in a class the race is invalid, because the formula divides by starters - 1.',
+  'league.formula.example2':
+    'Example 2: if(position <= 10, 11 - position, 0) + fastestLap. The first ten places get 10 down to 1 point (first place ten points, tenth place one point), everyone behind gets none. On top there is 1 point for the fastest lap of the class.',
   'league.formula.ok': 'The formula is valid.',
   'league.formula.at': 'Position {position}',
   'league.name': 'Name of the league',

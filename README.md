@@ -52,7 +52,7 @@ npm run check   # typecheck, lint, tests and build
 ```
 
 Open the page in a Chromium browser (Chrome, Edge) and choose your Le Mans
-Ultimate folder, its `UserData` folder or the `Results` folder. Other browsers
+Ultimate `UserData` folder (for example `SteamLibrarysteamappsmmone mans ultimateSERDATA`). OTHER BROWSERS
 can pick the folder with a file dialog, but cannot remember it.
 
 The Google Drive connection for leagues is optional and off by default. To turn

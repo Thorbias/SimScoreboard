@@ -95,7 +95,11 @@ fremden Datei darf nichts anderes können als rechnen).
   Position im Text. Unbekannte Namen, falsche Argumentzahlen und Division durch null
   sind Fehler, kein stilles `NaN`.
 - Das Ergebnis eines Laufs wird nicht gerundet; wer ganze Punkte will, schreibt `round`.
-- Beispiel: `if(position <= 10, 11 - position, 0) + fastestLap`
+- Voreinstellung einer neuen Liga: `floor(40 * (1 - (position - 1) / (starters - 1))) + 10`
+  (Sieger 50, Letzter 10, gleichmäßig nach Platz, ganze Punkte). Bei einem einzelnen
+  Starter in einer Klasse teilt sie durch null; die Auswertung meldet dann den Lauf als
+  ungültig (mindestens zwei Teilnehmer nötig).
+- Zweites Beispiel: `if(position <= 10, 11 - position, 0) + fastestLap`
 
 Vorlagen, aus denen der Organisator wählt, kommen später als Texte für dasselbe Feld.
 

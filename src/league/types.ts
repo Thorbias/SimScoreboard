@@ -74,4 +74,4 @@ export interface League {
 }
 
 export const DEFAULT_FORMULA =
-  'if(position <= 10, 11 - position, 0) + fastestLap';
+  'floor(40 * (1 - (position - 1) / (starters - 1))) + 10';
