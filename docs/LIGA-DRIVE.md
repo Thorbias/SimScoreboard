@@ -53,7 +53,11 @@ Anmelde-Skript (`accounts.google.com`); ohne sie bleibt sie wie bisher.
 - **Organisator:** Liga → Einstellungen → „In Google Drive speichern“ (Anmeldung mit
   Google, nur für die Dateien, die die App selbst anlegt). Danach „Per Link
   freigeben“ und den angezeigten Link an die Mitspieler schicken. Die Freigabe
-  gilt für jeden mit dem Link und nur zum Lesen.
+  gilt für jeden mit dem Link und nur zum Lesen. Nur diese Freigabe funktioniert
+  in der App: Gibst du die Datei in Drive nur bestimmten Personen frei, meldet die
+  App beim Öffnen, dass die Datei nicht per Link freigegeben ist (Google antwortet
+  mit 404). Dann müssen die Mitspieler die Datei selbst besorgen (zum Beispiel
+  per Drive-Synchronisation) und lokal öffnen.
 - **Mitspieler:** Liga → Adresse oder Drive-Link einfügen → „Von Adresse öffnen“.
   „Von der Adresse aktualisieren“ in den Einstellungen holt den neuesten Stand.
 - Die Datei-ID merkt sich die App nur in diesem Browser. Ein zweiter Rechner des

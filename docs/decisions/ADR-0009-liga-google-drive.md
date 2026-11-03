@@ -110,11 +110,24 @@ Zugangsdaten und trägt allein.
 - **Zustimmung:** Das Google-Fenster hat ein eigenes Häkchen für die Drive-Dateien.
   Fehlt es, meldet die App das und fragt beim nächsten Mal erneut.
 
+- **Nur „Jeder mit dem Link“ (geprüft 2026-11-03):** Drive liefert eine so
+  freigegebene Datei per `alt=media` und API-Key ohne Anmeldung aus. Bei einer
+  eingeschränkten Freigabe (nur bestimmte Personen) antwortet Google mit 404, auch
+  wenn der Mitspieler bei Google angemeldet ist: die Seite sieht diese Anmeldung
+  nicht, und selbst ein Token mit `drive.file` erreicht keine fremde Datei. Die App
+  meldet das verständlich und weist beim Freigeben darauf hin. Wer nicht öffentlich
+  per Link teilen will, gibt die Datei bestimmten Personen frei, und die Mitspieler
+  besorgen sie sich selbst (zum Beispiel per Drive-Synchronisation) und öffnen sie
+  lokal. Das ist akzeptiert.
+
 ## Noch offen
 
-- **Abruf ohne Anmeldung:** Dass Drive eine per Link freigegebene Datei per
-  `alt=media` und API-Key aus dem Browser ausliefert, ist gebaut, aber noch nicht
-  von Mitspielern in einem zweiten Browser-Profil geprüft.
+- **Gesicherte Dateien über den Google Picker:** Nur bei echtem Bedarf. Der
+  Mitspieler meldet sich in der App an und wählt die Datei im Picker aus (Scope
+  `drive.file` gilt dann für diese Datei). Aufwand: Picker-API im Cloud-Projekt,
+  Projektnummer als weiterer Konfigurationswert, `apis.google.com` in der
+  Content-Security-Policy, Testnutzer im Teststatus; ungeklärt, ob die Berechtigung
+  ohne erneute Auswahl bleibt.
 - **Zweiter Rechner:** Die Datei-ID merkt sich die App nur im Browser. Ein zweiter
   Rechner des Organisators legt eine neue Datei an, solange die Liga dort nicht aus
   der Datei oder dem Ordner stammt. Ob `drive.file` die Datei dort erreichen würde,

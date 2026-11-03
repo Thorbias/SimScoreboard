@@ -68,4 +68,16 @@ describe('fetchLeague', () => {
       fetchLeague('https://example.org/l.json', answer(200, '{"a":1}')),
     ).rejects.toThrow();
   });
+
+  it('explains a Drive file that is not shared by link', async () => {
+    const drive =
+      'https://www.googleapis.com/drive/v3/files/abc?alt=media&key=k';
+    await expect(fetchLeague(drive, answer(404, ''))).rejects.toThrow(
+      'not shared with everyone who has the link',
+    );
+    await expect(fetchLeague(drive, answer(403, ''))).rejects.toThrow(
+      'not shared with everyone who has the link',
+    );
+    await expect(fetchLeague(drive, answer(500, ''))).rejects.toThrow('500');
+  });
 });

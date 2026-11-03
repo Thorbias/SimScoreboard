@@ -282,7 +282,7 @@ export const de: Record<MessageKey, string> = {
     'Die Datei in Google Drive wurde geändert, seit du sie hier zuletzt gespeichert hast. Überschreiben?',
   'league.drive.share': 'Per Link freigeben',
   'league.drive.shareHint':
-    'Das Freigeben per Link erlaubt jedem mit dem Link, diese Liga zu lesen, auch die Fahrernamen.',
+    'Das Freigeben per Link erlaubt jedem mit dem Link, diese Liga zu lesen, auch die Fahrernamen. Nur diese Freigabe funktioniert in der App; wer die Datei nur für bestimmte Personen freigibt, muss sie den Mitspielern selbst bereitstellen (zum Beispiel per Drive-Synchronisation).',
   'league.drive.deeplink':
     'Link für die Mitspieler (öffnet SimScoreboard mit dieser Liga)',
   'league.drive.deeplink.hint':

@@ -57,6 +57,16 @@ export async function fetchLeague(
     );
   }
   if (!response.ok) {
+    // Drive answers 404 for a file that is not shared with everyone who has
+    // the link; the key alone cannot read a restricted file (ADR-0009).
+    if (
+      (response.status === 403 || response.status === 404) &&
+      new URL(url).hostname === 'www.googleapis.com'
+    ) {
+      throw new LeagueFileError(
+        `The file is not shared with everyone who has the link, or no longer exists (the server answered with ${response.status})`,
+      );
+    }
     throw new LeagueFileError(`The server answered with ${response.status}`);
   }
   return parseLeague(await response.text());

@@ -275,7 +275,7 @@ export const en = {
     'The file in Google Drive was changed since you last saved it here. Overwrite it?',
   'league.drive.share': 'Share by link',
   'league.drive.shareHint':
-    'Sharing by link lets everyone who has the link read this league, including the driver names.',
+    'Sharing by link lets everyone who has the link read this league, including the driver names. Only this kind of sharing works in the app; if you share the file with chosen people only, the players have to get the file themselves (for example by syncing Drive).',
   'league.drive.deeplink':
     'Link for the players (opens SimScoreboard with this league)',
   'league.drive.deeplink.hint':
