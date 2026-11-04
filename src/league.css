@@ -244,3 +244,32 @@ table.standings th.race-head a.race-link:hover .race-name {
   color: var(--accent);
   text-decoration: underline;
 }
+
+/* The padlock of a read-only league is a button: it offers to edit as owner */
+button.lock-button {
+  display: inline-flex;
+  padding: 2px;
+  border-color: transparent;
+  background: none;
+  color: var(--muted);
+  line-height: 1;
+}
+
+button.lock-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.league-list li {
+  position: relative;
+}
+
+.league-list li.has-lock a {
+  padding-right: 44px;
+}
+
+button.lock-button.list-lock {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

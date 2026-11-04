@@ -17,6 +17,7 @@ import { importRaceFile, snapshotRace } from '../league/race';
 import { preloadDriveAuth, requestDriveToken } from '../league/drive/auth';
 import {
   driveDownloadUrl,
+  driveEditAccess,
   driveFileId,
   driveShareLink,
   saveToDrive,
@@ -318,6 +319,62 @@ function LockIcon({ title }: { title: string }) {
   );
 }
 
+/**
+ * Switches a league that came from a link to editing, if the signed-in Google
+ * account may change its Drive file. Returns the reason when it does not
+ * work, otherwise null.
+ */
+function useTakeOver() {
+  const { t, leagues, leagueLinks, setLeagueLink } = useApp();
+  return async (id: string): Promise<string | null> => {
+    const league = leagues.find((l) => l.id === id);
+    const link = leagueLinks[id];
+    if (!league || !link?.url) return null;
+    if (!window.confirm(t('league.takeOver.ask'))) return null;
+    if (!driveConfig) return t('league.takeOver.notSetUp');
+    if (!link.driveId) return t('league.takeOver.notDrive');
+    try {
+      const token = await requestDriveToken(driveConfig.clientId);
+      const access = await driveEditAccess(token, link.driveId);
+      if (access.status !== 'ok') return t('league.takeOver.noAccess');
+      // Without the address the league is no longer a copy: it is edited here
+      // and saved to the same Drive file.
+      await setLeagueLink(id, {
+        driveId: link.driveId,
+        driveVersion: access.file.version,
+        shared: true,
+        saved: leagueFingerprint(league),
+      });
+      return null;
+    } catch (e) {
+      console.error(e);
+      return t('league.takeOver.failed', { message: message(e) });
+    }
+  };
+}
+
+/** The padlock of a read-only league; a click offers to switch to editing. */
+function LockButton({
+  onClick,
+  className,
+}: {
+  onClick: () => void;
+  className?: string;
+}) {
+  const { t } = useApp();
+  return (
+    <button
+      type="button"
+      className={`lock-button${className ? ` ${className}` : ''}`}
+      onClick={onClick}
+      title={t('league.takeOver.title')}
+      aria-label={t('league.takeOver.title')}
+    >
+      <LockIcon title={t('league.readOnly')} />
+    </button>
+  );
+}
+
 /** The address of this site, so a shared link works wherever it is hosted. */
 const appUrl = () => window.location.origin + window.location.pathname;
 
@@ -330,6 +387,7 @@ function LeagueList({
 }) {
   const { t, saveLeague, leagueLinks, setLeagueLink } = useApp();
   const openFromAddress = useOpenFromAddress();
+  const takeOver = useTakeOver();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
@@ -438,16 +496,16 @@ function LeagueList({
       ) : (
         <ul className="league-list">
           {leagues.map((l) => (
-            <li key={l.id}>
+            <li
+              key={l.id}
+              className={leagueLinks[l.id]?.url ? 'has-lock' : undefined}
+            >
               <a
                 href={routes.league(l.id)}
                 aria-current={l.id === selectedId ? 'true' : undefined}
               >
                 <strong>{l.name}</strong>
                 <span className="muted">
-                  {leagueLinks[l.id]?.url && (
-                    <LockIcon title={t('league.readOnly')} />
-                  )}{' '}
                   {!leagueLinks[l.id]?.url &&
                     saveState(l, leagueLinks[l.id]?.saved) !== 'saved' && (
                       <span
@@ -460,6 +518,14 @@ function LeagueList({
                   {t('league.races', { n: l.races.length })}
                 </span>
               </a>
+              {leagueLinks[l.id]?.url && (
+                <LockButton
+                  className="list-lock"
+                  onClick={() =>
+                    void takeOver(l.id).then((failure) => setError(failure))
+                  }
+                />
+              )}
             </li>
           ))}
         </ul>
@@ -483,6 +549,8 @@ function LeagueDetail({
   const tabs = readOnly ? TABS.filter((id) => id !== 'drivers') : TABS;
   const [tab, setTab] = useState<Tab>(initialTab);
   const refreshLeague = useRefreshLeague();
+  const takeOver = useTakeOver();
+  const [takeOverError, setTakeOverError] = useState<string | null>(null);
   const refreshRef = useRef(refreshLeague);
   useEffect(() => {
     refreshRef.current = refreshLeague;
@@ -513,7 +581,13 @@ function LeagueDetail({
       <h3>{league.name}</h3>
       {readOnly && (
         <p className="hint league-badge">
-          <LockIcon title={t('league.readOnly')} />
+          <LockButton
+            onClick={() =>
+              void takeOver(league.id).then((failure) =>
+                setTakeOverError(failure),
+              )
+            }
+          />
           <span>
             <strong>{t('league.readOnly')}</strong> {t('league.readOnly.hint')}{' '}
             {refreshing && t('league.refresh.busy')}
@@ -525,6 +599,7 @@ function LeagueDetail({
           {t('league.refresh.failed', { message: refreshError })}
         </p>
       )}
+      {takeOverError && <p className="notice error">{takeOverError}</p>}
       {state !== 'saved' && (
         <div className="notice unsaved" role="status">
           <span>

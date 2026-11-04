@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   createDriveFile,
   driveDownloadUrl,
+  driveEditAccess,
   driveFileId,
   driveShareLink,
   saveToDrive,
@@ -220,6 +221,42 @@ describe('the version that is compared', () => {
     );
     expect(asked).toBe(false);
     expect(file?.version).toBe('rev2');
+  });
+});
+
+describe('driveEditAccess', () => {
+  it('lets an account that may edit the file take it over', async () => {
+    const drive = fakeDrive({
+      json: { id: ID, headRevisionId: 'r1', capabilities: { canEdit: true } },
+    });
+    const access = await driveEditAccess('tok', ID, drive.fetchImpl);
+    expect(access).toEqual({
+      status: 'ok',
+      file: { id: ID, version: 'r1', canEdit: true },
+    });
+    expect(drive.calls[0]?.url).toContain('capabilities');
+  });
+
+  it('refuses an account that may only read', async () => {
+    const drive = fakeDrive({
+      json: { id: ID, version: '1', capabilities: { canEdit: false } },
+    });
+    expect(await driveEditAccess('tok', ID, drive.fetchImpl)).toEqual({
+      status: 'readonly',
+    });
+  });
+
+  it('reports a file the app cannot see, or that is in the trash', async () => {
+    const gone = fakeDrive({ status: 404 });
+    expect(await driveEditAccess('tok', ID, gone.fetchImpl)).toEqual({
+      status: 'missing',
+    });
+    const trashed = fakeDrive({
+      json: { id: ID, version: '1', trashed: true },
+    });
+    expect(await driveEditAccess('tok', ID, trashed.fetchImpl)).toEqual({
+      status: 'missing',
+    });
   });
 });
 
