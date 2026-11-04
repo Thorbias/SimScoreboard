@@ -333,9 +333,14 @@ export const en = {
   'league.singleStarter':
     '{race}, class {carClass}: Invalid, because only one driver is entered in the rating. A valid race needs at least two participants.',
   'league.addRace':'Add a race',
-  'league.addRacePick': 'Choose a race session',
+  'league.addRacePick': 'Choose a session',
   'league.addRaceNone': 'There are no more race sessions to add.',
   'league.addRaceFailed': 'The session could not be read: {message}',
+  'league.importRace': 'Import a race',
+  'league.importRaceHelp':
+    'For a race that is not in your sessions folder: choose one or more result files (.xml) of the game. Their driver names become part of the league.',
+  'league.importRacePick': 'Choose result file…',
+  'league.importRaceFailed': 'Not imported: {message}',
   'league.raceName': 'Name',
   'league.moveUp': 'Move up',
   'league.moveDown': 'Move down',

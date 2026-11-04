@@ -9,14 +9,15 @@ import { SettingsView } from './ui/SettingsView';
 function Shell() {
   const { t, demo, stopDemo } = useApp();
   const route = useRoute();
-  // Sessions and personal bests keep their list on the left and fill the screen
-  // height; the other pages use the full width and scroll as a whole.
+  // Every page shares one frame, so the header stays put when switching pages.
+  // Sessions, personal bests and leagues keep their list on the left and fill
+  // the screen height; the other pages scroll within the frame.
   const onSessions = route.name === 'sessions' || route.name === 'session';
   const split =
     onSessions || route.name === 'records' || route.name === 'league';
 
   return (
-    <div className={split ? 'app app-split' : 'app'}>
+    <div className="app app-split">
       <header className="top">
         <a className="brand" href={routes.sessions()}>
           <span>Sim</span>
@@ -57,7 +58,7 @@ function Shell() {
           <button onClick={stopDemo}>{t('demo.exit')}</button>
         </div>
       )}
-      <main>
+      <main className={split ? undefined : 'page'}>
         {onSessions && (
           <SessionsPage
             selectedId={route.name === 'session' ? route.id : null}
@@ -68,9 +69,15 @@ function Shell() {
           <LeaguePage selectedId={route.id} tab={route.tab} />
         )}
         {route.name === 'leagueOpen' && (
-          <LeagueOpenPage drive={route.drive} url={route.url} />
+          <div className="page-body">
+            <LeagueOpenPage drive={route.drive} url={route.url} />
+          </div>
         )}
-        {route.name === 'settings' && <SettingsView />}
+        {route.name === 'settings' && (
+          <div className="page-body">
+            <SettingsView />
+          </div>
+        )}
       </main>
     </div>
   );

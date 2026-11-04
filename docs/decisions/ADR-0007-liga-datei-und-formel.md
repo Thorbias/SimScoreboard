@@ -14,7 +14,7 @@ gespeichert und weitergegeben wird, und wie der Organisator die Punkte vorgibt.
 
 Die Result-Dateien kennen keine stabile Fahrer-ID
 ([ADR-0002](ADR-0002-lmu-result-format.md)), und Mitspieler besitzen die Dateien der
-Läufe in der Regel nicht.
+Rennen in der Regel nicht.
 
 ## Entscheidung
 
@@ -22,7 +22,7 @@ Läufe in der Regel nicht.
 
 - Eine Datei je Liga, lesbar und versioniert (`format: "simscoreboard-league"`,
   `version: 1`). Selbst-Hoster und andere Werkzeuge können sie lesen.
-- Sie enthält eine **Momentaufnahme der Ergebnisse** jedes Laufs (Fahrer, Klasse,
+- Sie enthält eine **Momentaufnahme der Ergebnisse** jedes Rennens (Fahrer, Klasse,
   Platz, Runden, Status, Gesamtzeit, beste Runde, Startplatz in der Klasse), nicht die
   Result-Datei selbst. So kann jeder Mitspieler die Tabelle ohne die Spieldateien
   öffnen, und es steht nur das darin, was die Wertung braucht (keine Chatzeilen, keine
@@ -43,33 +43,33 @@ Läufe in der Regel nicht.
 
 ### Korrekturen sind eigene Einträge
 
-Die Momentaufnahme der Läufe wird nie verändert. Korrekturen stehen in einer eigenen
-Liste, jeweils mit Lauf, Fahrer, Art, Wert und Begründung:
+Die Momentaufnahme der Rennen wird nie verändert. Korrekturen stehen in einer eigenen
+Liste, jeweils mit Rennen, Fahrer, Art, Wert und Begründung:
 
 - `timePenalty`: Sekunden auf die Gesamtzeit; die Fahrer der Klasse werden neu
   gereiht (mehr Runden vor mehr Zeit).
-- `disqualify`: Der Fahrer erhält für den Lauf keine Punkte und rückt aus der Reihung.
+- `disqualify`: Der Fahrer erhält für das Rennen keine Punkte und rückt aus der Reihung.
 - `position`: fester Platz in der Klasse; die übrigen rücken nach.
-- `points`: Zu- oder Abschlag auf die Punkte des Laufs.
+- `points`: Zu- oder Abschlag auf die Punkte des Rennens.
 
-In der Tabelle sind korrigierte Läufe erkennbar.
+In der Tabelle sind korrigierte Rennen erkennbar.
 
 ### Fahrer-Zuordnung
 
 Eine Aliasliste je Liga ordnet mehrere Namen einer Person zu. Verglichen wird wie
 überall in der App ohne Online-Suffix (`#1234`) und ohne Beachtung der Schreibweise
 (`normalizeName`). Ein Name ohne Eintrag ist eine Person unter dem Namen, wie er im
-Lauf steht.
+Rennen steht.
 
 ### Wertung
 
 Nur Fahrer, getrennt je Klasse. Die Klasse ist die Wertungsklasse; ein Mehrklassen-
-Rennen ergibt eine Tabelle je Klasse. Die Summe ist die Summe der Lauf-Punkte; Streich-
+Rennen ergibt eine Tabelle je Klasse. Die Summe ist die Summe der Rennpunkte; Streich-
 ergebnisse und Bonuspunkte außerhalb der Formel gibt es in Version 1 nicht.
 
 ### Punkteformel
 
-Der Organisator gibt einen Ausdruck vor, der je Fahrer und Lauf ausgewertet wird. Er
+Der Organisator gibt einen Ausdruck vor, der je Fahrer und Rennen ausgewertet wird. Er
 läuft in einem **eigenen kleinen Parser** mit festem Wortschatz. Es gibt kein `eval`
 und keinen `Function`-Aufruf (die CSP verbietet beides, und eine Formel aus einer
 fremden Datei darf nichts anderes können als rechnen).
@@ -84,7 +84,7 @@ fremden Datei darf nichts anderes können als rechnen).
 |---|---|
 | `position` | Platz in der Wertungsklasse, nach Korrekturen |
 | `overallPosition` | Gesamtplatz laut Spiel |
-| `starters` | Teilnehmer der Klasse im Lauf |
+| `starters` | Teilnehmer der Klasse im Rennen |
 | `fastestLap` | 1 für die schnellste Runde der Klasse, sonst 0 |
 | `pole` | 1 für den ersten Startplatz der Klasse, sonst 0 |
 | `finished` | 1 bei Zielankunft ohne Ausfall, sonst 0 |
@@ -94,10 +94,10 @@ fremden Datei darf nichts anderes können als rechnen).
 - **Fehler:** Die Formel wird vor der Auswertung geprüft. Ein Fehler nennt Meldung und
   Position im Text. Unbekannte Namen, falsche Argumentzahlen und Division durch null
   sind Fehler, kein stilles `NaN`.
-- Das Ergebnis eines Laufs wird nicht gerundet; wer ganze Punkte will, schreibt `round`.
+- Das Ergebnis eines Rennens wird nicht gerundet; wer ganze Punkte will, schreibt `round`.
 - Voreinstellung einer neuen Liga: `floor(40 * (1 - (position - 1) / (starters - 1))) + 10`
   (Sieger 50, Letzter 10, gleichmäßig nach Platz, ganze Punkte). Bei einem einzelnen
-  Starter in einer Klasse teilt sie durch null; die Auswertung meldet dann den Lauf als
+  Starter in einer Klasse teilt sie durch null; die Auswertung meldet dann das Rennen als
   ungültig (mindestens zwei Teilnehmer nötig).
 - Zweites Beispiel: `if(position <= 10, 11 - position, 0) + fastestLap`
 

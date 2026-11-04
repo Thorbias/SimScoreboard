@@ -9,6 +9,8 @@
 - **README, UI-Texte, Code, Bezeichner, Commit-Messages:** Englisch.
 - UI-Texte kommen aus einer zentralen Übersetzungsschicht (i18n), nicht als
   Literale in Komponenten.
+- **Begriffe:** Ein Wertungslauf einer Liga heißt auf Deutsch immer **Rennen** (nie
+  „Lauf“ oder „Läufe“), im Englischen „race“. Das gilt für Oberfläche, Doku und Code.
 
 ## Datenschutz der Beispieldateien
 

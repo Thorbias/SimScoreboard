@@ -256,7 +256,7 @@ export const de: Record<MessageKey, string> = {
   'league.open': 'Liga-Datei öffnen',
   'league.openFailed': 'Die Datei konnte nicht geöffnet werden: {message}',
   'league.empty': 'Noch keine Ligen.',
-  'league.races': '{n} Läufe',
+  'league.races': '{n} Rennen',
   'league.delete': 'Liga löschen',
   'league.deleteConfirm':
     'Diese Liga aus diesem Browser entfernen? Gespeicherte Dateien, auf diesem Rechner oder in einem Cloud-Speicher wie Google Drive, werden nicht gelöscht.',
@@ -326,11 +326,11 @@ export const de: Record<MessageKey, string> = {
   'league.shared':
     'Änderungen bleiben in diesem Browser. Wer die Datei öffnet, erhält eine eigene Kopie.',
   'league.tab.standings': 'Tabelle',
-  'league.tab.races': 'Läufe',
+  'league.tab.races': 'Rennen',
   'league.tab.drivers': 'Fahrer',
   'league.tab.corrections': 'Korrekturen',
   'league.tab.settings': 'Einstellungen',
-  'league.noRaces': 'Füge zuerst Läufe hinzu.',
+  'league.noRaces': 'Füge zuerst Rennen hinzu.',
   'league.class': 'Klasse',
   'league.driver': 'Fahrer',
   'league.total': 'Punkte',
@@ -339,16 +339,21 @@ export const de: Record<MessageKey, string> = {
   'league.formulaError': 'Die Formel hat einen Fehler: {message}',
   'league.singleStarter':
     '{race}, Klasse {carClass}: Ungültig, da nur ein Fahrer in der Wertung eingetragen ist. Ein gültiges Rennen erfordert mindestens zwei Teilnehmer.',
-  'league.addRace': 'Lauf hinzufügen',
-  'league.addRacePick': 'Rennen-Session wählen',
+  'league.addRace': 'Rennen hinzufügen',
+  'league.addRacePick': 'Session wählen',
   'league.addRaceNone': 'Es gibt keine weiteren Rennen zum Hinzufügen.',
   'league.addRaceFailed': 'Die Session konnte nicht gelesen werden: {message}',
+  'league.importRace': 'Rennen importieren',
+  'league.importRaceHelp':
+    'Für ein Rennen, das nicht in deinem Session-Ordner liegt: wähle eine oder mehrere Result-Dateien (.xml) des Spiels. Ihre Fahrernamen werden Teil der Liga.',
+  'league.importRacePick': 'Result-Datei wählen …',
+  'league.importRaceFailed': 'Nicht importiert: {message}',
   'league.raceName': 'Name',
   'league.moveUp': 'Nach oben',
   'league.moveDown': 'Nach unten',
   'league.removeRace': 'Entfernen',
   'league.removeRaceConfirm':
-    'Diesen Lauf entfernen? Seine Korrekturen werden mit entfernt.',
+    'Dieses Rennen entfernen? Seine Korrekturen werden mit entfernt.',
   'league.drivers.help':
     'Das Spiel hat keine feste Fahrer-ID. Ist eine Person unter mehreren Namen gefahren, führst du die Namen hier zusammen.',
   'league.mergeInto': 'Gleiche Person wie',
@@ -356,7 +361,7 @@ export const de: Record<MessageKey, string> = {
   'league.corr.help':
     'Korrekturen ändern die gespeicherten Ergebnisse nie. Sie stehen hier und sind in der Tabelle markiert.',
   'league.corr.add': 'Korrektur hinzufügen',
-  'league.corr.race': 'Lauf',
+  'league.corr.race': 'Rennen',
   'league.corr.driver': 'Fahrer',
   'league.corr.kind': 'Art',
   'league.corr.value': 'Wert',
@@ -370,9 +375,9 @@ export const de: Record<MessageKey, string> = {
   'league.corr.remove': 'Entfernen',
   'league.formula': 'Punkteformel',
   'league.formula.help':
-    'Wird für jeden Fahrer und Lauf berechnet. Variablen: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Funktionen: if, min, max, round, floor, ceil, abs.',
+    'Wird für jeden Fahrer und jedes Rennen berechnet. Variablen: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Funktionen: if, min, max, round, floor, ceil, abs.',
   'league.formula.example1':
-    'Beispiel 1 (voreingestellt): floor(40 * (1 - (position - 1) / (starters - 1))) + 10. Der Sieger bekommt 50 Punkte, der Letzte 10, dazwischen verteilen sich die Punkte gleichmäßig nach Platz. Mit 10 Startern ergibt das 50, 45, 41, 36, 32, 27, 23, 19, 14, 10. floor rundet auf ganze Punkte ab. Bei nur einem Starter in einer Klasse ist der Lauf ungültig, weil durch starters - 1 geteilt wird.',
+    'Beispiel 1 (voreingestellt): floor(40 * (1 - (position - 1) / (starters - 1))) + 10. Der Sieger bekommt 50 Punkte, der Letzte 10, dazwischen verteilen sich die Punkte gleichmäßig nach Platz. Mit 10 Startern ergibt das 50, 45, 41, 36, 32, 27, 23, 19, 14, 10. floor rundet auf ganze Punkte ab. Bei nur einem Starter in einer Klasse ist das Rennen ungültig, weil durch starters - 1 geteilt wird.',
   'league.formula.example2':
     'Beispiel 2: if(position <= 10, 11 - position, 0) + fastestLap. Die ersten zehn Plätze bekommen 10 bis 1 Punkt (Platz 1 zehn Punkte, Platz 10 einen Punkt), alle dahinter keinen. Dazu gibt es 1 Punkt für die schnellste Runde der Klasse.',
   'league.formula.ok': 'Die Formel ist gültig.',

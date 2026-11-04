@@ -13,7 +13,7 @@ import {
 import { leagueFileName, saveLeagueFile } from '../league/fileIo';
 import { checkFormula } from '../league/formula';
 import { mergedInto, mergeInto } from '../league/people';
-import { snapshotRace } from '../league/race';
+import { importRaceFile, snapshotRace } from '../league/race';
 import { preloadDriveAuth, requestDriveToken } from '../league/drive/auth';
 import {
   driveDownloadUrl,
@@ -671,6 +671,7 @@ function RacesTab({
   const { t, sessions, language, loadSession } = useApp();
   const [pick, setPick] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
 
   const available = sessions
     .filter(
@@ -687,6 +688,25 @@ function RacesTab({
       setPick('');
     } catch (e) {
       setError(t('league.addRaceFailed', { message: message(e) }));
+    }
+  };
+
+  // Result files picked by hand; each is added if it is a race not yet in the
+  // league, the others are named in the error.
+  const importFiles = async (picked: File[]) => {
+    setError(null);
+    const races = [...league.races];
+    const failures: string[] = [];
+    for (const file of picked) {
+      try {
+        races.push(importRaceFile(await file.text(), file.name, races));
+      } catch (e) {
+        failures.push(message(e));
+      }
+    }
+    if (races.length > league.races.length) change({ ...league, races });
+    if (failures.length > 0) {
+      setError(t('league.importRaceFailed', { message: failures.join('; ') }));
     }
   };
 
@@ -784,6 +804,29 @@ function RacesTab({
             {t('league.addRace')}
           </button>
         </p>
+      )}
+      {!readOnly && (
+        <>
+          <h4>{t('league.importRace')}</h4>
+          <p className="hint">{t('league.importRaceHelp')}</p>
+          <input
+            ref={fileInput}
+            type="file"
+            accept=".xml"
+            multiple
+            hidden
+            onChange={(e) => {
+              const picked = [...(e.target.files ?? [])];
+              e.target.value = '';
+              void importFiles(picked);
+            }}
+          />
+          <p>
+            <button onClick={() => fileInput.current?.click()}>
+              {t('league.importRacePick')}
+            </button>
+          </p>
+        </>
       )}
       {!readOnly && error && <p className="notice error">{error}</p>}
     </>
