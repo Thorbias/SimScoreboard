@@ -383,3 +383,38 @@ button.chat-close {
 .chat li.chat-marker strong {
   color: var(--accent);
 }
+
+/* Jump from a chat message to the incident it belongs to */
+
+.chat li {
+  align-items: baseline;
+}
+
+button.incident-link {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-color: transparent;
+  background: none;
+  color: var(--muted);
+  line-height: 1;
+}
+
+button.incident-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* The incident the chat sent the user to */
+table.results tr.focused td {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+table.results tr.focused td:first-child {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+/* The message column takes the room that is left and wraps long text */
+table.chat-table td.chat-text {
+  white-space: normal;
+  width: 100%;
+}

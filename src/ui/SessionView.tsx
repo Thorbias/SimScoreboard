@@ -12,6 +12,7 @@ import type { Entry, Session } from '../results/types';
 import { ChatView } from './ChatView';
 import { CountryLabel } from './CountryLabel';
 import { FavoriteButton } from './FavoriteButton';
+import type { IncidentEvent } from '../results/chatWindow';
 import { IncidentsView, isIncident } from './IncidentsView';
 import { LapChartView } from './LapChartView';
 import { PositionChartView } from './PositionChartView';
@@ -143,6 +144,10 @@ function SessionBody({ session }: { session: Session }) {
   const { t, aliases } = useApp();
   const tabs = availableTabs(session);
   const [tab, setTab] = useState<Tab>('results');
+  // The incident the chat tab sent the user to; shown highlighted.
+  const [focusIncident, setFocusIncident] = useState<IncidentEvent | null>(
+    null,
+  );
   const active = tabs.includes(tab) ? tab : 'results';
   // The drivers of the lap chart, A to D. Null means: not chosen yet, show the
   // defaults. Clicking a driver in the results fills the next free slot.
@@ -158,6 +163,11 @@ function SessionBody({ session }: { session: Session }) {
     setTab('lapChart');
   };
 
+  const showIncident = (incident: IncidentEvent) => {
+    setFocusIncident(incident);
+    setTab('incidents');
+  };
+
   return (
     <>
       <div className="tabs" role="tablist">
@@ -166,7 +176,10 @@ function SessionBody({ session }: { session: Session }) {
             key={id}
             role="tab"
             aria-selected={active === id}
-            onClick={() => setTab(id)}
+            onClick={() => {
+              setFocusIncident(null);
+              setTab(id);
+            }}
           >
             {t(`tab.${id}`)}
           </button>
@@ -184,8 +197,12 @@ function SessionBody({ session }: { session: Session }) {
       )}
       {active === 'positions' && <PositionChartView session={session} />}
       {active === 'statistics' && <StatisticsView session={session} />}
-      {active === 'incidents' && <IncidentsView session={session} />}
-      {active === 'chat' && <ChatView session={session} />}
+      {active === 'incidents' && (
+        <IncidentsView session={session} focus={focusIncident} />
+      )}
+      {active === 'chat' && (
+        <ChatView session={session} onShowIncident={showIncident} />
+      )}
     </>
   );
 }

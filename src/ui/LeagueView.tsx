@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useApp } from '../app/AppContext';
 import { routes } from '../app/route';
-import { formatDate } from '../format/date';
+import { formatDate, formatDateTime } from '../format/date';
 import {
   createLeague,
   leagueFingerprint,
@@ -581,7 +581,7 @@ function StandingsTab({
   league: League;
   standings: ReturnType<typeof computeStandings>;
 }) {
-  const { t } = useApp();
+  const { t, sessions, language } = useApp();
   if (standings.error) {
     return (
       <p className="notice error">
@@ -609,18 +609,39 @@ function StandingsTab({
           <h4>
             {t('league.class')} {cls.carClass}
           </h4>
-          <div className="table-wrap">
-            <table className="results">
+          <div className="table-wrap standings-wrap">
+            <table className="results standings">
               <thead>
                 <tr>
-                  <th className="num">#</th>
-                  <th>{t('league.driver')}</th>
-                  {league.races.map((r) => (
-                    <th key={r.id} className="num" title={r.track}>
-                      {r.name}
-                    </th>
-                  ))}
-                  <th className="num">{t('league.total')}</th>
+                  <th className="num col-rank">#</th>
+                  <th className="col-driver">{t('league.driver')}</th>
+                  <th className="num col-points">{t('league.total')}</th>
+                  {league.races.map((r) => {
+                    const head = (
+                      <>
+                        <span className="race-name">{r.name}</span>
+                        <span className="race-date">
+                          {formatDateTime(r.date, language)}
+                        </span>
+                      </>
+                    );
+                    // Only a session this computer has can be opened.
+                    const known = sessions.some((s) => s.id === r.sessionId);
+                    return (
+                      <th key={r.id} className="num race-head" title={r.track}>
+                        {known ? (
+                          <a
+                            href={routes.session(r.sessionId)}
+                            className="race-link"
+                          >
+                            {head}
+                          </a>
+                        ) : (
+                          head
+                        )}
+                      </th>
+                    );
+                  })}
                 </tr>
               </thead>
               <tbody>
@@ -641,8 +662,13 @@ function StandingsLine({ row, rank }: { row: StandingsRow; rank: number }) {
   const { t } = useApp();
   return (
     <tr>
-      <td className="num">{rank}</td>
-      <td>{row.name}</td>
+      <td className="num col-rank">{rank}</td>
+      <td className="col-driver" title={row.name}>
+        {row.name}
+      </td>
+      <td className="num col-points">
+        <strong>{row.total}</strong>
+      </td>
       {row.cells.map((cell, i) => (
         <td key={i} className="num">
           {cell === null
@@ -652,9 +678,6 @@ function StandingsLine({ row, rank }: { row: StandingsRow; rank: number }) {
               : `${cell.points}${cell.corrected ? '*' : ''}`}
         </td>
       ))}
-      <td className="num">
-        <strong>{row.total}</strong>
-      </td>
     </tr>
   );
 }

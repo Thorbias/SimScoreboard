@@ -4,16 +4,17 @@ import { formatClock } from '../format/time';
 import { isOwnDriver } from '../library/names';
 import { findEntry, lapAt } from '../results/analysis';
 import {
+  CHAT_INCIDENT_KINDS,
   CHAT_WINDOW_SECONDS,
-  chatAround,
+  chatAfter,
   chatMessages,
   incidentPosition,
   type ChatEvent,
+  type IncidentEvent,
 } from '../results/chatWindow';
 import type { Session, StreamEvent } from '../results/types';
 import { ChatLine } from './ChatView';
 
-type IncidentEvent = Exclude<StreamEvent, { kind: 'chat' }>;
 type Kind = IncidentEvent['kind'];
 
 const KINDS: Kind[] = ['contact', 'damage', 'trackLimits', 'penalty'];
@@ -26,7 +27,7 @@ interface IncidentRow {
   event: IncidentEvent;
   carClass: string;
   lap: number | null;
-  /** The chat sent within two minutes of the incident. */
+  /** The chat sent in the 30 seconds from the incident; contacts and damage only. */
   chat: ChatEvent[];
 }
 
@@ -71,7 +72,7 @@ function IncidentChat({
         <div>
           <h3>{t('inc.chatTitle', { time: formatClock(row.event.time) })}</h3>
           <p className="muted">
-            {t('inc.chatWindow', { minutes: CHAT_WINDOW_SECONDS / 60 })}
+            {t('inc.chatWindow', { seconds: CHAT_WINDOW_SECONDS })}
           </p>
         </div>
         <button
@@ -96,8 +97,16 @@ function IncidentChat({
   );
 }
 
-export function IncidentsView({ session }: { session: Session }) {
+export function IncidentsView({
+  session,
+  focus,
+}: {
+  session: Session;
+  /** An incident to scroll to and highlight, e.g. from the chat. */
+  focus: IncidentEvent | null;
+}) {
   const { t, aliases } = useApp();
+  const focusRow = useRef<HTMLTableRowElement>(null);
   const [kind, setKind] = useState<Kind | ''>('');
   const [carClass, setCarClass] = useState('');
   const [driver, setDriver] = useState('');
@@ -119,10 +128,17 @@ export function IncidentsView({ session }: { session: Session }) {
             : event.kind === 'trackLimits'
               ? event.lap
               : null,
-        chat: chatAround(chat, time),
+        chat: CHAT_INCIDENT_KINDS.includes(event.kind)
+          ? chatAfter(chat, time)
+          : [],
       };
     });
   }, [session]);
+
+  // Coming from the chat, bring the incident into view.
+  useEffect(() => {
+    focusRow.current?.scrollIntoView({ block: 'center' });
+  }, [focus]);
 
   // The modal dialog brings its own backdrop, focus handling and Escape key.
   useEffect(() => {
@@ -241,8 +257,14 @@ export function IncidentsView({ session }: { session: Session }) {
               {shown.map((r, i) => (
                 <tr
                   key={i}
+                  ref={r.event === focus ? focusRow : undefined}
                   className={
-                    isOwnDriver(r.event.driver, aliases) ? 'own' : undefined
+                    [
+                      isOwnDriver(r.event.driver, aliases) ? 'own' : '',
+                      r.event === focus ? 'focused' : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ') || undefined
                   }
                 >
                   <td className="num">{formatClock(r.event.time)}</td>

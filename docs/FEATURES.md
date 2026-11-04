@@ -134,7 +134,8 @@ Der Anwender sieht alle Zwischenfälle einer Session als Zeitleiste.
 - Spalten: Session-Zeit, Restzeit (bei zeitbegrenzter Session), Typ, Fahrer, Klasse, Runde, Detail.
 - Typen: Kontakt (mit Fahrzeug oder Objekt, mit Stärke), Schaden, Track Limits (mit Verwarnpunkten) und Strafe (verhängt oder abgesessen).
 - Filter nach Typ, Klasse und Fahrer.
-- Gab es im Umkreis von zwei Minuten vor und nach einem Zwischenfall Chat-Nachrichten, zeigt die Zeile eine Sprechblase mit der Zahl der Nachrichten. Ein Klick öffnet ein kleines Chatfenster mit diesen Nachrichten und einer Markierung, wann der Zwischenfall war. Der Chat-Reiter (F-011) bleibt davon unberührt.
+- Gab es bei einem Kontakt oder Schaden vom Zeitstempel des Zwischenfalls bis 30 Sekunden danach Chat-Nachrichten, zeigt die Zeile eine Sprechblase mit der Zahl der Nachrichten. Ein Klick öffnet ein kleines Chatfenster mit diesen Nachrichten und einer Markierung, wann der Zwischenfall war. Der Chat-Reiter (F-011) bleibt davon unberührt.
+- Der Chat-Reiter ist eine Tabelle (Zeit, Fahrer, Nachricht, Zwischenfall). In der Spalte „Zwischenfall“ steht ein Blitz, wenn zu ihr ein Zwischenfall passt: ein Kontakt oder Schaden des schreibenden Fahrers (der Chat zeigt Kurznamen wie „V Deux“ für „Vittorio Deux“; oder ein Kontakt „mit“ diesem Fahrer), der bis zu 30 Sekunden vor der Nachricht (oder gleichzeitig) stattfand. Ein Klick springt zum Zwischenfall-Reiter, scrollt zur Zeile und hebt sie hervor; passen mehrere, gilt der letzte vor der Nachricht.
 - Die Ereignisse stehen nur in neueren Mehrspieler-Dateien; fehlen sie, entfällt der Reiter.
 
 ## F-011 — Session-Chat
@@ -268,6 +269,7 @@ Ein Organisator fasst Sessions zu einer Liga zusammen, die App berechnet die Fah
 - Sicherheit der Formel: ein eigener kleiner Parser mit festem Wortschatz, kein `eval` (die Content-Security-Policy erlaubt es ohnehin nicht). Fehler in der Formel zeigt die App mit Position im Text an, bevor sie rechnet.
 - Vorlagen für Formeln (zum Beispiel gängige Punktetabellen) kommen später; Version 1 hat nur das Eingabefeld.
 - Wertung: nur Fahrer, getrennt je Klasse. Tabelle mit Platz, Fahrer, Punkten je Rennen und Summe; dazu der Verlauf der Punkte über die Rennen.
+- Die Spaltenköpfe der Rennen zeigen den Namen und darunter Datum und Uhrzeit. Name und Zeit führen zur Session, wenn sie auf diesem Rechner vorhanden ist; sonst sind sie kein Link.
 - Fahrer zusammenführen: Result-Dateien haben keine stabile ID ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Der Organisator ordnet mehrere Namen einer Person zu (Aliasliste je Liga).
 - Korrekturen: Nachträglich möglich sind Zeitstrafen, Disqualifikationen, ein manuell geänderter Platz und Punkte-Zu- oder Abschläge, jeweils mit Begründung. Die Originaldaten bleiben unverändert; die Korrekturen liegen als eigene Einträge in der Liga und sind in der Tabelle als solche erkennbar.
 - Speichern: lesbares, versioniertes JSON in einem Ordner, den der Organisator wählt (File System Access API; auch ein Ordner, den ein Cloud-Client synchronisiert). Ohne Chromium gibt es Export und Import als Datei.
