@@ -147,6 +147,7 @@ export function parseSession(xml: string, fileName: string): Session {
 export function upgradeSummary(summary: SessionSummary): SessionSummary {
   return {
     ...summary,
+    contacts: summary.contacts ?? [],
     entries: summary.entries.map((e) => ({
       ...e,
       carType: e.carType ?? '',
@@ -193,5 +194,10 @@ export function summarize(session: Session): SessionSummary {
       ...new Set(session.entries.map((e) => e.carClass).filter(Boolean)),
     ],
     entries,
+    contacts: session.events.flatMap((e) =>
+      e.kind === 'contact' && e.other !== null
+        ? [{ time: e.time, driver: e.driver, other: e.other }]
+        : [],
+    ),
   };
 }

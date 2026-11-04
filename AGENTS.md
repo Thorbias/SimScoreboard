@@ -83,6 +83,12 @@ abstimmen, **bevor** implementiert wird.
 - **Git nur mit Freigabe:** Keine Commits (und Pushes) ohne vorherige explizite
   Zustimmung des Entwicklers. Änderungen vorbereiten, dann fragen. Das GitHub-Repo
   wird erst nach ausdrücklicher Freigabe angelegt.
+- **Branches:** `main` = Release (baut GitHub Pages, nur Releases), `dev` =
+  Entwicklung, von dort zweigen Feature-Branches ab. Backlog, Features, ADRs und
+  kleine Änderungen direkt auf `dev`; größere Codearbeit auf `feature/<thema>`
+  (ob ein Feature einen Branch bekommt, wird beim Anlegen geklärt). Nie nach
+  `main` pushen oder mergen ohne ausdrückliche Freigabe. Einzelheiten:
+  [docs/GUIDELINES.md](docs/GUIDELINES.md), Abschnitt Git.
 - **Ideen kritisch hinterfragen, nicht einfach zustimmen:** Vorschläge fachlich
   prüfen, bevor sie umgesetzt werden. Enthält eine Idee Fehler oder Lücken oder
   gibt es bessere Alternativen, darauf hinweisen und die Abwägung **vor** der

@@ -44,6 +44,7 @@ function session(over: Partial<SessionSummary>): SessionSummary {
     scheduledLaps: null,
     classes: ['GT3'],
     entries: [],
+    contacts: [],
     ...over,
   };
 }

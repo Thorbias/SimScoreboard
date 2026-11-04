@@ -9,6 +9,7 @@ import './design/brand.css';
 import './layout.css';
 import './analysis.css';
 import './records.css';
+import './league.css';
 
 // Before the first render, so a saved light theme does not flash dark.
 applyThemeSetting(loadThemeSetting());

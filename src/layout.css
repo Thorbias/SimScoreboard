@@ -19,6 +19,18 @@
   min-height: 0;
 }
 
+/* Pages without a list scroll inside the frame; their content keeps a
+   readable width. Same side room for the focus ring as the panes below. */
+.app-split main.page {
+  overflow-y: auto;
+  padding: 0 4px 32px;
+  margin: 0 -4px;
+}
+
+.page-body {
+  max-width: 1200px;
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
@@ -26,15 +38,19 @@
   height: 100%;
 }
 
+/* Both panes scroll, so they clip at their edges. The focus ring (2px, offset
+   2px) of a field at the edge needs room, which the negative margin gives back
+   so the layout does not move. */
 .master,
 .detail {
   min-height: 0;
   overflow-y: auto;
-  padding-bottom: 32px;
+  padding: 0 4px 32px;
+  margin: 0 -4px;
 }
 
 .master {
-  padding-right: 6px;
+  padding-right: 10px;
 }
 
 .detail-empty {
@@ -306,6 +322,12 @@ button.track-row:hover {
     min-height: auto;
   }
 
+  .app-split main.page {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+  }
+
   .split {
     grid-template-columns: minmax(0, 1fr);
     height: auto;
@@ -314,7 +336,8 @@ button.track-row:hover {
   .master,
   .detail {
     overflow: visible;
-    padding-bottom: 0;
+    padding: 0;
+    margin: 0;
   }
 
   .split.has-session .master,

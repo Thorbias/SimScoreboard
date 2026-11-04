@@ -125,6 +125,16 @@ export interface SessionSummary {
   scheduledLaps: number | null;
   classes: string[];
   entries: EntrySummary[];
+  /** Contacts between two drivers, as each of them reported it. */
+  contacts: ContactSummary[];
+}
+
+/** One report of a contact with another car: who reported it, and with whom. */
+export interface ContactSummary {
+  /** Session time in seconds, null without one. */
+  time: number | null;
+  driver: string;
+  other: string;
 }
 
 export interface EntrySummary {
@@ -150,4 +160,4 @@ export interface EntrySummary {
  * Version of the index records. Raise it when the summary gains fields; stored
  * records of an older version are re-read from the files on the next scan.
  */
-export const SUMMARY_VERSION = 3;
+export const SUMMARY_VERSION = 4;

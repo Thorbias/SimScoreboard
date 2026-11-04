@@ -10,9 +10,9 @@ export const de: Record<MessageKey, string> = {
   'folder.choose': 'Ordner wählen',
   'folder.change': 'Ordner wechseln',
   'folder.reconnect': 'Ordner neu verbinden',
-  'folder.chooseResults': 'Results-Ordner wählen',
+  'folder.chooseResults': 'UserData-Ordner wählen',
   'folder.hint':
-    'Wähle den Ordner von Le Mans Ultimate, den Ordner UserData oder den Ordner Results. Deine Dateien verlassen diesen Rechner nie.',
+    'Wähle den Ordner UserData von Le Mans Ultimate, zum Beispiel SteamLibrary\\steamapps\\common\\Le Mans Ultimate\\UserData. Deine Dateien verlassen diesen Rechner nie.',
   'folder.reconnectHint':
     'Erlaube den Zugriff auf deinen Ordner erneut, um Sessions zu öffnen.',
   'folder.noResults': 'In diesem Ordner wurden keine Result-Dateien gefunden.',
@@ -141,15 +141,20 @@ export const de: Record<MessageKey, string> = {
   'inc.served': '{penalty} abgesessen',
   'inc.penaltyDetail': '{penalty} – {reason}',
   'inc.chat': 'Chat',
-  'inc.chatShow': 'Chat um diesen Zwischenfall anzeigen ({n})',
-  'inc.chatTitle': 'Chat um {time}',
+  'inc.chatShow': 'Chat ab diesem Zwischenfall anzeigen ({n})',
+  'inc.chatTitle': 'Chat ab {time}',
   'inc.chatWindow':
-    'Nachrichten von {minutes} Minuten vor bis {minutes} Minuten nach dem Zwischenfall.',
+    'Nachrichten vom Zwischenfall bis {seconds} Sekunden danach.',
   'inc.chatClose': 'Schließen',
+  'chat.showIncident': 'Zum Zwischenfall springen: {type} um {time}',
   'chat.empty': 'Keine Chat-Nachrichten in dieser Session.',
+  'chat.time': 'Zeit',
+  'chat.driver': 'Fahrer',
+  'chat.message': 'Nachricht',
+  'chat.incident': 'Zwischenfall',
 
-  'nav.records': 'Bestzeiten',
-  'records.title': 'Persönliche Bestzeiten',
+  'nav.records': 'Statistiken',
+  'records.title': 'Statistiken',
   'records.trackCount': '{n} Strecken',
   'records.overall': 'Gesamtüberblick',
   'records.overallMeta': '{layouts} Layouts · {sessions} Sessions',
@@ -174,6 +179,14 @@ export const de: Record<MessageKey, string> = {
   'overall.track': 'Streckenvariante',
   'overall.topTracks': 'Meistgefahrene Streckenvarianten',
   'overall.formTitle': 'Form',
+  'overall.rivalsTitle': 'Mit wem du fährst',
+  'overall.rivalsNote':
+    'Nur Mehrspieler-Sessions, und nur Fahrer, mit denen du mindestens zweimal gefahren bist bzw. kollidiert bist.',
+  'overall.sharedRaces': 'Gemeinsame Rennen',
+  'overall.collisions': 'Kollisionen',
+  'overall.rivalDriver': 'Fahrer',
+  'overall.rivalRaces': 'Rennen',
+  'overall.rivalCollisions': 'Kollisionen',
   'overall.retirements': 'Ausfälle',
   'overall.avgFinish': 'Ø Zielplatz, letzte {n} Rennen',
   'overall.avgGain': 'Ø gewonnene Plätze, letzte {n} Rennen',
@@ -198,9 +211,9 @@ export const de: Record<MessageKey, string> = {
   'progress.session': 'Beste Runde einer Session',
   'progress.best': 'Persönliche Bestzeit bisher',
   'overall.lapsSessions': '{laps} Runden · {sessions} Sessions',
-  'records.back': 'Zurück zu den Bestzeiten',
+  'records.back': 'Zurück zu den Statistiken',
   'records.needName':
-    'Trage deinen Fahrernamen in den Einstellungen ein, um deine Bestzeiten zu sehen.',
+    'Trage deinen Fahrernamen in den Einstellungen ein, um deine Statistiken zu sehen.',
   'records.empty':
     'In den Sessions wurden noch keine Rundenzeiten von dir gefunden.',
   'records.sessions': '{n} Sessions',
@@ -246,4 +259,141 @@ export const de: Record<MessageKey, string> = {
     'Der Index speichert eine kurze Zusammenfassung jeder Session, damit die Session-Liste schnell öffnet. Das Löschen berührt deine Spieldateien nicht.',
   'settings.clearIndex': 'Lokalen Index löschen',
   'settings.clearConfirm': 'Den lokalen Index löschen?',
+
+  'nav.league': 'Liga',
+  'league.title': 'Ligen',
+  'league.pick': 'Wähle eine Liga oder lege eine neue an.',
+  'league.new': 'Neue Liga',
+  'league.newName': 'Name der Liga',
+  'league.create': 'Anlegen',
+  'league.open': 'Liga-Datei öffnen',
+  'league.openFailed': 'Die Datei konnte nicht geöffnet werden: {message}',
+  'league.empty': 'Noch keine Ligen.',
+  'league.races': '{n} Rennen',
+  'league.delete': 'Liga löschen',
+  'league.deleteConfirm':
+    'Diese Liga aus diesem Browser entfernen? Gespeicherte Dateien, auf diesem Rechner oder in einem Cloud-Speicher wie Google Drive, werden nicht gelöscht.',
+  'league.deleteHint':
+    'Löschen entfernt die Liga nur aus diesem Browser. Gespeicherte Dateien, auf diesem Rechner oder im Cloud-Speicher, bleiben unverändert.',
+  'league.unsaved.never':
+    'Diese Liga ist noch nicht gespeichert. Sie existiert nur in diesem Browser, bis du sie als Datei oder in Google Drive speicherst.',
+  'league.unsaved.changed':
+    'Es gibt Änderungen, die noch nicht in der Datei gespeichert sind.',
+  'league.unsaved.go': 'Speichern …',
+  'league.unsaved.short': 'Nicht gespeichert',
+  'league.save': 'Als Datei speichern',
+  'league.drive': 'Google Drive',
+  'league.drive.hint':
+    'Beim Speichern in Drive geht die Liga-Datei mit den Fahrernamen an Google. Die App sieht nur Dateien, die sie selbst angelegt hat.',
+  'league.drive.rememberFailed':
+    'Die Liga wurde in Google Drive gespeichert, aber dieser Browser konnte sich die Datei nicht merken: {message}',
+  'league.drive.recreated':
+    'Die Datei in Google Drive war weg (gelöscht oder im Papierkorb), deshalb wurde eine neue angelegt. Gib sie für die Mitspieler erneut frei.',
+  'league.drive.save': 'In Google Drive speichern',
+  'league.drive.saved': 'Liga in Google Drive gespeichert.',
+  'league.drive.newer':
+    'Die Datei in Google Drive wurde geändert, seit du sie hier zuletzt gespeichert hast. Überschreiben?',
+  'league.drive.share': 'Per Link freigeben',
+  'league.drive.shareHint':
+    'Das Freigeben per Link erlaubt jedem mit dem Link, diese Liga zu lesen, auch die Fahrernamen. Nur diese Freigabe funktioniert in der App; wer die Datei nur für bestimmte Personen freigibt, muss sie den Mitspielern selbst bereitstellen (zum Beispiel per Drive-Synchronisation).',
+  'league.drive.deeplink':
+    'Link für die Mitspieler (öffnet SimScoreboard mit dieser Liga)',
+  'league.drive.deeplink.hint':
+    'Schicke den Mitspielern diesen Link. Sie werden vor dem Laden der Liga einmal gefragt.',
+  'league.copy': 'Link kopieren',
+  'league.copied': 'Kopiert',
+  'league.link.title': 'Geteilte Liga öffnen',
+  'league.link.ask': 'Eine Liga von {host} laden?',
+  'league.readOnly': 'Nur lesen',
+  'league.readOnly.hint':
+    'Diese Liga wird vom Organisator geteilt. Du kannst sie ansehen, aber nicht ändern; sie wird bei jedem Öffnen von der Quelle aktualisiert.',
+  'league.refresh.busy': 'Aktualisiere …',
+  'league.refresh.failed':
+    'Die Liga konnte nicht aktualisiert werden, die letzte Kopie wird gezeigt: {message}',
+  'league.open.replaceConfirm':
+    'Diese Liga gibt es hier schon, mit Änderungen, die nicht gespeichert sind. Durch die Datei ersetzen?',
+  'league.link.load': 'Liga laden',
+  'league.link.cancel': 'Abbrechen',
+  'league.drive.shared':
+    'Jeder mit dem Link kann die Liga jetzt lesen. Schicke den Mitspielern den Link.',
+  'league.drive.link': 'Link zur Liga-Datei',
+  'league.drive.notSetUp':
+    'Google Drive ist auf dieser Seite nicht eingerichtet. Nutze eine normale https-Adresse.',
+  'league.saveToFile': 'Speichern',
+  'league.saveAs': 'Speichern unter …',
+  'league.saveFailed': 'Die Datei konnte nicht gespeichert werden: {message}',
+  'league.file': 'Gespeichert in der Datei {name} auf diesem Rechner.',
+  'league.source': 'Geladen von {url}',
+  'league.refresh': 'Von der Adresse aktualisieren',
+  'league.refreshed': 'Liga von der Adresse aktualisiert.',
+  'league.refreshConfirm':
+    'Diese Liga durch die neueste Version von der Adresse ersetzen? Änderungen hier gehen verloren.',
+  'league.address': 'Adresse einer Liga-Datei (https://…)',
+  'league.address.open': 'Von Adresse öffnen',
+  'league.address.invalid': 'die Adresse muss mit https:// beginnen',
+  'league.address.hint':
+    'Die Seite verbindet sich dann mit diesem Server. Er muss den Zugriff von anderen Seiten erlauben.',
+  'league.saved': 'Liga-Datei gespeichert.',
+  'league.privacy':
+    'Die Datei enthält die Namen der Fahrer. Gib sie nur an Personen weiter, die diese Namen sehen dürfen.',
+  'league.shared':
+    'Änderungen bleiben in diesem Browser. Wer die Datei öffnet, erhält eine eigene Kopie.',
+  'league.tab.standings': 'Tabelle',
+  'league.tab.races': 'Rennen',
+  'league.tab.drivers': 'Fahrer',
+  'league.tab.corrections': 'Korrekturen',
+  'league.tab.settings': 'Einstellungen',
+  'league.noRaces': 'Füge zuerst Rennen hinzu.',
+  'league.class': 'Klasse',
+  'league.driver': 'Fahrer',
+  'league.total': 'Punkte',
+  'league.corrected': 'Korrigiert',
+  'league.dsq': 'DSQ',
+  'league.formulaError': 'Die Formel hat einen Fehler: {message}',
+  'league.singleStarter':
+    '{race}, Klasse {carClass}: Ungültig, da nur ein Fahrer in der Wertung eingetragen ist. Ein gültiges Rennen erfordert mindestens zwei Teilnehmer.',
+  'league.addRace': 'Rennen hinzufügen',
+  'league.addRacePick': 'Session wählen',
+  'league.addRaceNone': 'Es gibt keine weiteren Rennen zum Hinzufügen.',
+  'league.addRaceFailed': 'Die Session konnte nicht gelesen werden: {message}',
+  'league.importRace': 'Rennen importieren',
+  'league.importRaceHelp':
+    'Für ein Rennen, das nicht in deinem Session-Ordner liegt: wähle eine oder mehrere Result-Dateien (.xml) des Spiels. Ihre Fahrernamen werden Teil der Liga.',
+  'league.importRacePick': 'Result-Datei wählen …',
+  'league.importRaceFailed': 'Nicht importiert: {message}',
+  'league.raceName': 'Name',
+  'league.moveUp': 'Nach oben',
+  'league.moveDown': 'Nach unten',
+  'league.removeRace': 'Entfernen',
+  'league.removeRaceConfirm':
+    'Dieses Rennen entfernen? Seine Korrekturen werden mit entfernt.',
+  'league.drivers.help':
+    'Das Spiel hat keine feste Fahrer-ID. Ist eine Person unter mehreren Namen gefahren, führst du die Namen hier zusammen.',
+  'league.mergeInto': 'Gleiche Person wie',
+  'league.mergeNone': '(eigener Eintrag)',
+  'league.corr.help':
+    'Korrekturen ändern die gespeicherten Ergebnisse nie. Sie stehen hier und sind in der Tabelle markiert.',
+  'league.corr.add': 'Korrektur hinzufügen',
+  'league.corr.race': 'Rennen',
+  'league.corr.driver': 'Fahrer',
+  'league.corr.kind': 'Art',
+  'league.corr.value': 'Wert',
+  'league.corr.reason': 'Begründung',
+  'league.corr.reasonRequired': 'Bitte gib eine Begründung an.',
+  'league.corr.timePenalty': 'Zeitstrafe (Sekunden)',
+  'league.corr.disqualify': 'Disqualifikation',
+  'league.corr.position': 'Fester Platz in der Klasse',
+  'league.corr.points': 'Punkte dazu oder weg',
+  'league.corr.none': 'Keine Korrekturen.',
+  'league.corr.remove': 'Entfernen',
+  'league.formula': 'Punkteformel',
+  'league.formula.help':
+    'Wird für jeden Fahrer und jedes Rennen berechnet. Variablen: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Funktionen: if, min, max, round, floor, ceil, abs.',
+  'league.formula.example1':
+    'Beispiel 1 (voreingestellt): floor(40 * (1 - (position - 1) / (starters - 1))) + 10. Der Sieger bekommt 50 Punkte, der Letzte 10, dazwischen verteilen sich die Punkte gleichmäßig nach Platz. Mit 10 Startern ergibt das 50, 45, 41, 36, 32, 27, 23, 19, 14, 10. floor rundet auf ganze Punkte ab. Bei nur einem Starter in einer Klasse ist das Rennen ungültig, weil durch starters - 1 geteilt wird.',
+  'league.formula.example2':
+    'Beispiel 2: if(position <= 10, 11 - position, 0) + fastestLap. Die ersten zehn Plätze bekommen 10 bis 1 Punkt (Platz 1 zehn Punkte, Platz 10 einen Punkt), alle dahinter keinen. Dazu gibt es 1 Punkt für die schnellste Runde der Klasse.',
+  'league.formula.ok': 'Die Formel ist gültig.',
+  'league.formula.at': 'Stelle {position}',
+  'league.name': 'Name der Liga',
 };

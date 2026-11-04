@@ -11,6 +11,25 @@ export function normalizeName(name: string): string {
   return base.trim().replace(/\s+/g, ' ').toLowerCase();
 }
 
+/**
+ * Whether a chat sender is this driver. The chat shows a short name (first
+ * initial and the rest, "V Deux" for "Vittorio Deux"), the other events the
+ * full name, so both forms count.
+ */
+export function isChatSender(sender: string, driverName: string): boolean {
+  const from = normalizeName(sender);
+  const full = normalizeName(driverName);
+  if (!from || !full) return false;
+  if (from === full) return true;
+  const [first, ...rest] = full.split(' ');
+  if (!first || rest.length === 0) return false;
+  const initial = first.charAt(0);
+  return (
+    from === `${initial} ${rest.join(' ')}` ||
+    from === `${initial} ${rest[rest.length - 1]}`
+  );
+}
+
 export function isOwnDriver(name: string, aliases: readonly string[]): boolean {
   const normalized = normalizeName(name);
   if (!normalized) return false;

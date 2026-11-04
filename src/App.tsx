@@ -1,5 +1,6 @@
 import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
+import { LeagueOpenPage, LeaguePage } from './ui/LeagueView';
 import { LogoMark } from './ui/LogoMark';
 import { RecordsView } from './ui/RecordsView';
 import { SessionsPage } from './ui/SessionsPage';
@@ -8,13 +9,15 @@ import { SettingsView } from './ui/SettingsView';
 function Shell() {
   const { t, demo, stopDemo } = useApp();
   const route = useRoute();
-  // Sessions and personal bests keep their list on the left and fill the screen
-  // height; the other pages use the full width and scroll as a whole.
+  // Every page shares one frame, so the header stays put when switching pages.
+  // Sessions, personal bests and leagues keep their list on the left and fill
+  // the screen height; the other pages scroll within the frame.
   const onSessions = route.name === 'sessions' || route.name === 'session';
-  const split = onSessions || route.name === 'records';
+  const split =
+    onSessions || route.name === 'records' || route.name === 'league';
 
   return (
-    <div className={split ? 'app app-split' : 'app'}>
+    <div className="app app-split">
       <header className="top">
         <a className="brand" href={routes.sessions()}>
           <span>Sim</span>
@@ -36,6 +39,12 @@ function Shell() {
             {t('nav.records')}
           </a>
           <a
+            href={routes.league()}
+            aria-current={route.name === 'league' ? 'page' : undefined}
+          >
+            {t('nav.league')}
+          </a>
+          <a
             href={routes.settings()}
             aria-current={route.name === 'settings' ? 'page' : undefined}
           >
@@ -49,14 +58,26 @@ function Shell() {
           <button onClick={stopDemo}>{t('demo.exit')}</button>
         </div>
       )}
-      <main>
+      <main className={split ? undefined : 'page'}>
         {onSessions && (
           <SessionsPage
             selectedId={route.name === 'session' ? route.id : null}
           />
         )}
         {route.name === 'records' && <RecordsView />}
-        {route.name === 'settings' && <SettingsView />}
+        {route.name === 'league' && (
+          <LeaguePage selectedId={route.id} tab={route.tab} />
+        )}
+        {route.name === 'leagueOpen' && (
+          <div className="page-body">
+            <LeagueOpenPage drive={route.drive} url={route.url} />
+          </div>
+        )}
+        {route.name === 'settings' && (
+          <div className="page-body">
+            <SettingsView />
+          </div>
+        )}
       </main>
     </div>
   );

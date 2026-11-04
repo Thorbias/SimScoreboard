@@ -8,9 +8,9 @@ export const en = {
   'folder.choose': 'Choose folder',
   'folder.change': 'Change folder',
   'folder.reconnect': 'Reconnect folder',
-  'folder.chooseResults': 'Choose results folder',
+  'folder.chooseResults': 'Choose UserData folder',
   'folder.hint':
-    'Pick your Le Mans Ultimate folder, its UserData folder or the Results folder. Your files never leave this computer.',
+    'Pick the UserData folder of Le Mans Ultimate, for example SteamLibrary\\steamapps\\common\\Le Mans Ultimate\\UserData. Your files never leave this computer.',
   'folder.reconnectHint': 'Allow access to your folder again to open sessions.',
   'folder.noResults': 'No result files were found in that folder.',
 
@@ -138,15 +138,20 @@ export const en = {
   'inc.served': '{penalty} served',
   'inc.penaltyDetail': '{penalty} – {reason}',
   'inc.chat': 'Chat',
-  'inc.chatShow': 'Show chat around this incident ({n})',
-  'inc.chatTitle': 'Chat around {time}',
+  'inc.chatShow': 'Show chat from this incident ({n})',
+  'inc.chatTitle': 'Chat from {time}',
   'inc.chatWindow':
-    'Messages from {minutes} minutes before to {minutes} minutes after the incident.',
+    'Messages from the incident up to {seconds} seconds after it.',
   'inc.chatClose': 'Close',
+  'chat.showIncident': 'Jump to the incident: {type} at {time}',
   'chat.empty': 'No chat messages in this session.',
+  'chat.time': 'Time',
+  'chat.driver': 'Driver',
+  'chat.message': 'Message',
+  'chat.incident': 'Incident',
 
-  'nav.records': 'Records',
-  'records.title': 'Personal bests',
+  'nav.records': 'Statistics',
+  'records.title': 'Statistics',
   'records.trackCount': '{n} tracks',
   'records.overall': 'Overall',
   'records.overallMeta': '{layouts} layouts · {sessions} sessions',
@@ -170,6 +175,14 @@ export const en = {
   'overall.track': 'Track layout',
   'overall.topTracks': 'Most driven layouts',
   'overall.formTitle': 'Form',
+  'overall.rivalsTitle': 'Who you drive with',
+  'overall.rivalsNote':
+    'Online sessions only, and only drivers you have raced with or collided with at least twice.',
+  'overall.sharedRaces': 'Races together',
+  'overall.collisions': 'Collisions',
+  'overall.rivalDriver': 'Driver',
+  'overall.rivalRaces': 'Races',
+  'overall.rivalCollisions': 'Collisions',
   'overall.retirements': 'Retirements',
   'overall.avgFinish': 'Average finish, last {n} races',
   'overall.avgGain': 'Places gained on average, last {n} races',
@@ -193,9 +206,9 @@ export const en = {
   'progress.session': 'Best lap of a session',
   'progress.best': 'Personal best so far',
   'overall.lapsSessions': '{laps} laps · {sessions} sessions',
-  'records.back': 'Back to personal bests',
+  'records.back': 'Back to statistics',
   'records.needName':
-    'Set your driver name in the settings to see your personal bests.',
+    'Set your driver name in the settings to see your statistics.',
   'records.empty': 'No lap times of yours were found in the sessions yet.',
   'records.sessions': '{n} sessions',
   'records.bestQuali': 'Best qualifying lap',
@@ -239,6 +252,143 @@ export const en = {
     'The index holds a short summary of every session so the session list opens quickly. Deleting it does not touch your game files.',
   'settings.clearIndex': 'Delete local index',
   'settings.clearConfirm': 'Delete the local index?',
+
+  'nav.league': 'League',
+  'league.title': 'Leagues',
+  'league.pick': 'Choose a league or create a new one.',
+  'league.new': 'New league',
+  'league.newName': 'Name of the league',
+  'league.create': 'Create',
+  'league.open': 'Open a league file',
+  'league.openFailed': 'The file could not be opened: {message}',
+  'league.empty': 'No leagues yet.',
+  'league.races': '{n} races',
+  'league.delete': 'Delete league',
+  'league.deleteConfirm':
+    'Remove this league from this browser? Files you saved, on this computer or in a cloud storage such as Google Drive, are not deleted.',
+  'league.deleteHint':
+    'Deleting only removes the league from this browser. Saved files, on this computer or in a cloud storage, stay as they are.',
+  'league.unsaved.never':
+    'This league is not saved yet. It exists only in this browser until you save it as a file or to Google Drive.',
+  'league.unsaved.changed':
+    'There are changes that are not saved to the file yet.',
+  'league.unsaved.go': 'Save…',
+  'league.unsaved.short': 'Not saved',
+  'league.save': 'Save as file',
+  'league.drive': 'Google Drive',
+  'league.drive.hint':
+    'Saving to Drive sends the league file, with the driver names, to Google. The app only sees files it created itself.',
+  'league.drive.rememberFailed':
+    'The league was saved to Google Drive, but this browser could not remember the file: {message}',
+  'league.drive.recreated':
+    'The file in Google Drive was gone (deleted or in the trash), so a new one was created. Share it again for the players.',
+  'league.drive.save': 'Save to Google Drive',
+  'league.drive.saved': 'League saved to Google Drive.',
+  'league.drive.newer':
+    'The file in Google Drive was changed since you last saved it here. Overwrite it?',
+  'league.drive.share': 'Share by link',
+  'league.drive.shareHint':
+    'Sharing by link lets everyone who has the link read this league, including the driver names. Only this kind of sharing works in the app; if you share the file with chosen people only, the players have to get the file themselves (for example by syncing Drive).',
+  'league.drive.deeplink':
+    'Link for the players (opens SimScoreboard with this league)',
+  'league.drive.deeplink.hint':
+    'Send this link to the players. They are asked once before the league is loaded.',
+  'league.copy': 'Copy link',
+  'league.copied': 'Copied',
+  'league.link.title': 'Open a shared league',
+  'league.link.ask': 'Load a league from {host}?',
+  'league.readOnly': 'Read only',
+  'league.readOnly.hint':
+    'This league is shared by its organizer. You can view it but not change it; it is updated from the source whenever you open it.',
+  'league.refresh.busy': 'Updating…',
+  'league.refresh.failed':
+    'The league could not be updated, the last copy is shown: {message}',
+  'league.open.replaceConfirm':
+    'This league is already here with changes that are not saved. Replace it with the file?',
+  'league.link.load': 'Load league',
+  'league.link.cancel': 'Cancel',
+  'league.drive.shared':
+    'Everyone with the link can now read the league. Send them the link.',
+  'league.drive.link': 'Link to the league file',
+  'league.drive.notSetUp':
+    'Google Drive is not set up on this site. Use a plain https address.',
+  'league.saveToFile': 'Save',
+  'league.saveAs': 'Save as…',
+  'league.saveFailed': 'The file could not be saved: {message}',
+  'league.file': 'Saved to the file {name} on this computer.',
+  'league.source': 'Loaded from {url}',
+  'league.refresh': 'Update from address',
+  'league.refreshed': 'League updated from the address.',
+  'league.refreshConfirm':
+    'Replace this league with the newest version from the address? Changes made here are lost.',
+  'league.address': 'Address of a league file (https://…)',
+  'league.address.open': 'Open from address',
+  'league.address.invalid': 'the address must start with https://',
+  'league.address.hint':
+    'The page then contacts that server. It has to allow access from other sites.',
+  'league.saved': 'League file saved.',
+  'league.privacy':
+    'The file contains the names of the drivers. Share it only with people who may see them.',
+  'league.shared':
+    'Changes are kept in this browser. Whoever opens the file gets their own copy.',
+  'league.tab.standings': 'Standings',
+  'league.tab.races': 'Races',
+  'league.tab.drivers': 'Drivers',
+  'league.tab.corrections': 'Corrections',
+  'league.tab.settings': 'Settings',
+  'league.noRaces': 'Add races first.',
+  'league.class': 'Class',
+  'league.driver': 'Driver',
+  'league.total': 'Points',
+  'league.corrected': 'Corrected',
+  'league.dsq': 'DSQ',
+  'league.formulaError': 'The formula has an error: {message}',
+  'league.singleStarter':
+    '{race}, class {carClass}: Invalid, because only one driver is entered in the rating. A valid race needs at least two participants.',
+  'league.addRace':'Add a race',
+  'league.addRacePick': 'Choose a session',
+  'league.addRaceNone': 'There are no more race sessions to add.',
+  'league.addRaceFailed': 'The session could not be read: {message}',
+  'league.importRace': 'Import a race',
+  'league.importRaceHelp':
+    'For a race that is not in your sessions folder: choose one or more result files (.xml) of the game. Their driver names become part of the league.',
+  'league.importRacePick': 'Choose result file…',
+  'league.importRaceFailed': 'Not imported: {message}',
+  'league.raceName': 'Name',
+  'league.moveUp': 'Move up',
+  'league.moveDown': 'Move down',
+  'league.removeRace': 'Remove',
+  'league.removeRaceConfirm':
+    'Remove this race? Its corrections are removed as well.',
+  'league.drivers.help':
+    'The game has no fixed driver ID. If one person drove under several names, merge them here.',
+  'league.mergeInto': 'Same person as',
+  'league.mergeNone': '(own entry)',
+  'league.corr.help':
+    'Corrections never change the stored results. They are listed here and marked in the standings.',
+  'league.corr.add': 'Add correction',
+  'league.corr.race': 'Race',
+  'league.corr.driver': 'Driver',
+  'league.corr.kind': 'Kind',
+  'league.corr.value': 'Value',
+  'league.corr.reason': 'Reason',
+  'league.corr.reasonRequired': 'Please give a reason.',
+  'league.corr.timePenalty': 'Time penalty (seconds)',
+  'league.corr.disqualify': 'Disqualification',
+  'league.corr.position': 'Fixed position in the class',
+  'league.corr.points': 'Points added or removed',
+  'league.corr.none': 'No corrections.',
+  'league.corr.remove': 'Remove',
+  'league.formula': 'Points formula',
+  'league.formula.help':
+    'Calculated for every driver and race. Variables: position, overallPosition, starters, fastestLap, pole, finished, laps, leaderLaps. Functions: if, min, max, round, floor, ceil, abs.',
+  'league.formula.example1':
+    'Example 1 (preset): floor(40 * (1 - (position - 1) / (starters - 1))) + 10. The winner gets 50 points, the last place 10, and the points in between are spread evenly by position. With 10 starters that gives 50, 45, 41, 36, 32, 27, 23, 19, 14, 10. floor rounds down to whole points. With a single starter in a class the race is invalid, because the formula divides by starters - 1.',
+  'league.formula.example2':
+    'Example 2: if(position <= 10, 11 - position, 0) + fastestLap. The first ten places get 10 down to 1 point (first place ten points, tenth place one point), everyone behind gets none. On top there is 1 point for the fastest lap of the class.',
+  'league.formula.ok': 'The formula is valid.',
+  'league.formula.at': 'Position {position}',
+  'league.name': 'Name of the league',
 } as const;
 
 export type MessageKey = keyof typeof en;

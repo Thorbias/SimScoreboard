@@ -21,14 +21,18 @@ Everything runs locally in your browser. Your race files are never uploaded.
   laps, fastest sectors, and your own driver highlighted.
 - **Analysis:** lap time comparison of up to four drivers, position chart,
   statistics per class, incidents, penalties and chat.
-- **Personal bests:** your fastest laps per track layout, class and car.
+- **Statistics:** your fastest laps per track layout, class and car, plus an overview of your races, cars, and the drivers you meet most often.
+- **League:** build a league from race sessions, with standings per class from
+  a points formula you write, merged driver names and corrections. The
+  organizer saves the league as a file or to Google Drive and shares a link;
+  the players see it read-only and up to date.
 - **Demo:** try the app without game files, with anonymized sample sessions
   ("Try the demo"). Your own sessions and settings are not touched.
 - **Local only:** the index and your settings stay in your browser. English and
   German, light and dark.
 
 Planned: telemetry comparison of two laps, track maps from your own telemetry,
-and custom leagues and cups.
+and cups, signed league files and more cloud storage providers.
 
 ## Use it online
 
@@ -48,8 +52,14 @@ npm run check   # typecheck, lint, tests and build
 ```
 
 Open the page in a Chromium browser (Chrome, Edge) and choose your Le Mans
-Ultimate folder, its `UserData` folder or the `Results` folder. Other browsers
+Ultimate `UserData` folder (for example `SteamLibrarysteamappsmmone mans ultimateSERDATA`). OTHER BROWSERS
 can pick the folder with a file dialog, but cannot remember it.
+
+The Google Drive connection for leagues is optional and off by default. To turn
+it on for your own build or server, create a Google Cloud project and set
+`VITE_GOOGLE_CLIENT_ID` and `VITE_GOOGLE_API_KEY` when you build (see
+[docs/LIGA-DRIVE.md](docs/LIGA-DRIVE.md)). The values never belong in the
+repository.
 
 ## Documentation
 
@@ -61,6 +71,7 @@ can pick the folder with a file dialog, but cannot remember it.
 | [docs/BACKLOG.md](docs/BACKLOG.md) | What is next, handover notes |
 | [docs/GUIDELINES.md](docs/GUIDELINES.md) | How we work |
 | [docs/decisions/](docs/decisions/) | Architecture decision records |
+| [docs/LIGA-DRIVE.md](docs/LIGA-DRIVE.md) | Setting up the optional Google Drive connection |
 | [docs/ideations/](docs/ideations/) | Ideas in progress |
 | [AGENTS.md](AGENTS.md) | Context for AI coding agents |
 

@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-021 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-024 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -134,7 +134,8 @@ Der Anwender sieht alle Zwischenfälle einer Session als Zeitleiste.
 - Spalten: Session-Zeit, Restzeit (bei zeitbegrenzter Session), Typ, Fahrer, Klasse, Runde, Detail.
 - Typen: Kontakt (mit Fahrzeug oder Objekt, mit Stärke), Schaden, Track Limits (mit Verwarnpunkten) und Strafe (verhängt oder abgesessen).
 - Filter nach Typ, Klasse und Fahrer.
-- Gab es im Umkreis von zwei Minuten vor und nach einem Zwischenfall Chat-Nachrichten, zeigt die Zeile eine Sprechblase mit der Zahl der Nachrichten. Ein Klick öffnet ein kleines Chatfenster mit diesen Nachrichten und einer Markierung, wann der Zwischenfall war. Der Chat-Reiter (F-011) bleibt davon unberührt.
+- Gab es bei einem Kontakt oder Schaden vom Zeitstempel des Zwischenfalls bis 30 Sekunden danach Chat-Nachrichten, zeigt die Zeile eine Sprechblase mit der Zahl der Nachrichten. Ein Klick öffnet ein kleines Chatfenster mit diesen Nachrichten und einer Markierung, wann der Zwischenfall war. Der Chat-Reiter (F-011) bleibt davon unberührt.
+- Der Chat-Reiter ist eine Tabelle (Zeit, Fahrer, Nachricht, Zwischenfall). In der Spalte „Zwischenfall“ steht ein Blitz, wenn zu ihr ein Zwischenfall passt: ein Kontakt oder Schaden des schreibenden Fahrers (der Chat zeigt Kurznamen wie „V Deux“ für „Vittorio Deux“; oder ein Kontakt „mit“ diesem Fahrer), der bis zu 30 Sekunden vor der Nachricht (oder gleichzeitig) stattfand. Ein Klick springt zum Zwischenfall-Reiter, scrollt zur Zeile und hebt sie hervor; passen mehrere, gilt der letzte vor der Nachricht.
 - Die Ereignisse stehen nur in neueren Mehrspieler-Dateien; fehlen sie, entfällt der Reiter.
 
 ## F-011 — Session-Chat
@@ -243,6 +244,8 @@ Als erster Eintrag der Bestzeiten fasst der Gesamtüberblick alles zusammen, was
 - Rekorde: Zahl der Klassenrekorde der letzten 30 Tage sowie die fünf neuesten und die fünf ältesten Klassenrekorde mit Alter in Tagen.
 - Mehrspieler und Einzelspieler: Anteil der Sessions und der Runden je Modus.
 - Aktivität: gefahrene Runden pro Monat der letzten zwölf Monate als Säulen.
+- Mit wem du fährst (nur Mehrspieler-Sessions; gegen die KI zählt nichts): die Fahrer, mit denen du die meisten Rennen gefahren bist (Rennen, in denen beide mindestens eine Runde gefahren sind), und die, mit denen du die meisten Kollisionen hattest (Kontakte zwischen zwei Fahrern in allen Mehrspieler-Sessions; beide Meldungen eines Kontakts zählen einmal). Beide Listen zeigen nur Fahrer ab zwei Treffern und höchstens zehn. Die Kontakte stehen dafür im Index (Version 4), die Sessions werden beim nächsten Einlesen neu gelesen.
+- Die Seite heißt in der Navigation „Statistiken“ (früher „Bestzeiten“); "Statistiken" in der Session ist ein eigener Reiter.
 - Gezählt wird nur, was zum eigenen Fahrer gehört (F-003); jede Streckenvariante zählt einzeln (F-014).
 
 ## F-020 — Demo-Daten
@@ -255,3 +258,45 @@ Die App lässt sich ohne Spieldateien ausprobieren, mit Beispiel-Sessions, in de
 - Inhalt: 14 vollständige Sessions aus fünf Events (Bahrain, Spa im Mehrspieler, Algarve, Spa als Rennwochenende gegen KI, ein Mehrklassen-Rennen) mit Training, Qualifying und Rennen. Zeiten, Ergebnisse, Zwischenfälle und Strafen sind echt; Fahrer heißen „Driver 07“, der eigene „Demo Driver“, Teams „Team 03“; der Chat besteht aus neutralen Sätzen.
 - Die Demo steht neben der echten Bibliothek: Sessions, Favoriten und Ergebnisse der Demo werden nie gespeichert, eigene Sessions, Fahrernamen, Favoriten und der lokale Index bleiben unberührt. Eigene Fahrernamen und der Index sind während der Demo gesperrt.
 - Die Dateien entstehen mit `tools/anonymize-results.mjs --demo` und werden auf Namensreste getestet (siehe [GUIDELINES.md](GUIDELINES.md), Datenschutz).
+
+## F-021 — Liga (Version 1, nur Organisator)
+
+Prio S · Status fertig
+
+Ein Organisator fasst Sessions zu einer Liga zusammen, die App berechnet die Fahrerwertung, und die Liga lässt sich als Datei weitergeben, die Mitspieler nur lesen. Ausgangspunkt sind [IDEA-0001](ideations/IDEA-0001-custom-league.md) und [IDEA-0002](ideations/IDEA-0002-liga-speicherort-und-teilen.md).
+
+- Rollen: Der Organisator schreibt, alle anderen lesen. Den Schreibschutz stellt der Speicher her (Freigabe-Rechte des Ordners); die App prüft ihn nicht. Eine Signatur folgt später ([IDEA-0003](ideations/IDEA-0003-liga-signatur.md)); das Datenformat sieht dafür ein leeres Feld vor.
+- Liga: Name, Klassen-Regel und Punkteformel. Die Rennen einer Liga sind Sessions des Typs Rennen, die der Organisator auswählt und in eine Reihenfolge bringt. Ein Rennen lässt sich auch aus einer einzelnen Result-Datei (.xml) importieren, die nicht im Session-Ordner liegt.
+- Punkteformel: Der Organisator gibt einen Ausdruck vor, der pro Fahrer und Rennen die Punkte berechnet. Variablen: `position` (Platz in der Wertungsklasse), `overallPosition`, `starters` (Teilnehmer der Klasse), `fastestLap` (1 für schnellste Runde der Klasse, sonst 0), `pole` (1 bei Pole in der Qualifikation), `finished` (1 wenn gewertet), `laps`, `leaderLaps` (Runden des Klassensiegers). Funktionen: `min`, `max`, `round`, `floor`, `if(Bedingung, dann, sonst)`, dazu `+ - * / %`, Vergleiche und `and`/`or`. Voreingestellt ist `floor(40 * (1 - (position - 1) / (starters - 1))) + 10` (Sieger 50, Letzter 10; bei einem einzelnen Starter in der Klasse ist das Rennen ungültig), als zweites Beispiel steht `if(position <= 10, 11 - position, 0) + fastestLap` im Hilfetext.
+- Sicherheit der Formel: ein eigener kleiner Parser mit festem Wortschatz, kein `eval` (die Content-Security-Policy erlaubt es ohnehin nicht). Fehler in der Formel zeigt die App mit Position im Text an, bevor sie rechnet.
+- Vorlagen für Formeln (zum Beispiel gängige Punktetabellen) kommen später; Version 1 hat nur das Eingabefeld.
+- Wertung: nur Fahrer, getrennt je Klasse. Tabelle mit Platz, Fahrer, Punkten je Rennen und Summe; dazu der Verlauf der Punkte über die Rennen.
+- Die Spaltenköpfe der Rennen zeigen den Namen und darunter Datum und Uhrzeit. Name und Zeit führen zur Session, wenn sie auf diesem Rechner vorhanden ist; sonst sind sie kein Link.
+- Fahrer zusammenführen: Result-Dateien haben keine stabile ID ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Der Organisator ordnet mehrere Namen einer Person zu (Aliasliste je Liga).
+- Korrekturen: Nachträglich möglich sind Zeitstrafen, Disqualifikationen, ein manuell geänderter Platz und Punkte-Zu- oder Abschläge, jeweils mit Begründung. Die Originaldaten bleiben unverändert; die Korrekturen liegen als eigene Einträge in der Liga und sind in der Tabelle als solche erkennbar.
+- Speichern: lesbares, versioniertes JSON in einem Ordner, den der Organisator wählt (File System Access API; auch ein Ordner, den ein Cloud-Client synchronisiert). Ohne Chromium gibt es Export und Import als Datei.
+- Teilen: Mitspieler öffnen die Liga-Datei in der App und sehen die Tabelle ohne Schreibmöglichkeit. Dateien der Rennen müssen sie nicht haben: die Liga-Datei enthält die ausgewerteten Ergebnisse je Rennen.
+- Datenschutz: Die Liga-Datei enthält Namen anderer Fahrer. Beim Speichern und Teilen weist die App darauf hin.
+
+## F-022 — Boxenstoppzeiten
+
+Prio S · Status offen · wartet auf die Telemetrie (Backlog 7)
+
+Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der Telemetrie.
+
+- Quelle ist ausschließlich die Telemetrie (Ereignis `In Pits` und Streckenposition, siehe ADR-0008). Die Result-XML kennt nur die Zahl der Stopps und die Runde (`pit`), keine Standzeit; geschätzte Zeiten aus Rundenzeiten gibt es bewusst nicht.
+- Ohne Aufzeichnung zur Session steht kein Wert da, keine Näherung.
+- Offen: Anzeigeort (Ergebnisse oder Analyse), Aufteilung in Boxengasse und Stillstand, Zuordnung der Aufzeichnung zur Session. Wird beim Start geklärt, ob ein eigener Branch nötig ist.
+
+## F-023 — Liga im Cloud-Speicher
+
+Prio S · Status fertig
+
+Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)).
+
+- Ohne Zugangsdaten: „Speichern“ überschreibt dieselbe Datei (das Datei-Handle der Liga wird gemerkt, nach einem Neustart fragt der Browser einmal nach Zugriff); liegt sie in einem synchronisierten Ordner (zum Beispiel Google Drive für Desktop), verteilt der Cloud-Client sie. Eine Liga lässt sich auch aus einer `https`-Adresse öffnen und von dort aktualisieren.
+- Google Drive direkt, nur wenn Client-ID und API-Key beim Bauen gesetzt sind (Einrichtung in [LIGA-DRIVE.md](LIGA-DRIVE.md)): Anmeldung mit Google (nur Zugriff auf Dateien, die die App selbst anlegt), „In Google Drive speichern“ legt die Datei an oder aktualisiert sie, fragt vor dem Überschreiben einer geänderten Version und legt eine gelöschte Datei neu an. „Per Link freigeben“ zeigt einen Link auf SimScoreboard, den die Mitspieler öffnen.
+- Mitspieler: Der Link fragt vor dem Laden nach. Die Liga ist eine Kopie mit gemerkter Quelle, **nur lesbar** (Schloss-Symbol) und wird bei jedem Öffnen aktualisiert; sie erscheint nie doppelt.
+- Hinweis „noch nicht gespeichert“ (Banner, Punkte) für neue und geänderte Ligen; eine neue Liga öffnet in den Einstellungen. Löschen entfernt die Liga nur aus dem Browser, nie gespeicherte Dateien.
+- **Grenze, bewusst so entschieden:** Die App liest eine Drive-Datei nur, wenn sie für „Jeder mit dem Link“ freigegeben ist (Abruf mit API-Key, ohne Anmeldung). Eingeschränkt freigegebene Dateien (nur bestimmte Personen) liefert Google mit 404 aus, auch wenn der Mitspieler bei Google angemeldet ist; die App meldet das verständlich. Wer die Liga nicht öffentlich per Link teilen will, gibt sie bestimmten Personen frei, und die Mitspieler holen sich die Datei selbst (zum Beispiel per Drive-Synchronisation) und öffnen sie lokal; das liegt außerhalb der App und ist akzeptiert. Erst bei echtem Bedarf wird geprüft, wie gesicherte Dateien zugänglich werden: Mitspieler melden sich in der App an und wählen die Datei über den Google Picker aus (Scope `drive.file`; offen sind Picker-API, Projektnummer als Konfigurationswert, Skript von `apis.google.com` in der Content-Security-Policy, Testnutzer und ob die Berechtigung bleibt).
+- Den Schreibschutz stellt der Speicher her (Freigabe: nur der Organisator darf bearbeiten). Die Liga-Datei enthält Namen anderer Fahrer; die App weist beim Speichern in die Cloud und beim Freigeben darauf hin.
