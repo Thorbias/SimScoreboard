@@ -23,7 +23,7 @@ const defaultFetch: FetchLike = (url, init) => fetch(url, init);
 
 const API = 'https://www.googleapis.com/drive/v3';
 const UPLOAD = 'https://www.googleapis.com/upload/drive/v3';
-const FIELDS = 'id,headRevisionId,version,trashed';
+const FIELDS = 'id,headRevisionId,version,trashed,capabilities/canEdit';
 
 export class DriveError extends Error {
   constructor(
@@ -40,6 +40,8 @@ export interface DriveFile {
   trashed?: boolean;
   /** Drive's counter for the content; it changes with every save. */
   version: string;
+  /** The signed-in account may change the file; unknown when not asked for. */
+  canEdit?: boolean;
 }
 
 /** The file ID in a Drive link, or in a bare ID; null for anything else. */
@@ -112,6 +114,7 @@ const asFile = (value: unknown): DriveFile => {
     headRevisionId?: unknown;
     version?: unknown;
     trashed?: unknown;
+    capabilities?: { canEdit?: unknown };
   } | null;
   // The head revision changes only when the content is saved. Drive's own
   // version counter also moves with sharing and other metadata, which made a
@@ -124,6 +127,9 @@ const asFile = (value: unknown): DriveFile => {
     id: v.id,
     version: String(version),
     ...(v.trashed === true ? { trashed: true } : {}),
+    ...(typeof v.capabilities?.canEdit === 'boolean'
+      ? { canEdit: v.capabilities.canEdit }
+      : {}),
   };
 };
 
@@ -193,6 +199,29 @@ export async function driveFileVersion(
     if (error instanceof DriveError && error.status === 404) return null;
     throw error;
   }
+}
+
+export type EditAccess =
+  | { status: 'ok'; file: DriveFile }
+  | { status: 'missing' }
+  | { status: 'readonly' };
+
+/**
+ * Whether the signed-in account may change a league file it did not create in
+ * this browser. With the `drive.file` scope Drive shows the app only the files
+ * it created itself, for any site that uses the same client ID, so a file of
+ * someone else, or one made by another program, is reported as missing.
+ */
+export async function driveEditAccess(
+  token: string,
+  id: string,
+  fetchImpl: FetchLike = defaultFetch,
+): Promise<EditAccess> {
+  const file = await driveFileVersion(token, id, fetchImpl);
+  if (!file || file.trashed) return { status: 'missing' };
+  return file.canEdit === true
+    ? { status: 'ok', file }
+    : { status: 'readonly' };
 }
 
 /** Lets everyone with the link read the file (never write it). */

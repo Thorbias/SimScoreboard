@@ -97,6 +97,15 @@ Zugangsdaten und trägt allein.
 - **Geteilte Ligen sind nur lesbar.** Eine Liga, die aus einem Link oder einer
   Adresse kommt, kann nicht bearbeitet werden, wird bei jedem Öffnen von der Quelle
   aktualisiert (bei Fehlern bleibt die letzte Kopie) und trägt ein Schloss-Symbol.
+- **Als Besitzer bearbeiten:** Das Schloss einer nur lesbaren Liga (in der Liste
+  und im Kopf der Liga) ist ein Knopf. Nach einer Rückfrage meldet er den Nutzer
+  bei Google an und fragt Drive, ob das Konto die Datei ändern darf
+  (`capabilities.canEdit`). Ist das so, verliert die Liga die Quelladresse und
+  wird mit der Drive-Datei verknüpft; sie ist dann bearbeitbar und wird in
+  dieselbe Datei gespeichert. Beweis der Besitzerschaft ist das Google-Konto, nicht
+  eine Signatur. Mit `drive.file` sieht die App Dateien, die dieselbe Client-ID
+  angelegt hat, auch von einer anderen Seite aus (zum Beispiel `localhost` und
+  GitHub Pages); das ist noch nicht auf der Live-Seite geprüft.
 - **Keine doppelten Ligen:** Dieselbe Liga (gleiche ID) wird nie zweimal gelistet.
   Eine Liga des Organisators (Datei, Drive oder ungespeicherte Änderungen) wird
   beim Öffnen des Links nicht überschrieben.

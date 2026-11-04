@@ -305,6 +305,16 @@ export const de: Record<MessageKey, string> = {
   'league.link.title': 'Geteilte Liga öffnen',
   'league.link.ask': 'Eine Liga von {host} laden?',
   'league.readOnly': 'Nur lesen',
+  'league.takeOver.title': 'Nur lesen. Klicken, um als Besitzer zu bearbeiten',
+  'league.takeOver.ask':
+    'In den Bearbeitungsmodus wechseln?\n\nDas klappt nur, wenn du der Besitzer der Liga-Datei in Google Drive bist und dich mit Google anmeldest.',
+  'league.takeOver.notSetUp':
+    'Google Drive ist auf dieser Seite nicht eingerichtet, die Liga kann hier nicht bearbeitet werden.',
+  'league.takeOver.notDrive':
+    'Diese Liga stammt nicht aus Google Drive und kann hier nicht bearbeitet werden.',
+  'league.takeOver.noAccess':
+    'Mit diesem Google-Konto geht das nicht: Die Datei gehört dir nicht oder wurde nicht mit dieser App angelegt.',
+  'league.takeOver.failed': 'Der Wechsel hat nicht geklappt: {message}',
   'league.readOnly.hint':
     'Diese Liga wird vom Organisator geteilt. Du kannst sie ansehen, aber nicht ändern; sie wird bei jedem Öffnen von der Quelle aktualisiert.',
   'league.refresh.busy': 'Aktualisiere …',

@@ -298,6 +298,16 @@ export const en = {
   'league.link.title': 'Open a shared league',
   'league.link.ask': 'Load a league from {host}?',
   'league.readOnly': 'Read only',
+  'league.takeOver.title': 'Read only. Click to edit as the owner',
+  'league.takeOver.ask':
+    'Switch to editing?\n\nThis only works if you own the league file in Google Drive and sign in with Google.',
+  'league.takeOver.notSetUp':
+    'Google Drive is not set up on this site, so the league cannot be edited here.',
+  'league.takeOver.notDrive':
+    'This league does not come from Google Drive and cannot be edited here.',
+  'league.takeOver.noAccess':
+    'This Google account cannot do that: you do not own the file, or it was not created with this app.',
+  'league.takeOver.failed': 'The switch did not work: {message}',
   'league.readOnly.hint':
     'This league is shared by its organizer. You can view it but not change it; it is updated from the source whenever you open it.',
   'league.refresh.busy': 'Updating…',
