@@ -1,6 +1,7 @@
 import type { SessionSummary, SessionType } from '../results/types';
 import { sessionTime } from './filters';
 import { isOwnDriver } from './names';
+import { buildRivals, type DriverCount } from './rivals';
 
 export interface LapRecord {
   sessionId: string;
@@ -275,6 +276,8 @@ export interface Overview {
   oldestRecords: RecordAge[];
   /** Class records set within the last 30 days. */
   recentRecordCount: number;
+  /** The drivers raced with and collided with most often (two or more). */
+  rivals: { sharedRaces: DriverCount[]; collisions: DriverCount[] };
 }
 
 const TOP_TRACKS = 5;
@@ -531,5 +534,6 @@ export function buildOverview(
       .slice(0, RECORD_LIST),
     recentRecordCount: ages.filter((r) => r.time >= now - RECENT_DAYS * DAY_MS)
       .length,
+    rivals: buildRivals(sessions, aliases),
   };
 }

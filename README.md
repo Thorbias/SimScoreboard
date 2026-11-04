@@ -21,7 +21,7 @@ Everything runs locally in your browser. Your race files are never uploaded.
   laps, fastest sectors, and your own driver highlighted.
 - **Analysis:** lap time comparison of up to four drivers, position chart,
   statistics per class, incidents, penalties and chat.
-- **Personal bests:** your fastest laps per track layout, class and car.
+- **Statistics:** your fastest laps per track layout, class and car, plus an overview of your races, cars, and the drivers you meet most often.
 - **League:** build a league from race sessions, with standings per class from
   a points formula you write, merged driver names and corrections. The
   organizer saves the league as a file or to Google Drive and shares a link;

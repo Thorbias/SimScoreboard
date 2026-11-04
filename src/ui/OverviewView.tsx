@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useApp } from '../app/AppContext';
 import { formatDate } from '../format/date';
 import { formatLapTime } from '../format/lapTime';
+import type { DriverCount } from '../library/rivals';
 import {
   recentMonths,
   type ClassOverview,
@@ -262,6 +263,50 @@ function RecordAges({
   );
 }
 
+function RivalTable({
+  title,
+  countLabel,
+  drivers,
+}: {
+  title: string;
+  countLabel: string;
+  drivers: DriverCount[];
+}) {
+  const { t } = useApp();
+  if (drivers.length === 0) return null;
+  // The bars are measured against the driver with the most.
+  const most = Math.max(...drivers.map((d) => d.count));
+  return (
+    <>
+      <h5>{title}</h5>
+      <div className="table-wrap">
+        <table className="results">
+          <thead>
+            <tr>
+              <th>{t('overall.rivalDriver')}</th>
+              <th className="rival-bar-col" aria-hidden="true"></th>
+              <th className="num">{countLabel}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {drivers.map((d) => (
+              <tr key={d.name}>
+                <td>{d.name}</td>
+                <td className="rival-bar-col">
+                  <span className="rival-bar" aria-hidden="true">
+                    <i style={{ width: `${(d.count / most) * 100}%` }} />
+                  </span>
+                </td>
+                <td className="num">{d.count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+}
+
 function ActivityChart({ overview }: { overview: Overview }) {
   const { t, language } = useApp();
   const months = recentMonths(overview.activity, 12);
@@ -443,6 +488,24 @@ export function OverviewDetail({
           </dl>
           <h5>{t('overall.recentRaces')}</h5>
           <RecentRaces races={form.recent} onPickTrack={onPickTrack} />
+        </section>
+      )}
+
+      {(overview.rivals.sharedRaces.length > 0 ||
+        overview.rivals.collisions.length > 0) && (
+        <section className="layout-section">
+          <h3 className="section-title">{t('overall.rivalsTitle')}</h3>
+          <p className="muted small">{t('overall.rivalsNote')}</p>
+          <RivalTable
+            title={t('overall.sharedRaces')}
+            countLabel={t('overall.rivalRaces')}
+            drivers={overview.rivals.sharedRaces}
+          />
+          <RivalTable
+            title={t('overall.collisions')}
+            countLabel={t('overall.rivalCollisions')}
+            drivers={overview.rivals.collisions}
+          />
         </section>
       )}
 

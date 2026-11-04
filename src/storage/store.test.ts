@@ -21,6 +21,7 @@ function summary(id: string): SessionSummary {
     scheduledLaps: null,
     classes: ['GT3'],
     entries: [],
+    contacts: [],
   };
 }
 

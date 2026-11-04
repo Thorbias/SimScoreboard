@@ -244,6 +244,8 @@ Als erster Eintrag der Bestzeiten fasst der Gesamtüberblick alles zusammen, was
 - Rekorde: Zahl der Klassenrekorde der letzten 30 Tage sowie die fünf neuesten und die fünf ältesten Klassenrekorde mit Alter in Tagen.
 - Mehrspieler und Einzelspieler: Anteil der Sessions und der Runden je Modus.
 - Aktivität: gefahrene Runden pro Monat der letzten zwölf Monate als Säulen.
+- Mit wem du fährst (nur Mehrspieler-Sessions; gegen die KI zählt nichts): die Fahrer, mit denen du die meisten Rennen gefahren bist (Rennen, in denen beide mindestens eine Runde gefahren sind), und die, mit denen du die meisten Kollisionen hattest (Kontakte zwischen zwei Fahrern in allen Mehrspieler-Sessions; beide Meldungen eines Kontakts zählen einmal). Beide Listen zeigen nur Fahrer ab zwei Treffern und höchstens zehn. Die Kontakte stehen dafür im Index (Version 4), die Sessions werden beim nächsten Einlesen neu gelesen.
+- Die Seite heißt in der Navigation „Statistiken“ (früher „Bestzeiten“); "Statistiken" in der Session ist ein eigener Reiter.
 - Gezählt wird nur, was zum eigenen Fahrer gehört (F-003); jede Streckenvariante zählt einzeln (F-014).
 
 ## F-020 — Demo-Daten

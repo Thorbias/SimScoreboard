@@ -153,8 +153,8 @@ export const de: Record<MessageKey, string> = {
   'chat.message': 'Nachricht',
   'chat.incident': 'Zwischenfall',
 
-  'nav.records': 'Bestzeiten',
-  'records.title': 'Persönliche Bestzeiten',
+  'nav.records': 'Statistiken',
+  'records.title': 'Statistiken',
   'records.trackCount': '{n} Strecken',
   'records.overall': 'Gesamtüberblick',
   'records.overallMeta': '{layouts} Layouts · {sessions} Sessions',
@@ -179,6 +179,14 @@ export const de: Record<MessageKey, string> = {
   'overall.track': 'Streckenvariante',
   'overall.topTracks': 'Meistgefahrene Streckenvarianten',
   'overall.formTitle': 'Form',
+  'overall.rivalsTitle': 'Mit wem du fährst',
+  'overall.rivalsNote':
+    'Nur Mehrspieler-Sessions, und nur Fahrer, mit denen du mindestens zweimal gefahren bist bzw. kollidiert bist.',
+  'overall.sharedRaces': 'Gemeinsame Rennen',
+  'overall.collisions': 'Kollisionen',
+  'overall.rivalDriver': 'Fahrer',
+  'overall.rivalRaces': 'Rennen',
+  'overall.rivalCollisions': 'Kollisionen',
   'overall.retirements': 'Ausfälle',
   'overall.avgFinish': 'Ø Zielplatz, letzte {n} Rennen',
   'overall.avgGain': 'Ø gewonnene Plätze, letzte {n} Rennen',
@@ -203,9 +211,9 @@ export const de: Record<MessageKey, string> = {
   'progress.session': 'Beste Runde einer Session',
   'progress.best': 'Persönliche Bestzeit bisher',
   'overall.lapsSessions': '{laps} Runden · {sessions} Sessions',
-  'records.back': 'Zurück zu den Bestzeiten',
+  'records.back': 'Zurück zu den Statistiken',
   'records.needName':
-    'Trage deinen Fahrernamen in den Einstellungen ein, um deine Bestzeiten zu sehen.',
+    'Trage deinen Fahrernamen in den Einstellungen ein, um deine Statistiken zu sehen.',
   'records.empty':
     'In den Sessions wurden noch keine Rundenzeiten von dir gefunden.',
   'records.sessions': '{n} Sessions',
