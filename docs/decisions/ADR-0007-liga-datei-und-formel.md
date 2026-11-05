@@ -101,6 +101,11 @@ fremden Datei darf nichts anderes können als rechnen).
   ungültig (mindestens zwei Teilnehmer nötig).
 - Zweites Beispiel: `if(position <= 10, 11 - position, 0) + fastestLap`
 
+Eine Liga-Datei kann mit einem Passwort verschlüsselt sein; dann sind nur Format,
+Version, ID und Name lesbar und der Rest liegt in einem verschlüsselten Block
+([ADR-0010](ADR-0010-liga-passwortschutz.md)). Der Inhalt und die Version der Liga
+bleiben unverändert.
+
 Vorlagen, aus denen der Organisator wählt, kommen später als Texte für dasselbe Feld.
 
 ## Alternativen

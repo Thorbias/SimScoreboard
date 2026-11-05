@@ -1,4 +1,5 @@
 import { LeagueFileError, parseLeague } from './file';
+import type { Protection } from './protect';
 import type { League } from './types';
 
 /** Where a league on this computer came from and where it goes (ADR-0009). */
@@ -15,6 +16,8 @@ export interface LeagueLink {
   saved?: string;
   /** The Drive file has been shared by link. */
   shared?: boolean;
+  /** The league file is protected by a password (ADR-0010). */
+  protection?: Protection;
 }
 
 type FetchLike = (
@@ -46,6 +49,14 @@ export async function fetchLeague(
   address: string,
   fetchImpl: FetchLike = (url, init) => fetch(url, init),
 ): Promise<League> {
+  return parseLeague(await fetchLeagueText(address, fetchImpl));
+}
+
+/** The text of the file at an address, for a file that may be protected. */
+export async function fetchLeagueText(
+  address: string,
+  fetchImpl: FetchLike = (url, init) => fetch(url, init),
+): Promise<string> {
   const url = parseLeagueAddress(address);
   if (!url) throw new LeagueFileError('The address must start with https://');
   const drive = new URL(url).hostname === 'www.googleapis.com';
@@ -74,5 +85,5 @@ export async function fetchLeague(
     }
     throw new LeagueFileError(`The server answered with ${response.status}`);
   }
-  return parseLeague(await response.text());
+  return response.text();
 }

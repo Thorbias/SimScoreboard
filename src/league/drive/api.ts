@@ -74,6 +74,28 @@ export const driveShareLink = (id: string): string =>
 export const driveDownloadUrl = (id: string, apiKey: string): string =>
   `${API}/files/${encodeURIComponent(id)}?alt=media&key=${encodeURIComponent(apiKey)}`;
 
+/**
+ * The revision of a file that is shared by link, read with the API key. Google
+ * blocks repeated downloads of the content from one connection for a while, but
+ * answers this small question; so a download is only needed when the revision
+ * differs from the one already held. Returns null when it cannot be read.
+ */
+export async function driveRevision(
+  id: string,
+  apiKey: string,
+  fetchImpl: FetchLike = defaultFetch,
+): Promise<string | null> {
+  const url = `${API}/files/${encodeURIComponent(id)}?fields=headRevisionId&key=${encodeURIComponent(apiKey)}`;
+  try {
+    const response = await fetchImpl(url, { cache: 'no-store' });
+    if (!response.ok) return null;
+    const body = (await response.json()) as { headRevisionId?: unknown };
+    return typeof body.headRevisionId === 'string' ? body.headRevisionId : null;
+  } catch {
+    return null;
+  }
+}
+
 async function call(
   fetchImpl: FetchLike,
   token: string,

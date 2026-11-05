@@ -3,6 +3,7 @@ import {
   createDriveFile,
   driveDownloadUrl,
   driveEditAccess,
+  driveRevision,
   driveFileId,
   driveShareLink,
   saveToDrive,
@@ -221,6 +222,29 @@ describe('the version that is compared', () => {
     );
     expect(asked).toBe(false);
     expect(file?.version).toBe('rev2');
+  });
+});
+
+describe('driveRevision', () => {
+  it('reads the revision of a file shared by link with the key', async () => {
+    const drive = fakeDrive({ json: { headRevisionId: 'rev9' } });
+    expect(await driveRevision(ID, 'k&y', drive.fetchImpl)).toBe('rev9');
+    expect(drive.calls[0]?.url).toContain(`/files/${ID}?fields=headRevisionId`);
+    expect(drive.calls[0]?.url).toContain('key=k%26y');
+    expect(drive.calls[0]?.headers?.Authorization).toBeUndefined();
+  });
+
+  it('gives null when it cannot be read', async () => {
+    expect(
+      await driveRevision(ID, 'k', fakeDrive({ status: 404 }).fetchImpl),
+    ).toBeNull();
+    expect(
+      await driveRevision(ID, 'k', fakeDrive({ json: {} }).fetchImpl),
+    ).toBeNull();
+    const down: FetchLike = async () => {
+      throw new TypeError('Failed to fetch');
+    };
+    expect(await driveRevision(ID, 'k', down)).toBeNull();
   });
 });
 

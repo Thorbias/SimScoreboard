@@ -155,6 +155,9 @@ export function parseLeague(text: string): League {
   if (!isObject(raw) || raw.format !== LEAGUE_FORMAT) {
     throw new LeagueFileError('The file is not a SimScoreboard league');
   }
+  if ('encryption' in raw) {
+    throw new LeagueFileError('The league is protected by a password');
+  }
   const version = num(raw.version);
   if (version === null || version > LEAGUE_VERSION) {
     throw new LeagueFileError('The file is from a newer version of the app');

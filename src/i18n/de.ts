@@ -305,6 +305,37 @@ export const de: Record<MessageKey, string> = {
   'league.link.title': 'Geteilte Liga öffnen',
   'league.link.ask': 'Eine Liga von {host} laden?',
   'league.readOnly': 'Nur lesen',
+  'league.password': 'Passwortschutz',
+  'league.password.hint':
+    'Mit einem Passwort wird die Datei verschlüsselt (Datei und Google Drive). Nur der Liganame bleibt lesbar; die Mitspieler brauchen das Passwort zum Öffnen. Es gibt keine Möglichkeit, ein vergessenes Passwort zurückzuholen.',
+  'league.password.on': 'Passwortschutz ist an.',
+  'league.password.set': 'Passwort setzen …',
+  'league.password.change': 'Passwort ändern …',
+  'league.password.remove': 'Passwort entfernen',
+  'league.password.forget': 'Gemerkten Schlüssel vergessen',
+  'league.password.changeHint':
+    'Die Änderung gilt ab dem nächsten Speichern. Frühere Versionen in Google Drive bleiben mit dem alten Passwort lesbar.',
+  'league.password.removeConfirm':
+    'Den Passwortschutz entfernen? Beim nächsten Speichern liegt die Liga unverschlüsselt in der Datei.',
+  'league.password.title.open': 'Passwort für die Liga',
+  'league.password.title.save': 'Passwort zum Speichern',
+  'league.password.title.choose': 'Passwort wählen',
+  'league.password.label': 'Passwort',
+  'league.password.show': 'Passwort anzeigen',
+  'league.password.hide': 'Passwort verbergen',
+  'league.password.again': 'Passwort wiederholen',
+  'league.password.chooseHint':
+    'Mindestens {n} Zeichen; am besten ein Satz aus mehreren Wörtern. Wer die Datei hat, kann das Passwort beliebig oft ausprobieren.',
+  'league.password.tooShort': 'Das Passwort braucht mindestens {n} Zeichen.',
+  'league.password.mismatch': 'Die beiden Passwörter sind verschieden.',
+  'league.password.wrong':
+    'Das Passwort stimmt nicht, oder die Datei wurde verändert.',
+  'league.password.remember': 'Auf diesem Gerät merken',
+  'league.password.rememberHint':
+    'Der Schlüssel bleibt dann im Browser dieses Geräts und das Passwort wird nicht noch einmal gefragt.',
+  'league.password.ok': 'OK',
+  'league.password.cancel': 'Abbrechen',
+  'league.password.cancelled': 'Ohne Passwort kann die Liga nicht geöffnet werden.',
   'league.takeOver.title': 'Nur lesen. Klicken, um als Besitzer zu bearbeiten',
   'league.takeOver.ask':
     'In den Bearbeitungsmodus wechseln?\n\nDas klappt nur, wenn du der Besitzer der Liga-Datei in Google Drive bist und dich mit Google anmeldest.',

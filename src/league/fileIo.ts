@@ -46,7 +46,9 @@ export interface SaveResult {
 }
 
 /**
- * Saves the league as a file. With a remembered `handle` it overwrites that file;
+ * Saves the league as a file; `text` is what to write (a protected league is
+ * encrypted by the caller), by default the plain league. With a remembered
+ * `handle` it overwrites that file;
  * otherwise (or when the browser withholds access) it asks for a file with a
  * save dialog where the browser has one, so it can go into a folder a cloud
  * client synchronizes, and else downloads it.
@@ -54,8 +56,8 @@ export interface SaveResult {
 export async function saveLeagueFile(
   league: League,
   handle?: FileSystemFileHandle | null,
+  text: string = serializeLeague(league),
 ): Promise<SaveResult> {
-  const text = serializeLeague(league);
   if (handle) {
     try {
       if (await writeToHandle(handle, text)) return { saved: true, handle };

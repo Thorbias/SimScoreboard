@@ -48,6 +48,14 @@ es nicht.
 Mit gesetzten Werten erlaubt die Content-Security-Policy zusätzlich Googles
 Anmelde-Skript (`accounts.google.com`); ohne sie bleibt sie wie bisher.
 
+## Datei mit Passwort
+
+Wer die Liga nicht für jeden mit dem Link lesbar machen will, setzt in den
+Einstellungen der Liga ein Passwort ([ADR-0010](decisions/ADR-0010-liga-passwortschutz.md)).
+Die Datei in Drive darf trotzdem für „Jeder mit dem Link“ freigegeben sein: ohne das
+Passwort ist sie unlesbar, nur der Liganame steht im Klartext. Das Passwort gibst du
+den Mitspielern auf einem anderen Weg als den Link.
+
 ## Ablauf in der App
 
 - **Organisator:** Liga → Einstellungen → „In Google Drive speichern“ (Anmeldung mit

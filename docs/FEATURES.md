@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-024 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-025 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -301,3 +301,15 @@ Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die
 - Hinweis „noch nicht gespeichert“ (Banner, Punkte) für neue und geänderte Ligen; eine neue Liga öffnet in den Einstellungen. Löschen entfernt die Liga nur aus dem Browser, nie gespeicherte Dateien.
 - **Grenze, bewusst so entschieden:** Die App liest eine Drive-Datei nur, wenn sie für „Jeder mit dem Link“ freigegeben ist (Abruf mit API-Key, ohne Anmeldung). Eingeschränkt freigegebene Dateien (nur bestimmte Personen) liefert Google mit 404 aus, auch wenn der Mitspieler bei Google angemeldet ist; die App meldet das verständlich. Wer die Liga nicht öffentlich per Link teilen will, gibt sie bestimmten Personen frei, und die Mitspieler holen sich die Datei selbst (zum Beispiel per Drive-Synchronisation) und öffnen sie lokal; das liegt außerhalb der App und ist akzeptiert. Erst bei echtem Bedarf wird geprüft, wie gesicherte Dateien zugänglich werden: Mitspieler melden sich in der App an und wählen die Datei über den Google Picker aus (Scope `drive.file`; offen sind Picker-API, Projektnummer als Konfigurationswert, Skript von `apis.google.com` in der Content-Security-Policy, Testnutzer und ob die Berechtigung bleibt).
 - Den Schreibschutz stellt der Speicher her (Freigabe: nur der Organisator darf bearbeiten). Die Liga-Datei enthält Namen anderer Fahrer; die App weist beim Speichern in die Cloud und beim Freigeben darauf hin.
+
+## F-024 — Passwortschutz der Liga-Datei
+
+Prio S · Status gebaut, wartet auf Abnahme
+
+Der Organisator kann die Liga-Datei optional mit einem Passwort verschlüsseln ([ADR-0010](decisions/ADR-0010-liga-passwortschutz.md)). Damit lässt sich eine Datei in Google Drive mit „Jeder mit dem Link“ teilen, ohne dass jeder Inhaber des Links die Ergebnisse und Fahrernamen lesen kann.
+
+- Einstellungen der Liga: Passwort setzen, ändern, entfernen. Mindestens 12 Zeichen, zweimal eingeben; es gibt keine Wiederherstellung. Die Änderung gilt ab dem nächsten Speichern.
+- Verschlüsselt wird beim Schreiben (Datei und Google Drive), entschlüsselt beim Lesen (Datei, Adresse, Drive-Link, Aktualisieren). Der Liganame bleibt lesbar, der Rest ist verschlüsselt (AES-256-GCM, Schlüssel aus dem Passwort mit PBKDF2).
+- Ein Dialog fragt nach dem Passwort und merkt es auf Wunsch (Häkchen „Auf diesem Gerät merken“) als nicht auslesbaren Schlüssel im Browser; die Einstellungen können ihn wieder vergessen. Ohne Häkchen gilt der Schlüssel für den Besuch.
+- Ein falsches Passwort wird erkannt und erneut abgefragt; eine veränderte Datei fällt auf.
+- Das Passwort schützt nicht vor dem Schreiben; das regelt weiter Drive und das Google-Konto.
