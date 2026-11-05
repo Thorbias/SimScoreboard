@@ -142,6 +142,14 @@ Zugangsdaten und trägt allein.
   nutzbar. Offen bleibt, wie belastbar der Abruf mit Schlüssel für viele
   Mitspieler ist (die Sperre gilt je Netzwerkadresse).
 
+- **Erst die Revision, dann der Inhalt (2026-11-05):** Die Sperre kam wieder. Die
+  Metadaten mit demselben Schlüssel gingen währenddessen weiter (`headRevisionId`).
+  Beim Öffnen und Aktualisieren fragt die App deshalb zuerst die Revision der Datei
+  ab und lädt den Inhalt nur, wenn sie von der gemerkten abweicht. Das spart die
+  meisten Downloads und bei geschützten Dateien auch die Passwortabfrage. Ist die
+  Revision nicht lesbar, wird wie bisher geladen. Die erste Anfrage nach einer
+  Sperre scheitert weiterhin, bis Google sie aufhebt.
+
 ## Noch offen
 
 - **Gesicherte Dateien über den Google Picker:** Nur bei echtem Bedarf. Der
