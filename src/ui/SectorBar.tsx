@@ -31,25 +31,49 @@ export function SectorBar({
 }
 
 /**
- * A progress bar built from the same three segments. `value` runs from 0 to 1;
- * each segment fills in turn.
+ * A progress indicator in the shape of the logo: the three slanted bars build up
+ * from the bottom to the top, orange first, then green, then purple. `value`
+ * runs from 0 to 1; each bar fills from left to right in turn.
  */
 export function SectorProgress({ value }: { value: number }) {
-  const fill = (index: number) =>
-    Math.max(0, Math.min(1, value * 3 - index)) * 100;
+  const fill = (index: number) => Math.max(0, Math.min(1, value * 3 - index));
+  // The bars of the logo, top to bottom; the last one is filled first.
+  const bars = [
+    { y: 5, color: 'var(--fastest)', step: 2 },
+    { y: 13.25, color: 'var(--pb)', step: 1 },
+    { y: 21.5, color: 'var(--accent)', step: 0 },
+  ];
   return (
-    <span
-      className="sector-bar sector-bar-progress"
+    <svg
+      className="sector-progress"
+      viewBox="0 0 32 32"
+      width={28}
+      height={28}
       role="progressbar"
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={Math.round(value * 100)}
     >
-      {[0, 1, 2].map((i) => (
-        <i key={i} className="seg seg-track">
-          <b style={{ width: `${fill(i)}%` }} />
-        </i>
-      ))}
-    </span>
+      <g transform="translate(5 0) skewX(-18)">
+        {bars.map((bar) => (
+          <g key={bar.step}>
+            <rect
+              x="4"
+              y={bar.y}
+              width="22"
+              height="5.5"
+              fill="var(--seg-neutral)"
+            />
+            <rect
+              x="4"
+              y={bar.y}
+              width={22 * fill(bar.step)}
+              height="5.5"
+              fill={bar.color}
+            />
+          </g>
+        ))}
+      </g>
+    </svg>
   );
 }
