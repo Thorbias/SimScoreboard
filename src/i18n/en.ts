@@ -298,6 +298,36 @@ export const en = {
   'league.link.title': 'Open a shared league',
   'league.link.ask': 'Load a league from {host}?',
   'league.readOnly': 'Read only',
+  'league.password': 'Password protection',
+  'league.password.hint':
+    'A password encrypts the file (file and Google Drive). Only the league name stays readable; the players need the password to open it. A forgotten password cannot be recovered.',
+  'league.password.on': 'Password protection is on.',
+  'league.password.set': 'Set a password…',
+  'league.password.change': 'Change password…',
+  'league.password.remove': 'Remove password',
+  'league.password.forget': 'Forget the remembered key',
+  'league.password.changeHint':
+    'The change applies from the next save. Earlier versions in Google Drive stay readable with the old password.',
+  'league.password.removeConfirm':
+    'Remove the password protection? The next save writes the league unencrypted.',
+  'league.password.title.open': 'Password for the league',
+  'league.password.title.save': 'Password to save',
+  'league.password.title.choose': 'Choose a password',
+  'league.password.label': 'Password',
+  'league.password.show': 'Show the password',
+  'league.password.hide': 'Hide the password',
+  'league.password.again': 'Repeat the password',
+  'league.password.chooseHint':
+    'At least {n} characters; a sentence of several words is best. Anyone who has the file can try passwords as often as they like.',
+  'league.password.tooShort': 'The password needs at least {n} characters.',
+  'league.password.mismatch': 'The two passwords differ.',
+  'league.password.wrong': 'The password is wrong, or the file was changed.',
+  'league.password.remember': 'Remember on this device',
+  'league.password.rememberHint':
+    'The key then stays in the browser of this device and the password is not asked again.',
+  'league.password.ok': 'OK',
+  'league.password.cancel': 'Cancel',
+  'league.password.cancelled': 'The league cannot be opened without the password.',
   'league.takeOver.title': 'Read only. Click to edit as the owner',
   'league.takeOver.ask':
     'Switch to editing?\n\nThis only works if you own the league file in Google Drive and sign in with Google.',

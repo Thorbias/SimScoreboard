@@ -2,6 +2,7 @@ import { AppProvider, useApp } from './app/AppContext';
 import { routes, useRoute } from './app/route';
 import { LeagueOpenPage, LeaguePage } from './ui/LeagueView';
 import { LogoMark } from './ui/LogoMark';
+import { PasswordDialog } from './ui/PasswordDialog';
 import { RecordsView } from './ui/RecordsView';
 import { SessionsPage } from './ui/SessionsPage';
 import { SettingsView } from './ui/SettingsView';
@@ -79,6 +80,7 @@ function Shell() {
           </div>
         )}
       </main>
+      <PasswordDialog />
     </div>
   );
 }
