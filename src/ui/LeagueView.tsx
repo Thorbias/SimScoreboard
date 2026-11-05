@@ -6,25 +6,26 @@ import {
   createLeague,
   leagueFingerprint,
   newId,
-  parseLeague,
   saveState,
-  serializeLeague,
 } from '../league/file';
 import { leagueFileName, saveLeagueFile } from '../league/fileIo';
 import { checkFormula } from '../league/formula';
 import { mergedInto, mergeInto } from '../league/people';
 import { importRaceFile, snapshotRace } from '../league/race';
+import type { Protection } from '../league/protect';
+import { choosePassword, openLeagueText, textToSave } from './leaguePassword';
 import { preloadDriveAuth, requestDriveToken } from '../league/drive/auth';
 import {
   driveDownloadUrl,
   driveEditAccess,
+  driveRevision,
   driveFileId,
   driveShareLink,
   saveToDrive,
   shareDriveFile,
 } from '../league/drive/api';
 import { driveConfig } from '../league/drive/config';
-import { fetchLeague, parseLeagueAddress } from '../league/source';
+import { fetchLeagueText, parseLeagueAddress } from '../league/source';
 import {
   computeStandings,
   raceDriverNames,
@@ -94,11 +95,24 @@ function useOpenFromAddress() {
     const url = driveId ? driveShareLink(driveId) : parseLeagueAddress(input);
     if (!url) return t('league.address.invalid');
     try {
-      const league = await fetchLeague(
+      // The revision is read first: the content download may be blocked, the
+      // revision is not, and it tells later refreshes whether anything changed.
+      const revision =
+        driveId && driveConfig
+          ? await driveRevision(driveId, driveConfig.apiKey)
+          : null;
+      const text = await fetchLeagueText(
         driveId && driveConfig
           ? driveDownloadUrl(driveId, driveConfig.apiKey)
           : url,
       );
+      const opened = await openLeagueText(
+        text,
+        undefined,
+        t('league.password.wrong'),
+      );
+      if (!opened) return t('league.password.cancelled');
+      const { league, protection } = opened;
       // The same league is never listed twice. One that came from this address
       // is brought up to date; one the user keeps themselves (saved to a file or
       // Drive, or with changes) stays untouched; a plain saved copy is replaced.
@@ -116,6 +130,8 @@ function useOpenFromAddress() {
         await setLeagueLink(league.id, {
           url,
           ...(driveId ? { driveId } : {}),
+          ...(revision ? { driveVersion: revision } : {}),
+          ...(protection ? { protection } : {}),
           saved: leagueFingerprint(league),
         });
       }
@@ -132,21 +148,47 @@ function useOpenFromAddress() {
  * reason when that fails (the last copy then stays), otherwise null.
  */
 function useRefreshLeague() {
-  const { leagues, leagueLinks, saveLeague, setLeagueLink } = useApp();
+  const { t, leagues, leagueLinks, saveLeague, setLeagueLink } = useApp();
   return async (id: string): Promise<string | null> => {
     const league = leagues.find((l) => l.id === id);
     const link = leagueLinks[id];
     if (!league || !link?.url) return null;
     try {
-      const fresh = await fetchLeague(
+      // For a Drive file, ask for its revision first: when it is the one held,
+      // there is nothing to download (and no password to ask for).
+      const revision =
+        link.driveId && driveConfig
+          ? await driveRevision(link.driveId, driveConfig.apiKey)
+          : null;
+      if (revision && revision === link.driveVersion) return null;
+      const text = await fetchLeagueText(
         link.driveId && driveConfig
           ? driveDownloadUrl(link.driveId, driveConfig.apiKey)
           : link.url,
       );
-      const next = { ...fresh, id };
+      const opened = await openLeagueText(
+        text,
+        link.protection,
+        t('league.password.wrong'),
+      );
+      if (!opened) return t('league.password.cancelled');
+      const next = { ...opened.league, id };
       const saved = leagueFingerprint(next);
       if (saved !== leagueFingerprint(league)) await saveLeague(next);
-      if (saved !== link.saved) await setLeagueLink(id, { ...link, saved });
+      const protection = opened.protection;
+      if (
+        saved !== link.saved ||
+        (revision !== null && revision !== link.driveVersion) ||
+        protection?.salt !== link.protection?.salt ||
+        Boolean(protection?.key) !== Boolean(link.protection?.key)
+      ) {
+        await setLeagueLink(id, {
+          ...link,
+          saved,
+          ...(revision ? { driveVersion: revision } : {}),
+          ...(protection ? { protection } : { protection: undefined }),
+        });
+      }
       return null;
     } catch (e) {
       return message(e);
@@ -343,6 +385,7 @@ function useTakeOver() {
         driveId: link.driveId,
         driveVersion: access.file.version,
         shared: true,
+        ...(link.protection ? { protection: link.protection } : {}),
         saved: leagueFingerprint(league),
       });
       return null;
@@ -408,7 +451,13 @@ function LeagueList({
     if (!file) return;
     setError(null);
     try {
-      const league = parseLeague(await file.text());
+      const opened = await openLeagueText(
+        await file.text(),
+        undefined,
+        t('league.password.wrong'),
+      );
+      if (!opened) return;
+      const { league, protection } = opened;
       // The same league is never listed twice: the file replaces it, after a
       // question when the one here has changes that are not saved.
       const existing = leagues.find((l) => l.id === league.id);
@@ -420,7 +469,10 @@ function LeagueList({
         return;
       }
       await saveLeague(league);
-      await setLeagueLink(league.id, { saved: leagueFingerprint(league) });
+      await setLeagueLink(league.id, {
+        ...(protection ? { protection } : {}),
+        saved: leagueFingerprint(league),
+      });
       window.location.hash = routes.league(league.id);
     } catch (e) {
       setError(t('league.openFailed', { message: message(e) }));
@@ -1197,11 +1249,22 @@ function SettingsTab({
     setStatus(null);
     setError(null);
     try {
-      const result = await saveLeagueFile(league, asNew ? null : link?.handle);
+      const prepared = await textToSave(
+        league,
+        link?.protection,
+        t('league.password.wrong'),
+      );
+      if (!prepared) return;
+      const result = await saveLeagueFile(
+        league,
+        asNew ? null : link?.handle,
+        prepared.text,
+      );
       if (!result.saved) return;
       await setLeagueLink(league.id, {
         ...link,
         ...(result.handle ? { handle: result.handle } : {}),
+        ...(prepared.protection ? { protection: prepared.protection } : {}),
         saved: leagueFingerprint(league),
       });
       setStatus(t('league.saved'));
@@ -1221,10 +1284,16 @@ function SettingsTab({
     try {
       // Asking for access opens a window, so it comes first, right after the click.
       const token = await requestDriveToken(driveConfig.clientId);
+      const prepared = await textToSave(
+        league,
+        link?.protection,
+        t('league.password.wrong'),
+      );
+      if (!prepared) return;
       const file = await saveToDrive({
         token,
         name: leagueFileName(league.name),
-        text: serializeLeague(league),
+        text: prepared.text,
         known:
           link?.driveId && link.driveVersion && !link.url
             ? { id: link.driveId, version: link.driveVersion }
@@ -1238,6 +1307,7 @@ function SettingsTab({
           driveId: file.id,
           driveVersion: file.version,
           ...(file.id === link?.driveId && link.shared ? { shared: true } : {}),
+          ...(prepared.protection ? { protection: prepared.protection } : {}),
           saved: leagueFingerprint(league),
         });
       } catch (e) {
@@ -1271,6 +1341,40 @@ function SettingsTab({
     }
   };
 
+  // Setting, changing or removing the password changes what is written, so the
+  // league counts as changed until it is saved again.
+  const [passwordError, setPasswordError] = useState<string | null>(null);
+  const afterProtectionChange = (protection: Protection | undefined) =>
+    setLeagueLink(league.id, {
+      ...link,
+      protection,
+      ...(link?.saved ? { saved: 'protection-changed' } : {}),
+    });
+
+  const changePassword = async () => {
+    setPasswordError(null);
+    try {
+      const chosen = await choosePassword(league.name);
+      if (chosen) await afterProtectionChange(chosen);
+    } catch (e) {
+      console.error(e);
+      setPasswordError(t('league.saveFailed', { message: message(e) }));
+    }
+  };
+
+  const removePassword = async () => {
+    setPasswordError(null);
+    if (!window.confirm(t('league.password.removeConfirm'))) return;
+    await afterProtectionChange(undefined);
+  };
+
+  const forgetKey = async () => {
+    if (!link?.protection) return;
+    const { key, ...rest } = link.protection;
+    void key;
+    await setLeagueLink(league.id, { ...link, protection: rest });
+  };
+
   const refresh = async () => {
     setStatus(null);
     setError(null);
@@ -1302,6 +1406,13 @@ function SettingsTab({
           </button>
         </p>
         <p className="hint">{t('league.deleteHint')}</p>
+        {link.protection?.key && (
+          <p>
+            <button onClick={() => void forgetKey()}>
+              {t('league.password.forget')}
+            </button>
+          </p>
+        )}
         {status && <p className="hint">{status}</p>}
         {error && <p className="notice error">{error}</p>}
       </>
@@ -1338,6 +1449,38 @@ function SettingsTab({
       <p className="hint">{t('league.formula.help')}</p>
       <p className="hint">{t('league.formula.example1')}</p>
       <p className="hint">{t('league.formula.example2')}</p>
+
+      <h4>{t('league.password')}</h4>
+      <p className="hint">{t('league.password.hint')}</p>
+      <p>
+        {link?.protection ? (
+          <>
+            <strong>{t('league.password.on')}</strong>{' '}
+            <button onClick={() => void changePassword()}>
+              {t('league.password.change')}
+            </button>{' '}
+            <button onClick={() => void removePassword()}>
+              {t('league.password.remove')}
+            </button>
+            {link.protection.key && (
+              <>
+                {' '}
+                <button onClick={() => void forgetKey()}>
+                  {t('league.password.forget')}
+                </button>
+              </>
+            )}
+          </>
+        ) : (
+          <button onClick={() => void changePassword()}>
+            {t('league.password.set')}
+          </button>
+        )}
+      </p>
+      {link?.protection && (
+        <p className="hint">{t('league.password.changeHint')}</p>
+      )}
+      {passwordError && <p className="notice error">{passwordError}</p>}
 
       <h4>{t('league.save')}</h4>
       <p className="hint">{t('league.privacy')}</p>
