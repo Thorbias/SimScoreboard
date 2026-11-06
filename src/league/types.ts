@@ -5,7 +5,12 @@
  */
 
 export const LEAGUE_FORMAT = 'simscoreboard-league';
-export const LEAGUE_VERSION = 1;
+/**
+ * Version 2 adds the race factor and the correction "drop". A file of version 2
+ * is refused by an app that only knows version 1, which would otherwise show
+ * wrong points without a hint.
+ */
+export const LEAGUE_VERSION = 2;
 
 /** The facts of one driver in one race; what the standings need and no more. */
 export interface RaceResult {
@@ -37,10 +42,18 @@ export interface LeagueRace {
   date: number | null;
   track: string;
   results: RaceResult[];
+  /**
+   * Whole number the points of the race are multiplied by, e.g. 2 for a long
+   * race. Missing means 1. It counts for the whole result: the points of the
+   * formula and those added or removed by a correction.
+   */
+  factor?: number;
+  /** Epoch ms the session started; missing in leagues from before it was kept. */
+  started?: number;
 }
 
 export type CorrectionKind =
-  'timePenalty' | 'disqualify' | 'position' | 'points';
+  'timePenalty' | 'disqualify' | 'position' | 'points' | 'drop';
 
 export interface Correction {
   id: string;
@@ -48,7 +61,7 @@ export interface Correction {
   /** The person (see `LeaguePerson`) the correction applies to. */
   driver: string;
   kind: CorrectionKind;
-  /** Seconds, the new position or the points to add; unused for `disqualify`. */
+  /** Seconds, the new position or the points to add; unused for `disqualify` and `drop`. */
   value: number;
   reason: string;
 }

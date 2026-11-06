@@ -325,3 +325,50 @@ button.password-toggle:hover,
 button.password-toggle[aria-pressed='true'] {
   color: var(--accent);
 }
+
+/* The factor of a race: in the races tab and as a mark in the standings */
+.race-factor-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+
+.race-factor-field input {
+  width: 4.5rem;
+}
+
+.race-factor {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+table.standings th.race-head .race-factor {
+  display: block;
+  font-size: 0.75rem;
+}
+
+/* The captions of the fields are small; the fields and what is typed or chosen
+   in them have the same size everywhere (races and corrections included). */
+.league-correction label input,
+.league-correction label select,
+.league-field input,
+.league-field select,
+.league-field textarea,
+.league-races li input,
+.league-add select {
+  font-size: 1rem;
+}
+
+/* On a phone fields keep 16px, or Safari on the iPhone zooms into them. */
+@media (max-width: 600px) {
+  .league-correction label input,
+  .league-correction label select,
+  .league-field input,
+  .league-field select,
+  .league-field textarea,
+  .league-races li input,
+  .league-add select {
+    font-size: 16px;
+  }
+}

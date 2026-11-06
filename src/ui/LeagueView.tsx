@@ -748,8 +748,18 @@ function StandingsTab({
                       <>
                         <span className="race-name">{r.name}</span>
                         <span className="race-date">
-                          {formatDateTime(r.date, language)}
+                          {formatDateTime(r.started ?? r.date, language)}
                         </span>
+                        {(r.factor ?? 1) > 1 && (
+                          <span
+                            className="race-factor"
+                            title={t('league.factor.title', {
+                              n: r.factor ?? 1,
+                            })}
+                          >
+                            ×{r.factor}
+                          </span>
+                        )}
                       </>
                     );
                     // Only a session this computer has can be opened.
@@ -800,9 +810,11 @@ function StandingsLine({ row, rank }: { row: StandingsRow; rank: number }) {
         <td key={i} className="num">
           {cell === null
             ? '–'
-            : cell.disqualified
-              ? `${t('league.dsq')}${cell.points ? ` ${cell.points}` : ''}*`
-              : `${cell.points}${cell.corrected ? '*' : ''}`}
+            : cell.dropped
+              ? 'X'
+              : cell.disqualified
+                ? `${t('league.dsq')}${cell.points ? ` ${cell.points}` : ''}*`
+                : `${cell.points}${cell.corrected ? '*' : ''}`}
         </td>
       ))}
     </tr>
@@ -868,6 +880,20 @@ function RacesTab({
     change({ ...league, races });
   };
 
+  const setFactor = (index: number, text: string) => {
+    const n = Math.floor(Number(text));
+    const factor = Number.isFinite(n) && n > 1 ? n : undefined;
+    change({
+      ...league,
+      races: league.races.map((r, i) => {
+        if (i !== index) return r;
+        const { factor: _old, ...rest } = r;
+        void _old;
+        return factor ? { ...rest, factor } : rest;
+      }),
+    });
+  };
+
   const rename = (index: number, name: string) =>
     change({
       ...league,
@@ -899,9 +925,11 @@ function RacesTab({
               />
             )}
             <span className="muted">
-              {race.track}
-              {race.date ? ` · ${formatDate(race.date, language)}` : ''}
+              {formatDateTime(race.started ?? race.date, language)}
             </span>
+            {readOnly && (race.factor ?? 1) > 1 && (
+              <span className="race-factor">×{race.factor}</span>
+            )}
             {!readOnly && (
               <>
                 <button
@@ -923,6 +951,20 @@ function RacesTab({
                 <button onClick={() => remove(i)}>
                   {t('league.removeRace')}
                 </button>
+                <label
+                  className="race-factor-field"
+                  title={t('league.factor.hint')}
+                >
+                  <input
+                    type="number"
+                    min={1}
+                    step={1}
+                    value={race.factor ?? 1}
+                    aria-label={t('league.factor')}
+                    onChange={(e) => setFactor(i, e.target.value)}
+                  />
+                  {t('league.factor')}
+                </label>
               </>
             )}
           </li>
@@ -1046,7 +1088,11 @@ const KINDS: CorrectionKind[] = [
   'disqualify',
   'position',
   'points',
+  'drop',
 ];
+
+/** Corrections that need no value. */
+const NO_VALUE: CorrectionKind[] = ['disqualify', 'drop'];
 
 function CorrectionsTab({
   league,
@@ -1078,7 +1124,8 @@ function CorrectionsTab({
     const race = raceId || league.races[0]?.id;
     const who = driver || people[0];
     if (!race || !who) return;
-    if (!reason.trim()) {
+    // A dropped result needs no reason; the others do.
+    if (kind !== 'drop' && !reason.trim()) {
       setError(t('league.corr.reasonRequired'));
       return;
     }
@@ -1087,8 +1134,8 @@ function CorrectionsTab({
       raceId: race,
       driver: who,
       kind,
-      value: kind === 'disqualify' ? 0 : Number(value) || 0,
-      reason: reason.trim(),
+      value: NO_VALUE.includes(kind) ? 0 : Number(value) || 0,
+      reason: kind === 'drop' ? '' : reason.trim(),
     };
     change({ ...league, corrections: [...league.corrections, correction] });
     setValue('');
@@ -1124,9 +1171,9 @@ function CorrectionsTab({
                   <td>{c.driver}</td>
                   <td>{t(`league.corr.${c.kind}`)}</td>
                   <td className="num">
-                    {c.kind === 'disqualify' ? '–' : c.value}
+                    {NO_VALUE.includes(c.kind) ? '–' : c.value}
                   </td>
-                  <td>{c.reason}</td>
+                  <td>{c.reason || '–'}</td>
                   <td>
                     {!readOnly && (
                       <button
@@ -1198,7 +1245,7 @@ function CorrectionsTab({
                 ))}
               </select>
             </label>
-            {kind !== 'disqualify' && (
+            {!NO_VALUE.includes(kind) && (
               <label>
                 {t('league.corr.value')}
                 <input
@@ -1209,17 +1256,20 @@ function CorrectionsTab({
                 />
               </label>
             )}
-            <label className="wide">
-              {t('league.corr.reason')}
-              <input
-                value={reason}
-                onChange={(e) => setReason(e.target.value)}
-              />
-            </label>
+            {kind !== 'drop' && (
+              <label className="wide">
+                {t('league.corr.reason')}
+                <input
+                  value={reason}
+                  onChange={(e) => setReason(e.target.value)}
+                />
+              </label>
+            )}
             <button className="primary" type="submit">
               {t('league.corr.add')}
             </button>
           </form>
+          <p className="hint">{t(`league.corr.explain.${kind}`)}</p>
           {error && <p className="notice error">{error}</p>}
         </>
       )}
