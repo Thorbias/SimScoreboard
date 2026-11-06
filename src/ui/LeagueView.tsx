@@ -8,7 +8,8 @@ import {
   newId,
   saveState,
 } from '../league/file';
-import { leagueFileName, saveLeagueFile } from '../league/fileIo';
+import { csvFileName, pointsCsv, standingsCsv } from '../league/csv';
+import { downloadText, leagueFileName, saveLeagueFile } from '../league/fileIo';
 import { checkFormula } from '../league/formula';
 import { mergedInto, mergeInto } from '../league/people';
 import { importRaceFile, snapshotRace } from '../league/race';
@@ -1277,6 +1278,43 @@ function CorrectionsTab({
   );
 }
 
+/** The CSV exports of the standings (F-025); a download, never encrypted. */
+function ExportSection({ league }: { league: League }) {
+  const { t } = useApp();
+  const standings = useMemo(() => computeStandings(league), [league]);
+  const available =
+    !standings.error && !standings.singleStarter && league.races.length > 0;
+
+  const download = (kind: 'table' | 'points') => {
+    const text = (kind === 'table' ? standingsCsv : pointsCsv)(
+      league,
+      standings,
+      t,
+    );
+    downloadText(
+      text,
+      csvFileName(league.name, kind),
+      'text/csv;charset=utf-8',
+    );
+  };
+
+  return (
+    <>
+      <h4>{t('league.export')}</h4>
+      <p className="hint">{t('league.export.hint')}</p>
+      <p>
+        <button disabled={!available} onClick={() => download('table')}>
+          {t('league.export.table')}
+        </button>{' '}
+        <button disabled={!available} onClick={() => download('points')}>
+          {t('league.export.points')}
+        </button>
+      </p>
+      {!available && <p className="hint">{t('league.export.unavailable')}</p>}
+    </>
+  );
+}
+
 function SettingsTab({
   league,
   change,
@@ -1463,6 +1501,7 @@ function SettingsTab({
             </button>
           </p>
         )}
+        <ExportSection league={league} />
         {status && <p className="hint">{status}</p>}
         {error && <p className="notice error">{error}</p>}
       </>
@@ -1531,6 +1570,8 @@ function SettingsTab({
         <p className="hint">{t('league.password.changeHint')}</p>
       )}
       {passwordError && <p className="notice error">{passwordError}</p>}
+
+      <ExportSection league={league} />
 
       <h4>{t('league.save')}</h4>
       <p className="hint">{t('league.privacy')}</p>

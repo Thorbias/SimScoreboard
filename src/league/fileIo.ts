@@ -91,13 +91,16 @@ export async function saveLeagueFile(
       throw error;
     }
   }
-  const url = URL.createObjectURL(
-    new Blob([text], { type: 'application/json' }),
-  );
+  downloadText(text, suggestedName, 'application/json');
+  return { saved: true, handle: null };
+}
+
+/** Offers the text as a download; nothing is remembered or synchronized. */
+export function downloadText(text: string, name: string, type: string): void {
+  const url = URL.createObjectURL(new Blob([text], { type }));
   const link = document.createElement('a');
   link.href = url;
-  link.download = suggestedName;
+  link.download = name;
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  return { saved: true, handle: null };
 }
