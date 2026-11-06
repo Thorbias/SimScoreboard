@@ -366,3 +366,82 @@ button.track-row:hover {
   background: color-mix(in srgb, var(--accent) 12%, transparent);
   font-size: 0.9rem;
 }
+
+/* Phones: smaller text and tighter spacing, so more fits on the screen. Most
+   sizes are in rem, so the base size scales the whole interface. */
+@media (max-width: 600px) {
+  :root {
+    font-size: 13px;
+  }
+
+  /* Safari on the iPhone zooms into a field whose text is smaller than 16px. */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  .app {
+    padding: 0 10px 32px;
+  }
+
+  .app-split .top,
+  .top {
+    padding: 10px 0;
+    gap: 4px 12px;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 4px 14px;
+  }
+
+  table.results th,
+  table.results td {
+    padding: 5px 8px;
+  }
+
+  /* The league standings: only the races scroll sideways, and the page scrolls
+     up and down, so the two directions do not fight on a touch screen. */
+  .standings-wrap {
+    max-height: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table.standings th,
+  table.standings td {
+    padding: 5px 6px;
+  }
+
+  table.standings .col-rank {
+    left: 0;
+    width: 28px;
+    min-width: 28px;
+    max-width: 28px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  table.standings .col-driver {
+    left: 28px;
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+  }
+
+  table.standings .col-points {
+    left: 120px;
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+  }
+
+  table.standings th.race-head {
+    min-width: 64px;
+  }
+}
