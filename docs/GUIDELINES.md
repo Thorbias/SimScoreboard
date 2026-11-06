@@ -48,6 +48,13 @@ Befehle: `npm test` (Vitest), `npm run typecheck`, `npm run lint`,
   Rahmen zur Box, die sich an den Inhalt anpasst). Diagramme messen ihre Breite an
   einem Element ohne eigenes Padding und passen sich nur bei geänderter Breite an.
 
+## Oberfläche
+
+- **Ladeanzeigen:** Wo eine Ladeanzeige sinnvoll ist, nehmen wir `SectorProgress`
+  (`src/ui/SectorBar.tsx`): das Markenlogo, dessen drei Balken sich von unten nach
+  oben füllen (Orange, Grün, Lila), im Schritt des Fortschritts und ohne
+  Übergangsanimation. Keine anderen Spinner oder Balken.
+
 ## Projektorganisation
 
 ### Dokumentenlandschaft
