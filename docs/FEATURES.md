@@ -19,7 +19,7 @@ echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
 neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
 mit dem Projektgerüst.
 
-<!-- Nächste freie F-ID: F-025 — fortlaufend vergeben, nie wiederverwenden,
+<!-- Nächste freie F-ID: F-026 — fortlaufend vergeben, nie wiederverwenden,
      auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
      Verweise auf die falsche Anforderung). -->
 
@@ -315,3 +315,16 @@ Der Organisator kann die Liga-Datei optional mit einem Passwort verschlüsseln (
 - Ein Dialog fragt nach dem Passwort und merkt es auf Wunsch (Häkchen „Auf diesem Gerät merken“) als nicht auslesbaren Schlüssel im Browser; die Einstellungen können ihn wieder vergessen. Ohne Häkchen gilt der Schlüssel für den Besuch.
 - Ein falsches Passwort wird erkannt und erneut abgefragt; eine veränderte Datei fällt auf.
 - Das Passwort schützt nicht vor dem Schreiben; das regelt weiter Drive und das Google-Konto.
+
+## F-025 — CSV-Export der Liga-Tabelle
+
+Prio S · Status gebaut, wartet auf Abnahme
+
+In den Einstellungen der Liga lässt sich die aktuelle Tabelle als CSV herunterladen, um sie in einer Tabellenkalkulation zu prüfen oder weiterzugeben. Gebaut direkt auf `dev`, ohne eigenen Branch.
+
+- **„Export Tabelle (.csv)“:** entspricht der Anzeige. Eine Zeile je Fahrer mit Klasse, Platz, Fahrer, Punkten und einer Spalte je Rennen (Kopf: Name, Datum und Uhrzeit, Faktor). Die Zellen sind Zahlen; ein Streichergebnis steht als `X`, eine Disqualifikation als `DSQ` (mit den Punkten, falls es welche gibt). Das Sternchen für „korrigiert“ entfällt, damit die Zahlen rechenbar bleiben; die Korrekturen stehen im Export der Punkte.
+- **„Export Punkte (.csv)“:** eine Zeile je Fahrer und Rennen mit allem, woraus die Punkte entstehen: Startplatz, Platz laut Spiel, gewerteter Platz, Starter, schnellste Runde, Pole, beendet, Runden (die Eingaben der Formel), Punkte der Formel, Punkte aus Korrekturen, Faktor, Streichergebnis, Disqualifiziert, Punkte, die Korrekturen im Klartext mit Begründung und die Formel. Es gilt: Punkte = (Formelpunkte + Korrekturpunkte) × Faktor, bei einem Streichergebnis 0.
+- Beide Exporte rechnen mit derselben Berechnung wie die Tabelle (die Berechnung liefert je Zelle ein Detail), können also nicht abweichen.
+- Format: Semikolon als Trenner, UTF-8 mit BOM für deutsche Tabellenkalkulationen, Datum als `JJJJ-MM-TT hh:mm`. Texte, die mit `=`, `+`, `-` oder `@` beginnen (Fahrernamen, Begründungen), bekommen ein Apostroph davor, damit die Tabellenkalkulation sie nicht als Formel ausführt.
+- Die Datei wird nur als Download angeboten, ist **nicht verschlüsselt** (auch bei einer passwortgeschützten Liga) und enthält die Namen der Fahrer; die Einstellungen weisen darauf hin. Auch Mitspieler mit einer nur lesbaren Liga können exportieren.
+- Ohne gültige Tabelle (Formelfehler, nur ein Fahrer in einer Klasse, keine Rennen) sind die Knöpfe gesperrt.

@@ -2,8 +2,29 @@ import { normalizeName } from '../library/names';
 import { compileFormula, FormulaError, type FormulaValues } from './formula';
 import type { Correction, League, LeagueRace, RaceResult } from './types';
 
+/**
+ * How the points of a cell came about, for the export of the calculation:
+ * points = (formulaPoints + bonusPoints) * factor, or 0 for a dropped result.
+ */
+export interface CellDetail {
+  /** Starting position within the class in the game's result. */
+  gridPosition: number | null;
+  /** Position within the class in the game's result, before corrections. */
+  originalPosition: number | null;
+  /** What the formula was given; `position` is 0 for a disqualification. */
+  values: FormulaValues;
+  /** Points of the formula; 0 for a disqualification. */
+  formulaPoints: number;
+  /** Points added or removed by corrections of the kind `points`. */
+  bonusPoints: number;
+  factor: number;
+  /** The corrections that apply to this person in this race. */
+  corrections: Correction[];
+}
+
 /** What one person scored in one race. */
 export interface RaceCell {
+  detail: CellDetail;
   points: number;
   /** Position in the class after corrections; null for a disqualification. */
   position: number | null;
@@ -212,21 +233,22 @@ export function computeStandings(league: League): Standings {
             (c) => c.kind === 'drop' && c.driver === item.key,
           );
           let points = bonus;
+          let formulaPoints = 0;
+          const values: FormulaValues = {
+            position: position ?? 0,
+            overallPosition: item.result.position ?? 0,
+            starters,
+            fastestLap:
+              fastest !== null && item.result.bestLap === fastest ? 1 : 0,
+            pole: item.result.classGridPosition === 1 ? 1 : 0,
+            finished: item.result.finishStatus === 'Finished Normally' ? 1 : 0,
+            laps: item.result.laps,
+            leaderLaps,
+          };
           if (position !== null) {
-            const values: FormulaValues = {
-              position,
-              overallPosition: item.result.position ?? 0,
-              starters,
-              fastestLap:
-                fastest !== null && item.result.bestLap === fastest ? 1 : 0,
-              pole: item.result.classGridPosition === 1 ? 1 : 0,
-              finished:
-                item.result.finishStatus === 'Finished Normally' ? 1 : 0,
-              laps: item.result.laps,
-              leaderLaps,
-            };
             try {
-              points += formula(values);
+              formulaPoints = formula(values);
+              points += formulaPoints;
             } catch (error) {
               // A formula like `(starters - 1)` in a divisor cannot rate a
               // class with one starter: say so instead of "division by zero".
@@ -244,7 +266,26 @@ export function computeStandings(league: League): Standings {
           // scores nothing, whatever the formula and the corrections say.
           points = dropped ? 0 : points * (race.factor ?? 1);
           const known = row.cells[raceIndex];
+          // A person with two entries in a class (two names of the game) keeps
+          // the facts of the first and adds up the points.
+          const detail: CellDetail = known
+            ? {
+                ...known.detail,
+                formulaPoints: known.detail.formulaPoints + formulaPoints,
+                bonusPoints: known.detail.bonusPoints + bonus,
+              }
+            : {
+                gridPosition: item.result.classGridPosition,
+                originalPosition:
+                  item.result.classPosition ?? item.result.position,
+                values,
+                formulaPoints,
+                bonusPoints: bonus,
+                factor: race.factor ?? 1,
+                corrections: here.filter((c) => c.driver === item.key),
+              };
           row.cells[raceIndex] = {
+            detail,
             points: (known?.points ?? 0) + points,
             position: known?.position ?? position,
             corrected:
