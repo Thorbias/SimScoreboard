@@ -100,6 +100,9 @@ function readResult(raw: unknown): RaceResult {
 
 function readRace(raw: unknown): LeagueRace {
   if (!isObject(raw)) throw new LeagueFileError('A race is malformed');
+  // A whole number from 1 up; anything else counts as 1.
+  const given = num(raw.factor);
+  const factor = given !== null && given >= 1 ? Math.floor(given) : 1;
   return {
     id: str(raw.id, 'race id'),
     name: str(raw.name, 'race name'),
@@ -107,6 +110,10 @@ function readRace(raw: unknown): LeagueRace {
     date: num(raw.date),
     track: typeof raw.track === 'string' ? raw.track : '',
     results: list(raw.results, 'results').map(readResult),
+    ...(factor > 1 ? { factor } : {}),
+    ...(num(raw.started) !== null
+      ? { started: num(raw.started) as number }
+      : {}),
   };
 }
 
@@ -117,7 +124,8 @@ function readCorrection(raw: unknown): Correction {
     kind !== 'timePenalty' &&
     kind !== 'disqualify' &&
     kind !== 'position' &&
-    kind !== 'points'
+    kind !== 'points' &&
+    kind !== 'drop'
   ) {
     throw new LeagueFileError('A correction has an unknown kind');
   }

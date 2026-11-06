@@ -10,6 +10,8 @@ export interface RaceCell {
   /** True when a correction changed this result. */
   corrected: boolean;
   disqualified: boolean;
+  /** The race does not count for this person; shown as X, scores nothing. */
+  dropped: boolean;
 }
 
 export interface StandingsRow {
@@ -206,6 +208,9 @@ export function computeStandings(league: League): Standings {
           const bonus = here
             .filter((c) => c.kind === 'points' && c.driver === item.key)
             .reduce((sum, c) => sum + c.value, 0);
+          const dropped = here.some(
+            (c) => c.kind === 'drop' && c.driver === item.key,
+          );
           let points = bonus;
           if (position !== null) {
             const values: FormulaValues = {
@@ -235,6 +240,9 @@ export function computeStandings(league: League): Standings {
               throw error;
             }
           }
+          // The factor of the race counts for the whole result. A dropped race
+          // scores nothing, whatever the formula and the corrections say.
+          points = dropped ? 0 : points * (race.factor ?? 1);
           const known = row.cells[raceIndex];
           row.cells[raceIndex] = {
             points: (known?.points ?? 0) + points,
@@ -242,11 +250,13 @@ export function computeStandings(league: League): Standings {
             corrected:
               (known?.corrected ?? false) ||
               changed.has(item.key) ||
-              bonus !== 0,
+              bonus !== 0 ||
+              dropped,
             disqualified: (known?.disqualified ?? false) || position === null,
+            dropped: (known?.dropped ?? false) || dropped,
           };
           row.total += points;
-          if (position === 1) row.wins += 1;
+          if (position === 1 && !dropped) row.wins += 1;
         };
         order.forEach((item, index) => add(item, index + 1));
         disqualified.forEach((item) => add(item, null));

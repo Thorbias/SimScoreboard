@@ -413,7 +413,7 @@ export const de: Record<MessageKey, string> = {
   'league.mergeInto': 'Gleiche Person wie',
   'league.mergeNone': '(eigener Eintrag)',
   'league.corr.help':
-    'Korrekturen ändern die gespeicherten Ergebnisse nie. Sie stehen hier und sind in der Tabelle markiert.',
+    'Korrekturen ändern die gespeicherten Ergebnisse nie. Sie stehen hier und sind in der Tabelle markiert. Ein Streichergebnis setzt die Punkte des Fahrers in diesem Rennen auf 0 und steht in der Tabelle als X.',
   'league.corr.add': 'Korrektur hinzufügen',
   'league.corr.race': 'Rennen',
   'league.corr.driver': 'Fahrer',
@@ -425,6 +425,21 @@ export const de: Record<MessageKey, string> = {
   'league.corr.disqualify': 'Disqualifikation',
   'league.corr.position': 'Fester Platz in der Klasse',
   'league.corr.points': 'Punkte dazu oder weg',
+  'league.corr.drop': 'Streichergebnis (Rennen nicht gewertet)',
+  'league.factor': 'Faktor',
+  'league.factor.hint':
+    'Ganze Zahl, mit der die Punkte dieses Rennens multipliziert werden, zum Beispiel 2 für ein langes Rennen. 1 heißt: unverändert. Der Faktor gilt für das ganze Ergebnis, auch für Punkte aus Korrekturen.',
+  'league.factor.title': 'Die Punkte dieses Rennens zählen {n}-fach',
+  'league.corr.explain.timePenalty':
+    'Die Sekunden werden auf die Gesamtzeit des Fahrers aufgeschlagen. Danach wird die Klasse neu sortiert (erst nach Runden, dann nach Zeit), und der neue Platz bestimmt die Punkte. Für Strafen der Rennleitung.',
+  'league.corr.explain.disqualify':
+    'Der Fahrer bekommt in diesem Rennen keine Punkte aus der Formel und steht in der Tabelle als DSQ. Die anderen rücken einen Platz auf.',
+  'league.corr.explain.position':
+    'Setzt den Fahrer auf den Platz in der Klasse, den du eingibst (1 ist der Sieg). Die anderen rücken nach. Für Entscheidungen, die sich nicht aus den Zeiten ergeben.',
+  'league.corr.explain.points':
+    'Rechnet die eingegebenen Punkte zum Ergebnis hinzu, mit Minus ab, zum Beispiel für einen Bonus oder einen Abzug. Der Faktor des Rennens gilt auch dafür.',
+  'league.corr.explain.drop':
+    'Das Rennen zählt für diesen Fahrer nicht: 0 Punkte, in der Tabelle ein X. Die anderen rücken nicht nach. Es braucht keine Begründung.',
   'league.corr.none': 'Keine Korrekturen.',
   'league.corr.remove': 'Entfernen',
   'league.formula': 'Punkteformel',

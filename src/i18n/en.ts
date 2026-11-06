@@ -417,6 +417,21 @@ export const en = {
   'league.corr.disqualify': 'Disqualification',
   'league.corr.position': 'Fixed position in the class',
   'league.corr.points': 'Points added or removed',
+  'league.corr.drop': 'Dropped result (race not counted)',
+  'league.factor': 'Factor',
+  'league.factor.hint':
+    'Whole number the points of this race are multiplied by, for example 2 for a long race. 1 means unchanged. The factor counts for the whole result, including points from corrections.',
+  'league.factor.title': 'The points of this race count {n} times',
+  'league.corr.explain.timePenalty':
+    'The seconds are added to the driver’s total time. The class is then sorted again (laps first, then time), and the new position decides the points. For penalties from the stewards.',
+  'league.corr.explain.disqualify':
+    'The driver gets no points from the formula in this race and shows as DSQ in the table. The others move up one place.',
+  'league.corr.explain.position':
+    'Puts the driver at the position in the class that you enter (1 is the win). The others move down. For decisions that do not follow from the times.',
+  'league.corr.explain.points':
+    'Adds the points you enter to the result, or takes them off with a minus, for example for a bonus or a deduction. The factor of the race applies to them too.',
+  'league.corr.explain.drop':
+    'The race does not count for this driver: 0 points, shown as X in the table. The others do not move up. No reason is needed.',
   'league.corr.none': 'No corrections.',
   'league.corr.remove': 'Remove',
   'league.formula': 'Points formula',

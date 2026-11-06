@@ -22,6 +22,7 @@ export function snapshotRace(session: Session, name?: string): LeagueRace {
     name: name ?? trackTitle(session.trackVenue, session.trackCourse),
     sessionId: session.id,
     date: session.endedAt ?? session.startedAt,
+    ...(session.startedAt !== null ? { started: session.startedAt } : {}),
     track: trackTitle(session.trackVenue, session.trackCourse),
     results,
   };

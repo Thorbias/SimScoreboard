@@ -51,6 +51,9 @@ Liste, jeweils mit Rennen, Fahrer, Art, Wert und Begründung:
 - `disqualify`: Der Fahrer erhält für das Rennen keine Punkte und rückt aus der Reihung.
 - `position`: fester Platz in der Klasse; die übrigen rücken nach.
 - `points`: Zu- oder Abschlag auf die Punkte des Rennens.
+- `drop` (Streichergebnis, ohne Begründung): Das Rennen zählt für diesen Fahrer nicht. Seine Punkte
+  sind 0, auch mit einer Punktekorrektur; in der Tabelle steht ein `X`. Die anderen
+  Fahrer rücken nicht nach, ein erster Platz zählt nicht als Sieg.
 
 In der Tabelle sind korrigierte Rennen erkennbar.
 
@@ -64,8 +67,19 @@ Rennen steht.
 ### Wertung
 
 Nur Fahrer, getrennt je Klasse. Die Klasse ist die Wertungsklasse; ein Mehrklassen-
-Rennen ergibt eine Tabelle je Klasse. Die Summe ist die Summe der Rennpunkte; Streich-
-ergebnisse und Bonuspunkte außerhalb der Formel gibt es in Version 1 nicht.
+Rennen ergibt eine Tabelle je Klasse. Die Summe ist die Summe der Rennpunkte.
+Streichergebnisse gibt es nur als `drop`-Korrektur eines einzelnen Rennens eines
+Fahrers; ein automatisches Streichen des schlechtesten Ergebnisses gibt es nicht.
+
+**Faktor eines Rennens:** Ein Rennen kann einen ganzzahligen `factor` ab 2 tragen
+(fehlt er, gilt 1). Das ganze Ergebnis des Rennens wird mit ihm
+multipliziert, etwa für ein langes Rennen: die Punkte der Formel und die einer
+`points`-Korrektur. Ein Disqualifizierter bekommt keine Formelpunkte, seine
+Korrekturpunkte werden aber multipliziert. Ein Streichergebnis bleibt 0.
+
+**Version 2:** Der Faktor und `drop` gehören zu Version 2 der Liga-Datei. Die App
+schreibt Version 2 und liest Version 1 und 2. Eine App, die nur Version 1 kennt,
+lehnt die Datei als „von einer neueren Version“ ab, statt falsche Punkte zu zeigen.
 
 ### Punkteformel
 

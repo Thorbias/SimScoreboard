@@ -161,6 +161,99 @@ describe('standings', () => {
     expect(computeStandings(l).error).toBe('Division by zero');
   });
 
+  it('drops a result: no points, shown as dropped, no win', () => {
+    const l = league();
+    l.corrections = [correction({ kind: 'drop', raceId: 'r1' })];
+    const anna = rowOf(l, 'Anna Example');
+    expect(anna?.cells[0]).toMatchObject({
+      points: 0,
+      dropped: true,
+      corrected: true,
+    });
+    // The other race still counts; the first place of the dropped one is no win.
+    expect(anna?.total).toBe(9);
+    expect(anna?.wins).toBe(0);
+  });
+
+  it('leaves the others where they are when a result is dropped', () => {
+    const l = league();
+    l.corrections = [correction({ kind: 'drop', raceId: 'r1' })];
+    expect(rowOf(l, 'Bert Sample')?.cells[0]?.points).toBe(9);
+    expect(rowOf(l, 'Cora Demo')?.cells[0]?.points).toBe(8);
+  });
+
+  it('scores nothing for a dropped result even with extra points', () => {
+    const l = league();
+    l.corrections = [
+      correction({ kind: 'drop', raceId: 'r1' }),
+      correction({ id: 'c2', kind: 'points', value: 5, raceId: 'r1' }),
+    ];
+    expect(rowOf(l, 'Anna Example')?.cells[0]?.points).toBe(0);
+  });
+
+  it('multiplies the points of a race by its factor', () => {
+    const l = league();
+    (l.races[0] as { factor?: number }).factor = 2;
+    expect(rowOf(l, 'Anna Example')?.cells.map((c) => c?.points)).toEqual([
+      20, 9,
+    ]);
+    expect(rowOf(l, 'Anna Example')?.total).toBe(29);
+  });
+
+  it('multiplies the points added by a correction as well', () => {
+    const l = league();
+    (l.races[0] as { factor?: number }).factor = 3;
+    l.corrections = [correction({ kind: 'points', value: 2, raceId: 'r1' })];
+    // (10 from the formula + 2 given) * 3.
+    expect(rowOf(l, 'Anna Example')?.cells[0]?.points).toBe(36);
+  });
+
+  it('multiplies the extra points of a disqualified driver too', () => {
+    const l = league();
+    (l.races[0] as { factor?: number }).factor = 2;
+    l.corrections = [
+      correction({ kind: 'disqualify', raceId: 'r1' }),
+      correction({ id: 'c2', kind: 'points', value: -3, raceId: 'r1' }),
+    ];
+    expect(rowOf(l, 'Anna Example')?.cells[0]).toMatchObject({
+      points: -6,
+      disqualified: true,
+    });
+  });
+
+  it('keeps the start time of a race through saving and reading', () => {
+    const l = league();
+    (l.races[0] as { started?: number }).started = 123456;
+    const back = parseLeague(serializeLeague(l));
+    expect(back.races[0]?.started).toBe(123456);
+    expect(back.races[1]?.started).toBeUndefined();
+  });
+
+  it('keeps the factor and the drop through saving and reading', () => {
+    const l = league();
+    (l.races[0] as { factor?: number }).factor = 2;
+    l.corrections = [correction({ kind: 'drop' })];
+    const back = parseLeague(serializeLeague(l));
+    expect(back.races[0]?.factor).toBe(2);
+    expect(back.races[1]?.factor).toBeUndefined();
+    expect(back.corrections[0]?.kind).toBe('drop');
+  });
+
+  it('reads a bad factor as 1 and a fraction as a whole number', () => {
+    const raw = JSON.parse(serializeLeague(league())) as League;
+    (raw.races[0] as { factor?: unknown }).factor = 0;
+    (raw.races[1] as { factor?: unknown }).factor = 2.9;
+    const back = parseLeague(JSON.stringify(raw));
+    expect(back.races[0]?.factor).toBeUndefined();
+    expect(back.races[1]?.factor).toBe(2);
+  });
+
+  it('writes version 2 and still reads version 1', () => {
+    expect(JSON.parse(serializeLeague(league())).version).toBe(2);
+    const old = { ...league(), version: 1 };
+    expect(parseLeague(JSON.stringify(old)).version).toBe(2);
+  });
+
   it('lists the driver names once', () => {
     expect(raceDriverNames(league())).toEqual([
       'Anna Example',
@@ -247,7 +340,7 @@ describe('league file', () => {
     expect(() => parseLeague(JSON.stringify(bad))).toThrow(LeagueFileError);
   });
 
-  it('keeps the signature field empty in version 1', () => {
+  it('keeps the signature field empty', () => {
     expect(createLeague('x').signature).toBeNull();
   });
 });
