@@ -1,35 +1,35 @@
 # IDEA-0001 — Custom League
 
-> **Status:** grob. Geplantes Alleinstellungsmerkmal; die Planung ist bewusst
-> auf später verschoben. Diese Ideation hält nur fest, was schon absehbar ist.
+> **Status:** rough. Planned unique selling point; the planning is deliberately
+> postponed. This ideation only records what is already foreseeable.
 
-## Idee
+## Idea
 
-Eine Liga aus mehreren Sessions bilden: Punktesysteme definieren, Fahrer- und
-Teamwertungen über Rennen hinweg berechnen, Tabellen und Verläufe anzeigen.
+Form a league from several sessions: define points systems, calculate driver and
+team standings across races, show tables and progressions.
 
-## Was jetzt schon wichtig ist
+## What is already important now
 
-- Das Datenmodell (Session → Eintrag → Fahrer) wird von Anfang an so gebaut, dass
-  eine Wertung darüber aggregieren kann. Die Liga ist dann eine Auswertung über
-  vorhandene Sessions, kein Sonderfall im Parser.
-- Ein Liga-Organisator hat die Result-Dateien der Rennen (Host oder Server).
-  Naheliegend ist ein **local-first** Start: Organisator lädt die Dateien, die App
-  berechnet die Tabelle, und ein statischer Export (z. B. JSON oder eine fertige
-  Seite) wird geteilt. Das braucht noch kein Backend.
+- The data model (session → entry → driver) is built from the start so that a
+  scoring can aggregate over it. The league is then an evaluation over existing
+  sessions, not a special case in the parser.
+- A league organizer has the result files of the races (host or server). A
+  **local-first** start is obvious: the organizer loads the files, the app
+  calculates the table, and a static export (e.g. JSON or a finished page) is shared.
+  That needs no backend yet.
 
-## Zu klären
+## To clarify
 
-- **Speicherort und Teilen der Liga-Daten** (GitHub Pages, lokal, selbst gehostet,
-  Cloud-Speicher): siehe [IDEA-0002](IDEA-0002-liga-speicherort-und-teilen.md).
+- **Storage location and sharing of the league data** (GitHub Pages, local,
+  self-hosted, cloud storage): see
+  [IDEA-0002](IDEA-0002-league-storage-and-sharing.md).
 
-- **Fahrer-Identität:** Namen in den Result-Dateien sind nicht zwingend eindeutig.
-  Gibt es eine stabile ID in den Dateien? Hängt an der Formatprüfung
-  (Backlog 1).
-- **Widerspruch zu PRODUCT §5:** „kein Backend, keine Konten". Reicht der
-  statische Export auf Dauer, oder braucht eine Liga mit Anmeldung und Live-
-  Tabelle ein Backend? Das wäre eine Produktentscheidung.
-- **Punktesysteme:** feste Vorlagen oder frei konfigurierbar? Streichergebnisse,
-  Bonuspunkte, Strafen.
-- **Mehrklassen-Rennen:** getrennte Wertung je Klasse.
-- **Strafen und Nachträge:** Ergebnisse nach dem Rennen manuell korrigieren.
+- **Driver identity:** Names in the result files are not necessarily unique. Is there
+  a stable ID in the files? Depends on the format check (backlog 1).
+- **Contradiction with PRODUCT §5:** "no backend, no accounts". Is the static export
+  enough in the long run, or does a league with sign-in and a live table need a
+  backend? That would be a product decision.
+- **Points systems:** fixed templates or freely configurable? Dropped results, bonus
+  points, penalties.
+- **Multi-class races:** separate scoring per class.
+- **Penalties and amendments:** correct results manually after the race.

@@ -1,36 +1,36 @@
-# ADR-0001: TypeScript und Vite als Stack
+# ADR-0001: TypeScript and Vite as the stack
 
-- **Status:** Angenommen
-- **Datum:** 2026-11-01
+- **Status:** Accepted
+- **Date:** 2026-11-01
 
-## Kontext
+## Context
 
-SimScoreboard wertet LMU-Dateien rein clientseitig im Browser aus. Kernaufgaben:
-Ordnerzugriff über die File System Access API, Parsen großer Dateimengen in Web
-Workern, voraussichtlich DuckDB-WASM für die Telemetrie, viele interaktive Charts
-(Rundenzeiten, Positionsverlauf, überlagerte Telemetriekanäle mit Zoom).
+SimScoreboard evaluates LMU files purely client-side in the browser. Core tasks:
+folder access through the File System Access API, parsing large amounts of files
+in web workers, probably DuckDB-WASM for telemetry, many interactive charts (lap
+times, position progression, overlaid telemetry channels with zoom).
 
-Das Schwesterprojekt SimPosture nutzt Kotlin Multiplatform mit Compose
-Multiplatform. Der Stack wäre für SimScoreboard der naheliegende, weil gleiche
-Werkzeuge.
+The sister project SimPosture uses Kotlin Multiplatform with Compose
+Multiplatform. That stack would be the obvious one for SimScoreboard because of
+the same tools.
 
-## Entscheidung
+## Decision
 
-SimScoreboard wird mit **TypeScript** und **Vite** als reine Webanwendung gebaut.
-Die Markenfamilie mit SimPosture läuft über Name, Farben und Design-Tokens, nicht
-über geteilten Code.
+SimScoreboard is built with **TypeScript** and **Vite** as a pure web
+application. The brand family with SimPosture runs through name, colors and design
+tokens, not through shared code.
 
-## Alternativen
+## Alternatives
 
-- **Kotlin Multiplatform / Compose Wasm** (wie SimPosture): gleicher Stack, aber
-  die Anbindung von File-System-API, Web Workern und DuckDB-WASM aus Kotlin/Wasm
-  ist umständlich, und alle Charts müssten in Compose selbst gezeichnet werden.
-  Mobile-Apps bringen hier nichts, weil LMU nur am PC läuft.
+- **Kotlin Multiplatform / Compose Wasm** (like SimPosture): same stack, but
+  connecting the File System API, web workers and DuckDB-WASM from Kotlin/Wasm is
+  cumbersome, and all charts would have to be drawn in Compose itself. Mobile apps
+  bring nothing here because LMU only runs on PC.
 
-## Konsequenzen
+## Consequences
 
-- Zugriff auf das JS-Ökosystem: uPlot oder D3 für Charts, DuckDB-WASM, fertige
-  Parser-Bibliotheken.
-- Zwei Stacks im Portfolio des Entwicklers; geteilt wird nur das Branding.
-- Das UI-Framework (Vanilla, Svelte, React o. ä.) ist damit noch **nicht**
-  entschieden und braucht ein eigenes ADR beim Projektgerüst (Backlog 2).
+- Access to the JS ecosystem: uPlot or D3 for charts, DuckDB-WASM, ready-made
+  parser libraries.
+- Two stacks in the developer's portfolio; only the branding is shared.
+- The UI framework (vanilla, Svelte, React or the like) is therefore **not** yet
+  decided and needs an ADR of its own at the project scaffold (backlog 2).

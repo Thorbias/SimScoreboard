@@ -1,29 +1,28 @@
 # Bugs
 
-> Getrenntes Tracking von **Fehlern** — bewusst separat von
-> [FEATURES.md](FEATURES.md) (was SimScoreboard *können soll*). Hier stehen nur
-> **offene Bugs**: reproduzierbares Fehlverhalten gegenüber dem erwarteten
-> Verhalten. Behobene Bugs werden entfernt — die Historie steht in Git
+> Separate tracking of **bugs** — deliberately apart from
+> [FEATURES.md](FEATURES.md) (what SimScoreboard *should be able to do*). Only
+> **open bugs** are listed here: reproducible misbehavior compared to the
+> expected behavior. Fixed bugs are removed — the history is in Git
 > (`git log docs/BUGS.md`).
 >
-> **Priorisiert wird in [BACKLOG.md](BACKLOG.md):** Jeder offene Bug bekommt dort
-> eine Zeile mit Typ `Bug` und wird über seine **B-ID** mit dem Eintrag hier
-> verknüpft.
+> **Prioritization happens in [BACKLOG.md](BACKLOG.md):** every open bug gets a
+> line there with type `Bug` and is linked to its entry here through its **B-ID**.
 >
-> **B-IDs werden fortlaufend vergeben und nie wiederverwendet** — auch nicht nach
-> dem Entfernen eines behobenen Bugs.
+> **B-IDs are assigned consecutively and never reused** — not even after a fixed
+> bug is removed.
 
-<!-- Nächste freie B-ID: B-001 — fortlaufend vergeben, nie wiederverwenden. -->
+<!-- Next free B-ID: B-001 — assigned consecutively, never reuse. -->
 
-## Vorlage
+## Template
 
 ```markdown
-### B-00X — <Kurztitel>
+### B-00X — <short title>
 
-Symptom, Reproduktion (Datei/Schritte), betroffener Bereich, Ansatzpunkt/Verdacht.
-Der Verdacht ist eine Arbeitshypothese und vor dem Fix zu verifizieren.
+Symptom, reproduction (file/steps), affected area, starting point/suspicion.
+The suspicion is a working hypothesis and has to be verified before the fix.
 ```
 
-## Offene Bugs
+## Open bugs
 
-Keine.
+None.

@@ -1,61 +1,60 @@
-# Produkt — SimScoreboard
+# Product — SimScoreboard
 
-> Der **Rahmen** des Produkts: was SimScoreboard ist, für wen, welche Qualitäts-
-> anforderungen gelten und was bewusst **nicht** dazugehört. Dauerhaftes
-> Dokument — es beschreibt keine einzelnen Funktionen und keinen Arbeitsstand
-> (der steht in [BACKLOG.md](BACKLOG.md)).
+> The **frame** of the product: what SimScoreboard is, for whom, which quality
+> requirements apply and what deliberately does **not** belong to it. A lasting
+> document — it describes no individual features and no work status (that is in
+> [BACKLOG.md](BACKLOG.md)).
 
-## 1. Vision & Zweck
+## 1. Vision and purpose
 
-SimScoreboard macht aus den Dateien, die Le Mans Ultimate ohnehin schreibt,
-verwertbare Erkenntnisse: Ergebnisse prüfen, Runden vergleichen, Telemetrie
-auswerten und die eigenen Bestzeiten ordnen — komplett im Browser, Open Source
-und ohne Konto.
+SimScoreboard turns the files Le Mans Ultimate writes anyway into usable
+insight: check results, compare laps, evaluate telemetry and organize your
+personal best times — entirely in the browser, open source and without an
+account.
 
-Später kommt eine **Custom-League-Funktion** dazu (Punktewertung und Tabellen
-über mehrere Sessions). Das ist das geplante Alleinstellungsmerkmal, aber noch
-nicht ausgearbeitet ([IDEA-0001](ideations/IDEA-0001-custom-league.md)).
+It also brings a **custom league function** (points scoring and standings across
+several sessions) — see [IDEA-0001](ideations/IDEA-0001-custom-league.md) for the
+original idea; the first version is built.
 
-## 2. Zielgruppe
+## 2. Audience
 
-LMU-Spieler am PC, vom Gelegenheitsfahrer bis zum ambitionierten Liga-Fahrer, die
-ihre Sessions nachträglich analysieren wollen. Später zusätzlich Liga-
-Organisatoren.
+LMU players on PC, from the occasional driver to the ambitious league racer, who
+want to analyze their sessions afterwards, and league organizers.
 
-## 3. Plattform
+## 3. Platform
 
-- **Web**, moderne Desktop-Browser. Voller Funktionsumfang (Ordnerzugriff auf die
-  Spieledaten) in Chromium-Browsern; Firefox und Safari bekommen einen Fallback
-  über Drag-and-drop bzw. Ordner-Auswahl.
-- Hosting als statische Seite (z. B. GitHub Pages), kein Backend.
+- **Web**, modern desktop browsers. Full functionality (folder access to the game
+  data) in Chromium browsers; Firefox and Safari get a fallback through
+  drag-and-drop or a folder picker.
+- Hosting as a static site (e.g. GitHub Pages), no backend.
 
-## 4. Nicht-funktionale Anforderungen
+## 4. Non-functional requirements
 
-| ID | Kategorie | Anforderung |
+| ID | Category | Requirement |
 |---|---|---|
-| NF-001 | Datenschutz | Die Dateien des Spiels werden nur lokal im Browser verarbeitet und nie hochgeladen |
-| NF-002 | Offline | Nach dem ersten Laden funktioniert die Anwendung ohne Internetverbindung |
-| NF-003 | Skalierung | Sammlungen mit über 1.000 Sessions bleiben flink: Parsen in Web Workern, Liste nur mit Metadaten, Details bei Bedarf |
-| NF-004 | Sprachen | UI mehrsprachfähig (i18n); Englisch ist Default |
-| NF-005 | Lizenz | MIT; keine Übernahme von Code, Branding oder Assets Dritter |
+| NF-001 | Privacy | The game's files are processed only locally in the browser and never uploaded |
+| NF-002 | Offline | After the first load the application works without an internet connection |
+| NF-003 | Scale | Collections of more than 1,000 sessions stay fast: parsing in web workers, list with metadata only, details on demand |
+| NF-004 | Languages | UI ready for several languages (i18n); English is the default |
+| NF-005 | License | MIT; no adoption of code, branding or assets of third parties |
 
-## 5. Abgrenzung (Out of Scope)
+## 5. Scope limits (out of scope)
 
-- **Kein Overlay und keine Live-Telemetrie.** Das Spiel gibt Live-Daten per Shared
-  Memory aus, darauf kommt ein Browser nicht. Eine Lockerung wäre ein eigenes
-  Projekt (lokaler Helfer plus WebSocket) und eine eigene Ideation.
-- **Kein Backend und keine Nutzerkonten** in der ersten Ausbaustufe. Die League-
-  Funktion muss zeigen, ob das haltbar bleibt (IDEA-0001, IDEA-0002).
-- **Eigenes Design, keine fremden Assets.** Hersteller-Logos und Streckenfotos
-  werden nicht mitgeliefert.
-- **Inoffiziell:** Kein Produkt des Spielherstellers und nicht mit ihm verbunden.
+- **No overlay and no live telemetry.** The game outputs live data through shared
+  memory, which a browser cannot reach. Relaxing this would be a project of its
+  own (local helper plus WebSocket) and an ideation of its own.
+- **No backend and no user accounts** in the first stage. The league function has
+  to show whether that stays sustainable (IDEA-0001, IDEA-0002).
+- **Own design, no foreign assets.** Manufacturer logos and track photos are not
+  shipped.
+- **Unofficial:** Not a product of the game's maker and not connected to it.
 
-## 6. Reihenfolge der Ausbaustufen
+## 6. Order of the stages
 
-1. **Results:** Session-Liste, Ergebnisse nach Klasse, Qualifying.
-2. **Analyse:** Lap Chart, Position Chart, Statistics, Incidents.
-3. **Telemetry:** Zwei Runden vergleichen, Delta, Streckenkarte.
-4. **Lap Times:** Persönliche Bestzeiten pro Strecke, Auto und Klasse.
-5. **League:** später, siehe IDEA-0001.
+1. **Results:** session list, results by class, qualifying.
+2. **Analysis:** lap chart, position chart, statistics, incidents.
+3. **Telemetry:** compare two laps, delta, track map.
+4. **Lap times:** personal best times per track, car and class.
+5. **League:** standings from several race sessions (first version built).
 
-Die konkreten Arbeitsschritte stehen in [BACKLOG.md](BACKLOG.md).
+The concrete work steps are in [BACKLOG.md](BACKLOG.md).

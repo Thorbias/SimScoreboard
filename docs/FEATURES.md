@@ -1,330 +1,330 @@
 # Features — SimScoreboard
 
-> Was SimScoreboard können soll und was offen ist. **Lebenszyklus der Fähigkeit**,
-> nicht Arbeitsstand: ob gerade jemand daran arbeitet, steht ausschließlich in
-> [BACKLOG.md](BACKLOG.md) (`TODO`/`IN PROGRESS`) — ein „in Arbeit" gibt es hier
-> bewusst **nicht**.
+> What SimScoreboard should be able to do and what is open. **Lifecycle of the
+> capability**, not work status: whether someone is working on it right now is
+> stated exclusively in [BACKLOG.md](BACKLOG.md) (`TODO`/`IN PROGRESS`) — there is
+> deliberately no "in progress" here.
 >
-> Regeln für Einträge (Eintrags-Muster, Kondensier-Regel, Umsetzungsauftrag,
-> ID-Vergabe): [GUIDELINES.md](GUIDELINES.md), Abschnitt „Projektorganisation".
+> Rules for entries (entry pattern, condensing rule, implementation brief, ID
+> assignment): [GUIDELINES.md](GUIDELINES.md), section "Project organization".
 
-Priorität: **M**uss / **S**oll / **K**ann · Status: **offen** / **fertig**.
-Plattform ist überall Web (siehe [PRODUCT.md](PRODUCT.md)), deshalb ohne
-Plattform-Angabe je Eintrag.
+Priority: **M**ust / **S**hould / **C**ould · Status: **open** / **done**.
+The platform is the web everywhere (see [PRODUCT.md](PRODUCT.md)), so entries
+carry no platform note.
 
-**Datenbasis:** Die Result-XML-Dateien sind geprüft
-([ADR-0002](decisions/ADR-0002-lmu-result-format.md)); die Einträge dazu sind daran
-angepasst. Die Telemetrie (F-012, F-013) ist **unverifiziert** und wartet auf eine
-echte Aufzeichnung. Ereignisse wie Incidents, Strafen und Chat gibt es nur in
-neueren Mehrspieler-Dateien und sind überall optional. Umsetzungsaufträge entstehen
-mit dem Projektgerüst.
+**Data basis:** The result XML files are checked
+([ADR-0002](decisions/ADR-0002-lmu-result-format.md)); the entries about them are
+adapted to it. Telemetry (F-012, F-013) is **unverified** and waits for a real
+recording. Events such as incidents, penalties and chat exist only in newer
+multiplayer files and are optional everywhere. Implementation briefs are created
+together with the project scaffold.
 
-<!-- Nächste freie F-ID: F-026 — fortlaufend vergeben, nie wiederverwenden,
-     auch nicht die IDs gelöschter Einträge (sonst zeigen alte Commits und
-     Verweise auf die falsche Anforderung). -->
+<!-- Next free F-ID: F-026 — assigned consecutively, never reuse,
+     not even the IDs of deleted entries (otherwise old commits and
+     references point to the wrong requirement). -->
 
-## F-001 — Session-Ordner einlesen
+## F-001 — Read the session folder
 
-Prio M · Status fertig
+Prio M · Status done
 
-Der Anwender gibt den Ordner mit den Spieldaten frei, und SimScoreboard liest alle Sessions ein, ohne dass Dateien den Rechner verlassen.
+The user grants access to the folder with the game data, and SimScoreboard reads all sessions without any file leaving the computer.
 
-- Akzeptiert wird der Spielordner, `UserData` oder `Results`; die Result-Dateien werden darunter gefunden.
-- Chromium-Browser: Ordnerzugriff über die File System Access API; das Handle bleibt gespeichert, nach einem Neustart genügt ein Klick auf „Ordner neu verbinden“. Beim Verbinden werden neue und geänderte Dateien nachgelesen, verschwundene aus dem Index entfernt.
-- Andere Browser: Ordner-Auswahl als Fallback; dort kennt die Seite die Dateien bis zum Neuladen.
-- Das Einlesen läuft im Hintergrund (Web Worker) mit Fortschrittsanzeige; nicht lesbare Dateien werden gezählt und gemeldet.
-- Technik: [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md).
+- The game folder, `UserData` or `Results` is accepted; the result files are found below it.
+- Chromium browsers: folder access through the File System Access API; the handle stays stored, and after a restart one click on "Reconnect folder" is enough. On connecting, new and changed files are read again and vanished ones are removed from the index.
+- Other browsers: folder picker as a fallback; there the page knows the files until it is reloaded.
+- Reading runs in the background (web worker) with a progress indicator; unreadable files are counted and reported.
+- Technology: [ADR-0004](decisions/ADR-0004-data-storage-and-reading.md).
 
 ## F-002 — Sessions
 
-Prio M · Status fertig
+Prio M · Status done
 
-Der Anwender durchsucht alle eingelesenen Sessions in einer Liste, neueste zuerst. Die Liste steht links und bleibt sichtbar, während rechts die gewählte Session mit ihren Reitern geöffnet ist; so lässt sich schnell zwischen Sessions wechseln.
+The user browses all read sessions in a list, newest first. The list stands on the left and stays visible while the chosen session is open with its tabs on the right; this makes switching between sessions quick.
 
-- Filter nach Session-Typ (Training, Qualifying, Rennen), Strecke, Zeitraum, Fahrzeugklasse und Favoriten; sie sind in der Liste eingeklappt und zeigen die Zahl der aktiven Filter.
-- Sessions desselben Events (gleiche Strecke und Event-Start im Kopf der Datei) werden gruppiert angezeigt.
-- Jede Zeile zeigt Session-Typ, Datum, beteiligte Klassen und das Ergebnis des eigenen Fahrers, bei einem Klassensieg mit Sieg-Marke.
-- Die Anzahl der Sessions steht im Listenkopf; die geöffnete Session ist in der Liste hervorgehoben.
-- Auf einem schmalen Bildschirm zeigt die App entweder die Liste oder die Session, mit Rückweg zur Liste.
-- Land und Flagge der Strecke: F-018.
+- Filters by session type (practice, qualifying, race), track, period, car class and favorites; they are collapsed in the list and show the number of active filters.
+- Sessions of the same event (same track and event start in the file header) are shown grouped.
+- Each row shows session type, date, the classes involved and the result of the own driver, with a win mark for a class win.
+- The number of sessions is in the list header; the open session is highlighted in the list.
+- On a narrow screen the app shows either the list or the session, with a way back to the list.
+- Country and flag of the track: F-018.
 
-## F-003 — Eigener Fahrer markiert
+## F-003 — Own driver marked
 
-Prio M · Status fertig
+Prio M · Status done
 
-Der Anwender legt seine Fahrernamen fest, und SimScoreboard markiert ihn in Liste und Ergebnissen mit einem eigenen Badge.
+The user sets their driver names, and SimScoreboard marks them in the list and in the results with a badge of its own.
 
-- Die Namen werden in den Einstellungen gepflegt; Vorschläge aus den häufigsten Namen der eingelesenen Sessions erleichtern die Wahl.
-- Das Spiel liefert keine stabile Fahrer-ID, und das Kennzeichen „Spieler“ gilt im Mehrspieler für alle Menschen. Deshalb gibt es eine Liste von Aliassen; der Abgleich ignoriert Groß- und Kleinschreibung und angehängte `#`-Kennungen.
-- Die Markierung in Pit-Orange erscheint in der Session-Liste, in den Ergebnistabellen und in den Diagrammen (F-007, F-008); für F-012 gilt sie, sobald es existiert.
+- The names are maintained in the settings; suggestions from the most frequent names of the read sessions make the choice easier.
+- The game provides no stable driver ID, and the "player" flag applies to all humans in multiplayer. Therefore there is a list of aliases; the comparison ignores upper and lower case and appended `#` suffixes.
+- The marking in pit orange appears in the session list, in the result tables and in the charts (F-007, F-008); for F-012 it applies as soon as it exists.
 
-## F-004 — Rennergebnis
+## F-004 — Race result
 
-Prio M · Status fertig
+Prio M · Status done
 
-Die App zeigt die Ergebnisse eines Rennens nach Klasse oder gesamt.
+The app shows the results of a race by class or overall.
 
-- Spalten: Position, Startnummer, Fahrer, Fahrzeug, Reifenmischung der letzten Runde, Bestrunde, Abstand, Boxenstopps, Runden, Gesamtzeit.
-- Der Abstand zeigt die Zeit zum Führenden, bei Überrundung „+n R“, bei Ausfall „DNF“ bzw. „DQ“.
-- Die Bestrunde der Klasse ist hervorgehoben.
-- Umschalter Gesamt / je Klasse; die Zeile des eigenen Fahrers ist hervorgehoben.
+- Columns: position, car number, driver, car, tire compound of the last lap, best lap, gap, pit stops, laps, total time.
+- The gap shows the time to the leader, "+n L" when lapped, "DNF" or "DQ" on retirement.
+- The best lap of the class is highlighted.
+- Toggle overall / per class; the row of the own driver is highlighted.
 
-## F-005 — Qualifying-Ergebnis
+## F-005 — Qualifying result
 
-Prio M · Status fertig
+Prio M · Status done
 
-Die App zeigt die Ergebnisse eines Qualifyings (und eines Trainings) mit Sektorzeiten und Abständen.
+The app shows the results of a qualifying (and of a practice) with sector times and gaps.
 
-- Spalten: Position, Startnummer, Fahrer, Fahrzeug, Reifenmischung der Bestrunde, beste Sektoren 1–3, Bestrunde, Abstand zur Pole, Runden.
-- Die schnellsten Sektoren und die Bestrunde der Klasse sind farblich markiert.
-- Fahrer ohne gewertete Runde erscheinen am Ende ohne Zeiten.
-- Umschalter Gesamt / je Klasse.
+- Columns: position, car number, driver, car, tire compound of the best lap, best sectors 1–3, best lap, gap to pole, laps.
+- The fastest sectors and the best lap of the class are marked in color.
+- Drivers without a scored lap appear at the end without times.
+- Toggle overall / per class.
 
-## F-006 — Session-Kopf
+## F-006 — Session header
 
-Prio M · Status fertig
+Prio M · Status done
 
-Jede Session zeigt in einem Kopfbereich ihre Eckdaten.
+Every session shows its key data in a header area.
 
-- Session-Typ, Event, Strecke und Layout, Datum und Uhrzeit, Länge in Minuten oder Runden, Streckenlänge, Fahrerzahl, Modus und Spielversion.
-- Die Ansichten einer Session (Ergebnis, Lap Chart, Position Chart, Statistics, Incidents, Chat) sollen als Reiter erreichbar sein; nur die für den Session-Typ sinnvollen erscheinen (Position Chart und Statistics nur im Rennen). Reiter: Ergebnis, Rundenzeiten, Positionen, Statistik, Zwischenfälle, Chat.
-- Die Flagge der Strecke: F-018.
+- Session type, event, track and layout, date and time, length in minutes or laps, track length, number of drivers, mode and game version.
+- The views of a session (result, lap chart, position chart, statistics, incidents, chat) are reachable as tabs; only those that make sense for the session type appear (position chart and statistics only in a race). Tabs: result, lap times, positions, statistics, incidents, chat.
+- The flag of the track: F-018.
 
-## F-007 — Lap Chart
+## F-007 — Lap chart
 
-Prio S · Status fertig
+Prio S · Status done
 
-Der Anwender vergleicht den Rundenzeiten-Verlauf von bis zu vier Fahrern Runde für Runde.
+The user compares the lap time progression of up to four drivers lap by lap.
 
-- Bis zu vier Fahrer (A bis D), je eine Linie in eigener Farbe: A orange (der eigene Fahrer), B cyan, C rosa, D limette. Vorgewählt sind der eigene Fahrer und der schnellste Fahrer seiner Klasse.
-- Jeder Fahrer hat ein Dropdown und ein X zum Entfernen; die übrigen rücken auf (aus C wird B, aus D wird C). Mit „Fahrer hinzufügen“ kommt der schnellste noch freie Fahrer dazu. Auch der eigene Fahrer lässt sich entfernen.
-- Ein Klick auf einen Fahrer in der Ergebnistabelle wechselt in diesen Reiter und setzt ihn auf den nächsten freien Platz (A, B, C, D; ist der eigene Fahrer schon A, beginnt es bei B). Sind alle vier belegt, ersetzt jeder weitere Klick Fahrer D.
-- Runden ohne gewertete Zeit und sehr langsame Runden (über 125 % des Medians), die im Diagramm abgeschnitten sind, werden durch eine gestrichelte Linie zwischen den Nachbarrunden überbrückt, damit die Linie nicht abreißt. Die Bestrunde jedes Fahrers ist in der Tabelle hervorgehoben.
-- Darunter eine Tabelle mit Runde, Sektoren 1–3 und Rundenzeit aller gewählten Fahrer sowie dem Delta jedes Fahrers zu A.
-- Die Diagrammansicht lässt sich ausblenden, sodass nur die Tabelle bleibt.
+- Up to four drivers (A to D), one line each in a color of its own: A orange (the own driver), B cyan, C pink, D lime. The own driver and the fastest driver of their class are preselected.
+- Each driver has a dropdown and an X to remove; the others move up (C becomes B, D becomes C). "Add driver" adds the fastest driver not yet shown. The own driver can be removed too.
+- A click on a driver in the result table switches to this tab and puts them on the next free slot (A, B, C, D; if the own driver is already A, it starts at B). When all four are taken, every further click replaces driver D.
+- Laps without a scored time and very slow laps (over 125 % of the median) that are cut off in the chart are bridged by a dashed line between the neighboring laps so that the line does not break. The best lap of each driver is highlighted in the table.
+- Below, a table with lap, sectors 1–3 and lap time of all chosen drivers as well as the delta of each driver to A.
+- The chart view can be hidden so that only the table remains.
 
-## F-008 — Position Chart
+## F-008 — Position chart
 
-Prio S · Status fertig
+Prio S · Status done
 
-Die App zeigt den Positionsverlauf aller Fahrer eines Rennens von der Startaufstellung bis ins Ziel.
+The app shows the position progression of all drivers of a race from the starting grid to the finish.
 
-- Eine Linie je Fahrer, Achse von „Start" über jede Runde bis „Ziel".
-- Umschalter Gesamt / je Klasse; in der Klassenansicht sind die Positionen Ränge innerhalb der Klasse.
-- Der eigene Fahrer ist hervorgehoben und der Rest zurückgenommen; ein Klick auf eine Linie oder die Legende hebt einen anderen Fahrer hervor, „Alle gleich anzeigen" hebt die Hervorhebung auf.
-- Die Legende nennt Fahrer mit Endposition.
+- One line per driver, axis from "Start" over every lap to "Finish".
+- Toggle overall / per class; in the class view the positions are ranks within the class.
+- The own driver is highlighted and the rest toned down; a click on a line or the legend highlights another driver, "Show all equally" removes the highlighting.
+- The legend names drivers with their final position.
 
-## F-009 — Statistiken je Klasse
+## F-009 — Statistics per class
 
-Prio S · Status fertig
+Prio S · Status done
 
-Die App hebt je Klasse die auffälligen Leistungen eines Rennens hervor.
+The app highlights the notable performances of a race per class.
 
-- Schnellste Runde und schnellste Sektoren 1–3 mit Fahrer und Rundennummer.
-- Konstanz: Fahrer mit der geringsten Standardabweichung der Rundenzeiten; gezählt werden nur saubere Runden (keine Boxenrunde, höchstens 107 % der eigenen Bestzeit, mindestens fünf Runden).
-- Die meisten gewonnenen und die meisten verlorenen Plätze gegenüber der Startaufstellung der Klasse.
-- Die meistgenutzte Reifenmischung mit Rundenzahl.
+- Fastest lap and fastest sectors 1–3 with driver and lap number.
+- Consistency: driver with the lowest standard deviation of lap times; only clean laps count (no pit lap, at most 107 % of the own best time, at least five laps).
+- The most positions gained and the most positions lost compared with the starting grid of the class.
+- The most used tire compound with lap count.
 
 ## F-010 — Incidents
 
-Prio S · Status fertig
+Prio S · Status done
 
-Der Anwender sieht alle Zwischenfälle einer Session als Zeitleiste.
+The user sees all incidents of a session as a timeline.
 
-- Spalten: Session-Zeit, Restzeit (bei zeitbegrenzter Session), Typ, Fahrer, Klasse, Runde, Detail.
-- Typen: Kontakt (mit Fahrzeug oder Objekt, mit Stärke), Schaden, Track Limits (mit Verwarnpunkten) und Strafe (verhängt oder abgesessen).
-- Filter nach Typ, Klasse und Fahrer.
-- Gab es bei einem Kontakt oder Schaden vom Zeitstempel des Zwischenfalls bis 30 Sekunden danach Chat-Nachrichten, zeigt die Zeile eine Sprechblase mit der Zahl der Nachrichten. Ein Klick öffnet ein kleines Chatfenster mit diesen Nachrichten und einer Markierung, wann der Zwischenfall war. Der Chat-Reiter (F-011) bleibt davon unberührt.
-- Der Chat-Reiter ist eine Tabelle (Zeit, Fahrer, Nachricht, Zwischenfall). In der Spalte „Zwischenfall“ steht ein Blitz, wenn zu ihr ein Zwischenfall passt: ein Kontakt oder Schaden des schreibenden Fahrers (der Chat zeigt Kurznamen wie „V Deux“ für „Vittorio Deux“; oder ein Kontakt „mit“ diesem Fahrer), der bis zu 30 Sekunden vor der Nachricht (oder gleichzeitig) stattfand. Ein Klick springt zum Zwischenfall-Reiter, scrollt zur Zeile und hebt sie hervor; passen mehrere, gilt der letzte vor der Nachricht.
-- Die Ereignisse stehen nur in neueren Mehrspieler-Dateien; fehlen sie, entfällt der Reiter.
+- Columns: session time, remaining time (for a timed session), type, driver, class, lap, detail.
+- Types: contact (with a car or an object, with severity), damage, track limits (with warning points) and penalty (imposed or served).
+- Filters by type, class and driver.
+- If there were chat messages from the timestamp of a contact or damage until 30 seconds after it, the row shows a speech bubble with the number of messages. A click opens a small chat window with these messages and a mark when the incident happened. The chat tab (F-011) is not affected.
+- The chat tab is a table (time, driver, message, incident). The "incident" column shows a lightning bolt when an incident matches the message: a contact or damage of the writing driver (the chat shows short names such as "V Deux" for "Vittorio Deux"; or a contact "with" this driver) that happened up to 30 seconds before the message (or at the same time). A click jumps to the incidents tab, scrolls to the row and highlights it; if several match, the last one before the message counts.
+- The events exist only in newer multiplayer files; if they are missing, the tab is omitted.
 
-## F-011 — Session-Chat
+## F-011 — Session chat
 
-Prio K · Status fertig
+Prio C · Status done
 
-Die App zeigt den Chat-Verlauf einer Session als eigenen Reiter. Chat gibt es nur in neueren Mehrspieler-Dateien; der Reiter erscheint nur, wenn Nachrichten vorhanden sind.
+The app shows the chat history of a session as a tab of its own. Chat exists only in newer multiplayer files; the tab appears only when messages are present.
 
-## F-012 — Telemetrie-Vergleich zweier Runden
+## F-012 — Telemetry comparison of two laps
 
-Prio M · Status offen
+Prio M · Status open
 
-Der Anwender legt eine Referenzrunde und eine Vergleichsrunde übereinander und
-liest die Unterschiede an den Fahrer-Eingaben ab.
+The user lays a reference lap and a comparison lap on top of each other and reads
+the differences from the driver inputs.
 
-- Beide Runden sind aus Session, Fahrer und Rundennummer wählbar; die Bestrunde ist
-  vorgeschlagen.
-- Kanäle untereinander, gemeinsame Strecken-Achse: Geschwindigkeit, Gas, Bremse,
-  Lenkwinkel, Virtual Energy. Der Gang ist in der Kanal-Konfiguration ein Ereignis,
-  kein Kanal, und wird gegebenenfalls als Ereignis dargestellt (unverifiziert).
-- Je Kanal Minimum, Maximum und Mittelwert der beiden Runden.
-- Zeit-Zeiger mit Wiedergabe und Geschwindigkeitswahl; Kanäle lassen sich
-  umsortieren und ausblenden.
-- Anzeige der Rundenzeiten, der Differenz und der Sektorzeiten beider Runden.
+- Both laps are selectable from session, driver and lap number; the best lap is
+  suggested.
+- Channels stacked, common track axis: speed, throttle, brake, steering angle,
+  virtual energy. In the channel configuration the gear is an event, not a
+  channel, and is shown as an event where applicable (unverified).
+- Per channel minimum, maximum and mean of the two laps.
+- Time cursor with playback and speed choice; channels can be reordered and
+  hidden.
+- Display of the lap times, the difference and the sector times of both laps.
 
-## F-013 — Streckenkarte und Rundenkennzahlen
+## F-013 — Track map and lap key figures
 
-Prio S · Status offen
+Prio S · Status open
 
-Neben dem Telemetrie-Vergleich zeigt die App die Strecke als Karte und fasst die
-Runde in Kennzahlen zusammen.
+Next to the telemetry comparison the app shows the track as a map and sums up the
+lap in key figures.
 
-- Streckenkarte aus den Positionsdaten einer Runde (sofern die Daten sie
-  enthalten), mit Zeiger passend zum Zeit-Zeiger des Vergleichs.
-- Die Form jeder Streckenvariante wird aus der eigenen Telemetrie gewonnen und
-  lokal gespeichert; sie kann später als kleines Symbol je Variante in der Session-Liste
-  und den Bestzeiten dienen. Eine Quelle aus öffentlichen Karten ist verworfen
-  (uneinheitliche Lizenzen, Lücken bei den Varianten).
-- Einfärbung wählbar nach Geschwindigkeit, Eingaben oder Sektoren.
-- Kennzahlen: Höchstgeschwindigkeit, Durchschnittsgeschwindigkeit,
-  Kraftstoffverbrauch der Runde. Der Verbrauch ist optional: `fuelUsed` fand sich
-  nur in Dateien der Version 0.5000.
+- Track map from the position data of a lap (if the data contains them), with a
+  cursor matching the time cursor of the comparison.
+- The shape of each track variant is derived from the own telemetry and stored
+  locally; later it can serve as a small symbol per variant in the session list
+  and the personal bests. A source from public maps is rejected (inconsistent
+  licenses, gaps in the variants).
+- Coloring selectable by speed, inputs or sectors.
+- Key figures: top speed, average speed, fuel consumption of the lap. The
+  consumption is optional: `fuelUsed` was only found in files of version 0.5000.
 
-## F-014 — Persönliche Bestzeiten
+## F-014 — Personal bests
 
-Prio M · Status offen
+Prio M · Status open
 
-Der Anwender sieht seine besten Runden geordnet nach Strecke, Fahrzeugklasse und
-Fahrzeug. Die Zuordnung „eigener Fahrer" über mehrere Dateien beruht auf F-003.
+The user sees their best laps ordered by track, car class and car. The assignment
+"own driver" across several files rests on F-003.
 
-- Links die Liste aller Strecken, jede Streckenvariante als eigener Eintrag (Zeiten
-  verschiedener Layouts lassen sich nicht vergleichen) mit Land, Session-Anzahl und
-  der Bestzeit je Klasse. Die Liste bleibt stehen, während rechts die Details der
-  gewählten Strecke stehen; das Layout gleicht dem der Sessions (F-002).
-- Detailansicht einer Strecke: beste Qualifying- und Rennrunde, gefahrene Runden
-  gesamt, Fahrzeuge, Sessions.
-- Je Klasse eine Tabelle der Rekorde pro Fahrzeug mit Session-Typ, Datum,
-  Sektoren, Rundenzeit und Abstand zur Klassenbestzeit.
-- Je Klasse ein Diagramm der Entwicklung: die beste Runde jeder Session als Punkt und die persönliche Bestzeit bisher als Stufenlinie.
-- Filter nach Klasse.
-- Von jedem Rekord führt ein Sprung zur Session und, falls Telemetrie vorhanden
-  ist, in den Telemetrie-Vergleich.
+- On the left the list of all tracks, each track variant as an entry of its own
+  (times of different layouts cannot be compared) with country, number of sessions
+  and the best time per class. The list stays while the details of the chosen
+  track stand on the right; the layout matches that of the sessions (F-002).
+- Detail view of a track: best qualifying and race lap, laps driven in total,
+  cars, sessions.
+- Per class a table of the records per car with session type, date, sectors, lap
+  time and gap to the class best time.
+- Per class a chart of the development: the best lap of each session as a dot and
+  the personal best so far as a step line.
+- Filter by class.
+- From every record a jump leads to the session and, if telemetry is present, to
+  the telemetry comparison.
 
-## F-015 — Favoriten
+## F-015 — Favorites
 
-Prio K · Status offen
+Prio C · Status open
 
-Der Anwender markiert Sessions als Favorit und filtert die Session-Liste danach.
+The user marks sessions as favorites and filters the session list by them.
 
-## F-016 — Lokaler Index und Einstellungen
+## F-016 — Local index and settings
 
-Prio M · Status fertig
+Prio M · Status done
 
-Die App speichert den Metadaten-Index der Sessions und die Einstellungen lokal im Browser, sodass sie nach dem ersten Einlesen schnell startet.
+The app stores the metadata index of the sessions and the settings locally in the browser, so that it starts quickly after the first read.
 
-- Nur Metadaten im Index; die Details einer Session werden bei Bedarf aus der Datei gelesen.
-- Gespeichert werden außerdem die eigenen Fahrernamen, Favoriten, die Sprache und der Ordnerzugriff. Die Darstellung (automatisch, hell oder dunkel) liegt als Komfortwert in `localStorage`, damit sie vor dem ersten Zeichnen gilt.
-- Der Speicher ist best-effort: Ist er nicht verfügbar (z. B. Privatmodus), arbeitet die App mit einem Index im Arbeitsspeicher weiter und weist darauf hin.
-- Der Anwender kann den lokalen Index jederzeit in den Einstellungen löschen.
-- Technik: [ADR-0004](decisions/ADR-0004-datenhaltung-und-einlesen.md).
+- Only metadata in the index; the details of a session are read from the file on demand.
+- Also stored are the own driver names, favorites, the language and the folder access. The appearance (automatic, light or dark) is kept as a convenience value in `localStorage` so that it applies before the first paint.
+- The storage is best effort: if it is not available (e.g. private mode), the app keeps working with an in-memory index and points that out.
+- The user can delete the local index at any time in the settings.
+- Technology: [ADR-0004](decisions/ADR-0004-data-storage-and-reading.md).
 
-## F-017 — Mehrsprachige Oberfläche
+## F-017 — Multilingual interface
 
-Prio S · Status fertig
+Prio S · Status done
 
-Die Oberfläche gibt es auf Englisch und Deutsch; Englisch ist der Standard, Deutsch wird bei deutschem Browser-Locale gewählt, die Sprache lässt sich in den Einstellungen festlegen. Alle Texte kommen aus einer zentralen Übersetzungsschicht; ein Test stellt sicher, dass beide Sprachen dieselben Schlüssel und Platzhalter haben.
+The interface exists in English and German; English is the default, German is chosen for a German browser locale, and the language can be set in the settings. All texts come from a central translation layer; a test ensures that both languages have the same keys and placeholders.
 
-## F-018 — Streckenland und Flagge
+## F-018 — Track country and flag
 
-Prio K · Status offen
+Prio C · Status open
 
-Die App zeigt zu jeder Strecke Land und Flagge in der Session-Liste, im Session-Kopf und in den Bestzeiten.
+The app shows country and flag for every track in the session list, in the session header and in the personal bests.
 
-- Die Result-Dateien nennen nur Venue, Course und Event; Land und Flagge kommen aus einer eigenen Streckentabelle im Projekt. Ist eine Strecke dort nicht bekannt, entfällt die Angabe.
+- The result files only name venue, course and event; country and flag come from a track table of our own in the project. If a track is not known there, the note is omitted.
 
-## F-019 — Gesamtüberblick der Bestzeiten
+## F-019 — Overview of the personal bests
 
-Prio S · Status offen
+Prio S · Status open
 
-Als erster Eintrag der Bestzeiten fasst der Gesamtüberblick alles zusammen, was der Anwender über alle Strecken gefahren ist.
+As the first entry of the statistics, the overview sums up everything the user has driven across all tracks.
 
-- Kennzahlen: Sessions, gefahrene Runden, gefahrene Strecke in Kilometern, Streckenvarianten, Rennen, Siege und Podien (in der Klasse) mit Anteil an den Rennen.
-- Je Klasse die fünf wichtigsten Fahrzeuge: auf wie vielen Streckenvarianten das Fahrzeug die schnellste eigene Runde der Klasse hält (Anzahl und Anteil, zum Beispiel 911er 20 %, BMW 75 %, McLaren 5 %) und wie viele Runden es gefahren wurde. Fahrzeuge ohne Bestzeit erscheinen nach Runden.
-- Die meistgefahrenen Streckenvarianten als Tabelle mit Anteil an den gefahrenen Runden, mit Sprung in die Details der Strecke.
-- Form: Ausfälle (DNF und Disqualifikation) im Verhältnis zu den Rennen, durchschnittlicher Zielplatz und durchschnittlich gewonnene Plätze der letzten zehn Rennen sowie die Liste dieser Rennen mit Start, Ziel und Platzveränderung in der Klasse.
-- Rekorde: Zahl der Klassenrekorde der letzten 30 Tage sowie die fünf neuesten und die fünf ältesten Klassenrekorde mit Alter in Tagen.
-- Mehrspieler und Einzelspieler: Anteil der Sessions und der Runden je Modus.
-- Aktivität: gefahrene Runden pro Monat der letzten zwölf Monate als Säulen.
-- Mit wem du fährst (nur Mehrspieler-Sessions; gegen die KI zählt nichts): die Fahrer, mit denen du die meisten Rennen gefahren bist (Rennen, in denen beide mindestens eine Runde gefahren sind), und die, mit denen du die meisten Kollisionen hattest (Kontakte zwischen zwei Fahrern in allen Mehrspieler-Sessions; beide Meldungen eines Kontakts zählen einmal). Beide Listen zeigen nur Fahrer ab zwei Treffern und höchstens zehn. Die Kontakte stehen dafür im Index (Version 4), die Sessions werden beim nächsten Einlesen neu gelesen.
-- Die Seite heißt in der Navigation „Statistiken“ (früher „Bestzeiten“); "Statistiken" in der Session ist ein eigener Reiter.
-- Gezählt wird nur, was zum eigenen Fahrer gehört (F-003); jede Streckenvariante zählt einzeln (F-014).
+- Key figures: sessions, laps driven, distance driven in kilometers, track variants, races, wins and podiums (in the class) with their share of the races.
+- Per class the five most important cars: on how many track variants the car holds the fastest own lap of the class (count and share, for example 911 20 %, BMW 75 %, McLaren 5 %) and how many laps it was driven. Cars without a best time appear by laps.
+- The most driven track variants as a table with their share of the laps driven, with a jump to the details of the track.
+- Form: retirements (DNF and disqualification) in relation to the races, average finishing position and average positions gained of the last ten races as well as the list of these races with start, finish and change of position in the class.
+- Records: number of class records of the last 30 days as well as the five newest and the five oldest class records with age in days.
+- Multiplayer and single player: share of the sessions and of the laps per mode.
+- Activity: laps driven per month of the last twelve months as columns.
+- Who you drive with (multiplayer sessions only; nothing counts against the AI): the drivers you drove the most races with (races in which both drove at least one lap) and those you had the most collisions with (contacts between two drivers in all multiplayer sessions; both reports of a contact count once). Both lists show only drivers with at least two encounters and at most ten. The contacts are stored in the index (version 4) for this; the sessions are read again on the next scan.
+- The page is called "Statistics" in the navigation (formerly "Personal bests"); "Statistics" in a session is a tab of its own.
+- Only what belongs to the own driver counts (F-003); every track variant counts on its own (F-014).
 
-## F-020 — Demo-Daten
+## F-020 — Demo data
 
-Prio S · Status offen
+Prio S · Status open
 
-Die App lässt sich ohne Spieldateien ausprobieren, mit Beispiel-Sessions, in denen alle Namen anonymisiert sind.
+The app can be tried without game files, with sample sessions in which all names are anonymized.
 
-- Start: „Demo ausprobieren“ in der Session-Liste (solange kein Ordner verbunden ist) und in den Einstellungen; „Demo beenden“ im Banner und in den Einstellungen.
-- Inhalt: 14 vollständige Sessions aus fünf Events (Bahrain, Spa im Mehrspieler, Algarve, Spa als Rennwochenende gegen KI, ein Mehrklassen-Rennen) mit Training, Qualifying und Rennen. Zeiten, Ergebnisse, Zwischenfälle und Strafen sind echt; Fahrer heißen „Driver 07“, der eigene „Demo Driver“, Teams „Team 03“; der Chat besteht aus neutralen Sätzen.
-- Die Demo steht neben der echten Bibliothek: Sessions, Favoriten und Ergebnisse der Demo werden nie gespeichert, eigene Sessions, Fahrernamen, Favoriten und der lokale Index bleiben unberührt. Eigene Fahrernamen und der Index sind während der Demo gesperrt.
-- Die Dateien entstehen mit `tools/anonymize-results.mjs --demo` und werden auf Namensreste getestet (siehe [GUIDELINES.md](GUIDELINES.md), Datenschutz).
+- Start: "Try the demo" in the session list (as long as no folder is connected) and in the settings; "End demo" in the banner and in the settings.
+- Content: 14 complete sessions from five events (Bahrain, Spa in multiplayer, Algarve, Spa as a race weekend against the AI, a multi-class race) with practice, qualifying and race. Times, results, incidents and penalties are real; drivers are called "Driver 07", the own one "Demo Driver", teams "Team 03"; the chat consists of neutral sentences.
+- The demo stands next to the real library: sessions, favorites and results of the demo are never stored, own sessions, driver names, favorites and the local index stay untouched. Own driver names and the index are locked during the demo.
+- The files are produced with `tools/anonymize-results.mjs --demo` and tested for leftover names (see [GUIDELINES.md](GUIDELINES.md), privacy).
 
-## F-021 — Liga (Version 1, nur Organisator)
+## F-021 — League (version 1, organizer only)
 
-Prio S · Status fertig
+Prio S · Status done
 
-Ein Organisator fasst Sessions zu einer Liga zusammen, die App berechnet die Fahrerwertung, und die Liga lässt sich als Datei weitergeben, die Mitspieler nur lesen. Ausgangspunkt sind [IDEA-0001](ideations/IDEA-0001-custom-league.md) und [IDEA-0002](ideations/IDEA-0002-liga-speicherort-und-teilen.md).
+An organizer combines sessions into a league, the app calculates the driver standings, and the league can be passed on as a file that the players only read. Starting points are [IDEA-0001](ideations/IDEA-0001-custom-league.md) and [IDEA-0002](ideations/IDEA-0002-league-storage-and-sharing.md).
 
-- Rollen: Der Organisator schreibt, alle anderen lesen. Den Schreibschutz stellt der Speicher her (Freigabe-Rechte des Ordners); die App prüft ihn nicht. Eine Signatur folgt später ([IDEA-0003](ideations/IDEA-0003-liga-signatur.md)); das Datenformat sieht dafür ein leeres Feld vor.
-- Liga: Name, Klassen-Regel und Punkteformel. Die Rennen einer Liga sind Sessions des Typs Rennen, die der Organisator auswählt und in eine Reihenfolge bringt. Ein Rennen lässt sich auch aus einer einzelnen Result-Datei (.xml) importieren, die nicht im Session-Ordner liegt.
-- Punkteformel: Der Organisator gibt einen Ausdruck vor, der pro Fahrer und Rennen die Punkte berechnet. Variablen: `position` (Platz in der Wertungsklasse), `overallPosition`, `starters` (Teilnehmer der Klasse), `fastestLap` (1 für schnellste Runde der Klasse, sonst 0), `pole` (1 bei Pole in der Qualifikation), `finished` (1 wenn gewertet), `laps`, `leaderLaps` (Runden des Klassensiegers). Funktionen: `min`, `max`, `round`, `floor`, `if(Bedingung, dann, sonst)`, dazu `+ - * / %`, Vergleiche und `and`/`or`. Voreingestellt ist `floor(40 * (1 - (position - 1) / (starters - 1))) + 10` (Sieger 50, Letzter 10; bei einem einzelnen Starter in der Klasse ist das Rennen ungültig), als zweites Beispiel steht `if(position <= 10, 11 - position, 0) + fastestLap` im Hilfetext.
-- Sicherheit der Formel: ein eigener kleiner Parser mit festem Wortschatz, kein `eval` (die Content-Security-Policy erlaubt es ohnehin nicht). Fehler in der Formel zeigt die App mit Position im Text an, bevor sie rechnet.
-- Vorlagen für Formeln (zum Beispiel gängige Punktetabellen) kommen später; Version 1 hat nur das Eingabefeld.
-- Wertung: nur Fahrer, getrennt je Klasse. Tabelle mit Platz, Fahrer, Punkten je Rennen und Summe; dazu der Verlauf der Punkte über die Rennen.
-- Die Spaltenköpfe der Rennen zeigen den Namen und darunter Datum und Uhrzeit. Name und Zeit führen zur Session, wenn sie auf diesem Rechner vorhanden ist; sonst sind sie kein Link.
-- Fahrer zusammenführen: Result-Dateien haben keine stabile ID ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). Der Organisator ordnet mehrere Namen einer Person zu (Aliasliste je Liga).
-- Korrekturen: Nachträglich möglich sind Zeitstrafen, Disqualifikationen, ein manuell geänderter Platz, Punkte-Zu- oder Abschläge und das Streichergebnis (das Rennen zählt für diesen Fahrer nicht: 0 Punkte, in der Tabelle ein X; ohne Begründung), sonst jeweils mit Begründung. Die Originaldaten bleiben unverändert; die Korrekturen liegen als eigene Einträge in der Liga und sind in der Tabelle als solche erkennbar.
-- Tab „Rennen“: Jede Zeile zeigt den Namen (änderbar), Datum und Startzeit des Rennens, die Knöpfe zum Verschieben und Entfernen und ganz hinten den Faktor. Die Startzeit steht in der Datei (`started`); ältere Rennen zeigen weiter die Endzeit.
-- Faktor: Auf dem Tab „Rennen“ trägt jedes Rennen einen Faktor (ganze Zahl, Standard 1). Das ganze Ergebnis des Rennens (Formel und Punktekorrekturen) wird mit ihm multipliziert, zum Beispiel 2 für ein langes Rennen. In der Tabelle steht ein Faktor über 1 unter dem Rennnamen (×2). Die Liga-Datei hat damit Version 2.
-- Speichern: lesbares, versioniertes JSON in einem Ordner, den der Organisator wählt (File System Access API; auch ein Ordner, den ein Cloud-Client synchronisiert). Ohne Chromium gibt es Export und Import als Datei.
-- Teilen: Mitspieler öffnen die Liga-Datei in der App und sehen die Tabelle ohne Schreibmöglichkeit. Dateien der Rennen müssen sie nicht haben: die Liga-Datei enthält die ausgewerteten Ergebnisse je Rennen.
-- Datenschutz: Die Liga-Datei enthält Namen anderer Fahrer. Beim Speichern und Teilen weist die App darauf hin.
+- Roles: The organizer writes, everybody else reads. The write protection is provided by the storage (sharing rights of the folder); the app does not check it. A signature follows later ([IDEA-0003](ideations/IDEA-0003-league-signature.md)); the data format provides an empty field for it.
+- League: name, class rule and points formula. The races of a league are sessions of type race that the organizer selects and puts in an order. A race can also be imported from a single result file (.xml) that is not in the session folder.
+- Points formula: The organizer gives an expression that calculates the points per driver and race. Variables: `position` (position in the scoring class), `overallPosition`, `starters` (participants of the class), `fastestLap` (1 for the fastest lap of the class, else 0), `pole` (1 for pole in qualifying), `finished` (1 if scored), `laps`, `leaderLaps` (laps of the class winner). Functions: `min`, `max`, `round`, `floor`, `if(condition, then, else)`, plus `+ - * / %`, comparisons and `and`/`or`. The default is `floor(40 * (1 - (position - 1) / (starters - 1))) + 10` (winner 50, last 10; with a single starter in the class the race is invalid), and `if(position <= 10, 11 - position, 0) + fastestLap` is given as a second example in the help text.
+- Safety of the formula: a small parser of our own with a fixed vocabulary, no `eval` (the content security policy does not allow it anyway). The app shows errors in the formula with their position in the text before it calculates.
+- Templates for formulas (for example common points tables) come later; version 1 has only the input field.
+- Standings: drivers only, separately per class. Table with rank, driver, points per race and total; plus the progression of the points over the races.
+- The column headers of the races show the name and below it date and time. Name and time lead to the session if it exists on this computer; otherwise they are not a link.
+- Merging drivers: Result files have no stable ID ([ADR-0002](decisions/ADR-0002-lmu-result-format.md)). The organizer assigns several names to one person (alias list per league).
+- Corrections: Possible afterwards are time penalties, disqualifications, a manually changed position, points added or removed and the dropped result (the race does not count for this driver: 0 points, an X in the table; without a reason), each otherwise with a reason. The original data stays unchanged; the corrections are separate entries in the league and recognizable as such in the table.
+- Tab "Races": Each row shows the name (editable), date and start time of the race, the buttons to move and remove, and at the very end the factor. The start time is in the file (`started`); older races keep showing the end time.
+- Factor: On the tab "Races" every race carries a factor (whole number, default 1). The whole result of the race (formula and points corrections) is multiplied by it, for example 2 for a long race. In the table a factor above 1 stands below the race name (×2). The league file thus has version 2.
+- Saving: readable, versioned JSON in a folder the organizer chooses (File System Access API; also a folder that a cloud client synchronizes). Without Chromium there is export and import as a file.
+- Sharing: Players open the league file in the app and see the table without any way to write. They do not need the files of the races: the league file contains the evaluated results per race.
+- Privacy: The league file contains names of other drivers. The app points that out on saving and sharing.
 
-## F-022 — Boxenstoppzeiten
+## F-022 — Pit stop times
 
-Prio S · Status offen · wartet auf die Telemetrie (Backlog 7)
+Prio S · Status open · waits for telemetry (backlog 7)
 
-Die Auswertung zeigt je Fahrer die Boxenstopps mit ihrer Dauer, gemessen aus der Telemetrie.
+The evaluation shows, per driver, the pit stops with their duration, measured from telemetry.
 
-- Quelle ist ausschließlich die Telemetrie (Ereignis `In Pits` und Streckenposition, siehe ADR-0008). Die Result-XML kennt nur die Zahl der Stopps und die Runde (`pit`), keine Standzeit; geschätzte Zeiten aus Rundenzeiten gibt es bewusst nicht.
-- Ohne Aufzeichnung zur Session steht kein Wert da, keine Näherung.
-- Offen: Anzeigeort (Ergebnisse oder Analyse), Aufteilung in Boxengasse und Stillstand, Zuordnung der Aufzeichnung zur Session. Wird beim Start geklärt, ob ein eigener Branch nötig ist.
+- The source is exclusively telemetry (event `In Pits` and track position, see ADR-0008). The result XML only knows the number of stops and the lap (`pit`), no standing time; estimated times from lap times are deliberately not provided.
+- Without a recording for the session no value is shown, no approximation.
+- Open: place of display (results or analysis), split into pit lane and standstill, assignment of the recording to the session. Whether a branch of its own is needed is clarified at the start.
 
-## F-023 — Liga im Cloud-Speicher
+## F-023 — League in cloud storage
 
-Prio S · Status fertig
+Prio S · Status done
 
-Der Organisator speichert die Liga mit einem Klick in seinen Cloud-Speicher, die Mitspieler öffnen sie per Link und sehen den neuesten Stand ([ADR-0009](decisions/ADR-0009-liga-google-drive.md)).
+The organizer saves the league to their cloud storage with one click, the players open it by link and see the latest state ([ADR-0009](decisions/ADR-0009-league-google-drive.md)).
 
-- Ohne Zugangsdaten: „Speichern“ überschreibt dieselbe Datei (das Datei-Handle der Liga wird gemerkt, nach einem Neustart fragt der Browser einmal nach Zugriff); liegt sie in einem synchronisierten Ordner (zum Beispiel Google Drive für Desktop), verteilt der Cloud-Client sie. Eine Liga lässt sich auch aus einer `https`-Adresse öffnen und von dort aktualisieren.
-- Google Drive direkt, nur wenn Client-ID und API-Key beim Bauen gesetzt sind (Einrichtung in [LIGA-DRIVE.md](LIGA-DRIVE.md)): Anmeldung mit Google (nur Zugriff auf Dateien, die die App selbst anlegt), „In Google Drive speichern“ legt die Datei an oder aktualisiert sie, fragt vor dem Überschreiben einer geänderten Version und legt eine gelöschte Datei neu an. „Per Link freigeben“ zeigt einen Link auf SimScoreboard, den die Mitspieler öffnen.
-- Mitspieler: Der Link fragt vor dem Laden nach. Die Liga ist eine Kopie mit gemerkter Quelle, **nur lesbar** (Schloss-Symbol) und wird bei jedem Öffnen aktualisiert; sie erscheint nie doppelt.
-- Als Besitzer bearbeiten: Das Schloss einer nur lesbaren Liga ist ein Knopf. Nach einer Rückfrage (geht nur, wenn die Datei in Google Drive dem angemeldeten Konto gehört) wechselt die Liga in den Bearbeitungsmodus und wird in dieselbe Drive-Datei gespeichert, auch auf einem anderen Rechner oder einer anderen Seite (zum Beispiel GitHub Pages statt `localhost`).
-- Hinweis „noch nicht gespeichert“ (Banner, Punkte) für neue und geänderte Ligen; eine neue Liga öffnet in den Einstellungen. Löschen entfernt die Liga nur aus dem Browser, nie gespeicherte Dateien.
-- **Grenze, bewusst so entschieden:** Die App liest eine Drive-Datei nur, wenn sie für „Jeder mit dem Link“ freigegeben ist (Abruf mit API-Key, ohne Anmeldung). Eingeschränkt freigegebene Dateien (nur bestimmte Personen) liefert Google mit 404 aus, auch wenn der Mitspieler bei Google angemeldet ist; die App meldet das verständlich. Wer die Liga nicht öffentlich per Link teilen will, gibt sie bestimmten Personen frei, und die Mitspieler holen sich die Datei selbst (zum Beispiel per Drive-Synchronisation) und öffnen sie lokal; das liegt außerhalb der App und ist akzeptiert. Erst bei echtem Bedarf wird geprüft, wie gesicherte Dateien zugänglich werden: Mitspieler melden sich in der App an und wählen die Datei über den Google Picker aus (Scope `drive.file`; offen sind Picker-API, Projektnummer als Konfigurationswert, Skript von `apis.google.com` in der Content-Security-Policy, Testnutzer und ob die Berechtigung bleibt).
-- Den Schreibschutz stellt der Speicher her (Freigabe: nur der Organisator darf bearbeiten). Die Liga-Datei enthält Namen anderer Fahrer; die App weist beim Speichern in die Cloud und beim Freigeben darauf hin.
+- Without credentials: "Save" overwrites the same file (the file handle of the league is remembered, after a restart the browser asks once for access); if it lies in a synchronized folder (for example Google Drive for desktop), the cloud client distributes it. A league can also be opened from an `https` address and refreshed from there.
+- Google Drive directly, only when client ID and API key are set at build time (setup in [LEAGUE-DRIVE.md](LEAGUE-DRIVE.md)): sign-in with Google (access only to files the app creates itself), "Save to Google Drive" creates or updates the file, asks before overwriting a changed version and recreates a deleted file. "Share by link" shows a link to SimScoreboard that the players open.
+- Players: The link asks before loading. The league is a copy with a remembered source, **read-only** (lock symbol) and is refreshed on every opening; it never appears twice.
+- Edit as owner: The lock of a read-only league is a button. After a confirmation (works only if the file in Google Drive belongs to the signed-in account) the league switches to edit mode and is saved to the same Drive file, also on another computer or another site (for example GitHub Pages instead of `localhost`).
+- Notice "not saved yet" (banner, dot) for new and changed leagues; a new league opens in the settings. Deleting removes the league only from the browser, never saved files.
+- **Limit, deliberately decided:** The app reads a Drive file only when it is shared with "Anyone with the link" (retrieval with an API key, without sign-in). Files with restricted sharing (specific people only) are answered by Google with 404, even when the player is signed in to Google; the app reports that in an understandable way. Whoever does not want to share the league publicly by link shares it with specific people, and the players fetch the file themselves (for example through Drive synchronization) and open it locally; that lies outside the app and is accepted. Only on real demand will it be checked how secured files can become accessible: players sign in in the app and pick the file through the Google Picker (scope `drive.file`; open are the Picker API, project number as a configuration value, script from `apis.google.com` in the content security policy, test users and whether the permission stays).
+- The write protection is provided by the storage (sharing: only the organizer may edit). The league file contains names of other drivers; the app points that out on saving to the cloud and on sharing.
 
-## F-024 — Passwortschutz der Liga-Datei
+## F-024 — Password protection of the league file
 
-Prio S · Status gebaut, wartet auf Abnahme
+Prio S · Status built, awaiting acceptance
 
-Der Organisator kann die Liga-Datei optional mit einem Passwort verschlüsseln ([ADR-0010](decisions/ADR-0010-liga-passwortschutz.md)). Damit lässt sich eine Datei in Google Drive mit „Jeder mit dem Link“ teilen, ohne dass jeder Inhaber des Links die Ergebnisse und Fahrernamen lesen kann.
+The organizer can optionally encrypt the league file with a password ([ADR-0010](decisions/ADR-0010-league-password-protection.md)). This makes it possible to share a file in Google Drive with "Anyone with the link" without every holder of the link being able to read the results and driver names.
 
-- Einstellungen der Liga: Passwort setzen, ändern, entfernen. Mindestens 12 Zeichen, zweimal eingeben; es gibt keine Wiederherstellung. Die Änderung gilt ab dem nächsten Speichern.
-- Verschlüsselt wird beim Schreiben (Datei und Google Drive), entschlüsselt beim Lesen (Datei, Adresse, Drive-Link, Aktualisieren). Der Liganame bleibt lesbar, der Rest ist verschlüsselt (AES-256-GCM, Schlüssel aus dem Passwort mit PBKDF2).
-- Ein Dialog fragt nach dem Passwort und merkt es auf Wunsch (Häkchen „Auf diesem Gerät merken“) als nicht auslesbaren Schlüssel im Browser; die Einstellungen können ihn wieder vergessen. Ohne Häkchen gilt der Schlüssel für den Besuch.
-- Ein falsches Passwort wird erkannt und erneut abgefragt; eine veränderte Datei fällt auf.
-- Das Passwort schützt nicht vor dem Schreiben; das regelt weiter Drive und das Google-Konto.
+- Settings of the league: set, change, remove a password. At least 12 characters, entered twice; there is no recovery. The change applies from the next save.
+- Encrypted when writing (file and Google Drive), decrypted when reading (file, address, Drive link, refresh). The league name stays readable, the rest is encrypted (AES-256-GCM, key from the password with PBKDF2).
+- A dialog asks for the password and, on request (checkbox "Remember on this device"), remembers it as a non-extractable key in the browser; the settings can forget it again. Without the checkbox the key applies for the visit.
+- A wrong password is detected and asked for again; a modified file is noticed.
+- The password does not protect against writing; that is still governed by Drive and the Google account.
 
-## F-025 — CSV-Export der Liga-Tabelle
+## F-025 — CSV export of the league table
 
-Prio S · Status gebaut, wartet auf Abnahme
+Prio S · Status built, awaiting acceptance
 
-In den Einstellungen der Liga lässt sich die aktuelle Tabelle als CSV herunterladen, um sie in einer Tabellenkalkulation zu prüfen oder weiterzugeben. Gebaut direkt auf `dev`, ohne eigenen Branch.
+In the settings of the league the current table can be downloaded as CSV, to check it or pass it on in a spreadsheet. Built directly on `dev`, without a branch of its own.
 
-- **„Export Tabelle (.csv)“:** entspricht der Anzeige. Eine Zeile je Fahrer mit Klasse, Platz, Fahrer, Punkten und einer Spalte je Rennen (Kopf: Name, Datum und Uhrzeit, Faktor). Die Zellen sind Zahlen; ein Streichergebnis steht als `X`, eine Disqualifikation als `DSQ` (mit den Punkten, falls es welche gibt). Das Sternchen für „korrigiert“ entfällt, damit die Zahlen rechenbar bleiben; die Korrekturen stehen im Export der Punkte.
-- **„Export Punkte (.csv)“:** eine Zeile je Fahrer und Rennen mit allem, woraus die Punkte entstehen: Startplatz, Platz laut Spiel, gewerteter Platz, Starter, schnellste Runde, Pole, beendet, Runden (die Eingaben der Formel), Punkte der Formel, Punkte aus Korrekturen, Faktor, Streichergebnis, Disqualifiziert, Punkte, die Korrekturen im Klartext mit Begründung und die Formel. Es gilt: Punkte = (Formelpunkte + Korrekturpunkte) × Faktor, bei einem Streichergebnis 0.
-- Beide Exporte rechnen mit derselben Berechnung wie die Tabelle (die Berechnung liefert je Zelle ein Detail), können also nicht abweichen.
-- Format: Semikolon als Trenner, UTF-8 mit BOM für deutsche Tabellenkalkulationen, Datum als `JJJJ-MM-TT hh:mm`. Texte, die mit `=`, `+`, `-` oder `@` beginnen (Fahrernamen, Begründungen), bekommen ein Apostroph davor, damit die Tabellenkalkulation sie nicht als Formel ausführt.
-- Die Datei wird nur als Download angeboten, ist **nicht verschlüsselt** (auch bei einer passwortgeschützten Liga) und enthält die Namen der Fahrer; die Einstellungen weisen darauf hin. Auch Mitspieler mit einer nur lesbaren Liga können exportieren.
-- Ohne gültige Tabelle (Formelfehler, nur ein Fahrer in einer Klasse, keine Rennen) sind die Knöpfe gesperrt.
+- **"Export table (.csv)":** matches the display. One row per driver with class, rank, driver, points and one column per race (header: name, date and time, factor). The cells are numbers; a dropped result is written as `X`, a disqualification as `DSQ` (with the points, if there are any). The asterisk for "corrected" is omitted so that the numbers stay computable; the corrections are in the points export.
+- **"Export points (.csv)":** one row per driver and race with everything the points are made of: grid position, position according to the game, counted position, starters, fastest lap, pole, finished, laps (the inputs of the formula), points of the formula, points from corrections, factor, dropped result, disqualified, points, the corrections in plain text with reason, and the formula. The rule is: points = (formula points + correction points) × factor, 0 for a dropped result.
+- Both exports use the same calculation as the table (the calculation delivers a detail per cell), so they cannot deviate.
+- Format: semicolon as separator, UTF-8 with BOM for German spreadsheet programs, date as `YYYY-MM-DD hh:mm`. Texts that begin with `=`, `+`, `-` or `@` (driver names, reasons) get an apostrophe in front so that the spreadsheet does not run them as a formula.
+- The file is offered only as a download, is **not encrypted** (also for a password-protected league) and contains the names of the drivers; the settings point that out. Players with a read-only league can export as well.
+- Without a valid table (formula error, only one driver in a class, no races) the buttons are disabled.
