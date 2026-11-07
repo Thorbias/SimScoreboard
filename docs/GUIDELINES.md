@@ -1,197 +1,204 @@
 # Guidelines — SimScoreboard
 
-> Wie wir arbeiten. Die Konventionen folgen bewusst dem Schwesterprojekt
-> SimPosture, damit beide Projekte gleich bedient werden. Wächst mit dem Projekt.
+> How we work. The conventions deliberately follow the sister project
+> SimPosture so that both projects are handled the same way. Grows with the
+> project.
 
-## Sprache
+## Language
 
-- **Projektdokumentation** (`docs/`, `AGENTS.md`): Deutsch.
-- **README, UI-Texte, Code, Bezeichner, Commit-Messages:** Englisch.
-- UI-Texte kommen aus einer zentralen Übersetzungsschicht (i18n), nicht als
-  Literale in Komponenten.
-- **Begriffe:** Ein Wertungslauf einer Liga heißt auf Deutsch immer **Rennen** (nie
-  „Lauf“ oder „Läufe“), im Englischen „race“. Das gilt für Oberfläche, Doku und Code.
+- **Everything in the repository is English:** documentation (`docs/`, `README.md`,
+  `AGENTS.md`, `CLAUDE.md`), UI texts, code, identifiers, comments, commit
+  messages, issues and pull requests. The project is open source, so every
+  artifact must be readable for any contributor.
+- The only German text is the German translation of the UI in
+  `src/i18n/de.ts`. A maintainer may talk to a coding agent in any language; what
+  ends up in the repository is English.
+- UI texts come from a central translation layer (i18n), not as literals in
+  components.
+- **Terms:** A scoring round of a league is always called a **race** in English
+  and **Rennen** in German (never "Lauf" or "Läufe"). This applies to the UI,
+  the documentation and the code.
 
-## Datenschutz der Beispieldateien
+## Privacy of sample files
 
-Echte Result- und Telemetrie-Dateien enthalten Namen anderer Fahrer und dürfen nie
-committet werden. Sie liegen in `samples/` (ignoriert). Tests nutzen
-**anonymisierte Fixtures**. Beim Anonymisieren werden Fahrernamen, Teamnamen und
-alle IDs ersetzt, die auf eine Person zurückführen.
+Real result and telemetry files contain the names of other drivers and must never
+be committed. They live in `samples/` (ignored). Tests use **anonymized
+fixtures**. Anonymizing replaces driver names, team names and every ID that leads
+back to a person.
 
-**Einzige Ausnahme** sind die Demo-Sessions in `public/demo`: vollständige, aber
-anonymisierte Result-Dateien, die mit der App ausgeliefert werden. Sie entstehen
-nur mit `tools/anonymize-results.mjs --demo`, nie von Hand. Ein Test prüft sie auf
-Namensreste, auf lokale Pfade und auf Server- und Verbindungsangaben. Neue Demo-
-Dateien werden vor dem Commit mit `git diff` angesehen.
+**The only exception** are the demo sessions in `public/demo`: complete but
+anonymized result files that ship with the app. They are produced only with
+`tools/anonymize-results.mjs --demo`, never by hand. A test checks them for
+leftover names, local paths and server and connection data. New demo files are
+looked at with `git diff` before the commit.
 
-## Keine Fremdtool-Referenzen
+## No references to other tools
 
-Namen, Screenshots, Beschreibungstexte oder Links anderer Auswertungstools
-kommen **nirgends** ins Repository: nicht in Docs, Code, Kommentaren, Fixtures,
-Commit-Messages oder Branch-Namen. Funktionen werden eigenständig beschrieben,
-das Design ist eigenständig.
+Names, screenshots, descriptions or links of other analysis tools do **not**
+belong anywhere in the repository: not in docs, code, comments, fixtures, commit
+messages or branch names. Features are described on their own terms, and the
+design is our own.
 
-## Testen
+## Testing
 
-Befehle: `npm test` (Vitest), `npm run typecheck`, `npm run lint`,
-`npm run build`; `npm run check` führt alles zusammen aus. Regeln:
+Commands: `npm test` (Vitest), `npm run typecheck`, `npm run lint`,
+`npm run build`; `npm run check` runs everything together. Rules:
 
-- **Parser sind testpflichtig** und laufen gegen anonymisierte Fixtures.
-- **Neue Logik** (Auswertung, Aggregation, Berechnung) bekommt Unit-Tests;
-  UI-Komponenten zunächst ohne automatisierte Tests (manuelle Abnahme).
-- **Vor jedem Commit:** Tests, Typecheck und Build laufen grün. Ein Commit mit
-  roten Tests ist nicht erlaubt.
-- **CSS-Klassen sind global.** Vor einem neuen Klassennamen prüfen, ob er schon
-  vergeben ist (`grep -rn "\.name" src`), und beschreibende Namen wählen (`progress`
-  führte dazu, dass ein Diagramm endlos wuchs: eine fremde Regel machte seinen
-  Rahmen zur Box, die sich an den Inhalt anpasst). Diagramme messen ihre Breite an
-  einem Element ohne eigenes Padding und passen sich nur bei geänderter Breite an.
+- **Parsers must be tested** and run against anonymized fixtures.
+- **New logic** (evaluation, aggregation, calculation) gets unit tests; UI
+  components first without automated tests (manual acceptance).
+- **Before every commit:** tests, typecheck and build pass. A commit with
+  failing tests is not allowed.
+- **CSS classes are global.** Before a new class name, check whether it is
+  already taken (`grep -rn "\.name" src`) and choose descriptive names (`progress`
+  once made a chart grow endlessly: a foreign rule turned its frame into a box
+  that adapts to its content). Charts measure their width on an element without
+  padding of its own and only adapt when the width changes.
 
-## Oberfläche
+## User interface
 
-- **Ladeanzeigen:** Wo eine Ladeanzeige sinnvoll ist, nehmen wir `SectorProgress`
-  (`src/ui/SectorBar.tsx`): das Markenlogo, dessen drei Balken sich von unten nach
-  oben füllen (Orange, Grün, Lila), im Schritt des Fortschritts und ohne
-  Übergangsanimation. Keine anderen Spinner oder Balken.
+- **Loading indicators:** Wherever a loading indicator makes sense we use
+  `SectorProgress` (`src/ui/SectorBar.tsx`): the brand logo whose three bars fill
+  from bottom to top (orange, green, purple), in steps of the progress and
+  without a transition animation. No other spinners or bars.
 
-## Projektorganisation
+## Project organization
 
-### Dokumentenlandschaft
+### Document landscape
 
-Die Trennachse ist **Arbeit vs. Zustand**: Arbeit wird erledigt und verschwindet;
-Zustand beschreibt, was das Projekt *ist*, und bleibt.
+The dividing line is **work vs. state**: work gets done and disappears; state
+describes what the project *is* and stays.
 
-| Dokument | Art | Regel |
+| Document | Kind | Rule |
 |---|---|---|
-| `PRODUCT.md` | Zustand | Vision, Zielgruppe, Plattform, Abgrenzung, NF-Anforderungen |
-| `FEATURES.md` | Zustand | F-IDs — bleibt, aber **kondensiert beim Abschluss** (s. u.) |
-| `ARCHITECTURE.md` | Zustand | technische Ausrichtung |
-| `decisions/` (ADR) | Zustand | langfristige Entscheidungen |
-| `quellen/` | Zustand | Belegmaterial und Recherche, wird nur ergänzt |
-| `GUIDELINES.md` | Zustand | diese Datei: Regeln, **nie im Backlog** |
-| `BACKLOG.md` | Arbeit | nur offene Punkte; erledigt = entfernt; Übergabe zwischen Rechnern |
-| `BUGS.md` | Arbeit | nur offene Bugs; behoben = entfernt |
-| `ideations/` | Arbeit | nur offene Ideations; überführt/verworfen = gelöscht |
+| `PRODUCT.md` | State | Vision, audience, platform, scope, non-functional requirements |
+| `FEATURES.md` | State | F-IDs — stays, but **condenses on completion** (see below) |
+| `ARCHITECTURE.md` | State | technical direction |
+| `decisions/` (ADR) | State | long-term decisions |
+| `sources/` | State | evidence and research, only added to |
+| `GUIDELINES.md` | State | this file: rules, **never in the backlog** |
+| `BACKLOG.md` | Work | open items only; done = removed; handover between machines |
+| `BUGS.md` | Work | open bugs only; fixed = removed |
+| `ideations/` | Work | open ideations only; turned into something or dropped = deleted |
 
-### Der Weg einer Idee
+### The path of an idea
 
-Neue Idee → Dokument in `docs/ideations/` (grob genügt, nummeriert
-`IDEA-0001-kurz-slug.md`). Ideations haben **keine Prio** und stehen nicht im
-Backlog. Beim Bearbeiten entscheidet sich, was es ist:
+New idea → document in `docs/ideations/` (rough is enough, numbered
+`IDEA-0001-short-slug.md`). Ideations have **no priority** and are not in the
+backlog. Working on one decides what it is:
 
-- **Feature** (neue Anwenderfähigkeit) → Eintrag in `FEATURES.md`. UI/UX-Gestaltung
-  ist immer ein Feature.
+- **Feature** (new user capability) → entry in `FEATURES.md`. UI/UX design is
+  always a feature.
 - **Bug** → `BUGS.md`.
-- **ARC** (Architektur-Enabler) → ADR und/oder Erweiterung von `ARCHITECTURE.md`.
-- **Guideline** → diese Datei.
+- **ARC** (architecture enabler) → ADR and/or extension of `ARCHITECTURE.md`.
+- **Guideline** → this file.
 
-Ist die Ideation überführt, wird sie **gelöscht** — keine Historie, die steht in
-Git. Eine Ideation darf auch verworfen werden.
+Once the ideation has been turned into something, it is **deleted** — no history,
+that is what Git is for. An ideation may also be dropped.
 
-### FEATURES.md: kondensieren statt löschen
+### FEATURES.md: condense instead of delete
 
-Eine ausgelieferte Funktion ist eine dauerhafte Eigenschaft des Produkts, keine
-erledigte Arbeit. Solange ein Eintrag offen ist, trägt er (nach der Formatprüfung)
-den ausführlichen Umsetzungsauftrag; beim Abschluss schrumpft er auf die normative
-Beschreibung im Präsens, wenige Zeilen.
+A shipped capability is a lasting property of the product, not finished work.
+While an entry is open it carries (after the format check) the detailed
+implementation brief; on completion it shrinks to the normative description in
+the present tense, a few lines.
 
-Eintrags-Muster, ein Abschnitt je Eintrag, keine Tabelle:
+Entry pattern, one section per entry, no table:
 
 ```markdown
-## F-XXX — Titel
+## F-XXX — Title
 
-Prio M · Status offen
+Prio M · Status open
 
-<Beschreibung im Präsens: was die App tut.>
+<Description in the present tense: what the app does.>
 ```
 
-- **Erster Satz = eigenständige Zusammenfassung**, damit der Überflug
-  „Überschrift + erster Satz" genügt (`grep '^## F-' docs/FEATURES.md`).
-- **Aufzählung statt Bandwurmsatz**, sobald es mehrere Eigenschaften sind.
-- **Keine Dateipfade und Klassennamen** in der Beschreibung (→ ARCHITECTURE/Code).
-- **Nicht hinein** gehören Implementierungserzählungen und Post-Mortems.
-- **Querverweise:** ADRs als Link, andere Features als blanke ID (F-004).
-- **Verworfene Anforderungen werden gelöscht**; Ausnahme: gebaut und wieder
-  verworfen, dann bleibt die Überschrift mit einem kurzen Vermerk.
+- **First sentence = self-contained summary**, so that skimming "heading + first
+  sentence" is enough (`grep '^## F-' docs/FEATURES.md`).
+- **A list instead of a run-on sentence** as soon as there are several properties.
+- **No file paths and class names** in the description (→ ARCHITECTURE/code).
+- **Not in it:** implementation stories and post-mortems.
+- **Cross-references:** ADRs as a link, other features as a bare ID (F-004).
+- **Rejected requirements are deleted**; exception: built and rejected again, then
+  the heading stays with a short note.
 
 ### Backlog
 
-`BACKLOG.md` ist der einheitliche, priorisierte Backlog: alle Arbeitspunkte an
-einer Stelle. Die Tabelle enthält nur Ranking und Verweis, keine Prosa. Nur offene
-Punkte (`TODO`, `IN PROGRESS`), kein `DONE`. `IN PROGRESS` nur, wenn wirklich
-angefangen. Der Backlog sagt, ob jemand *arbeitet*; `FEATURES.md` sagt, ob die
-*Fähigkeit im Produkt* ist. „Was wurde fertig?" beantwortet Git:
+`BACKLOG.md` is the single, prioritized backlog: all work items in one place. The
+table contains only ranking and reference, no prose. Only open items (`TODO`,
+`IN PROGRESS`), no `DONE`. `IN PROGRESS` only when really started. The backlog
+says whether someone is *working*; `FEATURES.md` says whether the *capability is
+in the product*. "What got done?" is answered by Git:
 `git log -- docs/FEATURES.md`.
 
 ### IDs
 
-- **F- und B-IDs werden fortlaufend vergeben und nie wiederverwendet**, auch nicht
-  nach dem Entfernen eines Eintrags. Die nächste freie ID steht als Kommentar im
-  Kopf von `FEATURES.md` bzw. `BUGS.md`; der Zähler geht nur aufwärts.
-- **ADRs sind Momentaufnahmen** und referenzieren keine F-IDs (Sachverhalt in
-  Prosa). `ARCHITECTURE.md` und Code dürfen F-IDs nennen.
-- **Wiederkehrende Fallstricke** gehören als kurze Regel in diese Datei, nicht nur
-  in einen Commit-Text.
+- **F- and B-IDs are assigned consecutively and never reused**, not even after
+  an entry is removed. The next free ID is a comment at the top of `FEATURES.md`
+  or `BUGS.md`; the counter only goes up.
+- **ADRs are snapshots** and do not reference F-IDs (describe the matter in
+  prose). `ARCHITECTURE.md` and code may name F-IDs.
+- **Recurring pitfalls** belong in this file as a short rule, not only in a
+  commit message.
 
-### Architekturentscheidungen
+### Architecture decisions
 
-Jede grundlegende Entscheidung wird als ADR unter `docs/decisions/` festgehalten
-(`ADR-NNNN-kurzer-titel.md`: Kontext, Entscheidung, Alternativen, Konsequenzen).
-Status: `Vorgeschlagen` bis zur Freigabe des Entwicklers, dann `Angenommen`.
+Every fundamental decision is recorded as an ADR under `docs/decisions/`
+(`ADR-NNNN-short-title.md`: context, decision, alternatives, consequences).
+Status: `Proposed` until the developer approves, then `Accepted`.
 
-### Namenskonvention
+### Naming convention
 
-- **Wurzel-Dokumente:** `SCREAMING.md` (`PRODUCT.md`, `FEATURES.md`, …).
-- **Dateien in Unterordnern:** `kebab-case.md`, bei nummerierten Reihen mit Präfix
-  (`ADR-0002-persistenz.md`, `IDEA-0002-kurz-slug.md`).
+- **Root documents:** `SCREAMING.md` (`PRODUCT.md`, `FEATURES.md`, …).
+- **Files in subfolders:** `kebab-case.md`, with a prefix for numbered series
+  (`ADR-0002-persistence.md`, `IDEA-0002-short-slug.md`). File names are English.
 
-## Umsetzungsauftrag-Vorlage
+## Implementation brief template
 
-Zu jedem **offenen** Feature in `FEATURES.md` gehört nach der Formatprüfung ein
-ausführungsreifer Auftrag, damit eine Sitzung ohne Kontext-Neuaufbau starten kann.
-Er steht beim Eintrag und wird beim Abschluss entfernt. Aufbau:
+Every **open** feature in `FEATURES.md` gets, after the format check, a brief that
+is ready to execute, so that a session can start without rebuilding context. It
+stands with the entry and is removed on completion. Structure:
 
-1. **Ziel** in ein bis zwei Sätzen.
-2. **Arbeitsregeln-Verweis:** Sitzungsziel bestätigen, Review als Dialog, Tests vor
-   dem Commit, GUIDELINES beachten.
-3. **Nummerierte Schritte** mit konkreten Dateipfaden und, wo nötig, einer kurzen
-   Signatur-Skizze.
-4. **Verifikation und Abschluss:** exakte Test- und Build-Befehle, welche
-   Sichtprüfung der Entwickler macht, wann `FEATURES.md` kondensiert und der
-   Backlog-Punkt entfernt wird.
-5. **Stolpersteine** dieses Rechners oder dieser Plattform.
+1. **Goal** in one or two sentences.
+2. **Pointer to the working rules:** confirm the session goal, review as a
+   dialogue, tests before the commit, follow the GUIDELINES.
+3. **Numbered steps** with concrete file paths and, where needed, a short
+   signature sketch.
+4. **Verification and completion:** exact test and build commands, which visual
+   check the developer does, when `FEATURES.md` condenses and the backlog item is
+   removed.
+5. **Pitfalls** of this machine or platform.
 
 ## Git
 
 ### Branches
 
-- **`main` ist der Release-Stand.** Aus `main` baut der Workflow
-  [pages.yml](../.github/workflows/pages.yml) die Seite auf GitHub Pages: Ein Push
-  auf `main` veröffentlicht. Hier landen nur Releases, immer lauffähig, `npm run
-  check` grün, vom Entwickler abgenommen.
-- **`dev` ist der Entwicklungsstand.** Von `dev` zweigen die Feature-Branches ab
-  und kehren dorthin zurück. `dev` wird in der Regel auf den Entwicklungsrechnern
-  gepusht. Ein Release ist der Merge von `dev` nach `main` (ohne Fast-Forward,
-  `git merge --no-ff`, damit das Release in der Historie sichtbar bleibt).
-- **Auf `dev` direkt** werden gepflegt und gemacht: `BACKLOG.md`, `FEATURES.md`,
-  `BUGS.md`, ADRs, Ideations und sonstige Dokumentation sowie kleine Features und
-  Korrekturen, die kaum Code berühren.
-- **Feature-Branches** (`feature/<thema>`, für Fehler `fix/<thema>`) tragen den
-  Code größerer Vorhaben. Ob ein Vorhaben einen eigenen Branch bekommt, wird beim
-  Anlegen des Features entschieden — nicht jedes Feature braucht einen. Ein
-  Feature-Branch wird gepusht und nach der Abnahme mit `--no-ff` nach `dev`
-  gemerged. Dokumentation, die er braucht (ADR, Backlog), kommt zuerst auf `dev`
-  und wird in den Branch hineingeholt, nicht umgekehrt.
-- **Abhängigkeiten:** Ein Feature, das auf ein anderes wartet, bekommt seinen Branch
-  erst, wenn die Voraussetzung auf `dev` steht. Bis dahin steht es im Backlog mit
-  „Abhängig von“.
+- **`main` is the release state.** The workflow
+  [pages.yml](../.github/workflows/pages.yml) builds the site on GitHub Pages from
+  `main`: a push to `main` publishes. Only releases land here, always runnable,
+  `npm run check` green, accepted by the developer.
+- **`dev` is the development state.** Feature branches branch off `dev` and return
+  to it. `dev` is usually pushed from the development machines. A release is the
+  merge of `dev` into `main` (without fast-forward, `git merge --no-ff`, so that
+  the release stays visible in the history).
+- **Directly on `dev`** go: `BACKLOG.md`, `FEATURES.md`, `BUGS.md`, ADRs,
+  ideations and other documentation, as well as small features and fixes that
+  hardly touch code.
+- **Feature branches** (`feature/<topic>`, for bugs `fix/<topic>`) carry the code
+  of larger undertakings. Whether an undertaking gets a branch of its own is
+  decided when the feature is created — not every feature needs one. A feature
+  branch is pushed and, after acceptance, merged into `dev` with `--no-ff`.
+  Documentation it needs (ADR, backlog) goes to `dev` first and is pulled into the
+  branch, not the other way round.
+- **Dependencies:** A feature that waits for another gets its branch only when the
+  prerequisite is on `dev`. Until then it stays in the backlog with "Depends on".
+- **Contributors** work in their own fork and open pull requests against `dev`.
 
-### Regeln
+### Rules
 
-- Branch `main` ist immer lauffähig; `dev` soll es auch sein.
-- Kleine, thematisch fokussierte Commits; Commit-Format: kurze imperative
-  Zusammenfassung auf Englisch, bei Bedarf Details im Body.
-- Keine Commits und keine Pushes ohne ausdrückliche Freigabe.
-- **Vor dem Rechnerwechsel:** committen und pushen — `BACKLOG.md` (Übergabe) nicht
-  vergessen.
+- Branch `main` is always runnable; `dev` should be as well.
+- Small, thematically focused commits; commit format: short imperative summary in
+  English, details in the body when needed.
+- No commits and no pushes without explicit approval.
+- **Before switching machines:** commit and push — do not forget `BACKLOG.md`
+  (handover).

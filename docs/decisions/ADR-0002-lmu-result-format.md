@@ -1,165 +1,162 @@
-# ADR-0002: Result-Dateien des Spiels (XML) als Datenquelle
+# ADR-0002: The game's result files (XML) as the data source
 
-- **Status:** Angenommen (für die Result-XML; die Telemetrie bekommt ein eigenes ADR)
-- **Datum:** 2026-11-01
+- **Status:** Accepted (for the result XML; telemetry gets an ADR of its own)
+- **Date:** 2026-11-01
 
-## Kontext
+## Context
 
-Die erste Ausbaustufe von SimScoreboard liest die Session-Ergebnisse, die Le Mans
-Ultimate selbst schreibt. Bisher beruhte das Bild der Dateiformate auf Recherche
-([quellen/](../quellen/README.md)). Dieses ADR hält fest, was an **echten Dateien
-verifiziert** wurde.
+The first stage of SimScoreboard reads the session results that Le Mans Ultimate
+writes itself. So far the picture of the file formats rested on research
+([sources/](../sources/README.md)). This ADR records what was **verified against
+real files**.
 
-**Untersuchte Dateien (nur gelesen, nicht im Repository):**
+**Files examined (only read, not in the repository):**
 
-- Ein Training aus Spielversion 0.5000 (Juni 2025, Einzelspieler, drei Klassen).
-- Ein Training, ein Qualifying und ein Rennen aus Spielversion 1.4200
-  (Oktober/November 2026, Mehrspieler, 20 Fahrer einer Klasse).
-- Die Kanal-Konfiguration der Telemetrie.
-- Verzeichnislisten des Spielordners (rund 400 Result-Dateien, 3 KB bis 540 KB).
+- One practice from game version 0.5000 (June 2025, single player, three classes).
+- One practice, one qualifying and one race from game version 1.4200
+  (October/November 2026, multiplayer, 20 drivers of one class).
+- The channel configuration of the telemetry.
+- Directory listings of the game folder (around 400 result files, 3 KB to 540 KB).
 
-Nicht untersucht ist ein Mehrklassen-Rennen der aktuellen Version, ein Rennen
-mit Fahrerwechsel und eine echte Telemetrie-Aufzeichnung (siehe „Offen“).
+Not examined are a multi-class race of the current version, a race with a driver
+swap and a real telemetry recording (see "Open").
 
-## Entscheidung
+## Decision
 
-SimScoreboard liest die **Result-XML-Dateien** des Spiels als Quelle für
-Session-Kopf, Ergebnisse, Runden, Incidents, Strafen und Chat. Ein Parser
-übersetzt sie in das normalisierte Domänenmodell
-([ARCHITECTURE.md](../ARCHITECTURE.md)); die Oberfläche kennt das Dateiformat
-nicht.
+SimScoreboard reads the game's **result XML files** as the source for session
+header, results, laps, incidents, penalties and chat. A parser translates them into
+the normalized domain model ([ARCHITECTURE.md](../ARCHITECTURE.md)); the interface
+does not know the file format.
 
-### Fundort und Dateiname
+### Location and file name
 
-- Ordner `UserData/Log/Results` im Spielverzeichnis, eine Datei je Session.
-- Name: `JJJJ_MM_TT_hh_mm_ss-NNxN.xml`. Der Zeitstempel ist der Zeitpunkt des
-  Schreibens, also das **Ende** der Session. `x` ist `P` (Training), `Q`
-  (Qualifying) oder `R` (Rennen), danach eine Ziffer (bisher immer `1`). Die
-  zwei Ziffern vor dem Buchstaben wirken zufällig und tragen keine erkennbare
-  Bedeutung.
-- Im selben Ordner liegen `BatchTemplate*.ini` mit Klarnamen. Sie sind keine
-  Result-Dateien und werden ignoriert.
+- Folder `UserData/Log/Results` in the game directory, one file per session.
+- Name: `YYYY_MM_DD_hh_mm_ss-NNxN.xml`. The timestamp is the time of writing, that
+  is the **end** of the session. `x` is `P` (practice), `Q` (qualifying) or `R`
+  (race), followed by a digit (always `1` so far). The two digits before the letter
+  look random and carry no recognizable meaning.
+- The same folder holds `BatchTemplate*.ini` with real names. They are not result
+  files and are ignored.
 
-### Aufbau
+### Structure
 
-- Kodierung UTF-8, Zeilenende CRLF, Wurzel `rFactorXML > RaceResults`. Die Datei
-  beginnt mit einem internen DOCTYPE (`<!ENTITY rFEnt …>`). Ob der Parser des
-  Browsers diesen verträgt, ist beim Gerüst zu prüfen; Fallback ist das Entfernen
-  der DOCTYPE-Zeile vor dem Parsen.
-- **Kopf** (Kindelemente von `RaceResults`): Modus (`Setting`: `Multiplayer` oder
-  `Race Weekend`), Strecke (`TrackVenue`, `TrackCourse`, `TrackEvent`),
-  Streckenlänge in Metern, Spielversion, Startzeit des Events (`DateTime`, Unix),
-  `TimeString`, Renndauer, Regeln. `TrackData` enthält einen lokalen
-  Dateipfad und wird nicht verwendet. `VehiclesAllowed` ist unzuverlässig
-  (in einem Mehrklassen-Training nannte es nur ein Auto).
-- **Session-Abschnitt** als weiteres Kindelement mit dem Namen der Session
-  (`Practice1`, `Qualify`, `Race`). Bisher enthielt jede Datei genau einen
-  Abschnitt. Darin: Start (`DateTime`, `TimeString`), `Minutes`, `Laps`,
-  `MostLapsCompleted`, `Stream` und je Fahrzeug ein `Driver`. Das Rennen hat
-  zusätzlich `FormationAndStart`.
-- **Event-Gruppierung:** Qualifying und Rennen desselben Wochenendes trugen im
-  Kopf denselben `DateTime`. Das ist ein brauchbarer Gruppierungsschlüssel
-  (mit der Strecke); bestätigt an einem Paar.
+- Encoding UTF-8, line ending CRLF, root `rFactorXML > RaceResults`. The file
+  begins with an internal DOCTYPE (`<!ENTITY rFEnt …>`). Whether the browser's
+  parser tolerates it is to be checked at the scaffold; the fallback is removing
+  the DOCTYPE line before parsing.
+- **Header** (child elements of `RaceResults`): mode (`Setting`: `Multiplayer` or
+  `Race Weekend`), track (`TrackVenue`, `TrackCourse`, `TrackEvent`), track length
+  in meters, game version, start time of the event (`DateTime`, Unix),
+  `TimeString`, race duration, rules. `TrackData` contains a local file path and is
+  not used. `VehiclesAllowed` is unreliable (in a multi-class practice it named
+  only one car).
+- **Session section** as a further child element named after the session
+  (`Practice1`, `Qualify`, `Race`). So far every file contained exactly one
+  section. In it: start (`DateTime`, `TimeString`), `Minutes`, `Laps`,
+  `MostLapsCompleted`, `Stream` and one `Driver` per car. The race additionally has
+  `FormationAndStart`.
+- **Event grouping:** Qualifying and race of the same weekend carried the same
+  `DateTime` in the header. That is a usable grouping key (together with the
+  track); confirmed on one pair.
 
-### Fahrzeug-Eintrag (`Driver`)
+### Car entry (`Driver`)
 
-- Fahrer: `Name`, `isPlayer`, `Connected`, `ServerScored`.
-- Auto: `VehName`, `Category`, `CarType`, `CarClass`, `CarNumber`, `TeamName`.
-- Ergebnis: `Position`, `ClassPosition`, `BestLapTime`, `Laps`, `Pitstops`,
-  `FinishStatus`. Im Rennen zusätzlich `GridPos`, `ClassGridPos`, `FinishTime`.
-  Beobachtete `FinishStatus`-Werte: `None`, `Finished Normally`, `DNF`, `DQ`.
-- `ControlAndAids` kann **mehrfach** vorkommen (mit `startLap`/`endLap`), wenn
-  sich Fahrhilfen während der Session ändern.
-- Eine Runde ohne Zeit steht als `--.----` im Text. Eine Zeit ist eine
-  Dezimalzahl in Sekunden.
+- Driver: `Name`, `isPlayer`, `Connected`, `ServerScored`.
+- Car: `VehName`, `Category`, `CarType`, `CarClass`, `CarNumber`, `TeamName`.
+- Result: `Position`, `ClassPosition`, `BestLapTime`, `Laps`, `Pitstops`,
+  `FinishStatus`. In the race additionally `GridPos`, `ClassGridPos`,
+  `FinishTime`. Observed `FinishStatus` values: `None`, `Finished Normally`, `DNF`,
+  `DQ`.
+- `ControlAndAids` can occur **several times** (with `startLap`/`endLap`) when
+  driving aids change during the session.
+- A lap without a time appears as `--.----` in the text. A time is a decimal number
+  in seconds.
 
-### Runden (`Lap` unter `Driver`)
+### Laps (`Lap` below `Driver`)
 
-- Text: Rundenzeit in Sekunden. Attribute: `num`, `p` (Position), `et`
-  (Session-Zeit am Ende der Runde), `topspeed`, `fcompound`, `rcompound`, `pit`.
-- Sektoren `s1`, `s2`, `s3` sind **Einzelzeiten**, nicht kumuliert (geprüft: die
-  Summe ergibt die Rundenzeit bis auf eine Rundungsstelle). Sie fehlen bei
-  Runden, die nicht gewertet oder in der Box beendet wurden.
-- Reifenangaben: in der Datei der Version 0.5000 `twfl`, `twfr`, `twrl`, `twrr` (Verschleiß)
-  und `fuel`, `fuelUsed`, `ve`, `veUsed`; in den Dateien der Version 1.4200 im
-  Mehrspieler stattdessen `FL`, `FR`, `RL`, `RR` (Mischung je Rad), ohne Sprit
-  und Virtual Energy. Ob der Unterschied an Version oder Modus liegt, ist **nicht
-  geklärt**.
+- Text: lap time in seconds. Attributes: `num`, `p` (position), `et` (session time
+  at the end of the lap), `topspeed`, `fcompound`, `rcompound`, `pit`.
+- Sectors `s1`, `s2`, `s3` are **individual times**, not cumulative (checked: the
+  sum gives the lap time up to one rounding digit). They are missing for laps that
+  were not scored or ended in the pit.
+- Tire data: in the file of version 0.5000 `twfl`, `twfr`, `twrl`, `twrr` (wear) and
+  `fuel`, `fuelUsed`, `ve`, `veUsed`; in the files of version 1.4200 in
+  multiplayer instead `FL`, `FR`, `RL`, `RR` (compound per wheel), without fuel and
+  virtual energy. Whether the difference is due to version or mode is **not
+  clarified**.
 
-### Stream (`Stream` im Session-Abschnitt)
+### Stream (`Stream` in the session section)
 
-Zeitlich geordnete Ereignisse, jeweils mit `et` (Sekunden seit Sessionstart):
+Chronologically ordered events, each with `et` (seconds since session start):
 
-| Element | Inhalt |
+| Element | Content |
 |---|---|
-| `Score` | Durchgang eines Fahrzeugs durch eine Messlinie: Text `Name(ID) lap=N point=P t=… et=…`. `point` 0 scheint die Ziellinie, 1 und 2 die Sektorgrenzen zu sein (Beobachtung, nicht bestätigt) |
-| `Sector` | neue Sektor-Bestzeit; ab Version 1.4200 auch Schadensmeldungen („new suspension damage“), dann mit Attributen `Driver`, `ID`, `Class` |
-| `Incident` | Kontakt mit Objekt (`Immovable`, `Post`, `Sign`, `Wheel`) oder anderem Fahrzeug, mit Stärke und Gegner (Name und ID im Text) |
-| `TrackLimits` | Verwarnpunkte: Attribute `Driver`, `ID`, `Lap`, `WarningPoints`, `CurrentPoints`, `Resolution`; Text `No Further Action`, `Warning` oder eine Strafe |
-| `Penalty` | Strafe mit Attributen `Driver`, `ID`, `Penalty`, `Time`, `Laps`, `Reason` |
-| `ChatMessage` | Chat-Nachricht, Text `Absender: Nachricht` |
+| `Score` | A car passing a timing line: text `Name(ID) lap=N point=P t=… et=…`. `point` 0 seems to be the finish line, 1 and 2 the sector boundaries (observation, not confirmed) |
+| `Sector` | new sector best time; from version 1.4200 also damage reports ("new suspension damage"), then with attributes `Driver`, `ID`, `Class` |
+| `Incident` | contact with an object (`Immovable`, `Post`, `Sign`, `Wheel`) or another car, with severity and opponent (name and ID in the text) |
+| `TrackLimits` | warning points: attributes `Driver`, `ID`, `Lap`, `WarningPoints`, `CurrentPoints`, `Resolution`; text `No Further Action`, `Warning` or a penalty |
+| `Penalty` | penalty with attributes `Driver`, `ID`, `Penalty`, `Time`, `Laps`, `Reason` |
+| `ChatMessage` | chat message, text `Sender: message` |
 
-In der Datei der Version 0.5000 kamen nur `Score`, `Sector` und `Incident` vor.
+In the file of version 0.5000 only `Score`, `Sector` and `Incident` occurred.
 
-### Fahrer-Identität
+### Driver identity
 
-- Es gibt **keine stabile Fahrer-ID**. Innerhalb einer Datei waren die Namen
-  eindeutig; die Zuordnung im Stream läuft über `Name(ID)` mit einer
-  sessionlokalen Nummer.
-- Derselbe Fahrer erschien in verschiedenen Dateien unter **verschiedenen
-  Namen** (ältere Datei mit angehängter Kennung, neuere ohne). Einzelne Namen
-  tragen eine oder zwei `#`-Kennungen.
-- `isPlayer` ist im Mehrspieler bei **allen menschlichen Fahrern** gesetzt und
-  kennzeichnet damit nicht den Nutzer. Der eigene Fahrer muss eingestellt
-  werden, mit Alias-Liste oder Abgleich ohne die `#`-Kennung.
+- There is **no stable driver ID**. Within a file the names were unique; the
+  assignment in the stream runs through `Name(ID)` with a session-local number.
+- The same driver appeared in different files under **different names** (older file
+  with an appended suffix, newer without). Some names carry one or two `#`
+  suffixes.
+- `isPlayer` is set in multiplayer for **all human drivers** and thus does not
+  identify the user. The own driver has to be configured, with an alias list or a
+  comparison without the `#` suffix.
 
-### Datenschutz
+### Privacy
 
-Die Dateien enthalten Namen anderer Fahrer, Online-Kennungen und
-Dateipfade. Sie bleiben im Spielordner bzw. in `samples/` und gelangen nie
-ins Repository (siehe [GUIDELINES.md](../GUIDELINES.md)). Fixtures werden
-anonymisiert: Namen, Teams, Kennungen, IDs im Stream und Pfade ersetzen.
+The files contain names of other drivers, online identifiers and file paths. They
+stay in the game folder or in `samples/` and never reach the repository (see
+[GUIDELINES.md](../GUIDELINES.md)). Fixtures are anonymized: names, teams,
+identifiers, IDs in the stream and paths are replaced.
 
-## Alternativen
+## Alternatives
 
-- **Replay-Dateien (`.Vcr`):** Ordner `UserData/Replays`, 5 bis 500 MB je
-  Session, proprietäres Format. Nicht untersucht und nicht dokumentiert; würde
-  ein Reverse Engineering ohne Spezifikation bedeuten.
-- **Real-Time-Logging (CSV):** Die vorhandene Datei enthält nur Frame-Zeiten des
-  Spiels, keine Fahrdaten. Ungeeignet.
-- **Nur Telemetrie als Quelle:** Telemetrie liefert keine Ergebnisse, Strafen
-  oder Gegner. Die Result-Dateien bleiben die Grundlage.
+- **Replay files (`.Vcr`):** folder `UserData/Replays`, 5 to 500 MB per session,
+  proprietary format. Not examined and not documented; would mean reverse
+  engineering without a specification.
+- **Real-time logging (CSV):** The existing file contains only frame times of the
+  game, no driving data. Unsuitable.
+- **Telemetry only as a source:** Telemetry provides no results, penalties or
+  opponents. The result files remain the basis.
 
-## Konsequenzen
+## Consequences
 
-- Ergebnisse, Qualifying, Lap Chart, Position Chart, Statistiken, Incidents,
-  Strafen und Chat lassen sich aus den Result-Dateien aufbauen. Chat, Strafen und
-  Kontakte zwischen Fahrern gibt es nur in neueren Mehrspieler-Dateien; der Parser
-  behandelt jedes Ereignis als optional.
-- Der Parser ist **versionstolerant** zu bauen: unbekannte Elemente und Attribute
-  ignorieren, fehlende Felder als „nicht vorhanden“ modellieren, nie raten.
-  Zusätzlich müssen abgebrochene oder fast leere Sessions (wenige KB) ohne Fehler
-  laden.
-- Die Eigenschaften, die an `fuel`, `ve` und Reifenverschleiß hängen, sind nicht
-  für alle Dateien verfügbar und dürfen nicht vorausgesetzt werden.
-- Die Custom League (IDEA-0001) kann sich nicht auf Namen verlassen; eine
-  Zuordnung von Namen zu Personen muss manuell oder per Regel erfolgen.
-- Für den Index genügen Kopf und Fahrer-Eckdaten; die Details stehen im Stream und
-  in den Runden und werden bei Bedarf gelesen. Bei rund 400 Dateien und bis zu
-  540 KB je Datei ist das Parsen im Worker unkritisch.
+- Results, qualifying, lap chart, position chart, statistics, incidents, penalties
+  and chat can be built from the result files. Chat, penalties and contacts between
+  drivers exist only in newer multiplayer files; the parser treats every event as
+  optional.
+- The parser is to be built **version tolerant**: ignore unknown elements and
+  attributes, model missing fields as "not present", never guess. In addition,
+  aborted or almost empty sessions (a few KB) must load without error.
+- The properties that depend on `fuel`, `ve` and tire wear are not available for all
+  files and must not be assumed.
+- The custom league (IDEA-0001) cannot rely on names; assigning names to persons
+  has to happen manually or by rule.
+- For the index, header and basic driver data are enough; the details are in the
+  stream and in the laps and are read on demand. With around 400 files and up to
+  540 KB per file, parsing in a worker is uncritical.
 
-## Offen
+## Open
 
-- **Telemetrie:** Auf dem Entwicklungsrechner ist die automatische Aufzeichnung
-  ausgeschaltet, im Ordner liegt nur die Kanal-Konfiguration (rund 55 Kanäle mit
-  Abtastraten von 1 bis 100 Hz, darunter Geschwindigkeit, Gas, Bremse, Lenkung,
-  Motordrehzahl, GPS-Position, Streckenposition und Virtual Energy; der Gang
-  ist ein Ereignis, kein Kanal). Format der Datendatei, Schema und Zuordnung zu
-  den Result-Dateien sind **unverifiziert**. Ein eigenes ADR folgt nach einer
-  echten Aufzeichnung.
-- Mehrklassen-Rennen der aktuellen Version, Rennen mit Fahrerwechsel,
-  Sessions ohne Kopf-Felder und Dateien anderer Spielversionen.
-- Ob `fuel`/`ve` im Einzelspieler der aktuellen Version vorhanden sind.
-- Bedeutung der Zeichenfolge `NN` im Dateinamen, Zuordnung der Mess-Punkte im
-  `Score` und Bedeutung der Felder `Resolution` und `LapRankIncludingDiscos`.
-- Verhalten des Browser-Parsers mit dem internen DOCTYPE.
+- **Telemetry:** On the development machine the automatic recording is switched
+  off, the folder holds only the channel configuration (around 55 channels with
+  sample rates of 1 to 100 Hz, among them speed, throttle, brake, steering, engine
+  RPM, GPS position, track position and virtual energy; the gear is an event, not a
+  channel). Format of the data file, schema and assignment to the result files are
+  **unverified**. An ADR of its own follows after a real recording.
+- Multi-class race of the current version, race with a driver swap, sessions
+  without header fields and files of other game versions.
+- Whether `fuel`/`ve` exist in single player of the current version.
+- Meaning of the character string `NN` in the file name, assignment of the
+  measuring points in `Score` and meaning of the fields `Resolution` and
+  `LapRankIncludingDiscos`.
+- Behavior of the browser's parser with the internal DOCTYPE.
